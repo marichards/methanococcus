@@ -1,0 +1,4 @@
+rxn00321_c0	L-Lysine_c0 <=>	L-beta-Lysine_c0
+rxn00313_c0	H_c0 + meso-2_6-Diaminopimelate_c0 -> CO2_c0 + L-Lysine_c0
+rxn01974_c0	LL-2_6-Diaminopimelate_c0 	<=>	meso-2_6-Diaminopimelate_c0
+rxn02011_c0	ATP_c0 + meso-2_6-Diaminopimelate_c0 + UDP-N-acetylmuramoyl-L-alanyl-D-glutamate_c0 -> H_c0 + Phosphate_c0 + ADP_c0 + UDP-N-acetylmuramoyl-L-alanyl-D-gamma-glutamyl-meso-2-6-diaminopimelate_c0
