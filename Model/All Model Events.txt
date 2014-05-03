@@ -1,6 +1,10 @@
-Created using:
--
+Creating:
+-Kbase(?) with ProbAnno(?)
+-->What settings?
 
+-Matt B changed metabolite ids, now they're the same as metabolite names
+
+Original model file name: M_maripaludis_methanogen_model
 Added:
 
 Removed:
