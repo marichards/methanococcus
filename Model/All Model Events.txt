@@ -6,8 +6,10 @@ Creating:
 
 Original model file name: M_maripaludis_methanogen_model
 
+******************
+(2014/05/02)
+******************
 Added:
-(2014/5/2)
 Nitrogen_fixation
 ADP_glucokinase
 PFK
@@ -35,13 +37,11 @@ Acetohydroxybutanoate_synthase
 Acetohydroxy_acid_isomeroreductase
 
 Removed:
-(2014/5/2)
 rxn00216_c0
 rxn03079_c0
 rxn06874_c0
 
 Changed Gene Association:
-(2014/5/2)
 Asparagine_biosynthesis_II: mmp0918
 Diaminopimelate_aminotransferase: mmp1527
 Glutamate_biosynthesis_III: mmp0080 or mmp0081 or mmp0082 or mmp0496
@@ -62,3 +62,13 @@ H(2)-dependent methylenetetrahydromethanopterin dehydrogenase: mmp0127
 Nitrogen_fixation: mmp0853 or mmp0856 or mmp0857
 ADP_glucokinase: mmp1296
 PFK: mmp1296
+
+*****************
+2014/05/05
+*****************
+Added:
+Reaction blah
+
+Changed association:
+Reaction blah
+
