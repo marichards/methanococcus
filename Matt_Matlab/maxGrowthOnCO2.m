@@ -4,7 +4,7 @@ function solution = maxGrowthOnCO2(model)
 %relevant fluxes, return the full solution
 
 %Solve by maximizing biomass
-solution = optimizeCbModel(model);
+solution = optimizeCbModel(model,[],'one');
 
 %Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 

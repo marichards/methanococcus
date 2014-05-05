@@ -73,8 +73,7 @@ model = addReaction(model,'Acetohydroxy_acid_isomeroreductase',...
 %Associate genes with added reactions
 model = changeGeneAssociation(model,'Asparagine_biosynthesis_II','mmp0918');
 model = changeGeneAssociation(model,'Diaminopimelate_aminotransferase','mmp1527');
-%Flag on this one: said mmp008...is that supposed to be mmp0081?
-model = changeGeneAssociation(model,'Glutamate_biosynthesis_III','mmp0080 or mmp0082 or mmp0496');
+model = changeGeneAssociation(model,'Glutamate_biosynthesis_III','mmp0080 or mmp0081 or mmp0082 or mmp0496');
 model = changeGeneAssociation(model,'Citramalate_synthase','mmp1018');
 model = changeGeneAssociation(model,'Isopropylmalate_isomerase_I','mmp1149');
 model = changeGeneAssociation(model,'Isopropylmalate_isomerase_II','mmp1480');

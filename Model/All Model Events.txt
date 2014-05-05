@@ -44,7 +44,7 @@ Changed Gene Association:
 (2014/5/2)
 Asparagine_biosynthesis_II: mmp0918
 Diaminopimelate_aminotransferase: mmp1527
-Glutamate_biosynthesis_III: mmp0080 or mmp0082 or mmp0496
+Glutamate_biosynthesis_III: mmp0080 or mmp0081 or mmp0082 or mmp0496
 Citramalate_synthase: mmp1018
 Isopropylmalate_isomerase_I: mmp1149
 Isopropylmalate_isomerase_II: mmp1480
