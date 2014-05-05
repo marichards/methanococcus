@@ -9,7 +9,7 @@ function model = createLatestModel()
 
 
 %First, load the model
-load('M_maripaludis_methanogen_model.mat')
+load('original_model.mat')
 
 %Model variable is "M_mar"
 

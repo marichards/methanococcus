@@ -5,8 +5,60 @@ Creating:
 -Matt B changed metabolite ids, now they're the same as metabolite names
 
 Original model file name: M_maripaludis_methanogen_model
+
 Added:
+(2014/5/2)
+Nitrogen_fixation
+ADP_glucokinase
+PFK
+EC_1.2.1
+Asparagine_biosynthesis_II
+Glutamate_biosynthesis_III
+CoM_5
+CoM_6
+CoM_7
+Aconitase
+Aconitase_II
+Isocitrate_dehydrogenase
+Formate_hydrogenlyase
+H(2)-dependent methylenetetrahydromethanopterin dehydrogenase
+Citrate_synthase
+Sulfopyruvate decarboxylase
+Sulfolactate dehydrogenase
+2_Phosphosulfolactate_phosphohydrolase
+Diaminopimelate_aminotransferase
+Citramalate_synthase
+Isopropylmalate_isomerase_I
+Isopropylmalate_isomerase_II
+Methylmalate_dehydrogenase
+Acetohydroxybutanoate_synthase
+Acetohydroxy_acid_isomeroreductase
 
 Removed:
+(2014/5/2)
+rxn00216_c0
+rxn03079_c0
+rxn06874_c0
 
 Changed Gene Association:
+(2014/5/2)
+Asparagine_biosynthesis_II: mmp0918
+Diaminopimelate_aminotransferase: mmp1527
+Glutamate_biosynthesis_III: mmp0080 or mmp0082 or mmp0496
+Citramalate_synthase: mmp1018
+Isopropylmalate_isomerase_I: mmp1149
+Isopropylmalate_isomerase_II: mmp1480
+Methylmalate_dehydrogenase: mmp0539
+Acetohydroxybutanoate_synthase: mmp0650 or mmp0651
+Acetohydroxy_acid_isomeroreductase: mmp0654
+2_Phosphosulfolactate_phosphohydrolase: mmp0161
+Sulfolactate dehydrogenase: mmp1133
+Sulfopyruvate decarboxylase: mmp0411 or mmp1689
+Aconitase: mmp1480
+Aconitase_II: mmp1480
+Isocitrate_dehydrogenase: mmp0880
+Formate_hydrogenlyase: mmp1298
+H(2)-dependent methylenetetrahydromethanopterin dehydrogenase: mmp0127
+Nitrogen_fixation: mmp0853 or mmp0856 or mmp0857
+ADP_glucokinase: mmp1296
+PFK: mmp1296
