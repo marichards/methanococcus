@@ -1,4 +1,4 @@
-function pull_rxns(model,met_name)
+function rxns = pull_rxns(model,met_name)
 
 %Pull out all reactions for a given metabolite NAME and print their formulas
 

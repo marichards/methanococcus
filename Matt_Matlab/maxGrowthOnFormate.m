@@ -37,10 +37,12 @@ model = changeObjective(model,'Ex_cpd01024_c0');
 %Solve for maximum biomass
 solution = optimizeCbModel(model,[],'one');
 
+%Find biomass index
+[~,bio_idx] = intersect(model.rxns,'EX Biomass c0');
 %Print out the fluxes
 fprintf('\nMaximize Methane Production')
 %Print the biomass flux
-fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+fprintf('\n\nBiomass flux: %f\n\n',bio_idx);
 %Print the reaction fluxes
 fprintf('Formate flux: %f\n',solution.x(form_idx))
 fprintf('CO2 flux: %f\n',solution.x(co2_idx))
