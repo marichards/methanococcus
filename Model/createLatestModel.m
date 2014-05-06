@@ -98,3 +98,6 @@ model = removeRxns(model,{'rxn00216_c0','rxn03079_c0','rxn06874_c0'});
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %End creation of initial model (05/02/2014)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Changes for 05/05/2014
+
