@@ -25,8 +25,8 @@ fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 
 %Print the per-CO2 actual reaction
 fprintf('\nOverall reaction:\nCO2 + 4 H2 --> 2 H2O + CH4\n')
-fprintf('\nModel overall reaction (per mole CO2)\n')
-fprintf('CO2 + %0.2f H2 --> %0.2f H2O + %0.2f CH4\n\n',solution.x(h2_idx)/solution.x(co2_idx),...
-    -solution.x(h2o_idx)/solution.x(co2_idx),-solution.x(ch4_idx)/solution.x(co2_idx))
+fprintf('\nModel overall reaction (per mole CH4)\n')
+fprintf('%0.2f CO2 + %0.2f H2 --> %0.2f H2O + CH4\n\n',-solution.x(co2_idx)/solution.x(ch4_idx),...
+    -solution.x(h2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
 
 end
