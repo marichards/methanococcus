@@ -64,11 +64,8 @@ ADP_glucokinase: mmp1296
 PFK: mmp1296
 
 *****************
-2014/05/05
+2014/05/09
 *****************
-Added:
-Reaction blah
-
-Changed association:
-Reaction blah
-
+Changed gene names from '267377.1.peg.' to 'mmp' and added proper number of 0s
+(did this for both model.genes AND model.grRules)
+Used "removeGene.m" to remove 'fig' and 'Unknown' from the model

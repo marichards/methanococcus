@@ -11,12 +11,49 @@ function model = createLatestModel()
 %First, load the model
 load('original_model.mat')
 
-%Model variable is "M_mar"
+%Model variable is "M_mar". Change it to "model"
+model=M_mar;
+
+%5/09/2014
+%Remove the 'Unknown' and 'fig' genes
+model=removeGene(model,'Unknown');
+model=removeGene(model,'fig');
+
+%Align all gene names with the convention of 'mmp#####'
+%Do it in the genes
+for i = 1:length(model.genes)
+    %For each digit case, replace the "267377.1.peg." with "mmp" and the
+    %correct number of 0s to make it 4 digits
+    if regexp(model.genes{i},'267377.1.peg.[0-9]{1}$')
+        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp000');
+    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{2}$')
+        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp00');
+    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{3}$')
+        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp0');
+    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{4}$')
+        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp');
+    end
+end
+
+%Do it in the rules
+for i = 1:length(model.grRules)
+    %For each digit case, replace the "267377.1.peg." with "mmp" and the
+    %correct number of 0s to make it 4 digits
+    if regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{1}\)*$')
+        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp000');
+    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{2}\)*$')
+        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp00');
+    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{3}\)*$')
+        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp0');
+    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{4}\)*$')
+        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp');
+    end
+end
 
 %5/02/2014
 %Add the 25 reactions additionally marked for addition
 %4 Reactions from "other modified reactions"
-model = addReaction(M_mar,'Nitrogen_fixation',...
+model = addReaction(model,'Nitrogen_fixation',...
     '16 H2O_c0 + 16 ATP_c0 + 8 H_e0 + 8 Reducedferredoxin_c0 + N2_c0 <=> 6 H_c0 + 16 Phosphate_c0 + 16 ADP_c0 + 2 NH3_c0 + 8 Oxidizedferredoxin_c0 + H2_c0');
 model = addReaction(model,'ADP_glucokinase',...
     'ADP_c0 + D-Glucose_c0 <=> D-glucose-6-phosphate_c0 + AMP_c0');
