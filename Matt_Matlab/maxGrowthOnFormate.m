@@ -1,4 +1,4 @@
-function solution = maxGrowthOnFormate(model)
+function growth_sol = maxGrowthOnFormate(model)
 
 %Simulate growth on CO2 and Formate media, print out the growth rate and
 %relevant fluxes, return the full solution
@@ -29,6 +29,8 @@ fprintf('H2 flux: %f\n',solution.x(h2_idx))
 fprintf('H2O flux: %f\n',solution.x(h2o_idx))
 fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 
+%Save this solution
+growth_sol = solution;
 %Try max CH4
 model = changeObjective(model,'Ex_cpd01024_c0');
 
@@ -38,7 +40,7 @@ model = changeObjective(model,'Ex_cpd01024_c0');
 solution = optimizeCbModel(model,[],'one');
 
 %Find biomass index
-[~,bio_idx] = intersect(model.rxns,'EX Biomass c0');
+[~,bio_idx] = intersect(model.rxnNames,'EX Biomass c0');
 %Print out the fluxes
 fprintf('\nMaximize Methane Production')
 %Print the biomass flux
