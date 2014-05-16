@@ -1,0 +1,61 @@
+rxn11650_c0   2 CobIIyrinate_diamide_c0 + FMNH2_c0 -> 2 H_c0 + FMN_c0 + 2 CobIyrinate_diamide_c0
+rxn03535_c0   ATP_c0 + CobIyrinate_diamide_c0 -> Triphosphate_c0 + Adenosyl_cobyrinate_diamide_c0
+rxn03540_c0   4.000000 H2O_c0 + 4.000000 ATP_c0 + 4.000000 L-Glutamine_c0 + Adenosyl_cobyrinate_diamide_c0 -> 4.000000 H_c0 + 4.000000 Phosphate_c0 + 4.000000 ADP_c0 + 4.000000 L-Glutamate_c0 + Adenosylcobyric_acid_c0
+
+&& The directions of the three reactions have been changed as shown above according to metacyc (I cannot find other related references).
+
+model = changeRxnBounds(model,'rxn11650_c0',-1000,'l') 
+
+model = changeRxnBounds(model,'rxn11650_c0',0,'u') 
+
+
+*************************************************************************************
+
+5.13
+
+&& add the reaction 'pyruvate-dependent arginine decarboxylase'
+model = addReaction(model,'pyruvate-dependent arginine decarboxylase','L-Arginine_c0 + H_c0 -> CO2_c0 + Agmatine_c0 ')
+
+pyruvate-dependent arginine decarboxylase	H_c0 + L-Arginine_c0 	->	CO2_c0 + Agmatine_c0 
+
+&& associate the gene 'mmp1582' with reaction 'pyruvate-dependent arginine decarboxylase'
+model = changeGeneAssociation(model,'pyruvate-dependent arginine decarboxylase','mmp1582')
+
+******************************************************************************************
+
+5.14
+
+&& associate the gene 'mmp1038 or mmp1039' with reaction 'ATP_synthase'
+model = changeGeneAssociation(model,'ATP_synthase','mmp1038 or mmp1039')
+
+&& associate the gene 'mmp0123' with reaction 'rxn03004_c0'
+model = changeGeneAssociation(model,'rxn03004_c0','mmp0123')
+
+&& remove the gene association of 'mmp0882' with reaction 'rxn03084_c0'(gene mmp0178 or mmp0179 are still associated with this reaciton)
+model = changeGeneAssociation(model,'rxn03004_c0','mmp0178 or mmp0179')
+
+&& associate the gene 'mmp0882' with reaction 'rxn02937_c0'(gene mmp1254 are still associated with this reaciton)
+model = changeGeneAssociation(model,'rxn02937_c0','mmp1254 or mmp0882')
+
+*********************************************************************************************
+
+5.15
+
+&& add the reaction 'aldehyde dehydrogenase'
+model = addReaction(model,'paldehyde dehydrogenase','Acetaldehyde_c0 + NAD_c0 + CoA_c0 -> H_c0 + NADH_c0 + Acetyl-CoA_c0 ')
+
+aldehyde dehydrogenase	CoA_c0 + NAD_c0 + Acetaldehyde_c0 	->	H_c0 + Acetyl-CoA_c0 + NADH_c0 	
+
+&& associate the gene 'mmp1423' with reaction 'aldehyde dehydrogenase'
+model = changeGeneAssociation(model,'aldehyde dehydrogenase','mmp1423')
+
+&& associate the gene 'mmp0391 or mmp1527' with reaction 'rxn00260_c0'
+model = changeGeneAssociation(model,'rxn00260_c0','(mmp1396 or mmp1216 or mmp1072 or mmp0391 or mmp1527)
+
+&& associate the gene 'mmp0082 or mmp0081 or mmp0080' with reaction 'rxn00085_c0'
+model = changeGeneAssociation(model,'rxn00085_c0','(mmp0496 or mmp0082 or mmp0081 or mmp0080)
+
+&& add gene mmp1259 and acossiated with rxn02269_c0
+model = changeGeneAssociation(model,'rxn02269_c0','mmp1259')
+
+

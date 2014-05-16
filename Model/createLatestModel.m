@@ -14,7 +14,9 @@ load('original_model.mat')
 %Model variable is "M_mar". Change it to "model"
 model=M_mar;
 
+%%%%%%%%%%%%%%%%%%
 %5/09/2014
+%%%%%%%%%%%%%%%%%%
 %Remove the 'Unknown' and 'fig' genes
 model=removeGene(model,'Unknown');
 model=removeGene(model,'fig');
@@ -50,7 +52,9 @@ for i = 1:length(model.grRules)
     end
 end
 
+%%%%%%%%%%%%%%%%%%
 %5/02/2014
+%%%%%%%%%%%%%%%%%%
 %Add the 25 reactions additionally marked for addition
 %4 Reactions from "other modified reactions"
 model = addReaction(model,'Nitrogen_fixation',...
@@ -135,6 +139,85 @@ model = removeRxns(model,{'rxn00216_c0','rxn03079_c0','rxn06874_c0'});
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %End creation of initial model (05/02/2014)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%05/13/2014
+%%%%%%%%%%%%%%%%%%
+%Change reaction directions (from metacyc(?))
+%Rxn 11650
+model = changeRxnBounds(model,'rxn11650_c0',-1000,'l');
+model = changeRxnBounds(model,'rxn11650_c0',0,'u');
+%Rxn 03535
+model = changeRxnBounds(model,'rxn03535_c0',-1000,'l');
+model = changeRxnBounds(model,'rxn03535_c0',0,'u');
+%Rxn 03540
+model = changeRxnBounds(model,'rxn03540_c0',-1000,'l');
+model = changeRxnBounds(model,'rxn03540_c0',0,'u');
 
-%Changes for 05/05/2014
+%%%%%%%%%%%%%%%%%%
+%05/15/2014
+%%%%%%%%%%%%%%%%%%
+%Changes from Juan:
+%5/13
+%Add the reaction 'pyruvate-dependent arginine decarboxylase'
+model = addReaction(model,'pyruvate-dependent arginine decarboxylase',...
+    'L-Arginine_c0 + H_c0 -> CO2_c0 + Agmatine_c0 ');
+
+%Associate the gene 'mmp1582' with reaction 'pyruvate-dependent arginine decarboxylase'
+model = changeGeneAssociation(model,...
+    'pyruvate-dependent arginine decarboxylase','mmp1582');
+
+%5/14
+%Associate the gene 'mmp1038 or mmp1039' with reaction 'ATP_synthase'
+model = changeGeneAssociation(model,'ATP_synthase','mmp1038 or mmp1039');
+%Associate the gene 'mmp0123' with reaction 'rxn03004_c0'
+model = changeGeneAssociation(model,'rxn03004_c0','mmp0123');
+
+%remove the gene association of 'mmp0882' with reaction 'rxn03084_c0'
+%(gene mmp0178 or mmp0179 are still associated with this reaciton)
+model = changeGeneAssociation(model,'rxn03004_c0','mmp0178 or mmp0179');
+
+%Associate the gene 'mmp0882' with reaction 'rxn02937_c0'
+%(gene mmp1254 are still associated with this reaction)
+model = changeGeneAssociation(model,'rxn02937_c0','mmp1254 or mmp0882');
+
+%5/15
+%Add the reaction 'aldehyde dehydrogenase'
+model = addReaction(model,'aldehyde dehydrogenase',...
+    'Acetaldehyde_c0 + NAD_c0 + CoA_c0 -> H_c0 + NADH_c0 + Acetyl-CoA_c0 ');
+
+%Associate the gene 'mmp1423' with reaction 'aldehyde dehydrogenase'
+model = changeGeneAssociation(model,'aldehyde dehydrogenase','mmp1423');
+
+%Associate the gene 'mmp0391 or mmp1527' with reaction 'rxn00260_c0'
+model = changeGeneAssociation(model,'rxn00260_c0',...
+'(mmp1396 or mmp1216 or mmp1072 or mmp0391 or mmp1527');
+
+%Associate the gene '0082 or mmp0081 or mmp0080' with reaction 'rxn00085_c0'
+model = changeGeneAssociation(model,'rxn00085_c0',...
+    '(mmp0496 or mmp0082 or mmp0081 or mmp0080');
+
+%Add gene mmp1259 and acossiated with rxn02269_c0
+model = changeGeneAssociation(model,'rxn02269_c0','mmp1259');
+
+%%%
+%5/15 Changes from Me:
+%Add CO-dehydrogenase
+%Note: CO goes nowhere now, it is an orphan metabolite
+%Should have a CO2+Fd_red-->CO+Fd_ox
+model = addReaction(model,'CO dehydrogenase',...
+    'CO_c0 + CoA_c0 + 5-Methyl-H4MPT_c0 -> H4MPT_c0 + Acetyl-CoA_c0');
+%Associate it with mmp0980,0981,0983,0984,0985
+model = changeGeneAssociation(model,'CO dehydrogenase',...
+    'mmp0980 and mmp0981 and mmp0983 and mmp0984 and mmp0985');
+%Add acetate exchange and transport, both reversible
+model = addReaction(model,'EX_Acetate_e0',...
+    'Acetate_e0 <=> ');
+model = addReaction(model,'Acetate transport',...
+    'Acetate_e0 <=> Acetate_c0');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%End of 5/15 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 

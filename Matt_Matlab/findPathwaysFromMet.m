@@ -6,7 +6,7 @@ function findPathwaysFromMet(model,solution,met_name)
 
 %First use pull_rxns to get the name of the reactions and print the
 %formulas
-rxns = pull_rxns(model,met_name);
+rxns = findRxnsFromMets(model,met_name);
 
 %Now find the indices for those reactions
 [rxns,idx]=intersect(model.rxns,rxns);

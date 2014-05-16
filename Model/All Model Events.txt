@@ -69,3 +69,29 @@ PFK: mmp1296
 Changed gene names from '267377.1.peg.' to 'mmp' and added proper number of 0s
 (did this for both model.genes AND model.grRules)
 Used "removeGene.m" to remove 'fig' and 'Unknown' from the model
+
+*****************
+2014/05/15
+*****************
+Reversed reactions: 
+rxn11650_c0
+rxn03535_c0
+rxn03540_c0
+
+Added reactions: 
+pyruvate-dependent arginine decarboxylase
+aldehyde dehydrogenase, CO dehydrogenase
+EX_Acetate_e0
+Acetate transport
+
+Changed gene association:
+pyruvate-dependent arginine decarboxylase: mmp1582
+ATP synthase: mmp1038 or mmp1039
+rxn03004_c0: mmp0123
+rxn03084_c0: remove mmp0882
+rxn02937_c0: mmp0882
+aldehyde dehyrogenase: mmp1423
+rxn00260_c0: mmp0391 or mmp1527
+rxn00085_c0: mmp0496 or mmp0082 or mmp0081 or mmp0080
+rxn02269_c0: mmp1259
+CO dehydrogenase: mmp0980 and mmp0981 and mmp0983 and mmp0984 and mmp0985
