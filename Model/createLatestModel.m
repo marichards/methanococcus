@@ -91,20 +91,25 @@ model = addReaction(model,'Citrate_synthase',...
     'Citrate_c0 + CoA_c0 + H_e0 <=> Acetyl-CoA_c0 + H2O_c0 + Oxaloacetate_c0');
 model = addReaction(model,'Sulfopyruvate decarboxylase',...
     '3-sulfopyruvate_c0 + H_e0 -> CO2_c0 + sulfoacetaldehyde_c0');
+%Modified (R)-sulfolactate to (2R)-3-sulfolactate to match the seed on
+%5/20/2014
 model = addReaction(model,'Sulfolactate dehydrogenase',...
-    '(R)-sulfolactate_c0 + NAD_c0 -> NADH_c0 + H_e0 + 3-sulfopyruvate_c0');
+    '(2R)-3-sulfolactate_c0 + NAD_c0 -> NADH_c0 + H_e0 + 3-sulfopyruvate_c0');
+%Modified (R)-sulfolactate to (2R)-3-sulfolactate to match the seed on
+%5/20/2014
 model = addReaction(model,'2_Phosphosulfolactate_phosphohydrolase',...
-    '2R-Phosphosulfolactate_c0 + H2O_c0 -> Phosphate_c0 + H_c0 + (R)-sulfolactate_c0');
+    '2R-Phosphosulfolactate_c0 + H2O_c0 -> Phosphate_c0 + H_c0 + (2R)-3-sulfolactate_c0');
 model = addReaction(model,'Diaminopimelate_aminotransferase',...
     'tetrahydrodipicolinate_c0 + H_e0 + H2O_c0 + L-Glutamate_c0 -> 2-oxoglutarate_c0 + LL-2_6-Diaminopimelate_c0');
 model = addReaction(model,'Citramalate_synthase',...
     'Acetyl-CoA_c0 + H2O_c0 + Pyruvate_c0 -> H_e0 + CoA_c0 + Citramalate_c0');
 model = addReaction(model,'Isopropylmalate_isomerase_I',...
     'Citramalate_c0 -> H2O_c0 + Citraconate_c0');
+%In following 2 reactions, replaced beta-methyl-d-malate with D-erythro-3-methylmalate
 model = addReaction(model,'Isopropylmalate_isomerase_II',...
-    'H2O_c0 + Citraconate_c0 -> beta-methyl-D-malate_c0');
+    'H2O_c0 + Citraconate_c0 -> D-erythro-3-methylmalate_c0');
 model = addReaction(model,'Methylmalate_dehydrogenase',...
-    'beta-methyl-D-malate_c0 + NAD_c0 -> NADH_c0 + CO2_c0 + 2-Oxobutyrate_c0');
+    'D-erythro-3-methylmalate_c0 + NAD_c0 -> NADH_c0 + CO2_c0 + 2-Oxobutyrate_c0');
 model = addReaction(model,'Acetohydroxybutanoate_synthase',...
     '2-Oxobutyrate_c0 + H_e0 + Pyruvate_c0 -> 2-Aceto-2-hydroxybutanoate_c0 + CO2_c0');
 model = addReaction(model,'Acetohydroxy_acid_isomeroreductase',...
@@ -202,13 +207,11 @@ model = changeGeneAssociation(model,'rxn02269_c0','mmp1259');
 %%%
 %5/15 Changes from Me:
 %Add CO-dehydrogenase
-%Note: CO goes nowhere now, it is an orphan metabolite
-%Should have a CO2+Fd_red-->CO+Fd_ox
 model = addReaction(model,'CO dehydrogenase',...
-    'CO_c0 + CoA_c0 + 5-Methyl-H4MPT_c0 -> H4MPT_c0 + Acetyl-CoA_c0');
-%Associate it with mmp0980,0981,0983,0984,0985
+    'CO2_c0 + CoA_c0 + 2 H_c0 + Reducedferredoxin_c0 + 5-Methyl-H4MPT_c0 <=> Acetyl-CoA_c0 + Oxidizedferredoxin_c0 + H2O_c0 + H4MPT_c0');
+%Associate it with mmpmmp0980,0981,0983,0984,0985
 model = changeGeneAssociation(model,'CO dehydrogenase',...
-    'mmp0980 and mmp0981 and mmp0983 and mmp0984 and mmp0985');
+    'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
 %Add acetate exchange and transport, both reversible
 model = addReaction(model,'EX_Acetate_e0',...
     'Acetate_e0 <=> ');
@@ -220,5 +223,49 @@ model = addReaction(model,'Acetate transport',...
 %End of 5/15 model changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%5/20 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add charges for added metabolites
+%There are 13 added metabolites...add charges 1 by 1 (from Kbase)
+%    'sulfoacetaldehyde_c0'
+model.metCharge(end-12)=-1;
+%    '2-(sulfomethyl)thiazolidine-4-carboxylate_c0'
+model.metCharge(end-11)=-1;
+%    'sulfoethylcysteine_c0'
+model.metCharge(end-10)=-1;
+%    'Citrate_c0'
+model.metCharge(end-9)=-3;
+%    'cis-Aconitate_c0'
+model.metCharge(end-8)=-3;
+%    'D-threo-Isocitrate_c0'
+model.metCharge(end-7)=-3;
+%    '2-oxoglutarate_c0'
+model.metCharge(end-6)=-2;
+%    '3-sulfopyruvate_c0'
+model.metCharge(end-5)=-2;
+%    '(2R)-3-sulfolactate_c0'
+model.metCharge(end-4)=-2;
+%    'Citramalate_c0'
+model.metCharge(end-3)=-2;
+%    'Citraconate_c0'
+model.metCharge(end-2)=-2;
+%    'D-erythro-3-Methylmalate_c0'
+model.metCharge(end-1)=-2;
+%    'Acetate_e0'
+model.metCharge(end)=-1;
 
+%Fix charges for 3 other reactions
+%Reaction 07191_c0; change 2 Fd to 1
+model = addReaction(model,'rxn07191_c0',...
+    'H2O_c0 + Glyceraldehyde3-phosphate_c0 + Oxidizedferredoxin_c0 <=> 3.000000 H_c0 + 3-Phosphoglycerate_c0 + Reducedferredoxin_c0');
+%Reaction 04045_c0; Remove 2 protons from the left
+model = addReaction(model,'rxn04045_c0',...
+    'Sirohydrochlorin_c0 + Co2_c0 	<=>	Cobalt-precorrin_2_c0');
+%Reaction 05029_c0; add 2 protons to the right
+model = addReaction(model,'rxn05029_c0',...
+    'ATP_c0 + Cobinamide_c0 ->	Triphosphate_c0 + Adenosyl_cobinamide_c0 + 2 H_c0');
+
+%Remove ADP version of Acetate CoA Ligase (only AMP is active
+model = removeRxns(model,'rxn00172_c0');
 

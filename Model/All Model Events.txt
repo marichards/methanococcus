@@ -95,3 +95,22 @@ rxn00260_c0: mmp0391 or mmp1527
 rxn00085_c0: mmp0496 or mmp0082 or mmp0081 or mmp0080
 rxn02269_c0: mmp1259
 CO dehydrogenase: mmp0980 and mmp0981 and mmp0983 and mmp0984 and mmp0985
+
+*****************
+2014/05/20
+*****************
+Change reaction: CO dehydrogenase 
+From 'CO_c0 + CoA_c0 + 5-Methyl-H4MPT_c0 -> H4MPT_c0 + Acetyl-CoA_c0'
+To 'CO2_c0 + CoA_c0 + Reducedferredoxin_c0 + 2 H_c0 + 5-Methyl-H4MPT_c0...
+ <=> Acetyl-CoA_c0 + Oxidizedferredoxin_c0 + H2O_c0 + H4MPT_c0'
+
+Changed gene association: 
+CO dehydrogenase: add mmp0979 and mmp0982
+
+Balanced charge:
+rxn07191_c0 (2 fd-->1 fd)
+rxn04045_c0 (remove 2 protons from left)
+rxn05029_c0 (add 2 protons to left)
+
+Removed reaction:
+rxn00172_c0 (Acetate CoA ligase ADP-forming)
