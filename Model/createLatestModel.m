@@ -215,6 +215,7 @@ model = addReaction(model,'EX_Acetate_e0',...
 model = addReaction(model,'Acetate transport',...
     'Acetate_e0 <=> Acetate_c0');
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %End of 5/15 model changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
