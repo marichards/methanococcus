@@ -10,7 +10,6 @@ function writeModelRxnsToExcel(model,workbook,sheet)
 
 %Solve the model, write the reactions, fluxes, ub/lb to an excel file
 
-sol = optimizeCbModel(model,[],'one');
-form = printRxnFormula(model,model.rxns,'False');
-A = [model.rxns,form,num2cell(model.lb),num2cell(model.ub),num2cell(sol.x)];
+formulas = printRxnFormula(model,model.rxns,'False');
+A = [model.rxns,model.rxnNames,formulas,num2cell(model.lb),num2cell(model.ub)];
 xlswrite(workbook,A,sheet);

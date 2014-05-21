@@ -29,4 +29,8 @@ fprintf('\nModel overall reaction (per mole CH4)\n')
 fprintf('%0.2f CO2 + %0.2f H2 --> %0.2f H2O + CH4\n\n',-solution.x(co2_idx)/solution.x(ch4_idx),...
     -solution.x(h2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
 
+%Print the yield coefficient (grams biomass per mole CH4 produced)
+fprintf('Measured Yield Coefficient: 2.86 +/- 0.58 gDCW/mol CH4\n')
+fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4',solution.f*1000/solution.x(ch4_idx))
+
 end
