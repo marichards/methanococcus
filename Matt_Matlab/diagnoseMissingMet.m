@@ -34,7 +34,7 @@ end
 %Step 4: Simulate growth, return error if it doesn't grow now
 solution = optimizeCbModel(model,[],'one');
 %The new model SHOULD grow if the given one did
-if solution.f == 0
+if solution.f < 1e-10
     error('Please check to ensure that your model grows')
 end
 
@@ -67,7 +67,7 @@ for i=1:length(mets)
     %Simulate growth
     ko_solution = optimizeCbModel(ko_model,[],'one');
     %If growth is 0, save it to missingMets
-    if ko_solution.f==0
+    if ko_solution.f < 1e-10
         missingMets=[missingMets; mets{i}];
         %Also add the source/sink designation to 'directions'
         directions=[directions; source_sink{i}];
