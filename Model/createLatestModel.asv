@@ -322,13 +322,6 @@ model = changeGeneAssociation(model,'rxn00102_c0','mmp1299 or mmp0049');
 %change the gene association of rxn00371_c0 from mmp1233 to (mmp0138 or mmp0139 or mmp1297 or mmp1298)
 model = changeGeneAssociation(model,'rxn00371_c0','mmp0138 or mmp0139 or mmp1297 or mmp1298');
 
-%add gene mmp1274 and acossiated with rxn00175_c0
-model = changeGeneAssociation(model,'rxn00175_c0','mmp0148 or mmp1274');
-
-%change all the 'H_e0' to 'H_c0' in all the added reactions. 
-%In this case, it is interesting to find that f score changed, from 4.21 to 3.17
-%,maybe indicating the effects to flux. 
-%%%NOTE: Matt already did this! %%%%
 
 
 

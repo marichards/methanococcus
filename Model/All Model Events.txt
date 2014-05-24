@@ -114,3 +114,20 @@ rxn05029_c0 (add 2 protons to left)
 
 Removed reaction:
 rxn00172_c0 (Acetate CoA ligase ADP-forming)
+
+*****************
+2014/05/22-23
+*****************
+Changed reaction IDs to match Kbase for all reactions but the following:
+CO dehydrogenase (CODH)
+Sodium/Proton Pump (Eha)
+Heterodisulfide reductase (HdrABC)
+Acetate transport (ACT)
+
+Changed gene association:
+rxn00250_c0: mmp0341 or mmp0340
+rxn00102_c0: mmp1299 or mmp0049
+rxn00371_c0: mmp0138 or mmp0139 or mmp1297 or mmp1298
+rxn00175_c0: mmp0148 or mmp1274
+
+Changed all "H_e0" to "H_c0" in Juan's added reactions

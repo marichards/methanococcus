@@ -1,0 +1,40 @@
+5.16 
+
+%add gene mmp0341 and acossiated with rxn00250_c0
+model = changeGeneAssociation(model,'rxn00250_c0','mmp0341 or mmp0340')
+
+
+%add gene mmp0049 and acossiated with rxn00102_c0
+model = changeGeneAssociation(model,'rxn00102_c0','mmp1299 or mmp0049')
+
+%change the gene association of rxn00371_c0 from mmp1233 to (mmp0138 or mmp0139 or mmp1297 or mmp1298)
+model = changeGeneAssociation(model,'rxn00371_c0','mmp0138 or mmp0139 or mmp1297 or mmp1298')
+
+
+%change the direction of rxn00172_c0
+model = changeRxnBounds(model,'rxn00172_c0',-1000,'l')
+model = changeRxnBounds(model,'rxn00172_c0',0,'u')
+
+Note: after changing the direction, f score increased to 7.1960,there must be something unreasonable in the model. Moreover, the direction of this reaction from KEGG is "=",http://www.kegg.jp/dbget-bin/www_bget?ec:6.2.1.13
+
+%add gene mmp1274 and acossiated with rxn00175_c0
+model = changeGeneAssociation(model,'rxn00175_c0','mmp0148 or mmp1274')
+
+***********************************************************************************************************
+
+5.22
+
+%change all the 'H_e0' to 'H_c0' in all the added reactions. In this case, it is interesting to find that f score changed, from 4.21 to 3.17,maybe indicating the effects to flux. 
+
+The changed reactions are as follows:
+Diaminopimelate_aminotransferase	tetrahydrodipicolinate_c0 + H_c0 + H2O_c0 + L-Glutamate_c0 -> 2-oxoglutarate_c0 + LL-2_6-Diaminopimelate_c0'
+Glutamate_biosynthesis_III	2-Oxoglutarate_c0 + H_c0 + NADPH_c0 + NH3_c0 -> L-Glutamate_c0 + H2O_c0 + NADP_c0'
+Citramalate_synthase	Acetyl-CoA_c0 + H2O_c0 + Pyruvate_c0 -> H_c0 + CoA_c0 + Citramalate_c0
+Acetohydroxybutanoate_synthase	2-Oxobutyrate_c0 + H_c0 + Pyruvate_c0 -> 2-Aceto-2-hydroxybutanoate_c0 + CO2_c0
+Acetohydroxy_acid_isomeroreductase	NADPH_c0 + H_c0 + 2-Aceto-2-hydroxybutanoate_c0 -> 2_3-Dihydroxy-3-methylvalerate_c0 + NADP_c0
+Sulfolactate dehydrogenase	(R)-sulfolactate_c0 + NAD_c0 -> NADH_c0 + H_c0 + 3-sulfopyruvate_c0
+Sulfopyruvate decarboxylase	3-sulfopyruvate_c0 + H_c0 -> CO2_c0 + sulfoacetaldehyde_c0
+Citrate_synthase	Citrate_c0 + CoA_c0 + H_c0 <=> Acetyl-CoA_c0 + H2O_c0 + Oxaloacetate_c0
+Formate_hydrogenlyase	Formate_c0 + H_c0  -> CO2_c0 + H2_c0
+H(2)-dependent methylenetetrahydromethanopterin dehydrogenase	H2_c0 + Reduced_coenzyme_F420_c0 + 5_10-Methenyltetrahydromethanopterin_c0  <=> H_c0 + Coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0
+Nitrogen_fixation	16.000000 H2O_c0 + 16.000000 ATP_c0 + 2.000000 H_c0 + 8.000000 Reducedferredoxin_c0 + N2_c0 <=>  16.000000 Phosphate_c0 + 16.000000 ADP_c0 + 2.000000 NH3_c0 + 8.000000 Oxidizedferredoxin_c0 + H2_c0 
