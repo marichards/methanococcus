@@ -4,11 +4,11 @@ function [missingMets,directions] = diagnoseMissingMet(model,rxn)
 %and creates a source/sink for each metabolite.  Turns one of those
 %source/sinks off at a time to diagnose which of the metabolites in the
 %reaction are essential
-
+%
 %Inputs
 %model - a COBRA model structure
 %rxn - an essential reaction
-
+%
 %Outputs
 %missingMets - the list of metabolites in rxn that require this reaction as a
 %source or a sink

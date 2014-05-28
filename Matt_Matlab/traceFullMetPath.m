@@ -1,4 +1,4 @@
-function [all_rxns,fluxes,rxnNames] = traceFullMetPath(model,met,solution,excluded)
+function [all_rxns,rxnNames,fluxes] = traceFullMetPath(model,met,solution,excluded,threshold)
 
 %Select any metabolite in the model and pull the highest-flux pathways for
 %that metabolite, then use those to trace where the metabolite is coming
@@ -22,6 +22,12 @@ function [all_rxns,fluxes,rxnNames] = traceFullMetPath(model,met,solution,exclud
 if (nargin < 4)
     excluded={''};
 end
+
+if (nargin < 5)
+    threshold = 0.1;
+end
+
+
 
 %List the cofactor metabolites so we can avoid them
 %Pull out things with frequencies higher than 30 reactions
@@ -48,8 +54,15 @@ all_mets={met};
 %Now enter a while loop...for now, make it while its smaller than the whole
 %model, so it'll never be violated
 while length(all_rxns)<50
-    %Use metabolites to find reactions
-    rxns = findRxnsFromMets(model,mets);
+    
+    %%Upgrade using metMassBalance code
+    
+    %Use metabolites to find reactions with notable fluxes using metMassBalance
+    %Initiate the array
+    rxns = {};
+    for i=1:length(mets)
+        rxns = [rxns; metMassBalance(model,mets(i),solution,threshold)];
+    end
     
     %Narrow it down to only new reactions
     rxns = setdiff(rxns,all_rxns);
@@ -60,15 +73,7 @@ while length(all_rxns)<50
     if length(rxns)<1
         break
     end
-    %Find indices from the reactions
-    [~,idx] = intersect(model.rxns,rxns);  
-    
-    %Find the biggest flux of the reactions
-    threshold = 0.1*max(abs(solution.x(idx)));
-    
-    %Keep only reactions with fluxes over the threshold
-    rxns = rxns(abs(solution.x(idx))>threshold);
-    
+
     %Add to the all_rxns
     all_rxns = [all_rxns;rxns];
   
