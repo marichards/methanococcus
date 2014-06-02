@@ -330,6 +330,60 @@ model = changeGeneAssociation(model,'rxn00175_c0','mmp0148 or mmp1274');
 %,maybe indicating the effects to flux. 
 %%%NOTE: Matt already did this! %%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%5/30 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Change the media
+%Take out reactions
+%EX Urea e0	-1000
+model = removeRxns(model,'EX_cpd00073_e0');
+%EX fe3 e0	-1000
+model = removeRxns(model,'EX_cpd10516_e0');
+%EX Spermine e0	-1000
+model = removeRxns(model,'EX_cpd00558_e0');
+%EX Nitrate e0	-1000
+model = removeRxns(model,'EX_cpd00209_e0');
+%EX BET e0	-1000
+model = removeRxns(model,'EX_cpd00540_e0');
+%EX Cytosine e0	-1000
+model = removeRxns(model,'EX_cpd00307_e0');
+%EX glycogenn-1 c0	-1000
+model = removeRxns(model,'EX_cpd15302_c0');
+%EX Uracil e0	-1000
+model = removeRxns(model,'EX_cpd00092_e0');
+%EX ddca e0	-1000
+model = removeRxns(model,'EX_cpd01741_e0');
+%EX Dephospho-CoA e0	-1000
+model = removeRxns(model,'EX_cpd00655_e0');
+%EX Cobinamide e0	-1000 %Necessary for Colamide?
+model = removeRxns(model,'EX_cpd03422_e0');
+%EX Oxidized glutathione e0	-1000
+model = removeRxns(model,'EX_cpd00111_e0');
+
+%Metals in the biomass that must be removed
+%For now, don't remove their transporters or exchanges
+%EX Zn2 e0	-1000
+model = changeRxnBounds(model,'EX_cpd00034_e0',0,'l');
+%EX Cu2 e0	-1000
+model = changeRxnBounds(model,'EX_cpd00058_e0',0,'l');
+%EX Mn2 e0	-1000
+model = changeRxnBounds(model,'EX_cpd00030_e0',0,'l');
+
+%Change the biomass to take these out
+%Find these in the model
+[~,idx] = intersect(model.mets,{'Zn2_c0','Cu2_c0','Mn2_c0'});
+%Remove them from the biomass
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(idx,bio_idx)=0;
+
+%Turn rxn00175 irreversible forward
+model=changeRxnBounds(model,'rxn00175_c0',0,'l');
+%Turn rxn00549 reversible to allow growth
+model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
+
+%Note: I haven't removed exchanges or transporters for the 3 metals yet!
+%%
 
 
 
