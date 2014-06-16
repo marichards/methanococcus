@@ -131,3 +131,41 @@ rxn00371_c0: mmp0138 or mmp0139 or mmp1297 or mmp1298
 rxn00175_c0: mmp0148 or mmp1274
 
 Changed all "H_e0" to "H_c0" in Juan's added reactions
+
+
+*****************
+2014/05/30
+*****************
+Removed Exchanges (media):
+EX_cpd00073_e0 (Urea)
+EX_cpd10516_e0 (fe3)
+EX_cpd00558_e0 (Spermine)
+EX_cpd00209_e0 (Nitrate)
+EX_cpd00540_e0 (BET)
+EX_cpd00307_e0 (Cytosine)
+EX_cpd15302_c0 (glycogenn-1);
+EX_cpd00092_e0 (Uracil)
+EX_cpd01741_e0 (ddca)
+EX_cpd00655_e0 (Dephospho-CoA)
+EX_cpd03422_e0 (Cobinamide)
+EX_cpd00111_e0 (oxidized glutathione)
+
+Turned off exchanges for input:
+EX_cpd00034_e0 (Zn2)
+EX_cpd00058_e0 (Cu2)
+EX_cpd00030_e0 (Mn2)
+
+Removed from biomass:
+Zn2, Cu2, Mn2
+
+Made irreversible forward:
+rxn00175_c0 (AMP form of Acetate-CoA ligase)
+
+Made reversible:
+rxn00549_c0 (D-Fructose-1 6-bisphosphate 1-phosphohydrolase)
+
+*****************
+2014/06/16
+*****************
+Canceled removal of rxn00172_c0 (no reason to remove it)
+

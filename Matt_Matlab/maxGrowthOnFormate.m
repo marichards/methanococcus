@@ -35,5 +35,9 @@ fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 fprintf('\nOverall theoretical rxn: 4 Formate + 4 H+ -> CH4 + 3 CO2 + 2 H2O\n\n')
 %Compare to actual
 fprintf('Actual model reaction: %0.2f Formate + %0.2f H+ -> CH4 + %0.2f CO2 + %0.2f H2O\n\n',...
-    solution.x(form_idx)/solution.x(ch4_idx),solution.x(h_idx)/solution.x(ch4_idx),...
+    -solution.x(form_idx)/solution.x(ch4_idx),-solution.x(h_idx)/solution.x(ch4_idx),...
     solution.x(co2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
+
+%Print the yield coefficient (grams biomass per mole CH4 produced)
+fprintf('Measured Yield Coefficient: 2.86 +/- 0.58 gDCW/mol CH4\n')
+fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx))

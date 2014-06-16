@@ -1,4 +1,4 @@
-function [rxns,amounts,directions] = metMassBalance(model,met,solution,threshold,printFlag)
+function [rxns,amounts,directions,names] = metMassBalance(model,met,solution,threshold,printFlag)
 
 %Take in a model, a metabolite, and an FBA solution.  Find all the major
 %sinks and sources of that metabolite by 
@@ -73,5 +73,11 @@ if printFlag
     end
     fprintf('\n')
 end
+
+
+
+%Step 14: Find the reaction names
+[~,idx] = intersect(model.rxns,rxns);
+names = model.rxnNames(idx);
 
 end

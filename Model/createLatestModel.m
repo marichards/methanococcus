@@ -299,9 +299,6 @@ model = addReaction(model,'rxn04045_c0',...
 model = addReaction(model,'rxn05029_c0',...
     'ATP_c0 + Cobinamide_c0 ->	Triphosphate_c0 + Adenosyl_cobinamide_c0 + 2 H_c0');
 
-%Remove ADP version of Acetate CoA Ligase (only AMP is active)
-model = removeRxns(model,'rxn00172_c0');
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %5/23 model changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
