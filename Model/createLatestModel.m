@@ -380,8 +380,17 @@ model=changeRxnBounds(model,'rxn00175_c0',0,'l');
 model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
 
 %Note: I haven't removed exchanges or transporters for the 3 metals yet!
-%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%6/18 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Change rxn00781_c0 from NAD to NADP (John's suggestion)
+model = addReaction(model,'rxn00781_c0',...
+    'Phosphate_c0 + NADP_c0 + Glyceraldehyde3-phosphate_c0 <=> NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0');
 
-
+%Change Gene Associations to AND for ATP Synthase and rxn00250_c0, plus add
+%some genes to ATP Synthase
+model = changeGeneAssociation(model,'rxn08173_c0',...
+    'mmp1038 and mmp1039 and mmp1040 and mmp1041 and mmp1042 and mmp1043 and mmp1044 and mmp1045 and mmp1046');
+model = changeGeneAssociation(model,'rxn00250_c0','mmp0340 and mmp0341');
 
