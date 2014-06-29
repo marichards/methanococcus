@@ -169,3 +169,16 @@ rxn00549_c0 (D-Fructose-1 6-bisphosphate 1-phosphohydrolase)
 *****************
 Canceled removal of rxn00172_c0 (no reason to remove it)
 
+*****************
+2014/06/18
+*****************
+Changed NAD -> NADP in rxn00781_c0
+Changed gene association for rxn08173 to mmp1038-mmp1046, AND relation
+Change gene association for rxn00250 to AND relation
+
+ *****************
+2014/06/23
+*****************
+Turn off rxn07191_c0
+Make rxn05938_c0 and CODH irreversible forward
+Add genes for Eha: mmp1448-1467, AND relation

@@ -8,9 +8,10 @@ function writeRxnsToExcel(model,rxns,workbook,sheet)
 %workbook: an excel workbook to write to (.xlsx)
 %sheet: an excel sheet to write to
 
-%Solve the model, write the reactions, name, formula to an excel file
+%Solve the model, write the reactions, name, genes, and formula to an excel file
 [rxns,idx]=intersect(model.rxns,rxns);
 names = model.rxnNames(idx);
+genes = model.grRules(idx);
 formulas = printRxnFormula(model,rxns,'False');
-A = [rxns,names,formulas];
+A = [rxns,names,genes,formulas];
 xlswrite(workbook,A,sheet);

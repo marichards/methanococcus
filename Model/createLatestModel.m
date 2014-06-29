@@ -57,7 +57,7 @@ end
 %5/22/2014 (Change IDs to abbreviations, add rxnNames)
 %%%%%%%%%%%%%%%%%%
 %Add the 25 reactions additionally marked for addition
-%4 Reactions from "other modified reactions"
+%2 Reactions from "other modified reactions"
 %Modify the charge balance for the first one
 model = addReaction(model,'rxn06874_c0',...
     '16 H2O_c0 + 16 ATP_c0 + 2 H_c0 + 8 Reducedferredoxin_c0 + N2_c0 <=> 16 Phosphate_c0 + 16 ADP_c0 + 2 NH3_c0 + 8 Oxidizedferredoxin_c0 + H2_c0');
@@ -67,9 +67,7 @@ model.rxnNames{end}='ADP:D-glucose 6-phosphotransferase';
 model = addReaction(model,'rxn04043_c0',...
     'ADP_c0 + D-fructose-6-phosphate_c0 <=> D-fructose-1_6-bisphosphate_c0 + AMP_c0');
 model.rxnNames{end}='ADP:D-fructose-6-phosphate 1-phosphotransferase';
-model = addReaction(model,'rxn00154_c0',...
-    'CO2_c0 + Acetyl-CoA_c0 + NADH_c0 <=> CoA_c0 + NAD_c0 + Pyruvate_c0');
-model.rxnNames{end}='Pyruvate oxidoreductase (NAD)';
+
 
 %21 Reactions from "added reactions"
 model = addReaction(model,'rxn00340_c0',...
@@ -394,3 +392,52 @@ model = changeGeneAssociation(model,'rxn08173_c0',...
     'mmp1038 and mmp1039 and mmp1040 and mmp1041 and mmp1042 and mmp1043 and mmp1044 and mmp1045 and mmp1046');
 model = changeGeneAssociation(model,'rxn00250_c0','mmp0340 and mmp0341');
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%6/23 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Turn off  rxn07191_c0, make rxn05398_c0 and CODH irrev (John spreadsheet 6/19)
+%model = changeRxnBounds(model,'rxn07191_c0',0,'b');
+%model = changeRxnBounds(model,'rxn05938_c0',0,'l');
+%model = changeRxnBounds(model,'CODH',0,'l');
+
+%Add genes for Eha: mmp1448-1467
+model = changeGeneAssociation(model,'Eha',...
+    'mmp1448 and mmp1449 and mmp1450 and mmp1451 and mmp1452 and mmp1453 and mmp1454 and mmp1455 and mmp1456 and mmp1457 and mmp1458 and mmp1459 and mmp1460 and mmp1461 and mmp1462 and mmp1463 and mmp1464 and mmp1465 and mmp1466 and mmp1467');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%6/26 model changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Group EhA, HdrABC, and rxn11938_c0 together by giving them a specific
+%ferredoxin
+model = addReaction(model,'Eha',...
+    'Fdox*1_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + 2.000000 Na_c0');
+model = addReaction(model,'HdrABC',...
+    'Fdox*1_c0 + CoM-S-S-CoB_c0 + 2.000000 H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + CoM_c0 + HTP_c0'); 	
+model = addReaction(model,'rxn11938_c0',...
+    'H2O_c0 + Fdox*1_c0 + Formylmethanofuran_c0	<=>	H_c0 + CO2_c0 + Fdred*1_c0 + Methanofuran_c0');
+
+%Add EhB, indolepyruvate oxidoreductase with new specific ferredoxin; both are dead for now
+model = addReaction(model,'Ehb',...
+    'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
+model = addReaction(model,'IPOR',...
+    'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3 yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0');
+%Give the CODH, rxn05938, and rxn05939 the same ferredoxin
+model = addReaction(model,'CODH',...
+    'CO2_c0 + CoA_c0 + 2 H_c0 + Fdred*2_c0 + 5-Methyl-H4MPT_c0 <=> Acetyl-CoA_c0 + Fdox*2_c0 + H2O_c0 + H4MPT_c0');
+model = addReaction(model,'rxn05938_c0',...
+    'H_c0 + CO2_c0 + Acetyl-CoA_c0 + Fdred*2_c0 <=>	CoA_c0 + Fdox*2_c0 + Pyruvate_c0');
+model = addReaction(model,'rxn05939_c0',...
+    'H_c0 + CO2_c0 + Fdred*2_c0 + Succinyl-CoA_c0 	<=>	CoA_c0 + 2-Oxoglutarate_c0 + Fdox*2_c0');
+
+%Add Genes for HdrABC and take them from rxn03126_c0
+model = changeGeneAssociation(model,'HdrABC',...
+    '(mmp0825 or mmp1607) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))');
+model = changeGeneAssociation(model,'rxn03126_c0','');
+
+%Add Genes for EhB and indolepyruvate oxidoreductase
+model = changeGeneAssociation(model,'Ehb',...
+    'mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp400');
+model = changeGeneAssociation(model,'IPOR',...
+    '(mmp315 and mmp316) or (mmp713 and mmp714)');
