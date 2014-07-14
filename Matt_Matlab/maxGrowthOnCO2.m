@@ -3,6 +3,9 @@ function solution = maxGrowthOnCO2(model)
 %Simulate growth on CO2 and H2 media, print out the growth rate and
 %relevant fluxes, return the full solution
 
+%Turn down H2 to -10, not -1000
+model = changeRxnBounds(model,'Ex_cpd11640_c0',-10,'l');
+
 %Solve by maximizing biomass
 solution = optimizeCbModel(model,[],'one');
 
