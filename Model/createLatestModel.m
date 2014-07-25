@@ -321,30 +321,31 @@ model = changeGeneAssociation(model,'rxn00175_c0','mmp0148 or mmp1274');
 
 %Change the media
 %Take out reactions
+%On 7/24, don't remove, turn them off
 %EX Urea e0	-1000
-model = removeRxns(model,'EX_cpd00073_e0');
+model = changeRxnBounds(model,'EX_cpd00073_e0',0,'l');
 %EX fe3 e0	-1000
-model = removeRxns(model,'EX_cpd10516_e0');
+model = changeRxnBounds(model,'EX_cpd10516_e0',0,'l');
 %EX Spermine e0	-1000
-model = removeRxns(model,'EX_cpd00558_e0');
+model = changeRxnBounds(model,'EX_cpd00558_e0',0,'l');
 %EX Nitrate e0	-1000
-model = removeRxns(model,'EX_cpd00209_e0');
+model = changeRxnBounds(model,'EX_cpd00209_e0',0,'l');
 %EX BET e0	-1000
-model = removeRxns(model,'EX_cpd00540_e0');
+model = changeRxnBounds(model,'EX_cpd00540_e0',0,'l');
 %EX Cytosine e0	-1000
-model = removeRxns(model,'EX_cpd00307_e0');
+model = changeRxnBounds(model,'EX_cpd00307_e0',0,'l');
 %EX glycogenn-1 c0	-1000
-model = removeRxns(model,'EX_cpd15302_c0');
+model = changeRxnBounds(model,'EX_cpd15302_c0',0,'l');
 %EX Uracil e0	-1000
-model = removeRxns(model,'EX_cpd00092_e0');
+model = changeRxnBounds(model,'EX_cpd00092_e0',0,'l');
 %EX ddca e0	-1000
-model = removeRxns(model,'EX_cpd01741_e0');
+model = changeRxnBounds(model,'EX_cpd01741_e0',0,'l');
 %EX Dephospho-CoA e0	-1000
-model = removeRxns(model,'EX_cpd00655_e0');
+model = changeRxnBounds(model,'EX_cpd00655_e0',0,'l');
 %EX Cobinamide e0	-1000 %Necessary for Colamide?
-model = removeRxns(model,'EX_cpd03422_e0');
+model = changeRxnBounds(model,'EX_cpd03422_e0',0,'l');
 %EX Oxidized glutathione e0	-1000
-model = removeRxns(model,'EX_cpd00111_e0');
+model = changeRxnBounds(model,'EX_cpd00111_e0',0,'l');
 
 %Metals in the biomass that must be removed
 %For now, don't remove their transporters or exchanges
