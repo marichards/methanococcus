@@ -26,30 +26,20 @@ model=removeGene(model,'fig');
 for i = 1:length(model.genes)
     %For each digit case, replace the "267377.1.peg." with "mmp" and the
     %correct number of 0s to make it 4 digits
-    if regexp(model.genes{i},'267377.1.peg.[0-9]{1}$')
-        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp000');
-    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{2}$')
-        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp00');
-    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{3}$')
-        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp0');
-    elseif regexp(model.genes{i},'267377.1.peg.[0-9]{4}$')
-        model.genes{i} = regexprep(model.genes{i},'267377.1.peg.','mmp');
-    end
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{1}','mmp000$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{2}','mmp00$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{3}','mmp0$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{4}','mmp$1');
 end
 
 %Do it in the rules
 for i = 1:length(model.grRules)
     %For each digit case, replace the "267377.1.peg." with "mmp" and the
     %correct number of 0s to make it 4 digits
-    if regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{1}\)*$')
-        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp000');
-    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{2}\)*$')
-        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp00');
-    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{3}\)*$')
-        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp0');
-    elseif regexp(model.grRules{i},'\(*267377.1.peg.[0-9]{4}\)*$')
-        model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.','mmp');
-    end
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{1}','mmp000$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{2}','mmp00$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{3}','mmp0$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{4}','mmp$1');
 end
 
 %%%%%%%%%%%%%%%%%%
@@ -414,7 +404,9 @@ model = changeGeneAssociation(model,'Eha',...
 model = addReaction(model,'Eha',...
     'Fdox*1_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + 2.000000 Na_c0');
 model = addReaction(model,'HdrABC',...
-    'Fdox*1_c0 + CoM-S-S-CoB_c0 + 2.000000 H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + CoM_c0 + HTP_c0'); 	
+    'Fdox*1_c0 + CoM-S-S-CoB_c0 + 2.000000 H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + CoM_c0 + HTP_c0'); 
+
+%%ERROR%% %This statement adds mmp70,510,511,512,509...that's wrong!
 model = addReaction(model,'rxn11938_c0',...
     'H2O_c0 + Fdox*1_c0 + Formylmethanofuran_c0	<=>	H_c0 + CO2_c0 + Fdred*1_c0 + Methanofuran_c0');
 
@@ -438,6 +430,6 @@ model = changeGeneAssociation(model,'rxn03126_c0','');
 
 %Add Genes for EhB and indolepyruvate oxidoreductase
 model = changeGeneAssociation(model,'Ehb',...
-    'mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp400');
+    'mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp0400');
 model = changeGeneAssociation(model,'IPOR',...
-    '(mmp315 and mmp316) or (mmp713 and mmp714)');
+    '(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
