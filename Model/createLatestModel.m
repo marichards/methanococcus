@@ -26,20 +26,23 @@ model=removeGene(model,'fig');
 for i = 1:length(model.genes)
     %For each digit case, replace the "267377.1.peg." with "mmp" and the
     %correct number of 0s to make it 4 digits
-    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{1}','mmp000$1');
-    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{2}','mmp00$1');
-    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{3}','mmp0$1');
-    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{4}','mmp$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{4})','mmp$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{3})','mmp0$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{2})','mmp00$1');
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{1})','mmp000$1');
+    
+    
+    
 end
 
 %Do it in the rules
 for i = 1:length(model.grRules)
     %For each digit case, replace the "267377.1.peg." with "mmp" and the
     %correct number of 0s to make it 4 digits
-    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{1}','mmp000$1');
-    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{2}','mmp00$1');
-    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{3}','mmp0$1');
-    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{4}','mmp$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{4})','mmp$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{3})','mmp0$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{2})','mmp00$1');
+    model.grRules{i} = regexprep(model.grRules{i},'267377.1.peg.([0-9]{1})','mmp000$1');  
 end
 
 %%%%%%%%%%%%%%%%%%
