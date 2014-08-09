@@ -99,4 +99,8 @@ model.metFormulas(idx,:)={'C8H15N2O3S','C7H14N2O4','C51H72O2','C51H74O2',...
     'C6H5O7','C5H4O5','C3H2O6S','C3H4O6S','C5H6O5',...
     'C5H4O4','C5H6O5','C2H3O2','C11H8NO3','C31H40N8O17P3S'};
 
+%Fix acetate_c0
+[~,idx]=intersect(model.mets,'Acetate_c0');
+model.metFormulas{idx}='C2H3O2';
+
 end
