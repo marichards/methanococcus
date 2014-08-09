@@ -403,7 +403,7 @@ model = addReaction(model,{'rxn11938_c0',name},...
 model = addReaction(model,'Ehb',...
     'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
 model = addReaction(model,{'IPOR','Indolepyruvate oxidoreductase'},...
-    'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3 yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0');
+    'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3-yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0');
 %Give the CODH, rxn05938, and rxn05939 the same ferredoxin
 [~,idx] = intersect(model.rxns,'CODH');
 name = model.rxnNames{idx};
@@ -439,4 +439,10 @@ model = changeGeneAssociation(model,'rxn06696_c0','mmp0127');
 %Change name of rxn00371_c0 to Formate F420 oxidoreductase
 [~,idx] = intersect(model.rxns,'rxn00371_c0');
 model.rxnNames{idx} = 'Formate F420 oxidoreductase';
+
+%%%%%%%%%%%%%%%%%%%
+%8/8/2014 Changes
+%%%%%%%%%%%%%%%%%%%
+%Add E-matrix
+model = addMetFormulas(model);
 
