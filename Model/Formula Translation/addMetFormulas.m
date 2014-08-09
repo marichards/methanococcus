@@ -102,5 +102,52 @@ model.metFormulas(idx,:)={'C8H15N2O3S','C7H14N2O4','C51H72O2','C51H74O2',...
 %Fix acetate_c0
 [~,idx]=intersect(model.mets,'Acetate_c0');
 model.metFormulas{idx}='C2H3O2';
+%Fix ACP_c0
+[~,idx]=intersect(model.mets,{'ACP_c0'});
+model.metFormulas{idx}='C11H21N2O7PRS';
+%Fix ocdca_c0
+[~,idx]=intersect(model.mets,{'ocdca_c0'});
+model.metFormulas{idx}='C18H35O2';
+%Fix ATP_c0
+[~,idx]=intersect(model.mets,{'ATP_c0'});
+model.metFormulas{idx}='C10H13N5O13P3';
+%%Now there are 343 imbalances...fix ADP and AMP too!
+[~,idx]=intersect(model.mets,{'ADP_c0'});
+model.metFormulas{idx}='C10H13N5O10P2';
+[~,idx]=intersect(model.mets,{'AMP_c0'});
+model.metFormulas{idx}='C10H13N5O7P';
+%%Up to 354...bah!
+[~,idx]=intersect(model.mets,{'CoA_c0'});
+model.metFormulas{idx}='C21H33N7O16P3S';
+%Fix Malonyl-acyl-carrierprotein-
+[~,idx]=intersect(model.mets,{'Malonyl-acyl-carrierprotein-_c0'});
+model.metFormulas{idx}='C14H22N2O10PRS';
+%Fix PPi
+[~,idx]=intersect(model.mets,{'PPi_c0'});
+model.metFormulas{idx}='H2O7P2';
+%Fix NAD
+[~,idx]=intersect(model.mets,{'NAD_c0'});
+model.metFormulas{idx}='C21H26N7O14P2';
+%Fix NADH
+[~,idx]=intersect(model.mets,{'NADH_c0'});
+model.metFormulas{idx}='C21H27N7O14P2';
+%Fix NADP
+[~,idx]=intersect(model.mets,{'NADP_c0'});
+model.metFormulas{idx}='C21H26N7O17P3';
+%Fix NADPH
+[~,idx]=intersect(model.mets,{'NADPH_c0'});
+model.metFormulas{idx}='C21H27N7O17P3';
+%Fix HMA
+[~,idx]=intersect(model.mets,{'HMA_c0'});
+model.metFormulas{idx}='C25H47N2O9PRS';
+%Fix H4MPT
+[~,idx]=intersect(model.mets,{'H4MPT_c0'});
+model.metFormulas{idx}='C30H42N6O16P';
+%Fix Acetyl-CoA
+[~,idx]=intersect(model.mets,{'Acetyl-CoA_c0'});
+model.metFormulas{idx}='C23H35N7O17P3S';
+%Fix Methyl-H4MPT
+[~,idx]=intersect(model.mets,{'5-Methyl-H4MPT_c0'});
+model.metFormulas{idx}='C31H44N6O16P';
 
 end
