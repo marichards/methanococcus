@@ -446,3 +446,26 @@ model.rxnNames{idx} = 'Formate F420 oxidoreductase';
 %Add E-matrix
 model = addMetFormulas(model);
 
+%%%%%%%%%%%%%%%%%%%
+%8/19/2014 Changes
+%%%%%%%%%%%%%%%%%%%
+%Add charges for last 6 metabolites (4 ferredoxins, 2 from IPOR)
+%    'Fdox*1_c0'
+model.metCharge(end-5)=6;
+%    'Fdred*1_c0'
+model.metCharge(end-4)=4;
+%    'Fdox*2_c0'
+model.metCharge(end-3)=6;
+%    'Fdred*2_c0'
+model.metCharge(end-2)=4;
+%    'Indole-3-pyruvate_c0'
+model.metCharge(end-1)=-1;
+%    'S-2-(indol-3-yl)acetyl-CoA_c0'
+model.metCharge(end)=-3;
+
+    
+    
+    
+    
+    
+    
