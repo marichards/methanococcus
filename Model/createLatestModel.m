@@ -53,7 +53,7 @@ end
 %2 Reactions from "other modified reactions"
 %Modify the charge balance for the first one
 model = addReaction(model,{'rxn06874_c0','reduced ferredoxin dinitrogen oxidoreductase ATP-hydrolysing c0'},...
-    '16 H2O_c0 + 16 ATP_c0 + 2 H_c0 + 8 Reducedferredoxin_c0 + N2_c0 <=> 16 Phosphate_c0 + 16 ADP_c0 + 2 NH3_c0 + 8 Oxidizedferredoxin_c0 + H2_c0');
+    '16 H2O_c0 + 16 ATP_c0 + 4 Reducedferredoxin_c0 + N2_c0 <=> 16 Phosphate_c0 + 16 ADP_c0 + 2 NH3_c0 + 4 Oxidizedferredoxin_c0 + H2_c0 + 6 H_c0');
 model = addReaction(model,{'rxn04042_c0','ADP:D-glucose 6-phosphotransferase'},...
     'ADP_c0 + D-Glucose_c0 <=> D-glucose-6-phosphate_c0 + AMP_c0');
 model = addReaction(model,{'rxn04043_c0','ADP:D-fructose-6-phosphate 1-phosphotransferase'},...
@@ -109,7 +109,7 @@ model = addReaction(model,{'rxn08764_c0','ketol-acid reductoisomerase (2-Acetola
     'NADPH_c0 + H_c0 + 2-Aceto-2-hydroxybutanoate_c0 <=> 2_3-Dihydroxy-3-methylvalerate_c0 + NADP_c0');
 
 %Associate genes with added reactions
-model = changeGeneAssociation(model,'rxn06874_c0','mmp0853 or mmp0856 or mmp0857');
+model = changeGeneAssociation(model,'rxn06874_c0','mmp0853 and mmp0856 and mmp0857 and mmp0858 and mmp0859 and mmp0860');
 model = changeGeneAssociation(model,'rxn04042_c0','mmp1296');
 model = changeGeneAssociation(model,'rxn04043_c0','mmp1296');
 
@@ -402,8 +402,8 @@ model = addReaction(model,{'rxn11938_c0',name},...
 %Add EhB, indolepyruvate oxidoreductase with new specific ferredoxin; both are dead for now
 model = addReaction(model,'Ehb',...
     'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
-model = addReaction(model,{'IPOR','Indolepyruvate oxidoreductase'},...
-    'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3-yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0');
+model = addReaction(model,{'rxn10561_c0','Indolepyruvate ferredoxin oxidoreductase'},...
+    'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3-yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0 + H_c0');
 %Give the CODH, rxn05938, and rxn05939 the same ferredoxin
 [~,idx] = intersect(model.rxns,'CODH');
 name = model.rxnNames{idx};
@@ -424,7 +424,7 @@ model = changeGeneAssociation(model,'rxn03126_c0','');
 %Add Genes for EhB and indolepyruvate oxidoreductase
 model = changeGeneAssociation(model,'Ehb',...
     'mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp0400');
-model = changeGeneAssociation(model,'IPOR',...
+model = changeGeneAssociation(model,'rxn10561_c0',...
     '(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
 
 %%%%%%%%%%%%%%%%%%%
