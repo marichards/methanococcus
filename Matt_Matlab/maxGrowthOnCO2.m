@@ -36,4 +36,10 @@ fprintf('%0.2f CO2 + %0.2f H2 --> %0.2f H2O + CH4\n\n',-solution.x(co2_idx)/solu
 fprintf('Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4\n')
 fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx))
 
+%Find the ATP reaction index
+[~,atp_idx] = intersect(model.rxns,'rxn08173_c0');
+%Print the ATP yield coefficient (ATP per CH4)
+fprintf('Expected ATP Yield: 0.5\n')
+fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
+
 end

@@ -192,11 +192,11 @@ model = changeGeneAssociation(model,'rxn00171_c0','mmp1423');
 
 %Associate the gene 'mmp0391 or mmp1527' with reaction 'rxn00260_c0'
 model = changeGeneAssociation(model,'rxn00260_c0',...
-'(mmp1396 or mmp1216 or mmp1072 or mmp0391 or mmp1527');
+'(mmp1396 or mmp1216 or mmp1072 or mmp0391 or mmp1527)');
 
 %Associate the gene '0082 or mmp0081 or mmp0080' with reaction 'rxn00085_c0'
 model = changeGeneAssociation(model,'rxn00085_c0',...
-    '(mmp0496 or mmp0082 or mmp0081 or mmp0080');
+    '(mmp0496 or mmp0082 or mmp0081 or mmp0080)');
 
 %Add gene mmp1259 and acossiated with rxn02269_c0
 model = changeGeneAssociation(model,'rxn02269_c0','mmp1259');
@@ -463,6 +463,12 @@ model.metCharge(end-1)=-1;
 %    'S-2-(indol-3-yl)acetyl-CoA_c0'
 model.metCharge(end)=-3;
 
+%%%%%%%%%%%%%%%%%%%
+%8/27/2014 Changes
+%%%%%%%%%%%%%%%%%%%
+
+%Take out methanophenazine reaction, it doesn't belong here
+model = removeRxns(model,'rxn03126_c0');
     
     
     
