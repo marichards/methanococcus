@@ -389,7 +389,7 @@ model = changeGeneAssociation(model,'Eha',...
 [~,idx] = intersect(model.rxns,'Eha');
 name = model.rxnNames{idx};
 model = addReaction(model,{'Eha',name},...
-    'Fdox*1_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + 2.000000 Na_c0');
+    'Fdox*1_c0 + 2.000000 Na_e0 + H2_c0 <=>	2.000000 H_c0 + Fdred*1_c0 + 2.000000 Na_c0');
 model = addReaction(model,{'HdrABC','Heterodisulfide reductase'},...
     'Fdox*1_c0 + CoM-S-S-CoB_c0 + 2.000000 H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + CoM_c0 + HTP_c0'); 
 
@@ -401,7 +401,7 @@ model = addReaction(model,{'rxn11938_c0',name},...
 
 %Add EhB, indolepyruvate oxidoreductase with new specific ferredoxin; both are dead for now
 model = addReaction(model,'Ehb',...
-    'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 ->	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
+    'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 <=>	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
 model = addReaction(model,{'rxn10561_c0','Indolepyruvate ferredoxin oxidoreductase'},...
     'Indole-3-pyruvate_c0 + Fdox*2_c0 + CoA_c0 <=> S-2-(indol-3-yl)acetyl-CoA_c0 + CO2_c0 + Fdred*2_c0 + H_c0');
 %Give the CODH, rxn05938, and rxn05939 the same ferredoxin
@@ -471,7 +471,93 @@ model.metCharge(end)=-3;
 model = removeRxns(model,'rxn03126_c0');
     
     
-    
-    
-    
-    
+%%%%%%%%%%%%%%%%%%%
+%8/27/2014 Changes
+%%%%%%%%%%%%%%%%%%%   
+
+%Add in the 27 genes the way I THINK they should be, just confirm it later
+%Add the Vhc and Vhu genes to Hdr
+%model = changeGeneAssociation(model,'HdrABC',...
+%    '((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0821 and mmp0822 and mmp0823 and mmp0824) or (mmp1692 and mmp1693 and mmp1694 and mmp1695 and mmp1696))');
+%Add mmp1556-1557 to rxn03127_c0 
+%model = changeGeneAssociation(model,'rxn03127_c0',...
+%    'mmp1555 or mmp1556 or mmp1557 or mmp1558 or mmp1559');
+%
+%%%%%%%%%%%%%%%%%%%
+%This section was hasty...don't do it now
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+%9/4/2014 Changes
+%%%%%%%%%%%%%%%%%%%   
+
+%Make changes from John's spreadsheet corrections
+%Catabolic
+%Change genes of rxn11938_c0
+model = changeGeneAssociation(model,'rxn11938_c0','(mmp1244 and mmp1245 and mmp1246 and mmp1247 and mmp1248 and (mmp1249 or mmp0070)) or (mmp0508 and mmp0509 and mmp0510 and (mmp0511 or mmp0512))');
+%Change genes of rxn03020_c0
+model = changeGeneAssociation(model,'rxn03020_c0','mmp1560 and mmp1561 and mmp1562 and mmp1563 and mmp1564 and mmp1565 and mp1566 and mmp1567');
+%Change genes of rxn03127_c0
+model = changeGeneAssociation(model,'rxn03127_c0','(mmp1555 and mmp1559 and mmp1558)');
+%Change genes of HdrABC
+model = changeGeneAssociation(model,'HdrABC','((mmp0825 and mmp0821 and mmp0822 and mmp0823 and mmp0824) or (mmp1697 and mmp1692 and mmp1693 and mmp1694 and mmp1695 and mmp1696)) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))');
+%Change genes of rxn06299_c0
+model = changeGeneAssociation(model,'rxn06299_c0','(mmp1382 and mmp1383 and mmp1384 and mmp1385) or (mmp0817 and mmp0818 and mmp0819 and mmp0820)');
+%Changed Eha and Ehb to reversible earlier 
+%%%%%%%%
+%Change formula for rxn03079_c0 to take out H2...may imbalance the mass
+[~,idx] = intersect(model.rxns,'rxn03079_c0');
+name = model.rxnNames{idx};
+model = addReaction(model,{'rxn03079_c0',name},...
+'H_c0 + Coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> Reduced_coenzyme_F420_c0 + 5_10-Methenyltetrahydromethanopterin_c0');
+%Change ATP synthase from H+ to Na+ by removing the reaction 8173 and
+%putting in my own Na+ one
+model = removeRxns(model,'rxn08173_c0');
+model = addReaction(model,{'ATPS','ATP synthase:Sodium utilizing'},...
+    'Phosphate_c0 + ADP_c0 + 4 Na_e0 <=> 4 Na_c0 + H2O_c0 + ATP_c0');
+%Give it the gene associations from the previous synthase
+model = changeGeneAssociation(model,'ATPS',...
+    'mmp1038 and mmp1039 and mmp1040 and mmp1041 and mmp1042 and mmp1043 and mmp1044 and mmp1045 and mmp1046');
+%Change Na+ and H+ antiporter stoich to 2 protons and change genes
+[~,idx] = intersect(model.rxns,'rxn05209_c0');
+name = model.rxnNames{idx};
+model = addReaction(model,{'rxn05209_c0',name},...
+    '2 H_c0 + Na_e0  <=> 2 H_e0 + Na_c0');
+model = changeGeneAssociation(model,'rxn05938_c0',...
+    'mmp0864 or mmp0679 or mmp0587 or mmp0707');
+%Remove the rxn00371_c0 (Formate w/NAD)
+%model = removeRxns(model,'rxn00371_c0');
+%Add the Formate dehydrogenase 
+model = addReaction(model,{'Fdh','Formate dehydrogenase'},...
+    'Formate_c0 + Coenzyme_F420_c0  <=> CO2_c0 + Reduced_coenzyme_F420_c0');
+model = changeGeneAssociation(model,'Fdh','(mmp0138 and mmp0139) or (mmp1297 and mmp1298)');
+
+%Add the Formate:Hdr
+model = addReaction(model,{'Hdr_formate','Formate-utilizing heterodisulfide reductase'},...
+    'CoM-S-S-CoB_c0 + 2 Formate_c0 + Fdox*1_c0 -> 2 H_c0 + CoM_c0 + HTP_c0 + Fdred*1_c0');
+model = changeGeneAssociation(model,'Hdr_formate','((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298))');
+
+
+%Biosynthesis reactions
+%Add Malate reaction (NADP version)
+model = addReaction(model,{'rxn00249_c0','(S)-Malate:NADP+ oxidoreductase'},...
+    'L-Malate_c0 + NADP_c0  <=> H_c0 + Oxaloacetate_c0 + NADPH_c0');
+%Add Genes for it
+model = changeGeneAssociation(model,'rxn00249_c0','mmp0645');
+%Add genes for rxn0175 and rxn05938
+model = changeGeneAssociation(model,'rxn00175_c0','mmp0148');
+model = changeGeneAssociation(model,'rxn05938_c0',...
+    '(mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506)');
+%Remove rxn 00288 and replace with the fumarate reaction
+%model = removeRxns(model,'rxn00288_c0');
+model = addReaction(model,{'SuccOR','Succinate oxidoreductase'},...
+    'Fumarate_c0 + CoM_c0 + HTP_c0  -> Succinate_c0 + CoM-S-S-CoB_c0');
+%Add genes for SuccOR
+model = changeGeneAssociation(model,'SuccOR','mmp1277 and mmp1067');
+%Change genes for 05939 and 00085
+model = changeGeneAssociation(model,'rxn05939_c0','mmp1687 and mmp1316 and mmp0003 and mmp1315');
+model = changeGeneAssociation(model,'rxn00085_c0','mmp0082 and mmp0081 and mmp0080');
+
+%Making it work: turn off ability to bring in protons from outside that can
+%artificially pump sodium and make ATP
+model = changeRxnBounds(model,'EX_cpd00067_e0',0,'l');
