@@ -18,7 +18,7 @@ model=M_mar;
 %5/09/2014
 %%%%%%%%%%%%%%%%%%
 %Remove the 'Unknown' and 'fig' genes
-model=removeGene(model,'Unknown');
+%model=removeGene(model,'Unknown');
 model=removeGene(model,'fig');
 
 %Align all gene names with the convention of 'mmp#####'
