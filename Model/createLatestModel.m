@@ -514,7 +514,7 @@ model = addReaction(model,{'rxn03079_c0',name},...
 %putting in my own Na+ one
 model = removeRxns(model,'rxn08173_c0');
 model = addReaction(model,{'ATPS','ATP synthase:Sodium utilizing'},...
-    'Phosphate_c0 + ADP_c0 + 4 Na_e0 <=> 4 Na_c0 + H2O_c0 + ATP_c0');
+    'Phosphate_c0 + ADP_c0 + 4 Na_e0 + H_c0 <=> 4 Na_c0 + H2O_c0 + ATP_c0');
 %Give it the gene associations from the previous synthase
 model = changeGeneAssociation(model,'ATPS',...
     'mmp1038 and mmp1039 and mmp1040 and mmp1041 and mmp1042 and mmp1043 and mmp1044 and mmp1045 and mmp1046');
@@ -529,12 +529,12 @@ model = changeGeneAssociation(model,'rxn05938_c0',...
 %model = removeRxns(model,'rxn00371_c0');
 %Add the Formate dehydrogenase 
 model = addReaction(model,{'Fdh','Formate dehydrogenase'},...
-    'Formate_c0 + Coenzyme_F420_c0  <=> CO2_c0 + Reduced_coenzyme_F420_c0');
+    'Formate_c0 + Coenzyme_F420_c0 + H_c0 <=> CO2_c0 + Reduced_coenzyme_F420_c0');
 model = changeGeneAssociation(model,'Fdh','(mmp0138 and mmp0139) or (mmp1297 and mmp1298)');
 
 %Add the Formate:Hdr
 model = addReaction(model,{'Hdr_formate','Formate-utilizing heterodisulfide reductase'},...
-    'CoM-S-S-CoB_c0 + 2 Formate_c0 + Fdox*1_c0 -> 2 H_c0 + CoM_c0 + HTP_c0 + Fdred*1_c0');
+    'CoM-S-S-CoB_c0 + 2 Formate_c0 + Fdox*1_c0 -> 2 CO2_c0 + CoM_c0 + HTP_c0 + Fdred*1_c0');
 model = changeGeneAssociation(model,'Hdr_formate','((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298))');
 
 
@@ -560,4 +560,28 @@ model = changeGeneAssociation(model,'rxn00085_c0','mmp0082 and mmp0081 and mmp00
 
 %Making it work: turn off ability to bring in protons from outside that can
 %artificially pump sodium and make ATP
-model = changeRxnBounds(model,'EX_cpd00067_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00067_e0',0,'l')
+%Turning this off doesn't make things happy....it would ruin formate!
+
+%%%%%%%%%%%%%%%
+%9/11 Changes
+%%%%%%%%%%%%%%%
+
+%Add alanine exchanges but don't let it uptake alanine for now
+model = addReaction(model,{'EX_cpd00035_e0','EX L-Alanine e0'},...
+    'L-Alanine_e0 	->	');
+model = addReaction(model,{'EX_cpd00117_e0','EX D-Alanine e0'},...
+    'D-Alanine_e0 	->	');
+
+%Add alanine permeases for both, gene mmp1511
+model = addReaction(model,{'rxn05496_c0','L-Alanine permease'},...
+    'L-Alanine_e0 + Na_e0 <=> L-Alanine_c0 + Na_c0');
+model = addReaction(model,{'rxn05494_c0','D-Alanine permease'},...
+    'D-Alanine_e0 + Na_e0 <=> D-Alanine_c0 + Na_c0');
+
+model = changeGeneAssociation(model,'rxn05496_c0','mmp1511');
+model = changeGeneAssociation(model,'rxn05494_c0','mmp1511');
+
+%Remove the glutamate dehydrogenase and force flux through GOGAT cycle
+model = removeRxns(model,'rxn00184_c0');
+

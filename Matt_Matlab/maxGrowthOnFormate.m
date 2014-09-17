@@ -16,6 +16,9 @@ model = changeRxnBounds(model,'EX_cpd00047_e0',-10,'l');
 [~,ch4_idx] = intersect(model.rxns,'Ex_cpd01024_c0');
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
 [~,form_idx] = intersect(model.rxns,'EX_cpd00047_e0');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
+[~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
 
 %Solve for maximum biomass
 solution = optimizeCbModel(model,[],'one');
@@ -30,6 +33,10 @@ fprintf('CO2 flux: %f\n',solution.x(co2_idx))
 fprintf('H2 flux: %f\n',solution.x(h2_idx))
 fprintf('H2O flux: %f\n',solution.x(h2o_idx))
 fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('Acetate flux: %f\n',solution.x(ac_idx))
+
 
 %Overall reaction: 4 COOH- + 4 H+ -> CH4 + 3 CO2 + 2 H2O
 fprintf('\nOverall theoretical rxn: 4 Formate + 4 H+ -> CH4 + 3 CO2 + 2 H2O\n\n')
