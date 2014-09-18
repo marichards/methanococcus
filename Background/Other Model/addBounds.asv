@@ -1,0 +1,12 @@
+function model = addBounds(model)
+
+%For all reactions that are reversible, make the bounds -1000 and 1000
+%For all irreversible reactions, make the bounds 0 and 1000
+
+%Loop through the reactions
+for i = 1:length(model.rxns)
+    
+    %Make the UB 
+    %Look at the model.rev value
+    %If it's 1, then make the lower bound -1000
+    %

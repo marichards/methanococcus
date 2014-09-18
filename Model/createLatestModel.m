@@ -18,7 +18,7 @@ model=M_mar;
 %5/09/2014
 %%%%%%%%%%%%%%%%%%
 %Remove the 'Unknown' and 'fig' genes
-%model=removeGene(model,'Unknown');
+model=removeGene(model,'Unknown');
 model=removeGene(model,'fig');
 
 %Align all gene names with the convention of 'mmp#####'
@@ -499,7 +499,7 @@ model = removeRxns(model,'rxn03126_c0');
 %Change genes of rxn11938_c0
 model = changeGeneAssociation(model,'rxn11938_c0','(mmp1244 and mmp1245 and mmp1246 and mmp1247 and mmp1248 and (mmp1249 or mmp0070)) or (mmp0508 and mmp0509 and mmp0510 and (mmp0511 or mmp0512))');
 %Change genes of rxn03020_c0
-model = changeGeneAssociation(model,'rxn03020_c0','mmp1560 and mmp1561 and mmp1562 and mmp1563 and mmp1564 and mmp1565 and mp1566 and mmp1567');
+model = changeGeneAssociation(model,'rxn03020_c0','mmp1560 and mmp1561 and mmp1562 and mmp1563 and mmp1564 and mmp1565 and mmp1566 and mmp1567');
 %Change genes of rxn03127_c0
 model = changeGeneAssociation(model,'rxn03127_c0','(mmp1555 and mmp1559 and mmp1558)');
 %Change genes of HdrABC
@@ -577,13 +577,13 @@ model = addReaction(model,{'EX_cpd00117_e0','EX D-Alanine e0'},...
     'D-Alanine_e0 	->	');
 
 %Add alanine permeases for both, gene mmp1511
-model = addReaction(model,{'rxn05496_c0','L-Alanine permease'},...
+model = addReaction(model,{'rxn05215_c0','L-Alanine permease'},...
     'L-Alanine_e0 + Na_e0 <=> L-Alanine_c0 + Na_c0');
-model = addReaction(model,{'rxn05494_c0','D-Alanine permease'},...
+model = addReaction(model,{'rxn13660_c0','D-Alanine permease'},...
     'D-Alanine_e0 + Na_e0 <=> D-Alanine_c0 + Na_c0');
 
-model = changeGeneAssociation(model,'rxn05496_c0','mmp1511');
-model = changeGeneAssociation(model,'rxn05494_c0','mmp1511');
+model = changeGeneAssociation(model,'rxn05215_c0','mmp1511');
+model = changeGeneAssociation(model,'rxn13660_c0','mmp1511');
 
 %Remove the glutamate dehydrogenase and force flux through GOGAT cycle
 model = removeRxns(model,'rxn00184_c0');
