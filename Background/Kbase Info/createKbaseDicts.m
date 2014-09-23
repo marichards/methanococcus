@@ -51,3 +51,21 @@ reactions.ECs = txt;
 %These are missing 17, 1 at the top, 16 at the bottom
 txt = [{''};txt;{'';'';'';'';'';'';'';'';'';'';'';'';'';'';'';''}];
 reactions.keggIDs = txt;
+
+%%%%
+%Recall that the model has the e0 and c0 prefixes...add those in to
+%compounds
+compounds.names_c0 = {};
+compounds.names_e0={};
+for i = 1:length(compounds.seedIDs)
+compounds.names_c0 = [compounds.names_c0;sprintf('%s_c0',compounds.names{i})];
+end
+for i = 1:length(compounds.seedIDs)
+compounds.names_e0 = [compounds.names_e0;sprintf('%s_e0',compounds.names{i})];
+end
+
+%Now add them to reactions
+reactions.seedIDs_w_c0 = {};
+for i = 1:length(reactions.seedIDs)
+reactions.seedIDs_w_c0 = [reactions.seedIDs_w_c0;sprintf('%s_c0',reactions.seedIDs{i})];
+end

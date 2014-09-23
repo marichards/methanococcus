@@ -588,3 +588,12 @@ model = changeGeneAssociation(model,'rxn13660_c0','mmp1511');
 %Remove the glutamate dehydrogenase and force flux through GOGAT cycle
 model = removeRxns(model,'rxn00184_c0');
 
+
+
+
+
+%%%%%%%%%%%%%
+%9/19/2014
+%%%%%%%%%%%%%
+%Last step should always be to add the kbase aliases:
+model = addKbaseAliases(model);

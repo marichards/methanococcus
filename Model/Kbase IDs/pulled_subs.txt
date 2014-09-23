@@ -1,0 +1,440 @@
+rxn00001_c0
+	HPr catabolite repression system
+rxn00011_c0
+	Dehydrogenase complexes|Methionine Degradation|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00029_c0
+	Experimental tye|Zinc regulated enzymes|Heme and Siroheme Biosynthesis
+rxn00048_c0
+	riboflavin to FAD|Riboflavin, FMN and FAD metabolism
+rxn00056_c0
+	Oxidative stress
+rxn00060_c0
+	Experimental tye|Heme and Siroheme Biosynthesis
+rxn00062_c0
+	Experimental tye|Heme and Siroheme Biosynthesis
+rxn00065_c0
+	cAMP signaling in bacteria
+rxn00077_c0
+	NAD and NADP cofactor biosynthesis global
+rxn00085_c0
+	Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis|Ammonia assimilation
+rxn00086_c0
+	Glutathione: Redox cycle
+rxn00100_c0
+	Coenzyme A Biosynthesis
+rxn00102_c0
+	Cyanate hydrolysis|Zinc regulated enzymes|CO2 uptake, carboxysome|Carboxysome|Bacterial cyanide production and tolerance mechanisms
+rxn00105_c0
+	NAD and NADP cofactor biosynthesis global|NAD regulation
+rxn00117_c0
+	Purine conversions|pyrimidine conversions
+rxn00119_c0
+	Purine conversions|pyrimidine conversions
+rxn00122_c0
+	riboflavin to FAD|Riboflavin, FMN and FAD metabolism
+rxn00126_c0
+	Methionine Biosynthesis
+rxn00127_c0
+	Polyamine Metabolism
+rxn00134_c0
+	Purine conversions
+rxn00137_c0
+	Inorganic Sulfur Assimilation
+rxn00138_c0
+	NAD and NADP cofactor biosynthesis global|NAD regulation
+rxn00139_c0
+	cAMP signaling in bacteria|Stringent Response, (p)ppGpp metabolism|Purine conversions
+rxn00141_c0
+	Methionine Biosynthesis|Methionine Degradation
+rxn00147_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Pyruvate metabolism I: anaplerotic reactions, PEP|Glycolysis and Gluconeogenesis
+rxn00148_c0
+	Glycerate metabolism|Glycolysis and Gluconeogenesis, including Archaeal enzymes|Pyruvate metabolism I: anaplerotic reactions, PEP|Glycolysis and Gluconeogenesis|Fermentations: Mixed acid|Entner-Doudoroff Pathway
+rxn00157_c0
+	Formate hydrogenase|Fermentations: Mixed acid|Threonine anaerobic catabolism gene cluster
+rxn00171_c0
+	Fermentations: Lactate|Cinnamic Acid Degradation|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate|Biphenyl Degradation|Acetone Butanol Ethanol Synthesis|Central meta-cleavage pathway of aromatic compound degradation|Fermentations: Mixed acid|Tryptophan catabolism
+rxn00172_c0
+	Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00175_c0
+	Protein Acetylation and Deacetylation in Bacteria|Methylcitrate cycle|Ketoisovalerate oxidoreductase|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00178_c0
+	Isobutyryl-CoA to Propionyl-CoA Module|Isoleucine degradation|Branched chain amino acid degradation regulons
+rxn00187_c0
+	Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00192_c0
+	Arginine Biosynthesis extended|Arginine Biosynthesis
+rxn00193_c0
+	Peptidoglycan Biosynthesis|Poly-gamma-glutamate biosynthesis|Peptidoglycan Biosynthesis 2|Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00198_c0
+	Peptidoglycan Biosynthesis|Poly-gamma-glutamate biosynthesis|Peptidoglycan Biosynthesis 2|Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00211_c0
+	Lipid A-Ara4N pathway ( Polymyxin resistance )|Streptococcal Hyaluronic Acid Capsule|Sucrose Metabolism|Teichuronic acid biosynthesis
+rxn00213_c0
+	Streptococcal Hyaluronic Acid Capsule|Sucrose Metabolism
+rxn00214_c0
+	N-linked Glycosylation in Bacteria|Lactose and Galactose Uptake and Utilization|Lacto-N-Biose I and Galacto-N-Biose Metabolic Pathway|Rhamnose containing glycans|linker unit-arabinogalactan synthesis
+rxn00224_c0
+	Biogenesis of c-type cytochromes|Experimental tye|Heme and Siroheme Biosynthesis
+rxn00225_c0
+	Fermentations: Lactate|Ethanolamine utilization|Fermentations: Mixed acid|Acetyl-CoA pathway of CO2 fixation|Threonine anaerobic catabolism gene cluster|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00237_c0
+	Purine conversions|pyrimidine conversions
+rxn00245_c0
+	Purine conversions|pyrimidine conversions
+rxn00248_c0
+	Glyoxylate bypass
+rxn00249_c0
+	Glyoxylate bypass
+rxn00250_c0
+	Pyruvate metabolism I: anaplerotic reactions, PEP
+rxn00256_c0
+	Glyoxylate bypass|Glyoxylate Synthesis
+rxn00258_c0
+	Glyoxylate bypass|Glyoxylate Synthesis
+rxn00260_c0
+	Threonine and Homoserine Biosynthesis|Phenylalanine synthesis|Proline, 4-hydroxyproline uptake and utilization|Aminotransferases:Aromatic Pathway and More, A work in progress|Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00274_c0
+	Glycine and Serine Utilization|Threonine degradation|Glycine Biosynthesis
+rxn00278_c0
+	Pyruvate Alanine Serine Interconversions
+rxn00283_c0
+	Alanine biosynthesis|Pyruvate Alanine Serine Interconversions
+rxn00285_c0
+	Dehydrogenase complexes|TCA Cycle|Serine-glyoxylate cycle
+rxn00288_c0
+	Succinate dehydrogenase
+rxn00292_c0
+	Vibrio Polysaccharide (VPS) Biosynthesis|CMP-N-acetylneuraminate Biosynthesis|Streptococcus agalactiae virulome|Legionaminic Acid Biosynthesis|Sialic Acid Metabolism
+rxn00293_c0
+	Peptidoglycan Biosynthesis|UDP-N-acetylmuramate from Fructose-6-phosphate Biosynthesis|Peptidoglycan Biosynthesis 2
+rxn00295_c0
+	N-linked Glycosylation in Bacteria|Lactose and Galactose Uptake and Utilization|Lacto-N-Biose I and Galacto-N-Biose Metabolic Pathway|Rhamnose containing glycans|linker unit-arabinogalactan synthesis
+rxn00297_c0
+	Vibrio Polysaccharide (VPS) Biosynthesis|CMP-N-acetylneuraminate Biosynthesis|Streptococcus agalactiae virulome|Legionaminic Acid Biosynthesis|Sialic Acid Metabolism
+rxn00299_c0
+	Pterin metabolism|Methanopterin biosynthesis2|tRNA modification Archaea Henri|Folate Biosynthesis|Queuosine-Archaeosine Biosynthesis|Folate Biosynthesis (Phoenix Copy)|Zinc regulated enzymes|Pterin metabolism 3
+rxn00300_c0
+	Riboflavin, FMN and FAD metabolism|YgfZ
+rxn00302_c0
+	Pterin metabolism|Methanopterin biosynthesis2|tRNA modification Archaea Henri|Folate Biosynthesis|Queuosine-Archaeosine Biosynthesis|Folate Biosynthesis (Phoenix Copy)|Zinc regulated enzymes|Pterin metabolism 3
+rxn00313_c0
+	Lysine Biosynthesis DAP Pathway
+rxn00321_c0
+	Lysine degradation
+rxn00337_c0
+	Lysine Biosynthesis DAP Pathway|Threonine and Homoserine Biosynthesis
+rxn00340_c0
+	Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00346_c0
+	Coenzyme A Biosynthesis
+rxn00350_c0
+	Utilization of glutathione as a sulphur source|Glutathione: Biosynthesis and gamma-glutamyl cycle|Glutathione: gamma-glutamyl cycle|Poly-gamma-glutamate biosynthesis
+rxn00351_c0
+	Glutathione: Biosynthesis and gamma-glutamyl cycle|Heat shock dnaK gene cluster extended|Glutathione: gamma-glutamyl cycle|Glutathione synthesis|Glutaredoxins|Glutathione: Non-redox reactions
+rxn00364_c0
+	pyrimidine conversions
+rxn00371_c0
+	Formate dehydrogenase|Formate hydrogenase|Bacterial cyanide production and tolerance mechanisms
+rxn00379_c0
+	Inorganic Sulfur Assimilation|Sulfate assimilation
+rxn00392_c0
+	riboflavin to FAD|Riboflavin, FMN and FAD metabolism
+rxn00393_c0
+	riboflavin to FAD|Riboflavin, FMN and FAD metabolism
+rxn00405_c0
+	Acid resistance mechanisms|Polyamine Metabolism|Arginine and Ornithine Degradation
+rxn00409_c0
+	Purine conversions|pyrimidine conversions
+rxn00410_c0
+	pyrimidine conversions
+rxn00412_c0
+	pyrimidine conversions
+rxn00414_c0
+	De Novo Pyrimidine Synthesis|Macromolecular synthesis operon
+rxn00416_c0
+	Cyanophycin Metabolism|Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+rxn00420_c0
+	Glycine and Serine Utilization|Serine Biosynthesis
+rxn00438_c0
+	Thiamin biosynthesis
+rxn00459_c0
+	Dehydrogenase complexes|Glycolysis and Gluconeogenesis, including Archaeal enzymes|Glycolysis and Gluconeogenesis|Entner-Doudoroff Pathway|Serine-glyoxylate cycle
+rxn00461_c0
+	Peptidoglycan Biosynthesis|UDP-N-acetylmuramate from Fructose-6-phosphate Biosynthesis|Peptidoglycan Biosynthesis 2
+rxn00469_c0
+	Arginine Biosynthesis extended|Arginine Biosynthesis
+rxn00470_c0
+	Polyamine Metabolism|Arginine and Ornithine Degradation
+rxn00471_c0
+	Threonine degradation|Proline, 4-hydroxyproline uptake and utilization|Arginine and Ornithine Degradation
+rxn00474_c0
+	Auxin biosynthesis|Tryptophan synthesis
+rxn00493_c0
+	Aminotransferases:Aromatic Pathway and More, A work in progress|Histidine Biosynthesis|Homogentisate pathway of aromatic compound degradation
+rxn00515_c0
+	Purine conversions|pyrimidine conversions
+rxn00527_c0
+	Aminotransferases:Aromatic Pathway and More, A work in progress|Histidine Biosynthesis|Homogentisate pathway of aromatic compound degradation
+rxn00541_c0
+	Threonine degradation|Glycine Biosynthesis
+rxn00543_c0
+	Fermentations: Lactate|Acetone Butanol Ethanol Synthesis|Glycerolipid and Glycerophospholipid Metabolism in Bacteria|Fermentations: Mixed acid
+rxn00549_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Calvin-Benson cycle|Glycolysis and Gluconeogenesis
+rxn00555_c0
+	UDP-N-acetylmuramate from Fructose-6-phosphate Biosynthesis|Formaldehyde assimilation: Ribulose monophosphate pathway|Sialic Acid Metabolism
+rxn00558_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Formaldehyde assimilation: Ribulose monophosphate pathway|Glycolysis and Gluconeogenesis|Sucrose Metabolism
+rxn00611_c0
+	Glycerolipid and Glycerophospholipid Metabolism in Bacteria|Glutaredoxins|Glycerol and Glycerol-3-phosphate Uptake and Utilization
+rxn00615_c0
+	MLST|Glycerolipid and Glycerophospholipid Metabolism in Bacteria|Dihydroxyacetone kinases|Glycerol and Glycerol-3-phosphate Uptake and Utilization
+rxn00623_c0
+	Inorganic Sulfur Assimilation|Sulfate assimilation|Cysteine Biosynthesis
+rxn00646_c0
+	Glutathione: Biosynthesis and gamma-glutamyl cycle|Glutathione: gamma-glutamyl cycle|Glutathione synthesis|Cyanophycin Metabolism|Glutathione: Non-redox reactions
+rxn00650_c0
+	Recycling of Peptidoglycan Amino Acids|Protein degradation
+rxn00669_c0
+	Protein Acetylation and Deacetylation in Bacteria|Methylcitrate cycle|Propionate-CoA to Succinate Module
+rxn00675_c0
+	Protein Acetylation and Deacetylation in Bacteria|Methylcitrate cycle|Ketoisovalerate oxidoreductase|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00686_c0
+	Folate Biosynthesis|Folate Biosynthesis (Phoenix Copy)
+rxn00692_c0
+	Glycine and Serine Utilization|Serine Biosynthesis|Glycine cleavage system|Serine-glyoxylate cycle|Glycine Biosynthesis|Folate Biosynthesis|Flavohaemoglobin|Photorespiration (oxidative C2 cycle)|Folate Biosynthesis (Phoenix Copy)|5-FCL-like protein
+rxn00693_c0
+	Methionine Biosynthesis|Carbon monoxide induced hydrogenase
+rxn00707_c0
+	pyrimidine conversions
+rxn00710_c0
+	De Novo Pyrimidine Synthesis
+rxn00711_c0
+	De Novo Pyrimidine Synthesis|pyrimidine conversions
+rxn00714_c0
+	pyrimidine conversions
+rxn00717_c0
+	Creatine and Creatinine Degradation|pyrimidine conversions
+rxn00726_c0
+	Pseudomonas quinolone signal PQS|Chorismate: Intermediate for synthesis of PAPA antibiotics, PABA, anthranilate, 3-hydroxyanthranilate and more.|Tryptophan synthesis
+rxn00727_c0
+	Pseudomonas quinolone signal PQS|Chorismate: Intermediate for synthesis of PAPA antibiotics, PABA, anthranilate, 3-hydroxyanthranilate and more.|Tryptophan synthesis
+rxn00735_c0
+	Pseudomonas quinolone signal PQS|Chorismate: Intermediate for synthesis of PAPA antibiotics, PABA, anthranilate, 3-hydroxyanthranilate and more.|Tryptophan synthesis
+rxn00737_c0
+	Branched-Chain Amino Acid Biosynthesis
+rxn00747_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Calvin-Benson cycle|MLST|Dihydroxyacetone kinases|Glycolysis and Gluconeogenesis
+rxn00763_c0
+	Fermentations: Lactate|Acetone Butanol Ethanol Synthesis|Glycerolipid and Glycerophospholipid Metabolism in Bacteria|Fermentations: Mixed acid
+rxn00770_c0
+	Pentose phosphate pathway|YgfZ|De Novo Purine Biosynthesis
+rxn00775_c0
+	NAD and NADP cofactor biosynthesis global|Nudix proteins (nucleoside triphosphate hydrolases)
+rxn00776_c0
+	Ribosome biogenesis bacterial|tRNA modification Bacteria|rRNA modification Bacteria
+rxn00777_c0
+	Calvin-Benson cycle|Pentose phosphate pathway|D-ribose utilization|Dihydroxyacetone kinases
+rxn00781_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Calvin-Benson cycle
+rxn00782_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Calvin-Benson cycle
+rxn00785_c0
+	Calvin-Benson cycle|Pentose phosphate pathway
+rxn00786_c0
+	Hexitol degradation|Calvin-Benson cycle|Formaldehyde assimilation: Ribulose monophosphate pathway|Glycolysis and Gluconeogenesis
+rxn00789_c0
+	Histidine Biosynthesis
+rxn00790_c0
+	YgfZ|De Novo Purine Biosynthesis
+rxn00791_c0
+	Auxin biosynthesis|Tryptophan synthesis
+rxn00799_c0
+	TCA Cycle
+rxn00800_c0
+	De Novo Purine Biosynthesis|Purine conversions
+rxn00802_c0
+	Arginine Biosynthesis extended|Arginine Biosynthesis
+rxn00806_c0
+	Alanine biosynthesis|Leucine Biosynthesis|Isoleucine degradation|Aminotransferases:Aromatic Pathway and More, A work in progress|Pyruvate Alanine Serine Interconversions|Dehydrogenase complexes|Branched-Chain Amino Acid Biosynthesis|Leucine Degradation and HMG-CoA Metabolism|Methionine Salvage|Branched chain amino acid degradation regulons|Valine degradation
+rxn00829_c0
+	Archaeal lipids|Mevalonate Branch of Isoprenoid Biosynthesis|Isoprenoid Biosynthesis
+rxn00830_c0
+	polyprenyl synthesis|Isoprenoid Biosynthesis: Interconversions|Archaeal lipids|Isoprenoid Biosynthesis
+rxn00832_c0
+	De Novo Purine Biosynthesis
+rxn00833_c0
+	De Novo Purine Biosynthesis
+rxn00834_c0
+	Purine conversions
+rxn00835_c0
+	Purine conversions
+rxn00838_c0
+	Histidine Biosynthesis|Purine conversions
+rxn00839_c0
+	Purine conversions|pyrimidine conversions
+rxn00851_c0
+	Peptidoglycan Biosynthesis|Peptidoglycan Biosynthesis 2
+rxn00858_c0
+	Polyamine Metabolism|Arginine and Ornithine Degradation
+rxn00863_c0
+	Histidine Biosynthesis
+rxn00898_c0
+	Branched-Chain Amino Acid Biosynthesis
+rxn00902_c0
+	Branched-Chain Amino Acid Biosynthesis|Leucine Biosynthesis
+rxn00903_c0
+	Alanine biosynthesis|Leucine Biosynthesis|Isoleucine degradation|Aminotransferases:Aromatic Pathway and More, A work in progress|Pyruvate Alanine Serine Interconversions|Dehydrogenase complexes|Branched-Chain Amino Acid Biosynthesis|Leucine Degradation and HMG-CoA Metabolism|Methionine Salvage|Branched chain amino acid degradation regulons|Valine degradation
+rxn00912_c0
+	Coenzyme A Biosynthesis
+rxn00914_c0
+	Purine conversions
+rxn00917_c0
+	Staphylococcal pathogenicity islands SaPI|Purine conversions
+rxn00947_c0
+	HMG CoA Synthesis
+rxn00952_c0
+	Sulfate assimilation|Methionine Biosynthesis
+rxn00966_c0
+	Ubiquinone Biosynthesis
+rxn00974_c0
+	TCA Cycle
+rxn00986_c0
+	Protein Acetylation and Deacetylation in Bacteria|Methylcitrate cycle|Ketoisovalerate oxidoreductase|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn00988_c0
+	Leucine Degradation and HMG-CoA Metabolism|Branched chain amino acid degradation regulons|Polyhydroxybutyrate metabolism|Pterin metabolism 3|HMG CoA Synthesis
+rxn01000_c0
+	Phenylalanine and Tyrosine Branches from Chorismate
+rxn01018_c0
+	De Novo Pyrimidine Synthesis
+rxn01019_c0
+	Arginine Deiminase Pathway|Arginine Biosynthesis extended|Arginine Biosynthesis|Arginine and Ornithine Degradation
+rxn01022_c0
+	Methionine Salvage|Menaquinone Biosynthesis via Futalosine
+rxn01025_c0
+	Creatine and Creatinine Degradation|pyrimidine conversions
+rxn01068_c0
+	Threonine degradation|Glycine Biosynthesis
+rxn01069_c0
+	Threonine and Homoserine Biosynthesis
+rxn01100_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Calvin-Benson cycle|YgfZ|Glycolysis and Gluconeogenesis|Entner-Doudoroff Pathway
+rxn01101_c0
+	Glycine and Serine Utilization|Serine Biosynthesis|Pyridoxin (Vitamin B6) Biosynthesis
+rxn01106_c0
+	Glycolysis and Gluconeogenesis, including Archaeal enzymes|Threonine and Homoserine Biosynthesis|Entner-Doudoroff Pathway
+rxn01116_c0
+	Calvin-Benson cycle|2-phosphoglycolate salvage|Pentose phosphate pathway
+rxn01117_c0
+	KDO2-Lipid A biosynthesis
+rxn01200_c0
+	Calvin-Benson cycle|Pentose phosphate pathway
+rxn01207_c0
+	Calvin-Benson cycle|Pentose phosphate pathway
+rxn01208_c0
+	Calvin-Benson cycle|Pentose phosphate pathway
+rxn01213_c0
+	Archaeal lipids
+rxn01219_c0
+	pyrimidine conversions
+rxn01241_c0
+	Dehydrogenase complexes|TCA Cycle|Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+rxn01255_c0
+	Common Pathway For Synthesis of Aromatic Compounds (DAHP synthase to chorismate)|Chorismate Synthesis|YgfZ
+rxn01256_c0
+	Chorismate Synthesis|Phenylalanine synthesis
+rxn01257_c0
+	Folate Biosynthesis|Folate Biosynthesis (Phoenix Copy)|Chorismate: Intermediate for synthesis of PAPA antibiotics, PABA, anthranilate, 3-hydroxyanthranilate and more.|Tryptophan synthesis
+rxn01258_c0
+	Menaquinone and Phylloquinone Biosynthesis|Siderophore enterobactin biosynthesis and ferric enterbactin transport
+rxn01265_c0
+	Redox-dependent regulation of nucleus processes|NAD and NADP cofactor biosynthesis global|NAD regulation
+rxn01268_c0
+	Chorismate Synthesis|Phenylalanine and Tyrosine Branches from Chorismate
+rxn01269_c0
+	Chorismate Synthesis|Phenylalanine and Tyrosine Branches from Chorismate
+rxn01270_c0
+	Aminotransferases:Aromatic Pathway and More, A work in progress|Phenylalanine and Tyrosine Branches from Chorismate
+rxn01300_c0
+	Threonine and Homoserine Biosynthesis|Methionine Biosynthesis
+rxn01301_c0
+	Threonine and Homoserine Biosynthesis|Methionine Biosynthesis
+rxn01302_c0
+	Threonine and Homoserine Biosynthesis|Methionine Biosynthesis
+rxn01304_c0
+	Methionine Biosynthesis
+rxn01313_c0
+	Pterin biosynthesis
+rxn01314_c0
+	Pterin biosynthesis
+rxn01329_c0
+	Alginate metabolism|Mannose Metabolism|Perosamine Synthesis Vibrio
+rxn01332_c0
+	Common Pathway For Synthesis of Aromatic Compounds (DAHP synthase to chorismate)|Chorismate Synthesis
+rxn01333_c0
+	Folate Biosynthesis|Folate Biosynthesis (Phoenix Copy)|Pentose phosphate pathway
+rxn01353_c0
+	Purine conversions|pyrimidine conversions
+rxn01360_c0
+	De Novo Pyrimidine Synthesis|YgfZ
+rxn01362_c0
+	De Novo Pyrimidine Synthesis|YgfZ
+rxn01388_c0
+	Biogenesis of c-type cytochromes|YgfZ|TCA Cycle|Glyoxylate bypass|Homogentisate pathway of aromatic compound degradation|Glyoxylate Synthesis|Propionate-CoA to Succinate Module|Serine-glyoxylate cycle
+rxn01406_c0
+	Polyamine Metabolism
+rxn01434_c0
+	Arginine Biosynthesis extended|Arginine Biosynthesis
+rxn01454_c0
+	Leucine Degradation and HMG-CoA Metabolism|Archaeal lipids|Mevalonate Branch of Isoprenoid Biosynthesis|Ketoisovalerate oxidoreductase|Isoprenoid Biosynthesis
+rxn01465_c0
+	De Novo Pyrimidine Synthesis|Allantoin degradation|YgfZ|Zinc regulated enzymes
+rxn01466_c0
+	Archaeal lipids
+rxn01485_c0
+	UDP-N-acetylmuramate from Fructose-6-phosphate Biosynthesis|Sialic Acid Metabolism
+rxn01486_c0
+	Archaeal lipids|Carotenoids|Polyprenyl Diphosphate Biosynthesis
+rxn01501_c0
+	Leucine Degradation and HMG-CoA Metabolism|Archaeal lipids|Mevalonate Branch of Isoprenoid Biosynthesis|Isoprenoid Biosynthesis
+rxn01512_c0
+	Purine conversions|pyrimidine conversions
+rxn01513_c0
+	pyrimidine conversions
+rxn01519_c0
+	Folate Biosynthesis|Folate Biosynthesis (Phoenix Copy)|Nucleoside triphosphate pyrophosphohydrolase MazG
+rxn01520_c0
+	Folate Biosynthesis|Folate Biosynthesis (Phoenix Copy)|pyrimidine conversions
+rxn01538_c0
+	Thiamin biosynthesis
+rxn01575_c0
+	Alanine biosynthesis|Leucine Biosynthesis|Isoleucine degradation|Aminotransferases:Aromatic Pathway and More, A work in progress|Pyruvate Alanine Serine Interconversions|Dehydrogenase complexes|Branched-Chain Amino Acid Biosynthesis|Leucine Degradation and HMG-CoA Metabolism|Methionine Salvage|Branched chain amino acid degradation regulons|Valine degradation
+rxn01607_c0
+	Archaeal lipids|Mevalonate Branch of Isoprenoid Biosynthesis|Isoprenoid Biosynthesis
+rxn01620_c0
+	L-fucose utilization
+rxn01629_c0
+	Experimental tye|Heme and Siroheme Biosynthesis
+rxn01636_c0
+	Arginine Biosynthesis extended|Arginine Biosynthesis
+rxn01637_c0
+	Arginine Biosynthesis extended
+rxn01643_c0
+	Lysine Biosynthesis DAP Pathway|Threonine and Homoserine Biosynthesis
+rxn01644_c0
+	Lysine Biosynthesis DAP Pathway
+rxn01664_c0
+	Lysine Biosynthesis DAP Pathway
+rxn01673_c0
+	Purine conversions|pyrimidine conversions
+rxn01675_c0
+	dTDP-rhamnose synthesis|Rhamnose containing glycans|linker unit-arabinogalactan synthesis
+rxn01678_c0
+	Purine conversions|pyrimidine conversions
+rxn01682_c0
+	Auxin biosynthesis|Tryptophan synthesis
+rxn01739_c0
+	Cell envelope-associated LytR-CpsA-Psr transcriptional attenuators|Common Pathway For Synthesis of Aromatic Compounds (DAHP synthase to chorismate)|Benzoate transport and degradation cluster|Chorismate Synthesis
+rxn01740_c0
+	Common Pathway For Synthes
