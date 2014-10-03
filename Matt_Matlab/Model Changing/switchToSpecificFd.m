@@ -12,15 +12,17 @@ function model = switchToSpecificFd(model)
 %Commands from before
 %Group EhA, HdrABC, and rxn11938_c0 together by giving them a specific
 %ferredoxin
-%%%%%%%%%%STILL NEED TO SWITCH Eha/Ehb TO Eha%%%%%%%%%%%%%%%%
-[~,idx] = intersect(model.rxns,'Eha');
-name = model.rxnNames{idx};
-model = addReaction(model,{'Eha',name},...
+[~,idx] = intersect(model.rxns,'Eha/Ehb');
+model.rxns{idx} = 'Eha';
+model = addReaction(model,{'Eha','Eha'},...
     'Fdox*1_c0 + 2.000000 Na_e0 + H2_c0 <=>	2.000000 H_c0 + Fdred*1_c0 + 2.000000 Na_c0');
 model = addReaction(model,{'HdrABC','Heterodisulfide reductase'},...
     'Fdox*1_c0 + CoM-S-S-CoB_c0 + 2.000000 H2_c0 ->	2.000000 H_c0 + Fdred*1_c0 + CoM_c0 + HTP_c0'); 
+[~,idx] = intersect(model.rxns,'rxn11938_c0');
+name = model.rxnNames{idx};
 model = addReaction(model,{'rxn11938_c0',name},...
     'H2O_c0 + Fdox*1_c0 + Formylmethanofuran_c0	<=>	H_c0 + CO2_c0 + Fdred*1_c0 + Methanofuran_c0');
+
 %Add EhB, indolepyruvate oxidoreductase with new specific ferredoxin; both are dead for now	
 model = addReaction(model,'Ehb',...
     'Fdox*2_c0 + 2.000000 Na_e0 + H2_c0 <=>	2.000000 H_c0 + Fdred*2_c0 + 2.000000 Na_c0');
@@ -35,6 +37,8 @@ model = addReaction(model,{'CODH',name},...
 name = model.rxnNames{idx};
 model = addReaction(model,{'rxn05938_c0',name},...
     'H_c0 + CO2_c0 + Acetyl-CoA_c0 + Fdred*2_c0 <=>	CoA_c0 + Fdox*2_c0 + Pyruvate_c0');
+[~,idx] = intersect(model.rxns,'rxn05939_c0');
+name = model.rxnNames{idx};
 model = addReaction(model,{'rxn05939_c0','2-oxoglutarate synthase'},...
     'H_c0 + CO2_c0 + Fdred*2_c0 + Succinyl-CoA_c0 	<=>	CoA_c0 + 2-Oxoglutarate_c0 + Fdox*2_c0');
 %Add the Formate:Hdr

@@ -6,8 +6,8 @@ load('gprs_no523_no525.mat')
 %Loop through the reactions, add the appropriate grRules for each
 for i = 1:length(model.rxns)
     
-    %Add the gene association rule
-    model = changeGeneAssociation(model,model.rxns{i},gprs{i});
+    %Add the gene association rule and make it lower case
+    model = changeGeneAssociation(model,model.rxns{i},lower(gprs{i}));
 end
 
 %Add the other reactions too

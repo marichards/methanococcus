@@ -5,6 +5,9 @@ function model = addModelInfo(model)
 %First run the code to add genes
 model = addGenesToModel(model);
 
+%Fix their ATP synthase reaction
+model = addReaction(model,'R76',...
+    'adp + pi + 3 h_e <=> atp + h2o + 3 h');
 %Add bounds
 model = addBounds(model);
 
@@ -18,6 +21,9 @@ model = changeObjective(model,'R571',1);
 [~,rxns] = xlsread('supplementary 1.xls','Reactions','A2:A572');
 [~,ECs] = xlsread('supplementary 1.xls','Reactions','H2:H572');
 [~,rxnNames] = xlsread('supplementary 1.xls','Reactions','B2:B572');
+
+%Add 2 blanks to ECs
+ECs = [ECs;{'';''}];
 
 %Read the metabolite Info in
 [~,mets] = xlsread('supplementary 1.xls','Metabolites','A2:A606');
