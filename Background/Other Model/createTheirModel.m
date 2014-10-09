@@ -8,6 +8,21 @@ function theirs = createTheirModel()
 %F2:571, and ECs in H2:570
 [~,rxnAbrList] = xlsread('supplementary 1.xls','Reactions','A2:A572');
 [~,rxnNameList] = xlsread('supplementary 1.xls','Reactions','B2:B572');
+[~,rxnList] = xlsread('supplementary 1.xls','Reactions','C2:C572');
+
+[~,excRxnList] = xlsread('supplementary 1.xls','exchange reactions',...
+    'A2:A49');
+excNameList = excRxnList;
+[~,excList] = xlsread('supplementary 1.xls','exchange reactions','B2:B49');
+
+%Put them together
+rxnAbrList = [rxnAbrList;excRxnList];
+rxnNameList = [rxnNameList;excNameList];
+rxnList = [rxnList;excList];
+
+%Grab the reactions
+grRuleList = xlsread('supplementary 1.xls','Reactions','D2:D564');
+grRuleList = [grRuleList;{'';'';'';'';'';'';'';''}];
 
 %Exchange Reactions are in the sheet "exchange reactions" with names in
 %A2:49 and formulas in B2:49
@@ -16,29 +31,20 @@ function theirs = createTheirModel()
 %them instead....? Sheet "Metabolites", all 2:606, A is met, B is name, C
 %is formula, E is Kegg ID
 
-%Add minimal media from "Minimal media" sheet
+%Create the model using what we read in
+theirs = createModel(rxnAbrList,rxnNameList,rxnList);%,[],[],[],{},grRuleList);
 
- model = createModel(rxnAbrList,rxnNameList,rxnList,revFlagList,...
-    lowerBoundList,upperBoundList,subSystemList,grRuleList,geneNameList,...
-    systNameList)
+%Add GPRs
+[~,grRuleList] = xlsread('supplementary 1.xls','Reactions','D2:D564');
+grRuleList = [grRuleList];
+for i = 1:length(grRuleList)
+    
+    %Add the gene association rule and make it lower case
+    theirs = changeGeneAssociation(theirs,theirs.rxns{i},lower(grRuleList{i}));
+end
 
-INPUTS
- rxnAbrList            List of names of the new reactions
- rxnNameList           List of names of the new reactions
- rxnList               List of reactions: format: {'A -> B + 2 C'}
-                       If the compartment of a metabolite is not
-                       specified, it is assumed to be cytoplasmic, i.e. [c]
+%Add other info not in the model
+[~,ECs] = xlsread('supplementary 1.xls','Reactions','H2:H572');
+theirs.rxnECNumbers = [ECs;cell(50,1)];
 
-OPTIONAL INPUTS
- revFlagList           List of reversibility flag (opt, default = 1)
- lowerBoundList        List of lower bound (Default = 0 or -vMax)
- upperBoundList        List of upper bound (Default = vMax)
- subSystemList         List of subsystem (Default = '')
- grRuleList            List of gene-reaction rule in boolean format (and/or allowed)
-                       (Default = '');
- geneNameList          List of gene names (used only for translation
-                       from common gene names to systematic gene names)
- systNameList          List of systematic names
-
-OUTPUT
- model                 COBRA model structure
+%[~,metKEGGID] = xlsread('supplementary 1.xls','Metabolites','E2:E606');
