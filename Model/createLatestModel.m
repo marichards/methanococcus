@@ -590,14 +590,15 @@ model = changeRxnBounds(model,{'rxn01301_c0','rxn01302_c0'},0,'u');
 %Take out the terin reactions
 model = removeRxns(model,{'rxn01313_c0','rxn01314_c0'});
 %Take out the aspartate reactions and replace them with aspartate dehydrogenase
+%Don't put in the dehydrogenase
 %(rxns 04952 and 04953)
-model = addReaction(model,{'rxn04952_c0','L-aspartate:NAD+ oxidoreductase (deaminating)'},...
-    'H2O_c0 + NAD_c0 + L-Aspartate_c0 <=> Oxaloacetate_c0 + NH3_c0 + NADH_c0 + H_c0');
-model = addReaction(model,{'rxn04953_c0','L-aspartate:NADP+ oxidoreductase (deaminating)'},...
-    'H2O_c0 + NADP_c0 + L-Aspartate_c0 <=> Oxaloacetate_c0 + NH3_c0 + NADPH_c0 + H_c0');
-model = changeRxnBounds(model,{'rxn04952_c0','rxn04953_c0'},0,'u');
-model = changeGeneAssociation(model,'rxn04952_c0','mmp0737');
-model = changeGeneAssociation(model,'rxn04953_c0','mmp0737');
+%model = addReaction(model,{'rxn04952_c0','L-aspartate:NAD+ oxidoreductase (deaminating)'},...
+%    'H2O_c0 + NAD_c0 + L-Aspartate_c0 <=> Oxaloacetate_c0 + NH3_c0 + NADH_c0 + H_c0');
+%model = addReaction(model,{'rxn04953_c0','L-aspartate:NADP+ oxidoreductase (deaminating)'},...
+%    'H2O_c0 + NADP_c0 + L-Aspartate_c0 <=> Oxaloacetate_c0 + NH3_c0 + NADPH_c0 + H_c0');
+%model = changeRxnBounds(model,{'rxn04952_c0','rxn04953_c0'},0,'u');
+%model = changeGeneAssociation(model,'rxn04952_c0','mmp0737');
+%model = changeGeneAssociation(model,'rxn04953_c0','mmp0737');
 model = removeRxns(model,{'rxn05117_c0','rxn05119_c0'});
 
 %%%%%%%%%%%%%
