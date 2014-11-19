@@ -1,0 +1,41 @@
+Notes on HDR genes:
+
+H2 Form:
+mmp0825 and mmp1697 both look like HdrA
+mmp0821 is vhcD
+mmp0822 is vhcG
+mmp0823 is vhcA
+mmp0824 is vhcB
+
+mmp1692 is vhuB
+mmp1693 is vhuU
+mmp1694 is vhuA
+mmp1695 is vhuG
+mmp1696 is vhuD
+
+Formate form:
+mmp0825 and mmp1697 both look like HdrA
+mmp1053 is hdrB2
+mmp1054 is hdrC2
+mmp1154 is hdrC1
+mmp1155 is hdrB1
+mmp0138 is fdhA
+mmp0139 is fdhB
+mmp1297 is fdhB also
+mmp1298 is fdhA also
+
+Current rules:
+FOR H2
+((mmp0825 and mmp0821 and mmp0822 and mmp0823 and mmp0824) or (mmp1697 and mmp1692 and mmp1693 and mmp1694 and mmp1695 and mmp1696)) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))
+
+All of vhc and one form of hdrA OR all of vhu and the other form of hdrA, PLUS one of the hdrBC forms
+
+FOR FORMATE
+((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298))
+
+Either form of hdrA plus either form of hdrBC, plus one of the two fdhABs
+
+***Resulting Idea: knockout vhuD, vhcD, and then both. See if they cause death...
+-->These 2 are prospectively the electron shuttlers. 
+
+Question: What happens if you grow in absence of selenocysteine? Which one is prevalent in expression?
