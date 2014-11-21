@@ -204,10 +204,10 @@ model = changeGeneAssociation(model,'rxn02269_c0','mmp1259');
 %%%
 %5/15 Changes from Me:
 %Add CO-dehydrogenase
-model = addReaction(model,{'CODH','Carbon monoxide dehydrogenase'},...
+model = addReaction(model,{'CODH_ACS','Carbon monoxide dehydrogenase'},...
     'CO2_c0 + CoA_c0 + 2 H_c0 + Reducedferredoxin_c0 + 5-Methyl-H4MPT_c0 <=> Acetyl-CoA_c0 + Oxidizedferredoxin_c0 + H2O_c0 + H4MPT_c0');
 %Associate it with mmpmmp0980,0981,0983,0984,0985
-model = changeGeneAssociation(model,'CODH',...
+model = changeGeneAssociation(model,'CODH_ACS',...
     'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
 %Add acetate exchange and transport, both reversible
 
@@ -374,10 +374,10 @@ model = changeGeneAssociation(model,'rxn00250_c0','mmp0340 and mmp0341');
 %6/23 model changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Turn off  rxn07191_c0, make rxn05398_c0 and CODH irrev (John spreadsheet 6/19)
+%Turn off  rxn07191_c0, make rxn05398_c0 and CODH_ACS irrev (John spreadsheet 6/19)
 %model = changeRxnBounds(model,'rxn07191_c0',0,'b');
 %model = changeRxnBounds(model,'rxn05938_c0',0,'l');
-%model = changeRxnBounds(model,'CODH',0,'l');
+%model = changeRxnBounds(model,'CODH_ACS',0,'l');
 
 %Add genes for Eha: mmp1448-1467
 %%%%%9/30: Change name to Eha/Ehb, add more genes
@@ -601,6 +601,12 @@ model = removeRxns(model,{'rxn01313_c0','rxn01314_c0'});
 %model = changeGeneAssociation(model,'rxn04953_c0','mmp0737');
 model = removeRxns(model,{'rxn05117_c0','rxn05119_c0'});
 
+%%%%%%%%%%%%%%%
+%11/20/2014
+%%%%%%%%%%%%%%%
+%Already changed CODH-->CODH_ACS
+%Change comDE to an AND relationship
+model = changeGeneAssociation(model,'rxn04026_c0','mmp0411 and mmp1689');
 %%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
