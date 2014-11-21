@@ -601,12 +601,20 @@ model = removeRxns(model,{'rxn01313_c0','rxn01314_c0'});
 %model = changeGeneAssociation(model,'rxn04953_c0','mmp0737');
 model = removeRxns(model,{'rxn05117_c0','rxn05119_c0'});
 
+%%%%%%%%%%%%
+%11/19/2014
+%%%%%%%%%%%%
+%Change the name of rxn05938_c0 to "Pyruvate Oxidoreductase"
+[~,idx] = intersect(model.rxns,'rxn05938_c0');
+model.rxnNames{idx} = 'Pyruvate Oxidoreductase';
+
 %%%%%%%%%%%%%%%
 %11/20/2014
 %%%%%%%%%%%%%%%
 %Already changed CODH-->CODH_ACS
 %Change comDE to an AND relationship
 model = changeGeneAssociation(model,'rxn04026_c0','mmp0411 and mmp1689');
+
 %%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
