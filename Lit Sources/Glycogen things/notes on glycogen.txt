@@ -1,0 +1,27 @@
+Glycogen Metabolism Reactions:
+
+XXXXX Missing Glycogen generation! XXXX
+rxn05740_c0 (mmp1220): H_c0 + Phosphate_c0 + Glycogen_c0 <=> Glucose-1-phosphate_c0 + glycogenn-1_c0
+XXX Missing Glucose-1-phosphate_c0 -> D-glucose-6-phosphate_c0
+rn00558_c0 (mmp1265) : D-glucose-6-phosphate_c0 <=> D-fructose-6-phosphate_c0
+YES rxn04043_c0 (mmp1296): ADP_c0 + D-fructose-6-phosphate_c0 <=> D-fructose-1_6-bisphosphate_c0 + AMP_c0
+rxn00549_c0 (mmp0317): H2O_c0 + D-fructose-1_6-bisphosphate_c0 -> H_c0 + Phosphate_c0 + D-fructose-6-phosphate_c0
+NO IDEA rxn00785_c0 (mmp1113 or mmp1115): D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0 <=> D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0
+YES rxn01116_c0 (mmp1114): D-Ribulose5-phosphate_c0 <=> D-Xylulose5-phosphate_c0
+NO IDEA rxn01200_c0 (mmp1113 or mmp1115): Sedoheptulose7-phosphate_c0 + Glyceraldehyde3-phosphate_c0 <=> D-Xylulose5-phosphate_c0 + ribose-5-phosphate_c0
+rxn01333_c0 (mmp1308): Sedoheptulose7-phosphate_c0 + Glyceraldehyde3-phosphate_c0 <=> D-fructose-6-phosphate_c0 + D-Erythrose4-phosphate_c0
+YES rxn00777_c0 (mmp1189): ribose-5-phosphate_c0 <=> D-Ribulose5-phosphate_c0
+rxn01637_c0 (mmp0293): D-fructose-1_6-bisphosphate_c0 <=> Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0
+rxn00747_c0 (mmp0687): Glyceraldehyde3-phosphate_c0 <=> Glycerone-phosphate_c0
+rxn00611_c0 (gapfill): H_c0 + NADH_c0 + Glycerone-phosphate_c0 -> NAD_c0 + Glycerol-3-phosphate_c0
+rxn00782_c0 (mmp0325): NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0 -> NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 [WRONG WAY! SHOULD REVERSE!]
+rxn00781_c0 (mmp0325): NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 <=> NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0
+rxn01100_c0 (mmp1532): H_c0 + ATP_c0 + 3-Phosphoglycerate_c0 <=> ADP_c0 + 1_3-Bisphospho-D-glycerate_c0
+rxn01106_c0 (mmp0598 or mmp1439 or mmp0112): 2-Phospho-D-glycerate_c0 <=> 3-Phosphoglycerate_c0
+YES rxn00459_c0 (mmp0396): 2-Phospho-D-glycerate_c0 <=> H2O_c0 + Phosphoenolpyruvate_c0
+YES rxn00148_c0 (mmp1605): ATP_c0 + Pyruvate_c0 <=> ADP_c0 + Phosphoenolpyruvate_c0
+ALREADY VERIFIED rxn00278_c0 (mmp1513): H2O_c0 + L-Alanine_c0 + NAD_c0 <=> H_c0 + NADH_c0 + NH3_c0 + Pyruvate_c0
+ALREADY VERIFIED rxn05938 c0 (mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506): H_c0 + CO2_c0 + Acetyl-CoA_c0 + Reducedferredoxin_c0 <=> CoA_c0 + Oxidizedferredoxin_c0 + Pyruvate_c0
+ALREADY VERIFIED CODH_ACS: (mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985): 2 H_c0 + CO2_c0 + CoA_c0 + Reducedferredoxin_c0 + 5-Methyl-H4MPT_c0 <=> Acetyl-CoA_c0 + H2O_c0 + Oxidizedferredoxin_c0 + H4MPT_c0
+rxn08766_c0 (mmp1211): CO2_c0 + CoA_c0 + Acetoacetyl-ACP_c0 -> H_c0 + Acetyl-CoA_c0 + Malonyl-acyl-carrierprotein-_c0
+
