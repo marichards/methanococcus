@@ -1,0 +1,4 @@
+2002 paper references AksA, which does:
+
+2-oxoglutarate + 3 AcSCoA + 3 NAD -> 2-oxosuberate + 3 HSCoA + 3 NADH + 3 CO2
+

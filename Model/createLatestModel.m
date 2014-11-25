@@ -615,6 +615,15 @@ model.rxnNames{idx} = 'Pyruvate Oxidoreductase';
 %Change comDE to an AND relationship
 model = changeGeneAssociation(model,'rxn04026_c0','mmp0411 and mmp1689');
 
+%%%%%%%%%%%%%%%
+%11/24/2014
+%%%%%%%%%%%%%%%
+%Add in a biomass value for coenzyme M (0.0030965)
+[~,coM_idx] = intersect(model.mets,'CoM_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(coM_idx,bio_idx) = -0.0030965;
+
+
 %%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
