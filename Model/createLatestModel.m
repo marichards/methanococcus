@@ -520,8 +520,13 @@ model = changeGeneAssociation(model,'Fdh','(mmp0138 and mmp0139) or (mmp1297 and
 %Add the Formate:Hdr
 model = addReaction(model,{'Hdr_formate','Formate-utilizing heterodisulfide reductase'},...
     'CoM-S-S-CoB_c0 + 2 Formate_c0 + Oxidizedferredoxin_c0 -> 2 CO2_c0 + CoM_c0 + HTP_c0 + Reducedferredoxin_c0');
-model = changeGeneAssociation(model,'Hdr_formate','((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298))');
+%%%%
+%Altered 12/16/2014 to include mmp1696 or mmp0821, the VhuD/VhcD genes
+%%%%
+model = changeGeneAssociation(model,'Hdr_formate','((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298)) and (mmp1696 or mmp0821)');
 
+
+((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298)) and (mmp1696 or mmp821)
 
 %Biosynthesis reactions
 %Add Malate reaction (NADP version)
@@ -623,6 +628,11 @@ model = changeGeneAssociation(model,'rxn04026_c0','mmp0411 and mmp1689');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 model.S(coM_idx,bio_idx) = -0.0030965;
 
+%%%%%%%%%%%%%%%
+%12/16/2014
+%%%%%%%%%%%%%%%
+%Take out the incorrect FDH that uses NAD/NADH
+model = removeRxns(model,'rxn00371_c0');
 
 %%%%%%%%%%%%%
 %9/19/2014
