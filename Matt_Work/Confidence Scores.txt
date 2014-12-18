@@ -1,0 +1,24 @@
+Following info is in the Thiele and Palsson paper from 2010:
+
+Evidence Type: Biochemical Data
+Confidence Score: 4
+Examples: Direct evidence for gene product function and biochemical reaction: Protein purification, biochemical assays, experimentally solved protein structures, and comparative gene-expression studies
+
+Evidence Type: Genetic Data
+Confidence Score: 3
+Examples: Direct and indirect evidence for gene function: Knock-out characterization, knock-in characterization, and over-expression
+
+Evidence Type: Physiological data
+Confidence Score: 2
+Examples: Indirect evidence for biochemical reactions based on physiological data: secretion products or defined medium components serve as evidence for transport and metabolic reactions
+
+Evidence Type: Sequence data
+Confidence Score: 2
+Examples: Evidence for gene function: Genome annotation, SEED annotation
+
+Evidence Type: Modeling data
+Confidence Score: 1
+Examples: No evidence is available but reaction is required for modeling. The included function is a hypothesis and needs experimental verification. The reaction mechanism may be different from the included reaction(s). 
+
+Evidence Type: Not evaluated
+Confidence Score: 0
