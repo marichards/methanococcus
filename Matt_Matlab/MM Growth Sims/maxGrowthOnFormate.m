@@ -7,7 +7,7 @@ function solution = maxGrowthOnFormate(model)
 %Turn off H2 Input
 model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
 %Turn on Formate Input
-model = changeRxnBounds(model,'EX_cpd00047_e0',-10,'l');
+model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
 
 %Find indices of important reactions
 [~,h_idx] = intersect(model.rxns,'EX_cpd00067_e0');

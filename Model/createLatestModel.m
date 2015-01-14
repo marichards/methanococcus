@@ -525,9 +525,6 @@ model = addReaction(model,{'Hdr_formate','Formate-utilizing heterodisulfide redu
 %%%%
 model = changeGeneAssociation(model,'Hdr_formate','((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298)) and (mmp1696 or mmp0821)');
 
-
-((mmp0825 or mmp1697) and ((mmp1053 and mmp1054) or (mmp1155 and mmp1154))) and ((mmp0138 and mmp0139) or (mmp1297 and mmp1298)) and (mmp1696 or mmp821)
-
 %Biosynthesis reactions
 %Add Malate reaction (NADP version)
 model = addReaction(model,{'rxn00249_c0','(S)-Malate:NADP+ oxidoreductase'},...
@@ -640,3 +637,9 @@ model = removeRxns(model,'rxn00371_c0');
 %Last step should always be to add the kbase aliases:
 model = addKbaseAliases(model);
 
+%%%%%%%%%%%%%
+%1/13/2015
+%%%%%%%%%%%%%
+%Add a maintenance factor and change the H2 so both match M.barkeri model
+model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
+model = changeRxnBounds(model,'rxn00062_c0',2,'b');
