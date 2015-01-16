@@ -1,4 +1,4 @@
-function [all_rxns,rxnNames,fluxes] = traceFullMetPath(model,met,solution,excluded,threshold)
+function [all_rxns,rxnNames,fluxes] = findMetSynPath(model,met,solution,excluded,threshold)
 
 %Select any metabolite in the model and pull the highest-flux pathways for
 %that metabolite, then use those to trace where the metabolite is coming
@@ -56,13 +56,17 @@ all_mets={met};
 while length(all_rxns)<20
     
     %%Upgrade using metMassBalance code
-    
     %Use metabolites to find reactions with notable fluxes using metMassBalance
     %Initiate the array
+    %%%Change on 1/15/2015: Only find things that make it(?)
     rxns = {};
     for i=1:length(mets)
-        rxns = [rxns; metMassBalance(model,mets(i),solution,threshold)];
+        %Narrow to only reactions that PRODUCE it
+        [new_rxns,amounts] = metMassBalance(model,mets(i),solution,threshold);
+        rxns = [rxns; new_rxns(amounts>0)];
     end
+    
+    
     
     %Narrow it down to only new reactions
     rxns = setdiff(rxns,all_rxns);
