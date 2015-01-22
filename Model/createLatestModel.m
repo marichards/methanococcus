@@ -75,7 +75,7 @@ model = addReaction(model,{'rxn00974_c0','Citrate hydrolase'},...
 model = addReaction(model,{'rxn01388_c0','Isocitrate hydrolase'},...
     'H2O_c0 + cis-Aconitate_c0  <=> D-threo-Isocitrate_c0');
 model = addReaction(model,{'rxn00198_c0','Isocitrate:NADP+ oxidoreductase (decarboxylating)'},...
-    'NADP_c0 + D-threo-Isocitrate_c0  <=> CO2_c0 + NADPH_c0 + 2-oxoglutarate_c0');
+    'NADP_c0 + D-threo-Isocitrate_c0  <=> CO2_c0 + NADPH_c0 + 2-Oxoglutarate_c0');
 model = addReaction(model,{'rxn08518_c0','Formate-hydrogen lyase'},...
     'Formate_c0 + H_c0  -> CO2_c0 + H2_c0');
 model = addReaction(model,{'rxn03079_c0','F420:5,10-methenyltetrahydromethanopterin oxidoreductase'},...
@@ -92,8 +92,8 @@ model = addReaction(model,{'rxn04934_c0','(R)-2-hydroxyacid:NAD+ oxidoreductase'
 %5/20/2014
 model = addReaction(model,{'rxn04036_c0','(R)-2-phospho-3-sulfolactate phosphohydrolase'},...
     '2R-Phosphosulfolactate_c0 + H2O_c0 -> Phosphate_c0 + H_c0 + (2R)-3-sulfolactate_c0');
-model = addReaction(model,{'rxn07741_c0','LL-2,6-diaminoheptanedioate:2-oxoglutarate aminotransferase'},...
-    'tetrahydrodipicolinate_c0 + H_c0 + H2O_c0 + L-Glutamate_c0 <=> 2-oxoglutarate_c0 + LL-2_6-Diaminopimelate_c0');
+model = addReaction(model,{'rxn07741_c0','LL-2,6-diaminoheptanedioate:2-Oxoglutarate aminotransferase'},...
+    'tetrahydrodipicolinate_c0 + H_c0 + H2O_c0 + L-Glutamate_c0 <=> 2-Oxoglutarate_c0 + LL-2_6-Diaminopimelate_c0');
 model = addReaction(model,{'rxn05109_c0','Citramalate_synthase'},...
     'Acetyl-CoA_c0 + H2O_c0 + Pyruvate_c0 -> H_c0 + CoA_c0 + Citramalate_c0');
 model = addReaction(model,{'rxn02749_c0','(R)-2-Methylmalate hydro-lyase'},...
@@ -228,19 +228,17 @@ model = addReaction(model,{'ACT','Acetate transport'},...
 %Add charges for added metabolites
 %There are 13 added metabolites...add charges 1 by 1 (from Kbase)
 %    'sulfoacetaldehyde_c0'
-model.metCharge(end-12)=-1;
-%    '2-(sulfomethyl)thiazolidine-4-carboxylate_c0'
 model.metCharge(end-11)=-1;
-%    'sulfoethylcysteine_c0'
+%    '2-(sulfomethyl)thiazolidine-4-carboxylate_c0'
 model.metCharge(end-10)=-1;
+%    'sulfoethylcysteine_c0'
+model.metCharge(end-9)=-1;
 %    'Citrate_c0'
-model.metCharge(end-9)=-3;
-%    'cis-Aconitate_c0'
 model.metCharge(end-8)=-3;
-%    'D-threo-Isocitrate_c0'
+%    'cis-Aconitate_c0'
 model.metCharge(end-7)=-3;
-%    '2-oxoglutarate_c0'
-model.metCharge(end-6)=-2;
+%    'D-threo-Isocitrate_c0'
+model.metCharge(end-6)=-3;
 %    '3-sulfopyruvate_c0'
 model.metCharge(end-5)=-2;
 %    '(2R)-3-sulfolactate_c0'
@@ -577,11 +575,17 @@ model = removeRxns(model,'rxn00184_c0');
 %9/30/2014
 %%%%%%%%%%%%%
 %Add nitrogen diffusion at 0 lb for now
-model = addReaction(model,{'EX_cpd00528_c0','Nitrogen diffusion'},...
-    'N2_c0 -> ');
+model = addReaction(model,{'EX_cpd00528_c0','EX Nitrogen e0'},...
+    'N2_e0 -> ');
 %Important: also turn the nitrogen fixation irreversible, lest it blow up
 %and let ATP be formed massively:
 model = changeRxnBounds(model,'rxn06874_c0',0,'l');
+%%%%%%%%%%%%%
+%1/21/2015
+%%%%%%%%%%%%%
+%Add a diffusion transporter
+model = addReaction(model,{'rxn10577_c0','Nitrogen exchange, diffusion'},...
+    'N2_e0 <=> N2_c0');
 
 %Match pairs of NAD/NADP reactions with directions John suggested
 %Malate synthesis
