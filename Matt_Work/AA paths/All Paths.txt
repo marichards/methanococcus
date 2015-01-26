@@ -1,13 +1,13 @@
 Amino Acid Syntheses (** is GOGAT cycle-->rxn00187_c0,rxn00260_c0,rxn00085_c0)
 ***Should get a new sulfur source; don't want to uptake sulfate!
 
-Alanine
+Alanine; Doesn't use GOGAT, only Methanogenesis
 <Methanogenesis from H+ and CO2>
 CODH_ACS 2 H+ + CO2 + CoA + Fdred + 5-Methyl-H4MPT <=> Acetyl-CoA + H2O + Fdox + H4MPT
 rxn00258_c0 Acetyl-CoA + Oxaloacetate -> Pyruvate + Malonyl-CoA
 rxn00278_c0 NH3 + NADH + Pyruvate + H+ --> H2O + L-Alanine + NAD
 
-Arginine
+Arginine Derives indirectly from GOGAT cycle and Methanogenesis
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 rxn01917_c0	H+ + ATP + N-Acetyl-L-glutamate	<=>	ADP + n-acetylglutamyl-phosphate 
 rxn02465_c0	NADPH + n-acetylglutamyl-phosphate -> NADP + Phosphate + 2-Acetamido-5-oxopentanoate
@@ -21,32 +21,32 @@ rxn01019_c0 Carbamoylphosphate + Ornithine -> 2 H+ + Pi + Citrulline
 rxn01434_c0 ATP + L-Aspartate + Citrulline <=> L-Argininosuccinate + PPi + AMP
 rxn00802_c0 L-Argininosuccinate <=> Fumarate + L-Arginine
 
-Asparagine
+Asparagine Derives from GOGAT cycle
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
 rxn00340_c0 	ATP + L-Aspartate + NH3 -> PPi + AMP + L-Asparagine
 
-Aspartate
+Aspartate Part of GOGAT cycle
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
 
-Cysteine
+Cysteine Exactly Serine plus sulfur
 **See below for L-Serine
 rxn05909_c0	H2S + L-Serine -> H2O + L-Cysteine
 
-Glutamate
+Glutamate Part of GOGAT
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
 
-Glutamine
+Glutamine Part of GOGAT
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
 
-Glycine
+Glycine Traces to sulfide, CO2/Formate in media, 
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
@@ -103,7 +103,6 @@ rxn02159_c0	NAD + L-Histidinol <=> H+ + NADH + L-Histidinal
 rxn00863_c0	H2O + NAD + L-Histidinal -> 2 H+ + NADH + L-Histidine
 
 Isoleucine
-
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
@@ -119,7 +118,6 @@ rxn03437_c0	2_3-Dihydroxy-3-methylvalerate -> H2O + 3MOP
 rxn01575_c0	L-Glutamate + 3MOP <=> 2-Oxoglutarate + L-Isoleucine
 
 Leucine
-
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
@@ -136,8 +134,41 @@ rxn01208_c0	H+ + 2-isopropyl-3-oxosuccinate -> CO2 + 4MOP
 rxn00806_c0	L-Glutamate + 4MOP <=> 2-Oxoglutarate + L-Leucine
 
 Lysine
+**rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
+**rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
+**rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
+***Aspartate from the GOGAT cycle!-->Essentially just GOGAT + Methanogenesis
+rxn00337_c0	H+ + ATP + L-Aspartate <=> ADP + 4-Phospho-L-aspartate
+rxn01643_c0	NADPH + 4-Phospho-L-aspartate -> NADP + Phosphate + L-Aspartate4-semialdehyde
+***Pyruvate from AcCoA from methanogenesis
+rxn01644_c0	L-Aspartate4-semialdehyde + Pyruvate -> H+ + 2 H2O + Dihyrodipicolinate
+rxn02929_c0	H+ + NADPH + Dihyrodipicolinate -> NADP + tetrahydrodipicolinate
+rxn07741_c0	H+ + H2O + L-Glutamate + tetrahydrodipicolinate <=> LL-2_6-Diaminopimelate + 2-oxoglutarate
+rxn01974_c0	LL-2_6-Diaminopimelate <=> meso-2_6-Diaminopimelate
+rxn00313_c0	H+ + meso-2_6-Diaminopimelate -> CO2 + L-Lysine
 
 Methionine
+**rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
+**rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
+**rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
+
+rxn00337_c0	H+ + ATP + L-Aspartate <=> ADP + 4-Phospho-L-aspartate
+rxn01643_c0	NADPH + 4-Phospho-L-aspartate -> NADP + Phosphate + L-Aspartate4-semialdehyde
+rxn01301_c0	H+ + NADH + L-Aspartate4-semialdehyde <=> NAD + L-Homoserine
+rxn00126_c0	L-Methionine + H2O + ATP -> Phosphate + PPi + S-Adenosyl-L-methionine
+**S-Adenosyl-homocysteine comes from 5 places! But all are from S-Adenosyl-L-methionine, which comes from above
+rxn00141_c0	H2O + S-Adenosyl-homocysteine <=> Homocysteine + Adenosine
+rxn01304_c0	L-Homoserine_c0 + Succinyl-CoA_c0 	->	CoA_c0 + O-Succinyl-L-homoserine_c0
+rxn05957_c0	H2S_c0 + O-Succinyl-L-homoserine_c0 	->	H_c0 + Homocysteine_c0 + Succinate_c0
+
+FDH			CO2 + F420_red <=> H+ + Formate + F420
+rxn04783_c0	Formate_c0 + ATP_c0 + GAR_c0 	->	H_c0 + Phosphate_c0 + ADP_c0 + N-Formyl-GAR_c0
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0
+**See Serine syn, below
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0
 
 Phenylalanine
 
