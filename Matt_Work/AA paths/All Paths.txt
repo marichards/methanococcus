@@ -86,6 +86,12 @@ Histidine
 **rxn00085_c0	H + NADPH + L-Glutamine + 2-Oxoglutarate <=> NADP + 2 L-Glutamate
 **rxn00187_c0	ATP + NH3 + L-Glutamate	->	H+ + Phosphate + ADP + L-Glutamine
 **rxn00260_c0	Oxaloacetate + L-Glutamate <=> L-Aspartate + 2-Oxoglutarate
+rxn00781_c0	NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0
+rxn01100_c0	H_c0 + ATP_c0 + 3-Phosphoglycerate_c0 	<=>	ADP_c0 + 1_3-Bisphospho-D-glycerate_c0
+rxn00148_c0	ATP_c0 + Pyruvate_c0 	<=>	ADP_c0 + Phosphoenolpyruvate_c0
+rxn00459_c0	2-Phospho-D-glycerate_c0 	<=>	H2O_c0 + Phosphoenolpyruvate_c0
+rxn01106_c0	2-Phospho-D-glycerate_c0 	<=>	3-Phosphoglycerate_c0
+rxn07191_c0	H2O_c0 + Glyceraldehyde3-phosphate_c0 + Oxidizedferredoxin_c0 	<=>	3.000000 H_c0 + 3-Phosphoglycerate_c0 + Reducedferredoxin_c0 
 ***Ties into Glycolysis
 rxn00785_c0	D-fructose-6-phosphate + Glyceraldehyde3-phosphate <=> D-Xylulose5-phosphate + D-Erythrose4-phosphate
 rxn01116_c0	D-Xylulose5-phosphate <=> D-Ribulose5-phosphate
@@ -172,15 +178,85 @@ rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + 
 
 Phenylalanine
 
+**This ties back to Glycolysis
+rxn00785_c0	D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0 	(mmp1113 or mmp1115)
+rxn01332_c0	H2O_c0 + Phosphoenolpyruvate_c0 + D-Erythrose4-phosphate_c0 	->	H_c0 + DAHP_c0 + Phosphate_c0 	mmp1528
+rxn02212_c0	DAHP_c0 	->	H_c0 + 5-Dehydroquinate_c0 + Phosphate_c0 	mmp0006
+rxn02213_c0	5-Dehydroquinate_c0 	->	H2O_c0 + 3-Dehydroshikimate_c0 	mmp1394
+rxn01740_c0	NADP_c0 + Shikimate_c0 	<=>	H_c0 + NADPH_c0 + 3-Dehydroshikimate_c0 	mmp0936
+rxn01739_c0	ATP_c0 + Shikimate_c0 	<=>	ADP_c0 + 3-phosphoshikimate_c0 	mmp0320
+rxn00148_c0	ATP_c0 + Pyruvate_c0 	<=>	ADP_c0 + Phosphoenolpyruvate_c0 	mmp1605
+rxn02476_c0	Phosphoenolpyruvate_c0 + 3-phosphoshikimate_c0 	<=>	H_c0 + Phosphate_c0 + 5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	mmp1205
+rxn01255_c0	5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	->	H_c0 + Phosphate_c0 + Chorismate_c0 	mmp1333
+rxn01256_c0	Chorismate_c0 	->	Prephenate_c0 	
+rxn01000_c0	H_c0 + Prephenate_c0 	->	CO2_c0 + H2O_c0 + Phenylpyruvate_c0 	mmp1528
+rxn00493_c0	2-Oxoglutarate_c0 + L-Phenylalanine_c0 	<=>	L-Glutamate_c0 + Phenylpyruvate_c0 	(mmp1072 or (mmp1216 and mmp1527))
+
 Proline
+**So we tie to the GOGAT cycle and use energy
+rxn01917_c0	H_c0 + ATP_c0 + N-Acetyl-L-glutamate_c0 	<=>	ADP_c0 + n-acetylglutamyl-phosphate_c0 	mmp0063
+rxn02465_c0	NADPH_c0 + n-acetylglutamyl-phosphate_c0 	->	NADP_c0 + Phosphate_c0 + 2-Acetamido-5-oxopentanoate_c0 	mmp0116
+rxn01637_c0	2-Oxoglutarate_c0 + N-Acetylornithine_c0 	<=>	L-Glutamate_c0 + 2-Acetamido-5-oxopentanoate_c0 	mmp1101
+rxn01636_c0	L-Glutamate_c0 + N-Acetylornithine_c0 	<=>	N-Acetyl-L-glutamate_c0 + Ornithine_c0 	mmp0897
+rxn00471_c0	Ornithine_c0 	->	H_c0 + NH3_c0 + L-Proline_c0 	
 
 Serine
+**Glutamate ties to GOGAT
+**Tie to glycolysis, which goes to methanogenesis
+rxn00781_c0	NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0 	mmp0325
+rxn01100_c0	H_c0 + ATP_c0 + 3-Phosphoglycerate_c0 	<=>	ADP_c0 + 1_3-Bisphospho-D-glycerate_c0 	mmp1532
+rxn01101_c0	NAD_c0 + 3-Phosphoglycerate_c0 	<=>	H_c0 + NADH_c0 + 3-Phosphonooxypyruvate_c0 	(mmp1588 or mmp0870)
+rxn02914_c0	3-Phosphonooxypyruvate_c0 + L-Glutamate_c0 	->	2-Oxoglutarate_c0 + phosphoserine_c0 	mmp0391
+rxn00420_c0	H2O_c0 + phosphoserine_c0 	->	H_c0 + Phosphate_c0 + L-Serine_c0 	(mmp0542 or mmp0541)
 
 Threonine
 
+**Tie back to GOGAT cycle through L-Aspartate
+rxn00337_c0	H_c0 + ATP_c0 + L-Aspartate_c0 	<=>	ADP_c0 + 4-Phospho-L-aspartate_c0 	mmp1017
+rxn01643_c0	NADPH_c0 + 4-Phospho-L-aspartate_c0 	->	NADP_c0 + Phosphate_c0 + L-Aspartate4-semialdehyde_c0 	mmp1391
+rxn01301_c0	H_c0 + NADH_c0 + L-Aspartate4-semialdehyde_c0 	<=>	NAD_c0 + L-Homoserine_c0 	mmp1702
+rxn01300_c0	L-Homoserine_c0 + ATP_c0 	<=>	ADP_c0 + O-Phospho-L-homoserine_c0 	mmp0295
+rxn01069_c0	H2O_c0 + O-Phospho-L-homoserine_c0 	->	H_c0 + L-Threonine_c0 + Phosphate_c0 	mmp0135
+
 Tryptophan
+**PRPP also ties back to Glycolysis
+rxn00770_c0	ATP_c0 + ribose-5-phosphate_c0 	<=>	AMP_c0 + PRPP_c0 	mmp0410
+**This ties back to Glycolysis
+rxn00785_c0	D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0 	(mmp1113 or mmp1115)
+rxn01332_c0	H2O_c0 + Phosphoenolpyruvate_c0 + D-Erythrose4-phosphate_c0 	->	H_c0 + DAHP_c0 + Phosphate_c0 	mmp1528
+rxn02212_c0	DAHP_c0 	->	H_c0 + 5-Dehydroquinate_c0 + Phosphate_c0 	mmp0006
+rxn02213_c0	5-Dehydroquinate_c0 	->	H2O_c0 + 3-Dehydroshikimate_c0 	mmp1394
+rxn01740_c0	NADP_c0 + Shikimate_c0 	<=>	H_c0 + NADPH_c0 + 3-Dehydroshikimate_c0 	mmp0936
+rxn01739_c0	ATP_c0 + Shikimate_c0 	<=>	ADP_c0 + 3-phosphoshikimate_c0 	mmp0320
+rxn00148_c0	ATP_c0 + Pyruvate_c0 	<=>	ADP_c0 + Phosphoenolpyruvate_c0 	mmp1605
+rxn02476_c0	Phosphoenolpyruvate_c0 + 3-phosphoshikimate_c0 	<=>	H_c0 + Phosphate_c0 + 5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	mmp1205
+rxn01255_c0	5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	->	H_c0 + Phosphate_c0 + Chorismate_c0 	mmp1333
+rxn00726_c0	NH3_c0 + Chorismate_c0 	->	H_c0 + H2O_c0 + Pyruvate_c0 + Anthranilate_c0 	(mmp1006 and mmp1005)
+rxn00791_c0	PRPP_c0 + Anthranilate_c0 	->	PPi_c0 + N-5-phosphoribosyl-anthranilate_c0 	mmp1007
+rxn02508_c0	N-5-phosphoribosyl-anthranilate_c0 	<=>	1-2-carboxyphenylamino-1-deoxyribulose_5-phosphate_c0 	mmp1004
+rxn02507_c0	H_c0 + 1-2-carboxyphenylamino-1-deoxyribulose_5-phosphate_c0 	->	CO2_c0 + H2O_c0 + Indoleglycerol_phosphate_c0 	mmp1008
+rxn01964_c0	L-Serine_c0 + Indoleglycerol_phosphate_c0 	->	H2O_c0 + Glyceraldehyde3-phosphate_c0 + L-Tryptophan_c0 	(mmp1002 and mmp1003)
 
 Tyrosine
+**Link back to Glycolysis
+rxn00785_c0	D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0 	(mmp1113 or mmp1115)
+rxn00148_c0	ATP_c0 + Pyruvate_c0 	<=>	ADP_c0 + Phosphoenolpyruvate_c0 	mmp1605
+rxn01332_c0	H2O_c0 + Phosphoenolpyruvate_c0 + D-Erythrose4-phosphate_c0 	->	H_c0 + DAHP_c0 + Phosphate_c0 	mmp1528
+rxn02212_c0	DAHP_c0 	->	H_c0 + 5-Dehydroquinate_c0 + Phosphate_c0 	mmp0006
+rxn02213_c0	5-Dehydroquinate_c0 	->	H2O_c0 + 3-Dehydroshikimate_c0 	mmp1394
+rxn01740_c0	NADP_c0 + Shikimate_c0 	<=>	H_c0 + NADPH_c0 + 3-Dehydroshikimate_c0 	mmp0936
+rxn01739_c0	ATP_c0 + Shikimate_c0 	<=>	ADP_c0 + 3-phosphoshikimate_c0 	mmp0320
+rxn00148_c0	ATP_c0 + Pyruvate_c0 	<=>	ADP_c0 + Phosphoenolpyruvate_c0 	mmp1605
+rxn02476_c0	Phosphoenolpyruvate_c0 + 3-phosphoshikimate_c0 	<=>	H_c0 + Phosphate_c0 + 5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	mmp1205
+rxn01255_c0	5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	->	H_c0 + Phosphate_c0 + Chorismate_c0 	mmp1333
+rxn01256_c0	Chorismate_c0 	->	Prephenate_c0 	
+rxn01269_c0	NADP_c0 + Prephenate_c0 	->	CO2_c0 + NADPH_c0 + p-hydroxyphenylpyruvate_c0 	mmp1514
+rxn00527_c0	2-Oxoglutarate_c0 + L-Tyrosine_c0 	<=>	L-Glutamate_c0 + p-hydroxyphenylpyruvate_c0 	(mmp1072 or (mmp1216 and mmp1527))
 
 Valine
-
+**So GOGAT from Glu and Pyruvate from Methanogenesis
+rxn00011_c0	H_c0 + Pyruvate_c0 + TPP_c0 	->	CO2_c0 + 2-Hydroxyethyl-ThPP_c0 	(mmp0651 and mmp0650)
+rxn02185_c0	ALCTT_c0 + TPP_c0 	<=>	Pyruvate_c0 + 2-Hydroxyethyl-ThPP_c0 	(mmp0651 and mmp0650)
+rxn02186_c0	H_c0 + NADPH_c0 + ALCTT_c0 	<=>	NADP_c0 + 2_3-Dihydroxy-isovalerate_c0 	mmp0654
+rxn00898_c0	2_3-Dihydroxy-isovalerate_c0 	->	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 	mmp0318
+rxn00903_c0	2-Oxoglutarate_c0 + L-Valine_c0 	<=>	3-Methyl-2-oxobutanoate_c0 + L-Glutamate_c0 	mmp0132
