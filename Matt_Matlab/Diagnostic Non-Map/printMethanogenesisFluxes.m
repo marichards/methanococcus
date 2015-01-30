@@ -61,5 +61,5 @@ fprintf('\n\n')
 
 if map_flag
     all_rxns = findMetSynPath(model,'EX_Methane_c0',solution,{'biomass0'},0.1);
-    drawRxnsMap(model,all_rxns,solution)
+    drawRxnsMap(model,all_rxns,solution);
 end

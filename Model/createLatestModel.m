@@ -647,3 +647,28 @@ model = addKbaseAliases(model);
 %Add a maintenance factor and change the H2 so both match M.barkeri model
 model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
 model = changeRxnBounds(model,'rxn00062_c0',2,'b');
+
+%%%%%%%%%%%%%
+%1/29/2015
+%%%%%%%%%%%%%
+%Remove the sulfate uptake and transport
+model = removeRxns(model,{'rxn05651_c0','EX_cpd00048_e0'});
+
+%Replace it with H2S uptake and transport
+model = addReaction(model,{'rxn10541_c0','H2S transport (diffusion)'},...
+'H2S_e0 <=> H2S_c0');
+model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
+'H2S_e0 <=>');
+
+%Make model work by removing sulfate from the biomass
+[~,so4_idx] = intersect(model.mets,'Sulfate_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(so4_idx,bio_idx) = 0;
+
+%Also, allow it to turn H2S into Sulfite
+model = changeRxnBounds(model,'rxn00623_c0',-1000,'l');
+
+%Turn off the Hdr_Formate when not growing on formate
+model = changeRxnBounds(model,'Hdr_formate',0,'b');
+%Turn off SuccOR right now too
+model = changeRxnBounds(model,'SuccOR',0,'b');
