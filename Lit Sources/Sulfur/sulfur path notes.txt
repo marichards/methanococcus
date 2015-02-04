@@ -1,1 +1,9 @@
 MMP0083 is the type IIId(1) Dsr-LP gene (according to the PLOS-One paper)
+
+-NADPH + H2S + 3 H2O -> NADP + SO3
+
+*Simulate H2 + CH3OH --> H2O + CH4
+
+*Find out why acetate doesn't work
+
+*
