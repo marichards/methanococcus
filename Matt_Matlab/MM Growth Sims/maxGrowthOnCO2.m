@@ -5,6 +5,8 @@ function solution = maxGrowthOnCO2(model)
 
 %Turn down H2 to -45, not -1000
 model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
+%Turn down CO2 to -12, not -1000
+%model = changeRxnBounds(model,'EX_cpd00011_e0',-12,'l');
 
 %Solve by maximizing biomass
 solution = optimizeCbModel(model,[],'one');
@@ -20,6 +22,7 @@ solution = optimizeCbModel(model,[],'one');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
 [~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
+%[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239_e0');
 
 
 %Print the biomass flux
@@ -33,6 +36,8 @@ fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
 fprintf('PO4 flux: %f\n',solution.x(po4_idx))
 fprintf('Acetate flux: %f\n',solution.x(ac_idx))
+%fprintf('Sulfide flux: %f\n',solution.x(h2s_idx))
+
 
 %Print the per-CO2 actual reaction
 fprintf('\nOverall reaction:\nCO2 + 4 H2 --> 2 H2O + CH4\n')

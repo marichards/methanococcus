@@ -652,13 +652,13 @@ model = changeRxnBounds(model,'rxn00062_c0',2,'b');
 %1/29/2015
 %%%%%%%%%%%%%
 %Remove the sulfate uptake and transport
-model = removeRxns(model,{'rxn05651_c0','EX_cpd00048_e0'});
+%model = removeRxns(model,{'rxn05651_c0','EX_cpd00048_e0'});
 
 %Replace it with H2S uptake and transport
-model = addReaction(model,{'rxn10541_c0','H2S transport (diffusion)'},...
-'H2S_e0 <=> H2S_c0');
-model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
-'H2S_e0 <=>');
+%model = addReaction(model,{'rxn10541_c0','H2S transport (diffusion)'},...
+%'H2S_e0 <=> H2S_c0');
+%model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
+%'H2S_e0 <=>');
 
 %Make model work by removing sulfate from the biomass
 [~,so4_idx] = intersect(model.mets,'Sulfate_c0');
@@ -666,9 +666,140 @@ model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
 model.S(so4_idx,bio_idx) = 0;
 
 %Also, allow it to turn H2S into Sulfite
-model = changeRxnBounds(model,'rxn00623_c0',-1000,'l');
+%model = changeRxnBounds(model,'rxn00623_c0',-1000,'l');
 
 %Turn off the Hdr_Formate when not growing on formate
 model = changeRxnBounds(model,'Hdr_formate',0,'b');
 %Turn off SuccOR right now too
-model = changeRxnBounds(model,'SuccOR',0,'b');
+%model = changeRxnBounds(model,'SuccOR',0,'b');
+
+%Put in the reaction for H2S to Sulfite
+%model = addReaction(model,'Dsr-LP','H2S_c0 -> Sulfite_c0');
+    %'H2S_c0 + 3 H2O_c0 + NAD_c0 -> Sulfite_c0 + NADH_c0 + 4 H2_c0 + H_c0 ');
+    
+%%%%%%%%%%%%%
+%02/10/2015
+%%%%%%%%%%%%%
+
+%Remove things from the biomass based on John's advice:
+mets = {'Menaquinone_8_c0';...
+    'Ubiquinone-8_c0';...
+    'Bactoprenyl_diphosphate_c0';...
+%    '2-Demethylmenaquinone_8_c0';...
+    'Peptidoglycan_polymer_n_subunits_c0';...
+    'Isoheptadecanoylcardiolipin_B._subtilis_c0';...
+    'Stearoylcardiolipin_B._subtilis_c0';...
+    'Diisoheptadecanoylphosphatidylethanolamine_c0';...
+    'Diisoheptadecanoylphosphatidylglycerol_c0';...
+    'Dianteisoheptadecanoylphosphatidylethanolamine_c0';...
+    'Dianteisoheptadecanoylphosphatidylglycerol_c0';...
+%    '5-Methyltetrahydrofolate_c0';...
+%    'Tetrahydrofolate_c0';...
+    'core_oligosaccharide_lipid_A_c0';...
+    'Phosphatidylglycerol_dioctadecanoyl_c0';...
+    'Anteisoheptadecanoylcardiolipin_B._subtilis_c0';...
+    'phosphatidylethanolamine_dioctadecanoyl_c0';...
+%    '10-Formyltetrahydrofolate_c0';...
+    'Peptidoglycan_polymer_n-1_subunits_c0';...
+%Remove other electron carriers that lead up to these too
+%   '2-Demethylmenaquinol_8_c0';...
+   'Menaquinone_7_c0';...
+   'Menaquinone_7_e0';...
+   'Ubiquinol-8_c0';...
+   'Menaquinol_8_c0';...
+    };
+%rxns_to_remove = {};
+for i=1:length(mets)
+    %Remove it from the biomass
+    [~,met_idx] = intersect(model.mets,mets{i});
+    [~,bio_idx] = intersect(model.rxns,'biomass0');
+    model.S(met_idx,bio_idx) = 0;
+    
+    %Search for reactions that include it
+    rxns = findRxnsFromMets(model,mets{i});
+    %Remove them
+    model = removeRxns(model,rxns);
+end
+%Also grab their genes
+%temp_genes = findGenesFromRxns(model,rxns_to_remove);
+%Make them linear
+%genes={};
+%for i=1:length(temp_genes)
+%    genes = [genes;temp_genes{i}];
+%end
+%Make them unique
+%genes = unique(genes);
+%%Also remove folate from the model
+
+%Add in the 17 reactions for Coenzyme B (HTP) synthesis
+%Step 1: 2-oxoglutarate + Acetyl-CoA ->trans-homoaconitate (aksA)
+model = addReaction(model,{'rxn10434_c0','alpha-ketoglutarate:CoA ligase'},...
+    '2-Oxoglutarate_c0 + Acetyl-CoA_c0 <=> CoA_c0 + H_c0 + trans-homoaconitate_c0');
+model = changeGeneAssociation(model,'rxn10434_c0','mmp0153');
+%Step 2: trans-homoaconitate <=> S-homocitrate
+model = addReaction(model,{'rxn10608_c0','trans-homoaconitate hydrolase'},...
+    'H2O_c0 + trans-homoaconitate_c0 <=> S-homocitrate_c0');
+%Step 3: S-homocitrate <=> cis-homoaconitate
+model = addReaction(model,{'rxn10599_c0','(S)-homocitrate dehydratase'},...
+    'S-homocitrate_c0 <=> H2O_c0 + cis-Homoaconitate_c0');
+%Step 4: cis-homoaconitate <=> threo-isohomocitrate (aksD/E)
+model = addReaction(model,{'rxn10472_c0','cis-homoaconitate hydrolase'},...
+    'H2O_c0 + cis-Homoaconitate_c0 <=> threo-isohomocitrate_c0');
+model = changeGeneAssociation(model,'rxn10472_c0','mmp1480 and mmp0381');
+%Step 5: threo-isohomocitrate + NAD -> alpha-ketoadipate + CO2 + NADH
+%(aksF)
+model = addReaction(model,{'rxn10612_c0','threo-isohomocitrate dehydrogenase'},...
+    'NAD_c0 + threo-isohomocitrate_c0 <=> 2-oxohexanedioic_acid_c0 + CO2_c0 + NADH_c0');
+model = changeGeneAssociation(model,'rxn10612_c0','mmp0880');
+%Step 6: alpha-ketoadipate + Acetyl-CoA -> R-homocitrate (aksA)
+model = addReaction(model,{'rxn10433_c0','alpha-ketoadipate:CoA ligase'},...
+    '2-oxohexanedioic_acid_c0 + Acetyl-CoA_c0 + H2O_c0 <=> (R)-(homo)2citrate_c0 + CoA_c0 + H_c0');
+model = changeGeneAssociation(model,'rxn10433_c0','mmp0153');
+%Step 7: R-(homo)2citrate <=> cis-(homo)2aconitate (aksD/E)
+model = addReaction(model,{'rxn10595_c0','(R)-(homo)2citrate dehydratase'},...
+    '(R)-(homo)2citrate_c0 <=> H2O_c0 + cis-(homo)2aconitate_c0');
+model = changeGeneAssociation(model,'rxn10595_c0','mmp1480 and mmp0381');
+%Step 8: cis-(homo)2aconitate <=> threo-iso(homo)2citrate (aksD/E)
+model = addReaction(model,{'rxn10468_c0','cis-(homo)2aconitate hydrolase'},...
+    'H2O_c0 + cis-(homo)2aconitate_c0 <=> (-)threo-iso(homo)2citrate_c0');
+model = changeGeneAssociation(model,'rxn10468_c0','mmp1480 and mmp0381');
+%Step 9: threo-iso(homo)2citrate + NAD -> alpha-ketopimelate + CO2 + NADH
+%(aksF)
+model = addReaction(model,{'rxn10610_c0','threo-iso(homo)2citrate dehydrogenase'},...
+    '(-)threo-iso(homo)2citrate_c0 + NAD_c0 <=> 2-oxoheptanedioic_acid_c0 + CO2_c0 + NADH_c0');
+model = changeGeneAssociation(model,'rxn10610_c0','mmp0880');
+%Step 10: alpha-ketopimelate + Acetyl-CoA -> R-(homo)3citrate (aksA)
+model = addReaction(model,{'rxn10435_c0','alpha-ketopimelate:CoA ligase'},...
+    '2-oxoheptanedioic_acid_c0 + Acetyl-CoA_c0 + H2O_c0 <=> (R)-(homo)3citrate_c0 + CoA_c0 + H_c0');
+model = changeGeneAssociation(model,'rxn10435_c0','mmp0153');
+%Step 11: R-(homo)3citrate <=> cis-(homo)3aconitate (aksD/E)
+model = addReaction(model,{'rxn10596_c0','(R)-(homo)3citrate dehydratase'},...
+    '(R)-(homo)3citrate_c0 <=> H2O_c0 + cis-(homo)3aconitate_c0');
+model = changeGeneAssociation(model,'rxn10596_c0','mmp1480 and mmp0381');
+%Step 12: cis-(homo)3aconitate <=> threo-iso(homo)3citrate (aksD/E)
+model = addReaction(model,{'rxn10469_c0','cis-(homo)3aconitate hydrolase'},...
+    'H2O_c0 + cis-(homo)3aconitate_c0 <=> (-)threo-iso(homo)3citrate_c0');
+model = changeGeneAssociation(model,'rxn10469_c0','mmp1480 and mmp0381');
+%Step 13: threo-iso(homo)3citrate + NAD -> alpha-ketosuberate + CO2 + NADH
+%(aksF)
+model = addReaction(model,{'rxn10611_c0','threo-iso(homo)3citrate dehydrogenase'},...
+    '(-)threo-iso(homo)3citrate_c0 + NAD_c0 <=> 2-Oxosuberate_c0 + CO2_c0 + NADH_c0');
+model = changeGeneAssociation(model,'rxn10611_c0','mmp0880');
+%Step 14: alpha-ketosuberate -> 7-oxoheptanoic acid + CO2
+model = addReaction(model,{'rxn11855_c0','rxn11855'},...
+    '2-Oxosuberate_c0 + H_c0 <=> 7-oxoheptanoic_acid_c0 + CO2_c0');
+%Step 15: 7-oxoheptanoic acid + Sulfur + 2e- -> 7-mercaptoheptanoic acid
+model = addReaction(model,{'rxn10424_c0','7-mercaptoheptanoate synthase'},...
+    '7-oxoheptanoic_acid_c0 + H_c0 + L-Cysteine_c0 + NADH_c0 <=> 7-mercaptoheptanoic acid_c0 + L-Serine_c0 + NAD_c0');
+%Step 16: 7-mercaptoheptanoic acid + threonine + ATP -> 7-mercaptoheptanoylthreonine + ADP
+model = addReaction(model,{'rxn10425_c0','7-mercaptoheptanoylthreonine synthase'},...
+    '7-mercaptoheptanoic acid_c0 + ATP_c0 + L-Threonine_c0 <=> 7-mercaptoheptanoylthreonine_c0 + ADP_c0 + H_c0 + Phosphate_c0');
+%Step 17: 7-mercaptoheptanoylthreonine + ATP -> Coenzyme B + ADP
+model = addReaction(model,{'rxn10475_c0','Coenzyme B synthase'},...
+    '7-mercaptoheptanoylthreonine_c0 + ATP_c0 <=> ADP_c0 + HTP_c0');
+
+%Add Coenzyme B to the biomass
+[~,coB_idx] = intersect(model.mets,'HTP_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(coB_idx,bio_idx) = -0.0030965;
+    
