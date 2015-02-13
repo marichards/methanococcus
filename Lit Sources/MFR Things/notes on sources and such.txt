@@ -1,6 +1,7 @@
 mfnA (from blastP w/Janaschii): mmp0131
 mfnB: (from blastP w/Jannaschii): mmp0708
 mfnC: no blastP hits w/Jannaschii
+mfnD: don't know gene yet
 
 Devised scheme for F1-P synthesis:
 1) Glyceraldehyde-3-phosphate + dihydroxyacetone-P -> 4-(hydroxymethyl)-2-furancarboxaldehyde + 2 H2O + Pi [MfnB]
@@ -18,3 +19,11 @@ Rest are proposed in 2014 paper (White lab):
 
 **APMF-glu is 4{[4-(2-aminoethyl)phenoxy]methyl}-2-furanmethanamine
 
+REACTIONS in KBASE:
+3) is rxn00529_c0
+4) is not there
+
+OTHER COMPOUNDS in KBASE:
+DHAP is cpd00095 (Glycerone-phosphate_c0)
+
+Yeah, that's about it
