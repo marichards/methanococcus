@@ -1,0 +1,16 @@
+MptA(MJ0775): GTP + 2 H2O -> HCOO-(formate) + PPi + 7,8-dihydroneopterin 2',3'-cyclic phosphate
+MptB(MJ0837): 7,8-dihydroneopterin 2',3'-cyclic phosphate + H2O -> 7,8-dihydroneopterinmonophosphate (H2NMP)
+{Missing gene):  H2NMP + H2O -> 7,8-dihydroneopterin(H2Neo) + Pi
+MptD(MJ0408): H2Neo -> 6-hydroxymethyl-7,8-dihydropterin (6-HMD) + glycolaldehyde
+MptE(MJ1634): 6-HMD + ATP -> 6-hydroxymethyl-7,8-dihydropterin diphosphate (6-HMDP) + AMP
+
+MptH(MJ0301): 6-HMDP + 4-(beta-D-ribofuranosyl)aminobenzeme 5'-phosphate(beta-RFA-P) -> {dihydropterate intermediate} + PPi
+
+**beta-RFA-P is from:
+
+MptG(unknown): 4-aminobenzoate + PRPP -> beta-RFA-P
+
+Then:
+
+{dihydropterate intermediate} + 2 ATP + S-Hydroxyglutarate + 2 H+ + 2 NADPH + PRPP + 2 S-adenosyl-L-methionine -> H4MPT + 2 ADP + 2 PPi + Pi + 2 NADP + 2 S-adenosyl-L-homocysteine
+

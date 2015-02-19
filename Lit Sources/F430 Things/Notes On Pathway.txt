@@ -1,0 +1,7 @@
+Methanococcus has F430-3 (C45H55N6NiO15S+)
+-->It also has plain F430 and the -4, -5, and -8 forms. Since all originate from F430, go with that: C42H51N6NiO13
+
+-->For -3, add C3H4O2S
+-->For -4, remove H2
+-->For -5, remove H2 and add CO2
+-->For -8, add O and subtract H2
