@@ -1,0 +1,21 @@
+Debugging the model on 2/16/2015:
+
+-Currently, with the extra biomass components taken out we're making about 10x more biomass per methane than we should. Why?
+
+-CODH_ACS is going backwards, turning Acetyl_CoA, Oxidized ferredoxin, and H4MPT into Methyl-H4MPT, CO2, and Reduced ferredoxin
+-A little bit (175 of 670) of the Methyl-H4MPT then makes methane, the majority goes backwards in methanogenesis, which generates more CO2 and reduced ferredoxin. The CO2 goes into making Acetyl-CoA (see below), plus these 2 reactions to biosynthesize things:
+
+rxn05939_c0	H_c0 + CO2_c0 + Reducedferredoxin_c0 + Succinyl-CoA_c0 	<=>	CoA_c0 + 2-Oxoglutarate_c0 + Oxidizedferredoxin_c0 	mmp1687 and mmp1316 and mmp0003 and mmp1315
+rxn05938_c0	H_c0 + CO2_c0 + Acetyl-CoA_c0 + Reducedferredoxin_c0 	<=>	CoA_c0 + Oxidizedferredoxin_c0 + Pyruvate_c0 	(mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506)
+
+-Acetyl-CoA comes from 2 reactions:
+rxn00256_c0	H_c0 + CoA_c0 + Citrate_c0 	<=>	Acetyl-CoA_c0 + H2O_c0 + Oxaloacetate_c0 	
+rxn09467_c0	8 CoA_c0 + 8 H2O_c0 + 8 NAD_c0 + 7 O2_c0 + Octadecenoyl-CoA_c0 	->	8 H_c0 + 9 Acetyl-CoA_c0 + 8 NADH_c0 + 7 H2O2_c0 
+
+Most of it comes from the first reaction; I don't think the second reaction should exist. Where are we getting all this Citrate from?
+rxn00974_c0	Citrate_c0 	<=>	H2O_c0 + cis-Aconitate_c0 	mmp1480
+rxn01388_c0	H2O_c0 + cis-Aconitate_c0 	<=>	D-threo-Isocitrate_c0 	mmp1480
+rxn00198_c0	NADP_c0 + D-threo-Isocitrate_c0 	<=>	CO2_c0 + NADPH_c0 + 2-Oxoglutarate_c0 	mmp0880
+
+And all the NADPH is coming from:
+rxn00781_c0	NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0 	mmp0325

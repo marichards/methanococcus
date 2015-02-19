@@ -652,13 +652,13 @@ model = changeRxnBounds(model,'rxn00062_c0',2,'b');
 %1/29/2015
 %%%%%%%%%%%%%
 %Remove the sulfate uptake and transport
-%model = removeRxns(model,{'rxn05651_c0','EX_cpd00048_e0'});
+model = removeRxns(model,{'rxn05651_c0','EX_cpd00048_e0'});
 
 %Replace it with H2S uptake and transport
-%model = addReaction(model,{'rxn10541_c0','H2S transport (diffusion)'},...
-%'H2S_e0 <=> H2S_c0');
-%model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
-%'H2S_e0 <=>');
+model = addReaction(model,{'rxn10541_c0','H2S transport (diffusion)'},...
+'H2S_e0 <=> H2S_c0');
+model = addReaction(model,{'EX_cpd00239_e0','EX_H2S_e0'},...
+'H2S_e0 <=>');
 
 %Make model work by removing sulfate from the biomass
 [~,so4_idx] = intersect(model.mets,'Sulfate_c0');
@@ -671,11 +671,11 @@ model.S(so4_idx,bio_idx) = 0;
 %Turn off the Hdr_Formate when not growing on formate
 model = changeRxnBounds(model,'Hdr_formate',0,'b');
 %Turn off SuccOR right now too
-%model = changeRxnBounds(model,'SuccOR',0,'b');
+model = changeRxnBounds(model,'SuccOR',0,'b');
 
 %Put in the reaction for H2S to Sulfite
-%model = addReaction(model,'Dsr-LP','H2S_c0 -> Sulfite_c0');
-    %'H2S_c0 + 3 H2O_c0 + NAD_c0 -> Sulfite_c0 + NADH_c0 + 4 H2_c0 + H_c0 ');
+model = addReaction(model,'Dsr-LP',...%'H2S_c0 -> Sulfite_c0');
+    'H2S_c0 + 3 H2O_c0 + NAD_c0 -> Sulfite_c0 + NADH_c0 + 4 H2_c0 + H_c0 ');
     
 %%%%%%%%%%%%%
 %02/10/2015
@@ -803,3 +803,8 @@ model = addReaction(model,{'rxn10475_c0','Coenzyme B synthase'},...
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 model.S(coB_idx,bio_idx) = -0.0030965;
     
+%%%%%%%%%%%%%
+%02/16/2015
+%%%%%%%%%%%%%
+%Fix the model's alternative cycle by turning CODH to only go forward
+model = changeRxnBounds(model,'CODH_ACS',0,'l');
