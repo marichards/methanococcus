@@ -671,7 +671,7 @@ model.S(so4_idx,bio_idx) = 0;
 %Turn off the Hdr_Formate when not growing on formate
 model = changeRxnBounds(model,'Hdr_formate',0,'b');
 %Turn off SuccOR right now too
-model = changeRxnBounds(model,'SuccOR',0,'b');
+%model = changeRxnBounds(model,'SuccOR',0,'b');
 
 %Put in the reaction for H2S to Sulfite
 model = addReaction(model,'Dsr-LP',...%'H2S_c0 -> Sulfite_c0');

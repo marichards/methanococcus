@@ -1,2 +1,11 @@
 7,8-didemethyl-8-hydroxy-5-deazariboflavin (FO) is in Kbase
 
+***Pathway from 2002 coenzymes paper:
+1) 5-amino-6-ribitylamino-2,4(1H,3H)-pyrimidine-dione + 4-hydroxypyruvate -> Schiff's Base + H2O
+2) Schiff's Base --> Other schiff's base
+3) Other Schiff's base -> NH4 + Glyoxylate + 3rd Schiff's base
+4) 3rd Schiff's base -> FO
+*********
+5)S-Lactate + GTP -> (S)-2-phospholactate + GDP {CofB}
+6) GTP + (S)-2-phospholactate -> lactyl(2)diphospho-(5')-guanosine (LPPG) + PPi {CofC}
+7) FO + LPPG <=> F420-0 + GMP {CofD}
