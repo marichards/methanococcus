@@ -70,18 +70,10 @@ model = addReaction(model,{'rxn10598_c0','Sulfoethylcysteine synthase'},...
     '2-(sulfomethyl)thiazolidine-4-carboxylate_c0 + NADH_c0 + H_c0 <=> sulfoethylcysteine_c0 + NAD_c0');
 model = addReaction(model,{'rxn10479_c0','Coenzyme M synthase'},...
     'H2O_c0 + sulfoethylcysteine_c0 <=> NH3_c0 + CoM_c0 + Pyruvate_c0');
-model = addReaction(model,{'rxn00974_c0','Citrate hydrolase'},...
-    'Citrate_c0  <=> H2O_c0 + cis-Aconitate_c0');
-model = addReaction(model,{'rxn01388_c0','Isocitrate hydrolase'},...
-    'H2O_c0 + cis-Aconitate_c0  <=> D-threo-Isocitrate_c0');
-model = addReaction(model,{'rxn00198_c0','Isocitrate:NADP+ oxidoreductase (decarboxylating)'},...
-    'NADP_c0 + D-threo-Isocitrate_c0  <=> CO2_c0 + NADPH_c0 + 2-Oxoglutarate_c0');
 model = addReaction(model,{'rxn08518_c0','Formate-hydrogen lyase'},...
     'Formate_c0 + H_c0  -> CO2_c0 + H2_c0');
 model = addReaction(model,{'rxn03079_c0','F420:5,10-methenyltetrahydromethanopterin oxidoreductase'},...
     'H_c0 + Coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> Reduced_coenzyme_F420_c0 + 5_10-Methenyltetrahydromethanopterin_c0');
-model = addReaction(model,{'rxn00256_c0','Citrate oxaloacetate-lyase'},...
-    'Citrate_c0 + CoA_c0 + H_c0 <=> Acetyl-CoA_c0 + H2O_c0 + Oxaloacetate_c0');
 model = addReaction(model,{'rxn04026_c0','Sulfopyruvate carboxy-lyase'},...
     '3-sulfopyruvate_c0 + H_c0 -> CO2_c0 + sulfoacetaldehyde_c0');
 %Modified (R)-sulfolactate to (2R)-3-sulfolactate to match the seed on
@@ -112,18 +104,10 @@ model = addReaction(model,{'rxn08764_c0','ketol-acid reductoisomerase (2-Acetola
 model = changeGeneAssociation(model,'rxn06874_c0','mmp0853 and mmp0856 and mmp0857 and mmp0858 and mmp0859 and mmp0860');
 model = changeGeneAssociation(model,'rxn04042_c0','mmp1296');
 model = changeGeneAssociation(model,'rxn04043_c0','mmp1296');
-
 model = changeGeneAssociation(model,'rxn00340_c0','mmp0918');
 model = changeGeneAssociation(model,'rxn00184_c0','mmp0080 or mmp0081 or mmp0082 or mmp0496');
-
-
-
-model = changeGeneAssociation(model,'rxn00974_c0','mmp1480');
-model = changeGeneAssociation(model,'rxn01388_c0','mmp1480');
-model = changeGeneAssociation(model,'rxn00198_c0','mmp0880');
 model = changeGeneAssociation(model,'rxn08518_c0','mmp1298');
 model = changeGeneAssociation(model,'rxn03079_c0','mmp0127');
-
 model = changeGeneAssociation(model,'rxn04026_c0','mmp0411 or mmp1689');
 model = changeGeneAssociation(model,'rxn04934_c0','mmp1133');
 model = changeGeneAssociation(model,'rxn04036_c0','mmp0161');
@@ -228,29 +212,41 @@ model = addReaction(model,{'ACT','Acetate transport'},...
 %Add charges for added metabolites
 %There are 13 added metabolites...add charges 1 by 1 (from Kbase)
 %    'sulfoacetaldehyde_c0'
-model.metCharge(end-11)=-1;
+[~,idx] = intersect(model.mets,'sulfoacetaldehyde_c0');
+model.metCharge(idx)=-1;
 %    '2-(sulfomethyl)thiazolidine-4-carboxylate_c0'
-model.metCharge(end-10)=-1;
+[~,idx] = intersect(model.mets,'2-(sulfomethyl)thiazolidine-4-carboxylate_c0');
+model.metCharge(idx)=-1;
 %    'sulfoethylcysteine_c0'
-model.metCharge(end-9)=-1;
+[~,idx] = intersect(model.mets,'sulfoethylcysteine_c0');
+model.metCharge(idx)=-1;
 %    'Citrate_c0'
-model.metCharge(end-8)=-3;
+%[~,idx] = intersect(model.mets,'Citrate_c0');
+%model.metCharge(idx)=-3;
 %    'cis-Aconitate_c0'
-model.metCharge(end-7)=-3;
+%[~,idx] = intersect(model.mets,'cis-Aconitate_c0');
+%model.metCharge(idx)=-3;
 %    'D-threo-Isocitrate_c0'
-model.metCharge(end-6)=-3;
+%[~,idx] = intersect(model.mets,'D-threo-Isocitrate_c0');
+%model.metCharge(idx)=-3;
 %    '3-sulfopyruvate_c0'
-model.metCharge(end-5)=-2;
+[~,idx] = intersect(model.mets,'3-sulfopyruvate_c0');
+model.metCharge(idx)=-2;
 %    '(2R)-3-sulfolactate_c0'
-model.metCharge(end-4)=-2;
+[~,idx] = intersect(model.mets,'(2R)-3-sulfolactate_c0');
+model.metCharge(idx)=-2;
 %    'Citramalate_c0'
-model.metCharge(end-3)=-2;
+[~,idx] = intersect(model.mets,'Citramalate_c0');
+model.metCharge(idx)=-2;
 %    'Citraconate_c0'
-model.metCharge(end-2)=-2;
+[~,idx] = intersect(model.mets,'Citraconate_c0');
+model.metCharge(idx)=-2;
 %    'D-erythro-3-Methylmalate_c0'
-model.metCharge(end-1)=-2;
+[~,idx] = intersect(model.mets,'D-erythro-3-Methylmalate_c0');
+model.metCharge(idx)=-2;
 %    'Acetate_e0'
-model.metCharge(end)=-1;
+[~,idx] = intersect(model.mets,'Acetate_e0');
+model.metCharge(idx)=-1;
 
 %Fix charges for 3 other reactions
 %Reaction 07191_c0; change 2 Fd to 1
@@ -442,9 +438,11 @@ model = addMetFormulas(model);
 %%%%%%%%%%%%%%%%%%%
 %Add charges for 2 from IPOR
 %    'Indole-3-pyruvate_c0'
-model.metCharge(end-1)=-1;
+[~,idx] = intersect(model.mets,'Indole-3-pyruvate_c0');
+model.metCharge(idx)=-1;
 %    'S-2-(indol-3-yl)acetyl-CoA_c0'
-model.metCharge(end)=-3;
+[~,idx] = intersect(model.mets,'S-2-(indol-3-yl)acetyl-CoA_c0');
+model.metCharge(idx)=-3;
 
 %%%%%%%%%%%%%%%%%%%
 %8/27/2014 Changes
