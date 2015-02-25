@@ -228,29 +228,41 @@ model = addReaction(model,{'ACT','Acetate transport'},...
 %Add charges for added metabolites
 %There are 13 added metabolites...add charges 1 by 1 (from Kbase)
 %    'sulfoacetaldehyde_c0'
-model.metCharge(end-11)=-1;
+[~,idx] = intersect(model.mets,'sulfoacetaldehyde_c0');
+model.metCharge(idx)=-1;
 %    '2-(sulfomethyl)thiazolidine-4-carboxylate_c0'
-model.metCharge(end-10)=-1;
+[~,idx] = intersect(model.mets,'2-(sulfomethyl)thiazolidine-4-carboxylate_c0');
+model.metCharge(idx)=-1;
 %    'sulfoethylcysteine_c0'
-model.metCharge(end-9)=-1;
+[~,idx] = intersect(model.mets,'sulfoethylcysteine_c0');
+model.metCharge(idx)=-1;
 %    'Citrate_c0'
-model.metCharge(end-8)=-3;
+[~,idx] = intersect(model.mets,'Citrate_c0');
+model.metCharge(idx)=-3;
 %    'cis-Aconitate_c0'
-model.metCharge(end-7)=-3;
+[~,idx] = intersect(model.mets,'cis-Aconitate_c0');
+model.metCharge(idx)=-3;
 %    'D-threo-Isocitrate_c0'
-model.metCharge(end-6)=-3;
+[~,idx] = intersect(model.mets,'D-threo-Isocitrate_c0');
+model.metCharge(idx)=-3;
 %    '3-sulfopyruvate_c0'
-model.metCharge(end-5)=-2;
+[~,idx] = intersect(model.mets,'3-sulfopyruvate_c0');
+model.metCharge(idx)=-2;
 %    '(2R)-3-sulfolactate_c0'
-model.metCharge(end-4)=-2;
+[~,idx] = intersect(model.mets,'(2R)-3-sulfolactate_c0');
+model.metCharge(idx)=-2;
 %    'Citramalate_c0'
-model.metCharge(end-3)=-2;
+[~,idx] = intersect(model.mets,'Citramalate_c0');
+model.metCharge(idx)=-2;
 %    'Citraconate_c0'
-model.metCharge(end-2)=-2;
+[~,idx] = intersect(model.mets,'Citraconate_c0');
+model.metCharge(idx)=-2;
 %    'D-erythro-3-Methylmalate_c0'
-model.metCharge(end-1)=-2;
+[~,idx] = intersect(model.mets,'D-erythro-3-Methylmalate_c0');
+model.metCharge(idx)=-2;
 %    'Acetate_e0'
-model.metCharge(end)=-1;
+[~,idx] = intersect(model.mets,'Acetate_e0');
+model.metCharge(idx)=-1;
 
 %Fix charges for 3 other reactions
 %Reaction 07191_c0; change 2 Fd to 1
@@ -442,9 +454,11 @@ model = addMetFormulas(model);
 %%%%%%%%%%%%%%%%%%%
 %Add charges for 2 from IPOR
 %    'Indole-3-pyruvate_c0'
-model.metCharge(end-1)=-1;
+[~,idx] = intersect(model.mets,'Indole-3-pyruvate_c0');
+model.metCharge(idx)=-1;
 %    'S-2-(indol-3-yl)acetyl-CoA_c0'
-model.metCharge(end)=-3;
+[~,idx] = intersect(model.mets,'S-2-(indol-3-yl)acetyl-CoA_c0');
+model.metCharge(idx)=-3;
 
 %%%%%%%%%%%%%%%%%%%
 %8/27/2014 Changes
@@ -635,11 +649,7 @@ model.S(coM_idx,bio_idx) = -0.0030965;
 %Take out the incorrect FDH that uses NAD/NADH
 model = removeRxns(model,'rxn00371_c0');
 
-%%%%%%%%%%%%%
-%9/19/2014
-%%%%%%%%%%%%%
-%Last step should always be to add the kbase aliases:
-model = addKbaseAliases(model);
+
 
 %%%%%%%%%%%%%
 %1/13/2015
@@ -670,8 +680,6 @@ model.S(so4_idx,bio_idx) = 0;
 
 %Turn off the Hdr_Formate when not growing on formate
 model = changeRxnBounds(model,'Hdr_formate',0,'b');
-%Turn off SuccOR right now too
-%model = changeRxnBounds(model,'SuccOR',0,'b');
 
 %Put in the reaction for H2S to Sulfite
 model = addReaction(model,'Dsr-LP',...%'H2S_c0 -> Sulfite_c0');
@@ -808,3 +816,68 @@ model.S(coB_idx,bio_idx) = -0.0030965;
 %%%%%%%%%%%%%
 %Fix the model's alternative cycle by turning CODH to only go forward
 model = changeRxnBounds(model,'CODH_ACS',0,'l');
+
+%%%%%%%%%%%%%
+%02/24/2015
+%%%%%%%%%%%%%
+%Remove the 4 reactions that complete the TCA cycle (we added all 4 above)
+model = removeRxns(model,{'rxn00974_c0','rxn00198_c0','rxn01388_c0','rxn00256_c0'});
+
+%Add H4MPT Synthesis Pathway
+%Step 1(MptA): GTP + 2 H2O -> Formate + PPi + 7,8-dihydronepterin 2' :3'-cyclicphosphate
+model = addReaction(model,{'MptA','MptA'},...
+    'GTP_c0 + 2 H2O_c0 -> Formate_c0 + PPi_c0 + 7,8-dihydronepterin_2_3-cyclicphosphate_c0');
+model = changeGeneAssociation(model,'MptA','mmp0034');
+%Step 2(MptB): 7,8-dihydronepterin 2' :3'-cyclicphosphate + H2O -> Dihydroneopterin phosphate + H+
+model = addReaction(model,{'rxn10490_c0','7,8-dihydronepterin 2'' :3''-cyclicphosphate hydrolase'},...
+    '7,8-dihydronepterin_2_3-cyclicphosphate_c0 + H2O_c0 -> Dihydroneopterin_phosphate_c0 + H_c0');
+model = changeGeneAssociation(model,'rxn10490_c0','mmp0230');
+%Step 3:  Dihydroneopterin phosphate + H2O <=> Dihydroneopterin + H+ + Ppi
+model = addReaction(model,{'rxn03168_c0','Dihydroneopterin monophosphate dephosphorylase'},...
+    'Dihydroneopterin_phosphate_c0 + H2O_c0 <=> Dihydroneopterin_c0 + H_c0 + PPi_c0');
+%Step 4(MptD):Dihydroneopterin -> 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde
+model = addReaction(model,{'rxn02504_c0','Dihydroneopterin aldolase'},...
+    'Dihydroneopterin_c0 <=> 6-hydroxymethyl_dihydropterin_c0 + Glycolaldehyde_c0');
+model = changeGeneAssociation(model,'rxn02504_c0','mmp0243');
+%Step 5(MptE):6-hydroxymethyl-7,8-dihydropterin + ATP ->
+%6-hydroxymethyl-7,8-dihydropterin diphosphate + PPi
+model = addReaction(model,{'rxn02503_c0','ATP:2-amino-4-hydroxy-6-hydroxymethyl-7,8-dihydropteridine'},...
+    '6-hydroxymethyl_dihydropterin_c0 + ATP_c0 <=> 2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + AMP_c0');
+model = changeGeneAssociation(model,'rxn02503_c0','mmp0579');
+%Step 6(MptG): 4-aminobenzoate + PRPP -> beta-RFA-P
+model = addReaction(model,{'rxn10446_c0','beta-ribofuranosylaminobenzene 5''-phosphate synthase'},...
+    'ABEE_c0 + H_c0 + PRPP_c0 <=> 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 + CO2_c0 + PPi_c0');
+model = changeGeneAssociation(model,'rxn10446_c0','mmp0279');
+%Step 7(MptH): 6-HMDP + beta-RFA-P <=> Intermediate + PPi
+model = addReaction(model,{'rxn10491_c0',''},...
+    '2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 <=> 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + PPi_c0');
+%Step 8: Intermediate + 2 ATP + S-Hydroxyglutarate + 2 H+ + 2 NADH + PRPP +
+%2 S-adenosyl-L-methionine -> H4MPT + 2 ADP + 2 PPi + Pi + 2 NAD + 2
+%S-adenosyl-L-homocysteine
+model = addReaction(model,{'H4MPTs','Tetrahydromethanopterin synthase'},...
+    '7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + 2 ATP + (S)-2-Hydroxyglutarate_c0 + 2 H_c0 + 2 NADH_c0 + PRPP_c0 + 2 S-Adenosyl-L-methionine_c0 <=> H4MPT_c0 + 2 ADP_c0 + 2 PPi_c0 + Pi_c0 + 2 NAD + 2 S-Adenosyl-homocysteine_c0');
+
+%H4MPT Synthesis requires ABEE and 2-Hydroxyglutarate...add reactions for
+%each
+%Gapfill for 2-hydroxyglutarate
+model = addReaction(model,{'rxn10432_c0','(S)-alpha-hydroxyglutarate dehydrogenase'},...
+    'NADH_c0 + 2-Oxoglutarate_c0 + H_c0 <=> NAD_c0 + (S)-2-Hydroxyglutarate_c0');
+%Path for ABEE synthesis (according to Porat et al)
+%Need path to DKFP:
+model = addReaction(model,{'rxn10494_c0','6-deoxy-5-ketofructose 1-phosphate synthase'},...
+    'NADH_c0 + H_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 <=> NAD_c0 + 6-deoxy-5-ketofructose 1-phosphate_c0');
+model = addReaction(model,{'rxn10422_c0','4-ketofructose_1,6-biphosphate synthase'},...
+    '4-ketofructose_1,6-bisphosphate_c0 <=> Pi_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0');
+model = addReaction(model,{'rxn10520_c0','fructose-bisphoshate oxidase'},...
+    'NAD_c0 + D-fructose-1_6-bisphosphate_c0 <=> NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0,');
+%From DKFP, add path to ABEE using genes
+%aroA' gene: http://www.uniprot.org/uniprot/Q57843
+model = addReaction(model,{'ADTHs','ADTH synthase'},...
+    '6-deoxy-5-ketofructose 1-phosphate_c0 + L-Aspartate4-semialdehyde_c0 -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + 2_3-dioxopropylaldehyde_phosphate_c0'); 
+%****Pick up here...need to add genes for this and add remaining pathway
+
+%%%%%%%%%%%%%
+%9/19/2014
+%%%%%%%%%%%%%
+%Last step should always be to add the kbase aliases:
+model = addKbaseAliases(model);

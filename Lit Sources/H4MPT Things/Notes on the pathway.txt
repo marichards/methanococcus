@@ -15,7 +15,7 @@ Then:
 {dihydropterate intermediate} + 2 ATP + S-Hydroxyglutarate + 2 H+ + 2 NADPH + PRPP + 2 S-adenosyl-L-methionine -> H4MPT + 2 ADP + 2 PPi + Pi + 2 NADP + 2 S-adenosyl-L-homocysteine
 
 BLAST HITS:
-MptA: MMP0034 (Artemis, BlastP w/MJ)
+MptA: MMP0034 (Artemis, BlastP w/MJ), no corresponding rxn
 MptB: MMP0230 (BlastP w/MJ), rxn10490
 {MptC}: rxn03168
 MptD: MMP0243 (BlastP w/MJ), rxn02504
