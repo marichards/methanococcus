@@ -320,7 +320,7 @@ model = changeGeneAssociation(model,'rxn00175_c0','mmp0148 or mmp1274');
 %EX Urea e0	-1000
 model = changeRxnBounds(model,'EX_cpd00073_e0',0,'l');
 %EX fe3 e0	-1000
-model = changeRxnBounds(model,'EX_cpd10516_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd10516_e0',0,'l');
 %EX Spermine e0	-1000
 model = changeRxnBounds(model,'EX_cpd00558_e0',0,'l');
 %EX Nitrate e0	-1000
@@ -345,11 +345,11 @@ model = changeRxnBounds(model,'EX_cpd00111_e0',0,'l');
 %Metals in the biomass that must be removed
 %For now, don't remove their transporters or exchanges
 %EX Zn2 e0	-1000
-model = changeRxnBounds(model,'EX_cpd00034_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00034_e0',0,'l');
 %EX Cu2 e0	-1000
-model = changeRxnBounds(model,'EX_cpd00058_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00058_e0',0,'l');
 %EX Mn2 e0	-1000
-model = changeRxnBounds(model,'EX_cpd00030_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00030_e0',0,'l');
 
 %Change the biomass to take these out
 %Find these in the model
@@ -798,10 +798,10 @@ model = addReaction(model,{'rxn11855_c0','rxn11855'},...
     '2-Oxosuberate_c0 + H_c0 <=> 7-oxoheptanoic_acid_c0 + CO2_c0');
 %Step 15: 7-oxoheptanoic acid + Sulfur + 2e- -> 7-mercaptoheptanoic acid
 model = addReaction(model,{'rxn10424_c0','7-mercaptoheptanoate synthase'},...
-    '7-oxoheptanoic_acid_c0 + H_c0 + L-Cysteine_c0 + NADH_c0 <=> 7-mercaptoheptanoic acid_c0 + L-Serine_c0 + NAD_c0');
+    '7-oxoheptanoic_acid_c0 + H_c0 + L-Cysteine_c0 + NADH_c0 <=> 7-mercaptoheptanoic_acid_c0 + L-Serine_c0 + NAD_c0');
 %Step 16: 7-mercaptoheptanoic acid + threonine + ATP -> 7-mercaptoheptanoylthreonine + ADP
 model = addReaction(model,{'rxn10425_c0','7-mercaptoheptanoylthreonine synthase'},...
-    '7-mercaptoheptanoic acid_c0 + ATP_c0 + L-Threonine_c0 <=> 7-mercaptoheptanoylthreonine_c0 + ADP_c0 + H_c0 + Phosphate_c0');
+    '7-mercaptoheptanoic_acid_c0 + ATP_c0 + L-Threonine_c0 <=> 7-mercaptoheptanoylthreonine_c0 + ADP_c0 + H_c0 + Phosphate_c0');
 %Step 17: 7-mercaptoheptanoylthreonine + ATP -> Coenzyme B + ADP
 model = addReaction(model,{'rxn10475_c0','Coenzyme B synthase'},...
     '7-mercaptoheptanoylthreonine_c0 + ATP_c0 <=> ADP_c0 + HTP_c0');
@@ -855,7 +855,7 @@ model = addReaction(model,{'rxn10491_c0',''},...
 %2 S-adenosyl-L-methionine -> H4MPT + 2 ADP + 2 PPi + Pi + 2 NAD + 2
 %S-adenosyl-L-homocysteine
 model = addReaction(model,{'H4MPTs','Tetrahydromethanopterin synthase'},...
-    '7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + 2 ATP + (S)-2-Hydroxyglutarate_c0 + 2 H_c0 + 2 NADH_c0 + PRPP_c0 + 2 S-Adenosyl-L-methionine_c0 <=> H4MPT_c0 + 2 ADP_c0 + 2 PPi_c0 + Pi_c0 + 2 NAD + 2 S-Adenosyl-homocysteine_c0');
+    '7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + 2 ATP_c0 + (S)-2-Hydroxyglutarate_c0 + 2 H_c0 + 2 NADH_c0 + PRPP_c0 + 2 S-Adenosyl-L-methionine_c0 <=> H4MPT_c0 + 2 ADP_c0 + 2 PPi_c0 + Phosphate_c0 + 2 NAD_c0 + 2 S-Adenosyl-homocysteine_c0');
 
 %H4MPT Synthesis requires ABEE and 2-Hydroxyglutarate...add reactions for
 %each
@@ -865,17 +865,246 @@ model = addReaction(model,{'rxn10432_c0','(S)-alpha-hydroxyglutarate dehydrogena
 %Path for ABEE synthesis (according to Porat et al)
 %Need path to DKFP:
 model = addReaction(model,{'rxn10494_c0','6-deoxy-5-ketofructose 1-phosphate synthase'},...
-    'NADH_c0 + H_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 <=> NAD_c0 + 6-deoxy-5-ketofructose 1-phosphate_c0');
+    'NADH_c0 + H_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 <=> NAD_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0');
 model = addReaction(model,{'rxn10422_c0','4-ketofructose_1,6-biphosphate synthase'},...
-    '4-ketofructose_1,6-bisphosphate_c0 <=> Pi_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0');
+    '4-ketofructose_1,6-bisphosphate_c0 <=> Phosphate_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0');
 model = addReaction(model,{'rxn10520_c0','fructose-bisphoshate oxidase'},...
-    'NAD_c0 + D-fructose-1_6-bisphosphate_c0 <=> NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0,');
+    'NAD_c0 + D-fructose-1_6-bisphosphate_c0 <=> NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0');
 %From DKFP, add path to ABEE using genes
 %aroA' gene: http://www.uniprot.org/uniprot/Q57843
 model = addReaction(model,{'ADTHs','ADTH synthase'},...
-    '6-deoxy-5-ketofructose 1-phosphate_c0 + L-Aspartate4-semialdehyde_c0 -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + 2_3-dioxopropylaldehyde_phosphate_c0'); 
-%****Pick up here...need to add genes for this and add remaining pathway
+    '6-deoxy-5-ketofructose-1-phosphate_c0 + L-Aspartate4-semialdehyde_c0 -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + Hydroxypyruvaldehyde_phosphate_c0'); 
+%Add aroA' gene from Porat 2006 paper:
+model = changeGeneAssociation(model,'ADTHs','mmp0686');
+%aroB' gene from Porat 2006 paper
+model = addReaction(model,{'ADTHOR','ADTH oxidoreductase'},...
+'2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + H2O_c0 + NAD_c0 + H_c0 <=> 3-Dehydroquinate_c0 + NH3_c0 + NADH_c0');
+model = changeGeneAssociation(model,'ADTHOR','mmp0006');
 
+%Add 5 hypothetical reactions with hypothetical compounds, all from Porat
+%2006
+%1) DHQ + NH3 -> 4-amino-DHQ {Hypothetical from Porat 2006}
+model = addReaction(model,{'3DHQAT','3-dehydroquinate aminotransferase'},...
+'3-Dehydroquinate_c0 + NH3_c0  <=> 4-Amino-3-Dehydroquinate_c0');
+%2) 4-amino-DHQ -> 4-amino-DHS + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ADSs','4-aminodehydroshikimate synthase'},...
+'4-Amino-3-Dehydroquinate_c0  <=> 4-Amino-3-Dehydroshikimate_c0 + H2O_c0');
+%3) 4-amino-DHS + NADH -> 4-Aminoshikimate + NAD {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ASDH','4-aminoshikimate dehydrogenase'},...
+'4-Amino-3-Dehydroshikimate_c0 + NADH_c0 + H_c0 <=>  4-Aminoshikimate_c0 + NAD_c0');
+%4) 4-Aminoshikimate  -> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ASDHT','4-aminoshikimate dehydratase'},...
+'4-Aminoshikimate_c0 <=> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 + H2O_c0');
+%5) 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate -> ABEE + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'ABEEs','4-aminobenzoic acid synthase'},...
+'4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=>  ABEE_c0 + H2O_c0');
+
+%For now, add an artificial outlet for the Hydroxypyruvaldehyde_phosphate
+model = addReaction(model,'SINK','Hydroxypyruvaldehyde_phosphate_c0 <=> ');
+
+%Finally, add H4MPT to the biomass
+[~,H4MPT_idx] = intersect(model.mets,'H4MPT_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(H4MPT_idx,bio_idx) = -0.0030965;
+
+%We need to consume the Glycolaldehyde_c0....manually GapFill it using the
+%rxnlikelihoods file
+model = addReaction(model,{'rxn00979_c0','Glycolaldehyde:NAD+ oxidoreductase'},...
+    'H2O_c0 + NAD_c0 + Glycolaldehyde_c0 -> NADH_c0 + 2 H_c0 + Glycolate_c0');
+model = addReaction(model,{'rxn00512_c0','Glycolate:NAD+ oxidoreductase'},...
+    'Glycolate_c0 + NAD_c0 <=> Glyoxalate_c0 + H_c0 + NADH_c0');
+model = addReaction(model,{'rxn00272_c0','L-Alanine:glyoxylate aminotransferase'},...
+    'L-Alanine_c0 + Glyoxalate_c0 <=> Glycine_c0 + Pyruvate_c0');
+
+%Add formulas and charges for things
+%L-Alanine_e0
+[~,idx] = intersect(model.mets,'L-Alanine_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C3H7NO2';
+%D-Alanine_e0
+[~,idx] = intersect(model.mets,'D-Alanine_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C3H7NO2';
+%N2_e0
+[~,idx] = intersect(model.mets,'N2_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='N2';
+%H2S_e0
+[~,idx] = intersect(model.mets,'H2S_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='H2S';
+%trans-homoaconitate_c0
+[~,idx] = intersect(model.mets,'trans-homoaconitate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C7H5O6';
+%S-homocitrate_c0
+[~,idx] = intersect(model.mets,'S-homocitrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C7H7O7';
+%cis-Homoaconitate_c0
+[~,idx] = intersect(model.mets,'cis-Homoaconitate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C7H5O6';
+%threo-isohomocitrate_c0
+[~,idx] = intersect(model.mets,'threo-isohomocitrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C7H7O7';
+%2-oxohexanedioic_acid_c0
+[~,idx] = intersect(model.mets,'2-oxohexanedioic_acid_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C6H6O5';
+%(R)-(homo)2citrate_c0
+[~,idx] = intersect(model.mets,'(R)-(homo)2citrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C8H9O7';
+%cis-(homo)2aconitate_c0
+[~,idx] = intersect(model.mets,'cis-(homo)2aconitate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C8H7O6';
+%(-)threo-iso(homo)2citrate_c0
+[~,idx] = intersect(model.mets,'(-)threo-iso(homo)2citrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C8H9O7';
+%2-oxoheptanedioic_acid_c0
+[~,idx] = intersect(model.mets,'2-oxoheptanedioic_acid_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C7H8O5';
+%(R)-(homo)3citrate_c0
+[~,idx] = intersect(model.mets,'(R)-(homo)3citrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C9H11O7';
+%cis-(homo)3aconitate_c0
+[~,idx] = intersect(model.mets,'cis-(homo)3aconitate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C9H9O6';
+%(-)threo-iso(homo)3citrate_c0
+[~,idx] = intersect(model.mets,'(-)threo-iso(homo)3citrate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C9H11O7';
+%2-Oxosuberate_c0
+[~,idx] = intersect(model.mets,'2-Oxosuberate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C8H10O5';
+%7-oxoheptanoic_acid_c0
+[~,idx] = intersect(model.mets,'7-oxoheptanoic_acid_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H11O3';
+%7-mercaptoheptanoic_acid_c0
+[~,idx] = intersect(model.mets,'7-mercaptoheptanoic_acid_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H13O2S';
+%7-mercaptoheptanoylthreonine_c0
+[~,idx] = intersect(model.mets,'7-mercaptoheptanoylthreonine_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C11H20NO4S';
+%7,8-dihydronepterin_2_3-cyclicphosphate_c0
+[~,idx] = intersect(model.mets,'7,8-dihydronepterin_2_3-cyclicphosphate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C9H11N5O6P';
+%Dihydroneopterin_phosphate_c0
+[~,idx] = intersect(model.mets,'Dihydroneopterin_phosphate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C9H13N5O7P';
+%Dihydroneopterin_c0
+[~,idx] = intersect(model.mets,'Dihydroneopterin_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C9H13N5O4';
+%6-hydroxymethyl_dihydropterin_c0
+[~,idx] = intersect(model.mets,'6-hydroxymethyl_dihydropterin_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C7H9N5O2';
+%Glycolaldehyde_c0
+[~,idx] = intersect(model.mets,'Glycolaldehyde_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C2H4O2';
+%2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0
+[~,idx] = intersect(model.mets,'2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C7H9N5O8P2';
+%ABEE_c0
+[~,idx] = intersect(model.mets,'ABEE_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H6NO2';
+%4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0
+[~,idx] = intersect(model.mets,'4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C11H14NO7P';
+%7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0
+[~,idx] = intersect(model.mets,'7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C18H21N6O8P';
+%(S)-2-Hydroxyglutarate_c0
+[~,idx] = intersect(model.mets,'(S)-2-Hydroxyglutarate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C5H6O5';
+%4,5-diketo-6-deoxyfructose_1-phosphate_c0
+[~,idx] = intersect(model.mets,'4,5-diketo-6-deoxyfructose_1-phosphate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C6H7O8P';
+%6-deoxy-5-ketofructose-1-phosphate_c0
+[~,idx] = intersect(model.mets,'6-deoxy-5-ketofructose-1-phosphate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C6H9O8P';
+%4-ketofructose_1,6-bisphosphate_c0
+[~,idx] = intersect(model.mets,'4-ketofructose_1,6-bisphosphate_c0');
+model.metCharge(idx)=-4;
+model.metFormulas{idx}='C6H8O12P2';
+%2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0
+[~,idx] = intersect(model.mets,'2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C7H11NO5';
+%Hydroxypyruvaldehyde_phosphate_c0
+[~,idx] = intersect(model.mets,'Hydroxypyruvaldehyde_phosphate_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C3H5O6P';
+%3-Dehydroquinate_c0
+[~,idx] = intersect(model.mets,'3-Dehydroquinate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H9O6';
+%4-Amino-3-Dehydroquinate_c0
+[~,idx] = intersect(model.mets,'4-Amino-3-Dehydroquinate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H10O5N';
+%4-Amino-3-Dehydroshikimate_c0
+[~,idx] = intersect(model.mets,'4-Amino-3-Dehydroshikimate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H8O4N'; 
+%4-Aminoshikimate_c0
+[~,idx] = intersect(model.mets,'4-Aminoshikimate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H10O4N'; 
+%4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0
+[~,idx] = intersect(model.mets,'4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C7H8O3N'; 
+%Glycolate_c0
+[~,idx] = intersect(model.mets,'Glycolate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C2H3O3';
+%Glyoxalate_c0
+[~,idx] = intersect(model.mets,'Glyoxalate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C2HO3';
+
+%Charges are imbalanced now:
+    'rxn02751_c0'
+    'rxn00735_c0'
+    'Dsr-LP'
+    'MptA'
+    'rxn10490_c0'
+    'rxn10446_c0'
+    'H4MPTs'
+    'rxn10520_c0'
+    '3DHQAT'
+  (29,1)       2.0000
+  (30,1)      -2.0000
+  (32,1)      -1.0000
+  (33,1)      -1.0000
+  (34,1)       1.0000
+  (35,1)      -1.0000
+  (36,1)      -2.0000
+  (37,1)      -3.0000
+  (38,1)      -1.0000
 %%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%

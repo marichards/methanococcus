@@ -1,0 +1,62 @@
+
+
+*This one is aroA'
+model = addReaction(model,{'ADTHs','ADTH synthase'},...
+    '6-deoxy-5-ketofructose 1-phosphate_c0 + L-Aspartate4-semialdehyde_c0 -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + 2_3-dioxopropylaldehyde_phosphate_c0'); 
+	
+1) Pyruvate ->->DKFP {no genes}
+-->For model, did F-1,6-P -> 4-keto-F-1,6,P -> 4,5-diketo-6-deoxy-F-1-P -> DKFP
+
+model = addReaction(model,{'rxn10494_c0','6-deoxy-5-ketofructose 1-phosphate synthase'},...
+    'NADH_c0 + H_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 <=> NAD_c0 + 6-deoxy-5-ketofructose 1-phosphate_c0');
+model = addReaction(model,{'rxn10422_c0','4-ketofructose_1,6-biphosphate synthase'},...
+    '4-ketofructose_1,6-bisphosphate_c0 <=> Pi_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0');
+
+model = addReaction(model,{'rxn10520_c0','fructose-bisphoshate oxidase'},...
+    'NAD_c0 + D-fructose-1_6-bisphosphate_c0 <=> NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0,');
+	
+2) DKFP + L-aspartate semialdehyde -> ADTH + dioxopropylaldehyde phosphate {aroA'}
+-->Need to add dioxopropylaldehyde phosphate exit pathway also!
+
+model = addReaction(model,{'ADTHs','ADTH synthase'},...
+    '6-deoxy-5-ketofructose 1-phosphate_c0 + L-Aspartate4-semialdehyde_c0 -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + 2_3-dioxopropylaldehyde_phosphate_c0');
+
+**Reaction is in Biocyc as this:
+6-deoxy-5-ketofructose 1-phosphate + L-aspartate-semialdehyde ? 2-amino-3,7-dideoxy-D-threo-hept-6-ulosonate + hydroxypyruvaldehyde phosphate
+	
+**Then we need some other things to balance it out. This reaction would be:
+C4H7NO3 + C6H11O8P <=> 	C3H5O6P + C7H13NO5  (Actually, this looks balanced)
+cpd00346 + cpd15853 <=> cpd17158 + cpd17159
+	
+Also, the latter compound is in SEED as : 	Hydroxypyruvaldehyde phosphate (cpd17158); the reaction is in KEGG (R08568), but there's no evidence of its existence in SEED
+
+Info on it: C3H5O6P, 0 charge
+.....for now, create an outlet sink? Yes, don't get obsessed with this!
+
+3) ADTH -> DHQ {aroB'} 
+model = addReaction(model,{'ADTH_OR','ADTH oxidoreductase'},...
+'2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + H2O_c0 + NAD_c0 <=> 5-Dehydroquinate_c0 + NH3_c0 + NADH_c0 + H_c0');
+
+**Reaction is in KEGG
+
+4) DHQ + NH3 -> 4-amino-DHQ {Hypothetical from Porat 2006}
+model = addReaction(model,{'3DHQAT','3-dehydroquinate aminotransferase'},...
+'5-Dehydroquinate_c0 + NH3_c0  <=> 4-Amino-5-Dehydroquinate_c0');
+
+5) 4-amino-DHQ -> 4-amino-DHS + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ADSs','4-aminodehydroshikimate synthase'},...
+'4-Amino-5-Dehydroquinate_c0  <=> 4-Amino-3-Dehydroshikimate_c0 + H2O_c0');
+
+6) 4-amino-DHS + NADH -> 4-Aminoshikimate + NAD {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ASDH','4-aminoshikimate dehydrogenase'},...
+'4-Amino-3-Dehydroshikimate_c0 + NADH_c0  <=>  4-Aminoshikimate_c0 + NAD_c0');
+**Check protons here! --> Should have 1 more on left side to balance charge
+
+7) 4-Aminoshikimate  -> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'4ASDHT','4-aminoshikimate dehydratase'},...
+'4-Aminoshikimate_c0 <=> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 + H2O_c0');
+
+8) 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate -> ABEE + H2O {Hypothetical from Porat 2006}
+model = addReaction(model,{'ABEEs','4-aminobenzoic acid synthase'},...
+'4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=>  ABEE_c0 + H2O_c0');
+
