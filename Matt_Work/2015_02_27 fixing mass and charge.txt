@@ -1,0 +1,45 @@
+Model charge/mass balance on 2/27
+
+Mass Imbalanced:
+1)	Dsr-LP	       3 H	3 H2O_c0 + NAD_c0 + H2S_c0  -> H_c0 + Sulfite_c0 + NADH_c0 + 4 H2_c0 
+2)	MptA	-3 H, -1 O	2 H2O_c0 + GTP_c0  -> Formate_c0 + PPi_c0 + 7,8-dihydronepterin_2_3-cyclicphosphate_c0 
+3)	rxn10490_c0	       1 H	H2O_c0 + 7,8-dihydronepterin_2_3-cyclicphosphate_c0  -> H_c0 + Dihydroneopterin_phosphate_c0  
+4)	rxn03168_c0	1 H, 3 O, 1 P	H2O_c0 + Dihydroneopterin_phosphate_c0  <=> H_c0 + PPi_c0 + Dihydroneopterin_c0 
+5)	rxn10446_c0	      -1 H	H_c0 + PRPP_c0 + ABEE_c0  <=> CO2_c0 + PPi_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 
+6)	H4MPTs	       1 O	2 H_c0 + 2 NADH_c0 + 2 ATP_c0 + 2 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0  <=> Phosphate_c0 + 2 NAD_c0 + 2 ADP_c0 + 2 PPi_c0 + 2 S-Adenosyl-homocysteine_c0 + H4MPT_c0 
+7)	rxn10520_c0	      -3 H	NAD_c0 + D-fructose-1_6-bisphosphate_c0  <=> NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0 
+8)	3DHQAT	-3 H, -1 O	NH3_c0 + 3-Dehydroquinate_c0  <=> 4-Amino-3-Dehydroquinate_c0 
+
+Charge Imbalanced:
+    'rxn02751_c0' (+2)
+    'rxn00735_c0' (-2)
+    'Dsr-LP' (-1)
+    'MptA' (-1)
+    'rxn10490_c0' (+1)
+    'rxn10446_c0' (-1)
+    'H4MPTs' (-2)
+    'rxn10520_c0' (-3)
+    '3DHQAT' (-1)
+
+
+START WITH MB:
+X1) Dsr-LP is off by 3 hydrogens but has an overall charge of -1; remove 2 H2 and add 1 H+ 
+X2) MptA is off by a water molecule plus a proton; if i took away one of the 2 waters and added a proton to the right, that would fix it
+X3) rxn10490_c0 is off by 1 proton, which should be put on the left (taken from the right)
+X4) rxn03168_c0 is off by a phosphate on the left and a proton on the left, I think (change Ppi to Phosphate, that was my mistake)
+X5) rxn10446_c0 is off by a proton; take that away from the left
+X6) H4MPTs is off by one extra oxygen and 2 electrons on the right; remove the 2 protons on the left and add water to the left (?)
+X7) rxn10520_c0 is off by 3 H's on the left; need 3 H's on the right to fix it I think
+X8) 3DHQAT is off by a proton and a water on the right
+
+%3/2/2015: everything is mass-balanced. Now about charge balance:
+
+    'rxn02751_c0' (+2)
+    'rxn00735_c0' (-2)
+	
+rxn02751_c0	H2O_c0 + Citraconate_c0 	<=>	D-erythro-3-methylmalate_c0 	mmp1480
+rxn00735_c0	NAD_c0 + D-erythro-3-methylmalate_c0 	<=>	CO2_c0 + NADH_c0 + 2-Oxobutyrate_c0 	mmp0539
+
+-->Add 2 protons and one H2 to each reaction
+
+%3/2/2015: everything is charge-balanced.
