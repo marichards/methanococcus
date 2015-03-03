@@ -1093,13 +1093,13 @@ model = addReaction(model,{'COMs','Coenzyme M synthesis'},...
 %Add steps for Methanofuran synthesis
 %mfnA reaction
 model = addReaction(model,{'rxn00529_c0','L-Tyrosine carboxylase'},...
-'L-Tyrosine_c0 -> Tyramine_c0 + CO2_c0');
+'L-Tyrosine_c0 + H_c0 -> Tyramine_c0 + CO2_c0');
 model = changeGeneAssociation(model,'rxn00529_c0','mmp0131');
 %mfnD reaction
 model = addReaction(model,{'MfnD','Tyramine-glutamate ligase'},...
-'Tyramine_c0 + L-Glutamate_c0 + ATP_c0 -> gamma-Glutamyl-tyramine_c0');
+'Tyramine_c0 + L-Glutamate_c0 + ATP_c0 -> gamma-Glutamyl-tyramine_c0 + ADP_c0 + Phosphate_c0 + H_c0');
 %mfnB reaction
-model = addReaction(model,{'MfnD','Tyramine-glutamate ligase'},...
+model = addReaction(model,{'MfnB','Tyramine-glutamate ligase'},...
 'Glyceraldehyde3-phosphate_c0 + Glycerone-phosphate_c0 -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O_c0 + Phosphate_c0');
 %mfnC reaction
 model = addReaction(model,{'MfnC','4-HCF-P:alanine aminotransferase'},...
@@ -1114,11 +1114,30 @@ model = addReaction(model,{'MFs','Methanofuran synthase'},...
 
 %Add Methanofuran to biomass
 %Finally, add H4MPT to the biomass
-%[~,MF_idx] = intersect(model.mets,'Methanofuran_c0');
-%[~,bio_idx] = intersect(model.rxns,'biomass0');
-%model.S(MF_idx,bio_idx) = -0.0030965;
+[~,MF_idx] = intersect(model.mets,'Methanofuran_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(MF_idx,bio_idx) = -0.0030965;
 
 %Need to add charges and formulae for new things
+[~,idx] = intersect(model.mets,'Tyramine_c0');
+model.metCharge(idx)=1;
+model.metFormulas{idx}='C8H12NO';
+[~,idx] = intersect(model.mets,'gamma-Glutamyl-tyramine_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C13H18N2O4';
+[~,idx] = intersect(model.mets,'4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C6H6O6P';
+[~,idx] = intersect(model.mets,'5-(aminomethyl)-3-furanmethanol-phosphate_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='';
+[~,idx] = intersect(model.mets,'5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='';
+[~,idx] = intersect(model.mets,'4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='';
+
 
 %%%%%%%%%%%%%
 %9/19/2014
