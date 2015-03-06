@@ -1100,17 +1100,17 @@ model = addReaction(model,{'MfnD','Tyramine-glutamate ligase'},...
 'Tyramine_c0 + L-Glutamate_c0 + ATP_c0 -> gamma-Glutamyl-tyramine_c0 + ADP_c0 + Phosphate_c0 + H_c0');
 %mfnB reaction
 model = addReaction(model,{'MfnB','Tyramine-glutamate ligase'},...
-'Glyceraldehyde3-phosphate_c0 + Glycerone-phosphate_c0 -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O_c0 + Phosphate_c0');
+'Glyceraldehyde3-phosphate_c0 + Glycerone-phosphate_c0 -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O_c0 + Phosphate_c0 + H_c0');
 %mfnC reaction
 model = addReaction(model,{'MfnC','4-HCF-P:alanine aminotransferase'},...
     '4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + L-Alanine_c0 -> 5-(aminomethyl)-3-furanmethanol-phosphate_c0 + Pyruvate_c0');
 %3 Hypotheteical Reactions
 model = addReaction(model,{'F1Pp','5-(aminomethyl)-3-furanmethanol-phosphate phosphorylase'},...
-    '5-(aminomethyl)-3-furanmethanol-phosphate_c0 + ATP_c0 -> 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0');
+    '5-(aminomethyl)-3-furanmethanol-phosphate_c0 + ATP_c0 -> 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 + ADP_c0');
 model = addReaction(model,{'F1PPc','5-(aminomethyl)-3-furanmethanol-pyrophosphate condensation'},...
-    '5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 + gamma-Glutamyl-tyramine_c0 -> 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 ');
+    '5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 + gamma-Glutamyl-tyramine_c0 -> 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 + PPi_c0 ');
 model = addReaction(model,{'MFs','Methanofuran synthase'},...
-    '4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 + L-Glutamate_c0 -> Methanofuran_c0');
+    '4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 + 3 L-Glutamate_c0 + H2_c0 -> Methanofuran_c0 + 2 NH3_c0 + 2 H2O_c0');
 
 %Add Methanofuran to biomass
 %Finally, add H4MPT to the biomass
@@ -1130,14 +1130,59 @@ model.metCharge(idx)=-1;
 model.metFormulas{idx}='C6H6O6P';
 [~,idx] = intersect(model.mets,'5-(aminomethyl)-3-furanmethanol-phosphate_c0');
 model.metCharge(idx)=0;
-model.metFormulas{idx}='';
+model.metFormulas{idx}='C6H10O5NP';
 [~,idx] = intersect(model.mets,'5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0');
-model.metCharge(idx)=0;
-model.metFormulas{idx}='';
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C6H10O8NP2';
 [~,idx] = intersect(model.mets,'4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0');
-model.metCharge(idx)=0;
-model.metFormulas{idx}='';
+model.metCharge(idx)=1;
+model.metFormulas{idx}='C19H26O5N3';
 
+%%%%%%%%%%%%%
+%3/5/2015
+%%%%%%%%%%%%%
+%Add reactions for F430 synthesis
+model = addReaction(model,{'rxn10508_c0','coenzyme F430 precursor synthase 1 (aminase)'},...
+    '2 ATP_c0 + 2 H2O_c0 + 2 L-Glutamine_c0 + Ni2_c0 + Precorrin_2_c0 <=> 2 ADP_c0 + 4 H_c0 + 2 L-Glutamate_c0 + 2 Phosphate_c0 + Pyrrochorphinate_c0');
+model = addReaction(model,{'rxn10509_c0','coenzyme F430 precursor synthase 2 (reduction)'},...
+    '2 H_c0 + NADH_c0 + Pyrrochorphinate_c0 <=> NAD_c0 + Dihydrocorphinate_c0');
+model = addReaction(model,{'rxn10510_c0','coenzyme F430 precursor synthase 3 (reduction)'},...
+    'H_c0 + NADH_c0 + Dihydrocorphinate_c0 <=> NAD_c0 + Tetrahydrocorphinate_c0');
+model = addReaction(model,{'rxn10511_c0','coenzyme F430 precursor synthase 4 (cyclization)'},...
+    'Tetrahydrocorphinate_c0 <=> 15_17-seco-F430-17-acid_c0');
+model = addReaction(model,{'rxn10512_c0','coenzyme F430 precursor synthase 5 (cyclization)'},...
+    '15_17-seco-F430-17-acid_c0 + H_c0 <=> Factor_430_c0 + H2O_c0');
+%Add Nickel to the media
+model = addReaction(model,{'EX_cpd00244_e0','EX_Ni2_e0'},...
+    'Ni2_e0 <=> ');
+model = addReaction(model,{'rxn05174_c0','Nickel-ABC Transport'},...
+    'H2O_c0 + ATP_c0 + Ni2_e0 -> ADP_c0 + Phosphate_c0 + H_c0 + Ni2_c0');
+
+[~,idx] = intersect(model.mets,'Pyrrochorphinate_c0');
+model.metCharge(idx)=-6;
+model.metFormulas{idx}='C42H42N6NiO14';
+[~,idx] = intersect(model.mets,'Dihydrocorphinate_c0');
+model.metCharge(idx)=-5;
+model.metFormulas{idx}='C42H45N6NiO14';
+[~,idx] = intersect(model.mets,'Tetrahydrocorphinate_c0');
+model.metCharge(idx)=-5;
+model.metFormulas{idx}='C42H47N6NiO14';
+[~,idx] = intersect(model.mets,'15_17-seco-F430-17-acid_c0');
+model.metCharge(idx)=-5;
+model.metFormulas{idx}='C42H47N6NiO14';
+[~,idx] = intersect(model.mets,'Factor_430_c0');
+model.metCharge(idx)=-4;
+model.metFormulas{idx}='C42H46N6O13Ni';
+[~,idx] = intersect(model.mets,'Ni2_c0');
+model.metCharge(idx)=2;
+model.metFormulas{idx}='Ni';
+[~,idx] = intersect(model.mets,'Ni2_e0');
+model.metCharge(idx)=2;
+model.metFormulas{idx}='Ni';
+%Add F430 to the biomass
+[~,f430_idx] = intersect(model.mets,'Factor_430_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(f430_idx,bio_idx) = -0.0030965;
 
 %%%%%%%%%%%%%
 %9/19/2014

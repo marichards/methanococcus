@@ -5,3 +5,32 @@ Methanococcus has F430-3 (C45H55N6NiO15S+)
 -->For -4, remove H2
 -->For -5, remove H2 and add CO2
 -->For -8, add O and subtract H2
+
+
+**Reactions from MA:
+
+(2) atp[c] + dscl[c] + (2) gln-L[c] + (2) h2o[c] + ni2[c]  --> (2) adp[c] + f430p1[c] + (2) glu-L[c] + (4) h[c] + (2) pi[c]
+f430p1[c] + h[c] + nadh[c]  --> f430p2[c] + nad[c]
+f430p2[c] + h[c] + nadh[c]  --> f430p3[c] + nad[c]
+f430p3[c]  --> sf430a[c]
+h[c] + sf430a[c]  --> f430[c] + h2o[c]
+
+***ALL HYPOTHETICAL FROM 1987 PAPER!
+
+1) Dihydro-sirohydrochlorin + Ni2+ + 2 NH3 -> 2 H2O + Nickel pyrrochorphinate
+2) Nickel pyrrochorphinate + 3 H+ + 2 NADH -> Dihydrocorphinate  + 2 NAD
+3) Dihydrocorphinate + 2 H+ -> tetrahydro-corphinate
+4) tetrahydro-corphinate -> F430 seco-precursor
+5) F430 seco-precursor -> f430 + h2o
+
+
+*****
+1) Precorrin_2_c0 + Ni_c0 + 2 NH3 -> 2 H2O + Nickel-pyrrochorphinate
+*******
+Same reactions are IN Kbase!
+
+1){rxn10508} 2 H2O + 2 ATP + 2 L-Glutamine + Ni2 + Precorrin 2 <=> 2 ADP + 2 Phosphate + 2 Glutamate + 5 H+ + Pyrrochorphinate(co F390 precursor 1)
+2){rxn10509} Pyrrochorphinate(co F390 precursor 1) + NADH + 2 H+ <=> Dihydrocorphinate (co F430 precursor 2) + NAD
+3){rxn10510} NADH + H+ + Dihydrocorphinate <=> NAD + Tetrahydrocorphinate
+4){rxn10511} Tetrahydrocorphinate <=> 15_17-seco-F430-17-acid 
+5){rxn10512} 15_17-seco-F430-17-acid + H+ <=> H2O + Cofactor_F430
