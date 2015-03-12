@@ -23,9 +23,11 @@ From 2002 Graupner paper (Characterization...)
 FINAL F420-0 reaction (MMP0404; CofD):
 rxn10566: 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 <=> H_c0 + GMP_c0 + Coenzyme_F420-0_c0
 
-ADDING GLUTAMATES [this is CofE...need source]:
+ADDING GLUTAMATES [this is CofE...need source...got it, it's MJ0768-->MMP0937]:
 rxn10525 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-0_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-1_c0
 rxn10526 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-1_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-2_c0
+
+CofF does the further ones, or at least 2->3 (MJ1001 -> MMP0170)
 rxn10527...
 rxn10528...
 rxn10529...
@@ -44,4 +46,16 @@ L-Lactaldehyde comes from 2 paths in MJ, one is L-fuculose-1-phosphate -> dihydr
 {MJ1418 (fucA) --> MMP1187}
 **Rxn is already there (rxn01620_c0), so is gene; ADD THAT IT'S LITERATURE HOMOLOGY!
 
+What to put in:
+
+rxn10499: H2O_c0 + 2 NADP_c0 + p-hydroxyphenylpyruvate_c0 + 4--1-D-Ribitylamino-5-aminouracil_c0 <=> 2 NADPH_c0 + NH3_c0 + 2 H_c0 + Oxalate_c0 + 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 (MMP0876 and MMP0056; CofG/CofH)
+rxn01053_c0: H2O_c0 + NAD_c0 + L-Lactaldehyde_c0 <=> NADH_c0 + 2 H_c0 + L-Lactate_c0 {MJ1411 ()--> MMP1487}
+
+
+rxn10567: GTP_c0 + H_c0 + 2-phospho-L-lactate_c0 <=> PPi_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 (CofC...{MJ0887 --> MMP0117 from Blast})
+rxn10566: 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 <=> H_c0 + GMP_c0 + Coenzyme_F420-0_c0 (MMP0404; CofD)
+
+CofE!!
+rxn10525 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-0_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-1_c0
+rxn10526 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-1_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-2_c0
 

@@ -589,7 +589,7 @@ model = removeRxns(model,'rxn00184_c0');
 %9/30/2014
 %%%%%%%%%%%%%
 %Add nitrogen diffusion at 0 lb for now
-model = addReaction(model,{'EX_cpd00528_c0','EX Nitrogen e0'},...
+model = addReaction(model,{'EX_cpd00528_e0','EX Nitrogen e0'},...
     'N2_e0 -> ');
 %Important: also turn the nitrogen fixation irreversible, lest it blow up
 %and let ATP be formed massively:
