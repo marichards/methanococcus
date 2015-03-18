@@ -1,0 +1,238 @@
+The ADP version of the ligase is still operational (rxn00172_c0), but the AMP version (rxn00175_c0) doesn't do anything different. Here are commands with results:
+
+Biomass flux: 5.499565
+
+Formate flux: 0.000000
+CO2 flux: 462.440024
+H2 flux: -45.000000
+H2O flux: 430.721937
+CH4 flux: 486.223367
+NH3 flux: -345.719744
+PO4 flux: -2.954653
+Acetate flux: -1000.000000
+
+Overall reaction:
+8 C2H3O2 + 2 H2O -->  7 CH4 + 9 CO2
+
+Model overall reaction (per mole CH4)
+-0.95 CO2 + 0.09 H2 --> 0.89 H2O + CH4
+
+Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4
+Predicted Yield Coefficient: 11.311 gDCW/mol CH4
+
+Expected ATP Yield: 0.5
+Predicted ATP Yield: 0.819
+
+>> solution = maxGrowthOnAcetate(model);
+
+
+Biomass flux: 5.499565
+
+Formate flux: 0.000000
+CO2 flux: 462.440024
+H2 flux: -45.000000
+H2O flux: 430.721937
+CH4 flux: 486.223367
+NH3 flux: -345.719744
+PO4 flux: -2.954653
+Acetate flux: -1000.000000
+
+Overall reaction:
+8 C2H3O2 + 2 H2O -->  7 CH4 + 9 CO2
+
+Model overall reaction (per mole CH4)
+-0.95 CO2 + 0.09 H2 --> 0.89 H2O + CH4
+
+Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4
+Predicted Yield Coefficient: 11.311 gDCW/mol CH4
+
+Expected ATP Yield: 0.5
+Predicted ATP Yield: 0.819
+
+>> solution = maxGrowthOnAcetate(model);
+
+
+Biomass flux: 5.425962
+
+Formate flux: 0.000000
+CO2 flux: 474.042145
+H2 flux: 0.000000
+H2O flux: 407.219661
+CH4 flux: 475.308313
+NH3 flux: -345.553970
+PO4 flux: -2.915109
+Acetate flux: -1000.000000
+
+Overall reaction:
+8 C2H3O2 + 2 H2O -->  7 CH4 + 9 CO2
+
+Model overall reaction (per mole CH4)
+-1.00 CO2 + -0.00 H2 --> 0.86 H2O + CH4
+
+Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4
+Predicted Yield Coefficient: 11.416 gDCW/mol CH4
+
+Expected ATP Yield: 0.5
+Predicted ATP Yield: 0.826
+
+>> metMassBalance(model,'Acetate_c0',0.1,true);
+Attempt to reference field of non-structure array.
+
+Error in metMassBalance (line 28)
+fluxes = solution.x(rxn_idx);
+ 
+>> metMassBalance(model,'Acetate_c0',solution,0.1,true);
+
+ACT	1000.000000	source
+rxn00172_c0	-1000.000000	sink
+
+>> printRxnFormula(model,'rxn00172_c0');
+rxn00172_c0	CoA_c0 + Acetate_c0 + ATP_c0 	->	Acetyl-CoA_c0 + Phosphate_c0 + ADP_c0 	mmp0253
+>> blah = changeRxnBounds(model,'rxn00172_c0',0,'b');
+>> solution = maxGrowthOnAcetate(blah);
+
+
+Biomass flux: 5.366882
+
+Formate flux: 0.000000
+CO2 flux: 468.906720
+H2 flux: 0.000000
+H2O flux: 402.803114
+CH4 flux: 470.159101
+NH3 flux: -341.808864
+PO4 flux: -2.883368
+Acetate flux: -989.163871
+
+Overall reaction:
+8 C2H3O2 + 2 H2O -->  7 CH4 + 9 CO2
+
+Model overall reaction (per mole CH4)
+-1.00 CO2 + -0.00 H2 --> 0.86 H2O + CH4
+
+Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4
+Predicted Yield Coefficient: 11.415 gDCW/mol CH4
+
+Expected ATP Yield: 0.5
+Predicted ATP Yield: 0.826
+
+>> metMassBalance(model,'Acetate_c0',solution,0.1,true);
+
+ACT	989.163871	source
+rxn00175_c0	-989.163871	sink
+
+>> printRxnFormula(model,'rxn00175_c0');
+rxn00175_c0	H_c0 + CoA_c0 + Acetate_c0 + ATP_c0 	<=>	Acetyl-CoA_c0 + PPi_c0 + AMP_c0 	mmp0148
+>> metMassBalance(model,'PPi_c0',solution,0.1,true);
+
+rxn00001_c0	-1000.000000	sink
+rxn00175_c0	989.163871	source
+
+>> printRxnFormula(model,'rxn00001_c0');
+rxn00001_c0	H2O_c0 + PPi_c0 	->	2.000000 H_c0 + 2.000000 Phosphate_c0 	mmp0219
+>> metMassBalance(model,'Phosphate_c0',solution,0.1,true);
+
+As a summary, things spiral out of control quickly when I add acetate to the media. It can grow by acetate itself. 
+
+>> findRxnsFromMets(model,'D-fructose-6-phosphate_c0');
+>> rxns = findRxnsFromMets(model,'D-fructose-6-phosphate_c0');
+>> printRxnFormula(model,rxns);
+rxn00549_c0	H2O_c0 + D-fructose-1_6-bisphosphate_c0 	->	H_c0 + Phosphate_c0 + D-fructose-6-phosphate_c0 	mmp0317
+rxn00555_c0	D-fructose-6-phosphate_c0 + L-Glutamine_c0 	<=>	L-Glutamate_c0 + D-Glucosamine_phosphate_c0 	mmp1680
+rxn00558_c0	D-glucose-6-phosphate_c0 	<=>	D-fructose-6-phosphate_c0 	mmp1295
+rxn00785_c0	D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0 	(mmp1113 or mmp1115)
+rxn01333_c0	Sedoheptulose7-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	<=>	D-fructose-6-phosphate_c0 + D-Erythrose4-phosphate_c0 	mmp1308
+rxn02380_c0	beta-D-Glucose_6-phosphate_c0 	<=>	D-fructose-6-phosphate_c0 	mmp1295
+rxn04043_c0	ADP_c0 + D-fructose-6-phosphate_c0 	<=>	D-fructose-1_6-bisphosphate_c0 + AMP_c0 	mmp1296
+>> load('2015_03_05_model.mat')
+>> solution = maxGrowthOnAcetate(model);
+
+
+Biomass flux: 5.425962
+
+Formate flux: 0.000000
+CO2 flux: 474.042145
+H2 flux: 0.000000
+H2O flux: 407.219661
+CH4 flux: 475.308313
+NH3 flux: -345.553970
+PO4 flux: -2.915109
+Acetate flux: -1000.000000
+
+Overall reaction:
+8 C2H3O2 + 2 H2O -->  7 CH4 + 9 CO2
+
+Model overall reaction (per mole CH4)
+-1.00 CO2 + -0.00 H2 --> 0.86 H2O + CH4
+
+Measured Yield Coefficient: 2.31 +/- 0.29 gDCW/mol CH4
+Predicted Yield Coefficient: 11.416 gDCW/mol CH4
+
+Expected ATP Yield: 0.5
+Predicted ATP Yield: 0.826
+
+>> metMassBalance(model,'Acetyl-CoA_c0',solution,0.1,true);
+
+CODH_ACS	-655.962812	sink
+rxn00172_c0	1000.000000	source
+rxn05938_c0	-344.993071	sink
+
+>> printRxnFormula(model,'CODH_ACS');
+CODH_ACS	2.000000 H_c0 + CO2_c0 + CoA_c0 + Reducedferredoxin_c0 + 5-Methyl-H4MPT_c0 	<=>	Acetyl-CoA_c0 + H2O_c0 + Oxidizedferredoxin_c0 + H4MPT_c0 	mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985
+>> [rxns,fluxes] = printMethanogenesisFluxes(model,solution,0);
+
+CO2 -> Formyl-MFR(rxn11938_c0): 180.65
+Formyl-MFR -> Formyl-H4MPT(rxn02431_c0): 180.65
+Formyl-H4MPT -> Methenyl-H4MPT(rxn02480_c0): 180.65
+Methenyl-H4MPT -> Methylene-H4MPT(rxn06696_c0): -180.65
+Methylene-H4MPT -> Methyl-H4MPT(rxn03085_c0): -180.65
+Methyl-H4MPT -> Methyl-CoM(rxn03020_c0): 475.31
+Methyl-CoM -> Methane(rxn03127_c0): 475.31
+CoM-S-S-CoB -> CoM(HdrABC): 479.41
+Ferredoxin Generator(Eha/Ehb): 0.00
+ATP Synthase(ATPS): 392.74
+
+>> printRxnFormula(model,'rxn06696_c0');
+rxn06696_c0	H2_c0 + 5_10-Methenyltetrahydromethanopterin_c0 	<=>	H_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	mmp0127
+>> metMassBalance(model,'5_10-Methenyltetrahydromethanopterin_c0 ',solution,0.1,true);
+Error using  .* 
+Matrix dimensions must agree.
+
+Error in metMassBalance (line 35)
+amounts = fluxes.*coeffs;
+ 
+>> metMassBalance(model,'5_10-Methenyltetrahydromethanopterin_c0',solution,0.1,true);
+
+rxn02480_c0	-180.654499	sink
+rxn06696_c0	180.654499	source
+
+>> metMassBalance(model,'5-Methyl-H4MPT',solution,0.1,true);
+Error using  .* 
+Matrix dimensions must agree.
+
+Error in metMassBalance (line 35)
+amounts = fluxes.*coeffs;
+ 
+>> metMassBalance(model,'5-Methyl-H4MPT_c0',solution,0.1,true);
+
+CODH_ACS	655.962812	source
+rxn03020_c0	-475.308313	sink
+rxn03085_c0	-180.654499	sink
+
+>> printRxnFormula(model,'rxn03085_c0');
+rxn03085_c0	Reduced_coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	5-Methyl-H4MPT_c0 + Coenzyme_F420_c0 	mmp0058
+>> printRxnFormula(model,'rxn02480_c0');
+rxn02480_c0	H2O_c0 + 5_10-Methenyltetrahydromethanopterin_c0 	<=>	H_c0 + 5-Formyl-H4MPT_c0 	mmp1191
+>> printRxnFormula(model,'rxn11938_c0');
+rxn11938_c0	H2O_c0 + Oxidizedferredoxin_c0 + Formylmethanofuran_c0 	<=>	H_c0 + CO2_c0 + Reducedferredoxin_c0 + Methanofuran_c0 	(mmp1244 and mmp1245 and mmp1246 and mmp1247 and mmp1248 and (mmp1249 or mmp0070)) or (mmp0508 and mmp0509 and mmp0510 and (mmp0511 or mmp0512))
+>> metMassBalance(model,'CO2_c0',solution,0.1,true);
+
+CODH_ACS	655.962812	source
+rxn05467_c0	-474.042145	sink
+rxn05938_c0	-344.993071	sink
+rxn11938_c0	180.654499	source
+
+>> printRxnFormula(model,'rxn05467_c0');
+rxn05467_c0	CO2_e0 	<=>	CO2_c0 	
+>> printRxnFormula(model,'rxn05938_c0');
+rxn05938_c0	H_c0 + CO2_c0 + Acetyl-CoA_c0 + Reducedferredoxin_c0 	<=>	CoA_c0 + Oxidizedferredoxin_c0 + Pyruvate_c0 	(mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506)
+>> 

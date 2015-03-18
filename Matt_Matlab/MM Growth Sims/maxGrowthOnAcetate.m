@@ -6,11 +6,9 @@ function solution = maxGrowthOnAcetate(model)
 %Turn off H2 Input
 model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
 %Turn off CO2 Input
-model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00011_e0',-1000,'l');
 %Turn on acetate Input
-model = changeRxnBounds(model,'EX_cpd00029_e0',-45,'l');
-
-%%%THIS CODE IS UNFINISHED BECAUSE THERE IS NO ACETATE UPTAKE RIGHT NOW
+model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
 
 %Pull out the acetate reaction pathway...
 %Acetate --> Acetyl-CoA (Acetate CoA Ligase)

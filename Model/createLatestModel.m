@@ -361,7 +361,7 @@ model.S(idx,bio_idx)=0;
 %Turn rxn00175 irreversible forward
 model=changeRxnBounds(model,'rxn00175_c0',0,'l');
 %Turn rxn00549 reversible to allow growth
-model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
+%model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
 
 %Note: I haven't removed exchanges or transporters for the 3 metals yet!
 
