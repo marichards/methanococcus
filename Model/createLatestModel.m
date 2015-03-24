@@ -1185,6 +1185,16 @@ model.metFormulas{idx}='Ni';
 model.S(f430_idx,bio_idx) = -0.0030965;
 
 %%%%%%%%%%%%%
+%3/23/2015
+%%%%%%%%%%%%%
+%Turn off the ability to import protons and sodium ions from media
+model = changeRxnBounds(model,'EX_cpd00067_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd00971_e0',0,'l');
+
+%Turn off the ability to dump out formate
+model = changeRxnBounds(model,'EX_cpd00047_e0',0,'b');
+
+%%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
 %Last step should always be to add the kbase aliases:
