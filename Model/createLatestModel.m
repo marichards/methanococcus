@@ -361,7 +361,7 @@ model.S(idx,bio_idx)=0;
 %Turn rxn00175 irreversible forward
 model=changeRxnBounds(model,'rxn00175_c0',0,'l');
 %Turn rxn00549 reversible to allow growth
-%model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
+model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
 
 %Note: I haven't removed exchanges or transporters for the 3 metals yet!
 
@@ -1183,6 +1183,16 @@ model.metFormulas{idx}='Ni';
 [~,f430_idx] = intersect(model.mets,'Factor_430_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 model.S(f430_idx,bio_idx) = -0.0030965;
+
+%%%%%%%%%%%%%
+%3/23/2015
+%%%%%%%%%%%%%
+%Turn off the ability to import protons and sodium ions from media
+model = changeRxnBounds(model,'EX_cpd00067_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd00971_e0',0,'l');
+
+%Turn off the ability to dump out formate
+model = changeRxnBounds(model,'EX_cpd00047_e0',0,'b');
 
 %%%%%%%%%%%%%
 %9/19/2014
