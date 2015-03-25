@@ -1101,6 +1101,7 @@ model = addReaction(model,{'MfnD','Tyramine-glutamate ligase'},...
 %mfnB reaction
 model = addReaction(model,{'MfnB','Tyramine-glutamate ligase'},...
 'Glyceraldehyde3-phosphate_c0 + Glycerone-phosphate_c0 -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O_c0 + Phosphate_c0 + H_c0');
+model = changeGeneAssociation(model,'MfnB','mmp0708');
 %mfnC reaction
 model = addReaction(model,{'MfnC','4-HCF-P:alanine aminotransferase'},...
     '4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + L-Alanine_c0 -> 5-(aminomethyl)-3-furanmethanol-phosphate_c0 + Pyruvate_c0');
@@ -1193,6 +1194,14 @@ model = changeRxnBounds(model,'EX_cpd00971_e0',0,'l');
 
 %Turn off the ability to dump out formate
 model = changeRxnBounds(model,'EX_cpd00047_e0',0,'b');
+
+%%%%%%%%%%%%%
+%3/24/2015
+%%%%%%%%%%%%%
+%Add adenylate kinase
+model = addReaction(model,{'rxn00097_c0','Nickel-ABC Transport'},...
+    'ATP_c0 + AMP_c0 -> 2 ADP_c0');
+model = addGeneAssociation(model,'mmp1031');
 
 %%%%%%%%%%%%%
 %9/19/2014
