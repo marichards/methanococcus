@@ -1204,6 +1204,12 @@ model = addReaction(model,{'rxn00097_c0','Nickel-ABC Transport'},...
 model = addGeneAssociation(model,'mmp1031');
 
 %%%%%%%%%%%%%
+%3/25/2015
+%%%%%%%%%%%%%
+%Turn off all alanine outlets
+model = changeRxnBounds(model,'EX_cpd00035_e0',0,'u');
+model = changeRxnBounds(model,'EX_cpd00117_e0',0,'u');
+%%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
 %Last step should always be to add the kbase aliases:

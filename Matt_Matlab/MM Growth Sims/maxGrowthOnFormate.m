@@ -8,6 +8,8 @@ function solution = maxGrowthOnFormate(model)
 model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
 %Turn on Formate Input
 model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
+%Turn on H+ or else it gets no growth
+model = changeRxnBounds(model,'EX_cpd00067_e0',-1000,'l');
 
 %Find indices of important reactions
 [~,h_idx] = intersect(model.rxns,'EX_cpd00067_e0');
@@ -18,7 +20,7 @@ model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
 [~,form_idx] = intersect(model.rxns,'EX_cpd00047_e0');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
-[~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
+%[~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
 
 %Solve for maximum biomass
 solution = optimizeCbModel(model,[],'one');
@@ -28,14 +30,14 @@ solution = optimizeCbModel(model,[],'one');
 fprintf('\n\nBiomass flux: %f\n\n',solution.f);
 %Print the reaction fluxes
 fprintf('Formate flux: %f\n',solution.x(form_idx))
-fprintf('H flux: %f\n',solution.x(h_idx))
+fprintf('H+ flux: %f\n',solution.x(h_idx))
 fprintf('CO2 flux: %f\n',solution.x(co2_idx))
 fprintf('H2 flux: %f\n',solution.x(h2_idx))
 fprintf('H2O flux: %f\n',solution.x(h2o_idx))
 fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
 fprintf('PO4 flux: %f\n',solution.x(po4_idx))
-fprintf('Acetate flux: %f\n',solution.x(ac_idx))
+%fprintf('Acetate flux: %f\n',solution.x(ac_idx))
 
 
 %Overall reaction: 4 COOH- + 4 H+ -> CH4 + 3 CO2 + 2 H2O
