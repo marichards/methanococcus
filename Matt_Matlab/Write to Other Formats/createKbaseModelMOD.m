@@ -30,8 +30,7 @@ rxn_idx = setdiff(rxn_idx,bio_idx,'stable');
 
 %Print the biomass one first
 %Add the biomass index back to the top
-formula = printRxnFormula(model,model.rxns{bio_idx},false);
-fprintf(model_file_id,'%s\t>\tc0\n',formula{1});
+rxn_idx = [bio_idx;rxn_idx];
 
 %Now we have the correct index order; create the correct fields
 %Loop through the index
@@ -64,6 +63,7 @@ end
 
 
 %Create the media file, which is simpler
+%Revision: upper and lower bounds are now switched
 media_file_id = fopen(sprintf('%s.txt',media_filename),'w');
 %Grab all exchange reactions
 exc_rxns = model.rxns(findExcRxns(model));
