@@ -59,3 +59,20 @@ CofE!!
 rxn10525 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-0_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-1_c0
 rxn10526 : L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-1_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-2_c0
 
+
+*****
+F420 in Kbase: C29H32N5O18P, Coenzyme F420, -4
+F420-0 in Kbase: C19H20N3O12P, f420-0, -2
+F420-1 in Kbase: C24H26N4O15P, f420-1, -3
+F420-2 in Kbase: C29H32N5O18P, f420-2, -4
+***F420-2 IS what we want here (Coenzyme F420)
+F420-3 in Kbase: C34H38N6O21P, f420-3, -5
+
+Can also make the -3 one: (CofF I believe):
+L-Glutamate + GTP + coenzyme ferredoxin 420-2 (oxidized) <=> Phosphate + GDP + H+ + coenzyme ferredoxin 420-3
+
+FINAL SAY ON ADDITIONS:
+rxn10499: H2O_c0 + 2 NADP_c0 + p-hydroxyphenylpyruvate_c0 + 4--1-D-Ribitylamino-5-aminouracil_c0 <=> 2 NADPH_c0 + NH3_c0 + 2 H_c0 + Oxalate_c0 + 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 (MMP0876 and MMP0056; CofG/CofH)
+rxn01053_c0: H2O_c0 + NAD_c0 + L-Lactaldehyde_c0 <=> NADH_c0 + 2 H_c0 + L-Lactate_c0 {MJ1411 ()--> MMP1487}
+
+
