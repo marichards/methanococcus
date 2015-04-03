@@ -1114,7 +1114,6 @@ model = addReaction(model,{'MFs','Methanofuran synthase'},...
     '4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 + 3 L-Glutamate_c0 + H2_c0 -> Methanofuran_c0 + 2 NH3_c0 + 2 H2O_c0');
 
 %Add Methanofuran to biomass
-%Finally, add H4MPT to the biomass
 [~,MF_idx] = intersect(model.mets,'Methanofuran_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 model.S(MF_idx,bio_idx) = -0.0030965;
@@ -1199,9 +1198,9 @@ model = changeRxnBounds(model,'EX_cpd00047_e0',0,'b');
 %3/24/2015
 %%%%%%%%%%%%%
 %Add adenylate kinase
-model = addReaction(model,{'rxn00097_c0','Nickel-ABC Transport'},...
+model = addReaction(model,{'rxn00097_c0','ATP:AMP phosphotransferase'},...
     'ATP_c0 + AMP_c0 -> 2 ADP_c0');
-model = addGeneAssociation(model,'mmp1031');
+model = changeGeneAssociation(model,'rxn00097_c0','mmp1031');
 
 %%%%%%%%%%%%%
 %3/25/2015
@@ -1211,10 +1210,57 @@ model = changeRxnBounds(model,'EX_cpd00035_e0',0,'u');
 model = changeRxnBounds(model,'EX_cpd00117_e0',0,'u');
 
 %%%%%%%%%%%%%
-%3/25/2015
+%3/26/2015
 %%%%%%%%%%%%%
-%Turn off all alanine outlets
-model = 
+%Add in the F420 synthesis pathway
+%Start from FO synthase(CofG/H)
+model = addReaction(model,{'rxn10499_c0','7,8-didemethyl-8-hydroxy-5-deazariboflavin synthetase'},...
+    'H2O_c0 + 2 NADP_c0 + p-hydroxyphenylpyruvate_c0 + 4-1-D-Ribitylamino-5-aminouracil_c0 <=> 2 NADPH_c0 + NH3_c0 + 2 H_c0 + Oxalate_c0 + 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0');
+model = changeGeneAssociation(model,'rxn10499_c0','mmp0876 and mmp0056');
+%Next add a pathway to make lactate, the lactate dehydrogenase
+model = addReaction(model,{'rxn01053_c0','(S)-lactaldehyde:NAD+ oxidoreductase'},...
+    'H2O_c0 + NAD_c0 + L-Lactaldehyde_c0 <=> NADH_c0 + 2 H_c0 + L-Lactate_c0');
+model = changeGeneAssociation(model,'rxn01053_c0','mmp1487');
+%We already get L-Lactaldehyde_c0 from L-fuculose-1-phosphate in the model
+%(mmp1187)
+%Next add LLPG synthesis (CofC)
+model = addReaction(model,{'rxn10567_c0','LPPG synthetase'},...
+    'GTP_c0 + H_c0 + 2-phospho-L-lactate_c0 <=> PPi_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0');
+model = changeGeneAssociation(model,'rxn10567_c0','mmp0117');
+%This requires 2-phospholactate; kinase is unknown, but it's there. Add a
+%hypothetical reaction (a manual gapfill of sorts), the only one in Kbase:
+model = addReaction(model,{'rxn10420_c0','2-phospho-L-lactate synthase'},...
+    'GTP_c0 + L-Lactate_c0 <=> 2-phospho-L-lactate_c0 + GDP_c0 + H_c0');
+%Add LLPG + FO reaction, the F420-0 synthase (CofD):
+model = addReaction(model,{'rxn10566_c0','LPPG:Fo 2-phospho-L-lactate transferase'},...
+    '7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 <=> H_c0 + GMP_c0 + Coenzyme_F420-0_c0');
+model = changeGeneAssociation(model,'rxn10566_c0','mmp0404');
+%Add glutamates to the F420-0 to make F420-2, the functional type (CofE)
+model = addReaction(model,{'rxn10525_c0','gamma-F420-0:gamma-L-glutamate ligase'},...
+    'L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-0_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-1_c0');
+model = changeGeneAssociation(model,'rxn10525_c0','mmp0937');
+model = addReaction(model,{'rxn10526_c0','gamma-F420-1:gamma-L-glutamate ligase'},...
+    'L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-1_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420_c0');
+model = changeGeneAssociation(model,'rxn10525_c0','mmp0937');
+%Also add a glutamate to make F420-3, not our mainstream type, but
+%something we know that we synthesize (CofF)
+model = addReaction(model,{'rxn10527_c0','gamma-F420-2:gamma-L-glutamate ligase'},...
+    'L-Glutamate_c0 + GTP_c0 + Coenzyme_F420_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-3_c0');
+model = changeGeneAssociation(model,'rxn10525_c0','mmp0170');
+
+%Now add the last 2 species to the biomass
+[~,f420_idx] = intersect(model.mets,'Coenzyme_F420');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(f420_idx,bio_idx) = -0.0030965;
+
+[~,f420_idx] = intersect(model.mets,'Coenzyme_F420-3');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(f420_idx,bio_idx) = -0.0030965;
+
+%Synthesize oxalate using manual gapfill (see F420 notes)
+model = addReaction(model,{'rxn05734_c0','aldehyde dehydrogenase (glyoxylate, NAD)'},...
+    'H2O_c0 + NAD_c0 + Glyoxalate_c0 <=> NADH_c0 + 2 H_c0 + Oxalate_c0');
+
 
 %%%%%%%%%%%%%
 %9/19/2014

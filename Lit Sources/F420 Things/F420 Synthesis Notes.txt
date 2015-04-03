@@ -75,4 +75,18 @@ FINAL SAY ON ADDITIONS:
 rxn10499: H2O_c0 + 2 NADP_c0 + p-hydroxyphenylpyruvate_c0 + 4--1-D-Ribitylamino-5-aminouracil_c0 <=> 2 NADPH_c0 + NH3_c0 + 2 H_c0 + Oxalate_c0 + 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 (MMP0876 and MMP0056; CofG/CofH)
 rxn01053_c0: H2O_c0 + NAD_c0 + L-Lactaldehyde_c0 <=> NADH_c0 + 2 H_c0 + L-Lactate_c0 {MJ1411 ()--> MMP1487}
 
+Manual gapfill on Oxalate:
+-2 transports, I doubt those. So we have several options:
 
+rxn05734 (0.268226151494167)
+rxn05444 (0.00858639436730884)
+Xrxn01136
+Xrxn01135
+Xrxn00448
+Xrxn00373
+Xrxn00325
+Xrxn00244
+X(has O2)rxn00204
+
+-->Go with rxn05734; this points to mmp1487! (same probability as rxn05735 for same gene...)
+-->Note that this is the lactate-forming gene!
