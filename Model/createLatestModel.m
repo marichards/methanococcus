@@ -1261,6 +1261,11 @@ model.S(f420_idx,bio_idx) = -0.0030965;
 model = addReaction(model,{'rxn05734_c0','aldehyde dehydrogenase (glyoxylate, NAD)'},...
     'H2O_c0 + NAD_c0 + Glyoxalate_c0 <=> NADH_c0 + 2 H_c0 + Oxalate_c0');
 
+%%%%%%%%%%%%%
+%4/6/2015
+%%%%%%%%%%%%%
+%Remove O2 transporter and exchange; we don't transport O2
+model = removeRxns(model,{'rxn05468_c0','EX_cpd00007_e0'});
 
 %%%%%%%%%%%%%
 %9/19/2014
