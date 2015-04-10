@@ -715,6 +715,7 @@ mets = {'Menaquinone_8_c0';...
    'Menaquinone_7_e0';...
    'Ubiquinol-8_c0';...
    'Menaquinol_8_c0';...
+   'Heme_c0';...
     };
 %rxns_to_remove = {};
 for i=1:length(mets)
@@ -1266,6 +1267,21 @@ model = addReaction(model,{'rxn05734_c0','aldehyde dehydrogenase (glyoxylate, NA
 %%%%%%%%%%%%%
 %Remove O2 transporter and exchange; we don't transport O2
 model = removeRxns(model,{'rxn05468_c0','EX_cpd00007_e0'});
+
+%%%%%%%%%%%%%
+%4/6/2015
+%%%%%%%%%%%%%
+
+% Add heme to our list of mets to remove from biomass (above, 2/10/2015)
+
+% Take out the O2 reactions
+o2_rxns = findRxnsFromMets(model,'O2_c0');
+model = removeRxns(model,o2_rxns);
+
+% Replace the orotate reaction for CTP and UTP synthesis
+model = addReaction(model,{'rxn01361_c0',''},...
+    'NAD_c0 + S-Dihydroorotate_c0 <=> NADH_c0 + H_c0 + Orotate_c0');
+
 
 %%%%%%%%%%%%%
 %9/19/2014
