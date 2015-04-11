@@ -1250,13 +1250,13 @@ model = addReaction(model,{'rxn10527_c0','gamma-F420-2:gamma-L-glutamate ligase'
 model = changeGeneAssociation(model,'rxn10525_c0','mmp0170');
 
 %Now add the last 2 species to the biomass
-[~,f420_idx] = intersect(model.mets,'Coenzyme_F420');
+[~,f420_idx] = intersect(model.mets,'Coenzyme_F420_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
-model.S(f420_idx,bio_idx) = -0.0030965;
+%model.S(f420_idx,bio_idx) = -0.0030965;
 
-[~,f420_idx] = intersect(model.mets,'Coenzyme_F420-3');
+[~,f420_idx] = intersect(model.mets,'Coenzyme_F420-3_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
-model.S(f420_idx,bio_idx) = -0.0030965;
+%model.S(f420_idx,bio_idx) = -0.0030965;
 
 %Synthesize oxalate using manual gapfill (see F420 notes)
 model = addReaction(model,{'rxn05734_c0','aldehyde dehydrogenase (glyoxylate, NAD)'},...
