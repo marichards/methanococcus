@@ -1252,11 +1252,11 @@ model = changeGeneAssociation(model,'rxn10525_c0','mmp0170');
 %Now add the last 2 species to the biomass
 [~,f420_idx] = intersect(model.mets,'Coenzyme_F420_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
-%model.S(f420_idx,bio_idx) = -0.0030965;
+model.S(f420_idx,bio_idx) = -0.0030965;
 
 [~,f420_idx] = intersect(model.mets,'Coenzyme_F420-3_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
-%model.S(f420_idx,bio_idx) = -0.0030965;
+model.S(f420_idx,bio_idx) = -0.0030965;
 
 %Synthesize oxalate using manual gapfill (see F420 notes)
 model = addReaction(model,{'rxn05734_c0','aldehyde dehydrogenase (glyoxylate, NAD)'},...
@@ -1279,9 +1279,30 @@ o2_rxns = findRxnsFromMets(model,'O2_c0');
 model = removeRxns(model,o2_rxns);
 
 % Replace the orotate reaction for CTP and UTP synthesis
-model = addReaction(model,{'rxn01361_c0',''},...
+model = addReaction(model,{'rxn01361_c0','(S)-Dihydroorotate:(acceptor) oxidoreductase'},...
     'NAD_c0 + S-Dihydroorotate_c0 <=> NADH_c0 + H_c0 + Orotate_c0');
 
+%%%%%%%%%%%%%
+% 4/6/2015
+%%%%%%%%%%%%%
+% Model has no way to make fuculose1-phosphate, which is how it gets
+% lactate for F420 production. Adding pathway as gapfill:
+model = addReaction(model,{'rxn00559_c0','D-Mannose-6-phosphate ketol-isomerase'},...
+    'D-mannose-6-phosphate_c0 <=> D-fructose-6-phosphate_c0');
+model = addReaction(model,{'rxn00641_c0','GTP:alpha-D-mannose-1-phosphate guanylyltransferase'},...
+    'GTP_c0 + D-Mannose1-phosphate_c0 <=> PPi_c0 + GDP-mannose_c0');
+model = addReaction(model,{'rxn00642_c0','GDPmannose 4,6-hydro-lyase'},...
+    'GDP-mannose_c0 <=> GDP-4-dehydro-D-rhamnose_c0 + H2O_c0');
+model = addReaction(model,{'rxn03962_c0','GDP-L-fucose:NADP+ 4-oxidoreductase (3,5-epimerizing)'},...
+    'GDP-L-fucose_c0 + NADP_c0 <=> GDP-4-dehydro-D-rhamnose_c0 + NADPH_c0 + H_c0');
+model = addReaction(model,{'rxn01431_c0','GTP:L-fucose-1-phosphate guanylyltransferase'},...
+    'GTP_c0 + L-Fucose1-phosphate_c0 <=> PPi_c0 + GDP-L-fucose_c0');
+model = addReaction(model,{'rxn02262_c0','ATP:6-deoxy-L-galactose 1-phosphotransferase'},...
+    'ATP_c0 + L-Fucose_c0 <=> ADP_c0 + L-Fucose1-phosphate_c0');
+model = addReaction(model,{'rxn02263_c0','L-Fucose ketol-isomerase'},...
+    'L-Fucose_c0 <=> L-Fuculose_c0');
+model = addReaction(model,{'rxn02319_c0','ATP:L-fuculose 1-phosphotransferase'},...
+    'ATP_c0 + L-Fuculose_c0 <=> ADP_c0 + L-Fuculose1-phosphate_c0');
 
 %%%%%%%%%%%%%
 %9/19/2014
