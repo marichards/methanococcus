@@ -1283,7 +1283,7 @@ model = addReaction(model,{'rxn01361_c0','(S)-Dihydroorotate:(acceptor) oxidored
     'NAD_c0 + S-Dihydroorotate_c0 <=> NADH_c0 + H_c0 + Orotate_c0');
 
 %%%%%%%%%%%%%
-% 4/6/2015
+% 4/14/2015
 %%%%%%%%%%%%%
 % Model has no way to make fuculose1-phosphate, which is how it gets
 % lactate for F420 production. Adding pathway as gapfill:
@@ -1303,6 +1303,12 @@ model = addReaction(model,{'rxn02263_c0','L-Fucose ketol-isomerase'},...
     'L-Fucose_c0 <=> L-Fuculose_c0');
 model = addReaction(model,{'rxn02319_c0','ATP:L-fuculose 1-phosphotransferase'},...
     'ATP_c0 + L-Fuculose_c0 <=> ADP_c0 + L-Fuculose1-phosphate_c0');
+
+%%%%%%%%%%%%%
+% 4/16/2015
+%%%%%%%%%%%%%
+% Remove dead ends that have no genes
+model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014
