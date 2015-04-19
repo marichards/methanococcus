@@ -1,0 +1,24 @@
+Costa 2012
+-This is the paper for the HDR-formate reaction!
+-Gives good reasoning for why to use MM for things
+-vhuA+vhcA KO is lethal on H2, not on Formate
+-fdhA and hdrB are not essential, because there's 2 functional copies of each
+
+Disrupt Ehb
+-Like above, contains reasoning for why to use MM
+-Contains genes for CODH-ACS, POR, EhB, VOR, EhA, references others 
+-ehbF gene (mmp1628) is non-essential for growth on McN (H2 supplied)
+
+Formate Dependent H2 Production Whitman
+-Looks like Mtd and Hmd are non-lethal for formate growth
+-Appears that fdh1 is essential but fdh2 might not be (for formate growth)
+-Some selenium things...when growing on formate with selenium, fruA is essential but fruC is not...
+
+
+H2 Independent Growth of M.maripaludis
+
+
+Lie et al PNAS 2012
+
+
+Mtd Hmd Leigh Erik
