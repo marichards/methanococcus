@@ -17,8 +17,10 @@ fprintf(file_id,'%s for use in SimOptStrain\n\n',model_filename);
 % Print metabolites set
 fprintf(file_id,'Sets\ni metabolites in S (m)\n/\n');
 
+% 4/21/2015
+% Alter mets so it prints the index, not the ID
 for i=1:length(model.mets)
-    fprintf(file_id,'%s\n',model.mets{i});
+    fprintf(file_id,'CPD%0.3d\n',i);
 end
 
 % More formatting
@@ -47,13 +49,15 @@ fprintf(file_id,'/;\n\nS(i,j) contains the S matrix\n/\n');
 %Make non-sparse matrix A
 A = full(model.S);
 % Use S matrix to print out everything for each reaction
-for j = 1:length(model.rxns)
+for i = 1:length(model.mets)
     % Grab index of mets
-    idx = find(model.S(:,j));
+    idx = find(model.S(i,:));
     % For each thing in the index,
-    for i=1:length(idx)
+    for j=1:length(idx)
         %Print out the rxn.met and then the coefficient
-        fprintf(file_id,'%s.%s\t%f\n',model.rxns{j},model.mets{idx(i)},A(idx(i),j));
+        % 4/21/2015
+        % Alter mets so it prints the index, not the ID
+        fprintf(file_id,'CPD%0.3d.%s\t%f\n',i,model.rxns{idx(j)},A(i,idx(j)));
     end
 end
 fprintf(file_id,'/;');
