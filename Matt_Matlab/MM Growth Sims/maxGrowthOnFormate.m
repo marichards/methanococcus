@@ -11,6 +11,11 @@ model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
 %Turn on H+ or else it gets no growth
 model = changeRxnBounds(model,'EX_cpd00067_e0',-1000,'l');
 
+% Switch the current HDR type
+model = changeRxnBounds(model,'HdrABC',0,'b');
+model = changeRxnBounds(model,'Hdr_formate',-1000,'l');
+model = changeRxnBounds(model,'Hdr_formate',1000,'u');
+
 %Find indices of important reactions
 [~,h_idx] = intersect(model.rxns,'EX_cpd00067_e0');
 [~,h2_idx]  = intersect(model.rxns,'Ex_cpd11640_c0');

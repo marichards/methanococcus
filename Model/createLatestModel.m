@@ -1304,6 +1304,14 @@ model = addReaction(model,{'rxn02263_c0','L-Fucose ketol-isomerase'},...
 model = addReaction(model,{'rxn02319_c0','ATP:L-fuculose 1-phosphotransferase'},...
     'ATP_c0 + L-Fuculose_c0 <=> ADP_c0 + L-Fuculose1-phosphate_c0');
 
+
+%%%%%%%%%%%%%
+% 4/24/2015
+%%%%%%%%%%%%%
+% Add EhbN (mmp1153) to the Eha/Ehb reaction:
+model = changeGeneAssociation(model,'Eha/Ehb',...
+    '(mmp1448 and mmp1449 and mmp1450 and mmp1451 and mmp1452 and mmp1453 and mmp1454 and mmp1455 and mmp1456 and mmp1457 and mmp1458 and mmp1459 and mmp1460 and mmp1461 and mmp1462 and mmp1463 and mmp1464 and mmp1465 and mmp1466 and mmp1467) or (mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp0400 and mmp1153)');
+
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
