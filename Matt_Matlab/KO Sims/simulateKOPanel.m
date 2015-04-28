@@ -72,7 +72,7 @@ solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth: %f\n',solution.f);
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823)
+% (mmp0820, mmp1382,mmp0127,mmp1694,mmp1693,mmp0823)
 ko_model = deleteModelGenes(model,...
     {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
     ,0);
@@ -80,7 +80,7 @@ solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth: %f\n',solution.f);
 
 % Simulate 6H2ase KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
 ko_model = deleteModelGenes(model,...
     {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
     ,0);
@@ -173,12 +173,35 @@ solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth: %f\n',solution.f);
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823)
+% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823)
 ko_model = deleteModelGenes(model,...
     {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth: %f\n',solution.f);
+
+% Simulate 6H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA,ehbN
+% (mmp0820,mmp1382,mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+ko_model = deleteModelGenes(model,...
+    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    ,0);
+solution = optimizeCbModel(ko_model,[],'one');
+fprintf('-6H2ase Growth: %f\n',solution.f);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formate plus H2 simulations
+fprintf('\n================================\nGrowth on Formate + H2\n================================');
+model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Costa et al. (2010) PNAS: MM901 (-mmp0680)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% First simulate Wild-type growth
+solution = optimizeCbModel(model,[],'one');
+fprintf('\nWild-Type Growth: %f\n\n',solution.f);
 
 % Simulate 6H2ase KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
 % (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
@@ -187,11 +210,6 @@ ko_model = deleteModelGenes(model,...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase Growth: %f\n',solution.f);
-
-
-
-
-
 
 
 
