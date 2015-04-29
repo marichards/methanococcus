@@ -10,8 +10,3 @@ model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
 
 % Allow uptake of H+
 model = changeRxnBounds(model,'EX_cpd00067_e0',-1000,'l');
-
-% Switch the current HDR type
-model = changeRxnBounds(model,'HdrABC',0,'b');
-model = changeRxnBounds(model,'Hdr_formate',-1000,'l');
-model = changeRxnBounds(model,'Hdr_formate',1000,'u');

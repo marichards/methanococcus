@@ -14,9 +14,13 @@ function [unbalancedRxns,unbalancedCharges]=checkChargeBalance(model)
 unbalancedRxns = {};
 unbalancedCharges = [];
 
+%Find exchange rxns
+exc_rxns = model.rxns(findExcRxns(model));
+
 %Loop through the reactions in the model
 for i=1:length(model.rxns)
-    
+    %Weed out exchanges
+    if ~ismember(model.rxns{i},exc_rxns)
     %Find indices
     indices = find(model.S(:,i));
     %Pull out the coefficient of each metabolite
@@ -35,5 +39,6 @@ for i=1:length(model.rxns)
         %If it's not zero, add it to the lists
         unbalancedRxns=[unbalancedRxns;model.rxns{i}];
         unbalancedCharges=[unbalancedCharges;overall_charge];
+    end
     end
 end

@@ -1234,7 +1234,7 @@ model = addReaction(model,{'rxn10420_c0','2-phospho-L-lactate synthase'},...
     'GTP_c0 + L-Lactate_c0 <=> 2-phospho-L-lactate_c0 + GDP_c0 + H_c0');
 %Add LLPG + FO reaction, the F420-0 synthase (CofD):
 model = addReaction(model,{'rxn10566_c0','LPPG:Fo 2-phospho-L-lactate transferase'},...
-    '7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 <=> H_c0 + GMP_c0 + Coenzyme_F420-0_c0');
+    '7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 <=> GMP_c0 + Coenzyme_F420-0_c0');
 model = changeGeneAssociation(model,'rxn10566_c0','mmp0404');
 %Add glutamates to the F420-0 to make F420-2, the functional type (CofE)
 model = addReaction(model,{'rxn10525_c0','gamma-F420-0:gamma-L-glutamate ligase'},...
@@ -1312,19 +1312,110 @@ model = addReaction(model,{'rxn02319_c0','ATP:L-fuculose 1-phosphotransferase'},
 model = changeGeneAssociation(model,'Eha/Ehb',...
     '(mmp1448 and mmp1449 and mmp1450 and mmp1451 and mmp1452 and mmp1453 and mmp1454 and mmp1455 and mmp1456 and mmp1457 and mmp1458 and mmp1459 and mmp1460 and mmp1461 and mmp1462 and mmp1463 and mmp1464 and mmp1465 and mmp1466 and mmp1467) or (mmp1621 and mmp1622 and mmp1623 and mmp1624 and mmp1625 and mmp1626 and mmp1627 and mmp1628 and mmp1629 and mmp1073 and mmp1074 and mmp1469 and mmp0400 and mmp1153)');
 
-
 %%%%%%%%%%%%%
-% 4/24/2015
+% 4/27/2015
 %%%%%%%%%%%%%
 % Remove the formate-hydrogen lyase, which is misannotated
 model = removeRxns(model,'rxn08518_c0');
 
+%%%%%%%%%%%%%
+% 4/28/2015
+%%%%%%%%%%%%%
+% Let Hdr-formate bounds be unrestricted; 3rd H2 -> F420 pathway
+model = changeRxnBounds(model,'Hdr_formate',-1000,'l');
+model = changeRxnBounds(model,'Hdr_formate',1000,'u');
+% Same with HdrABC
+model = changeRxnBounds(model,'HdrABC',-1000,'l');
+model = changeRxnBounds(model,'HdrABC',1000,'u');
+% Same with Eha/Ehb
+model = changeRxnBounds(model,'Eha/Ehb',-1000,'l');
+
+% Separate out the CODH and ACS reactions, but keep same genes
+% First remove the combined reaction
+model = removeRxns(model,'CODH_ACS');
+%Add CO-dehydrogenase
+model = addReaction(model,{'CODH','Carbon monoxide dehydrogenase'},...
+    'CO2_c0 + Reducedferredoxin_c0 + 3 H_c0 <=> CO_c0 + Oxidizedferredoxin_c0 + H2O_c0 + 0.5 H2_c0');
+%Associate it with mmpmmp0980,0981,0983,0984,0985
+model = changeGeneAssociation(model,'CODH',...
+    'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
+
+model = addReaction(model,{'ACS','Acetyl-CoA synthase'},...
+    '5-Methyl-H4MPT_c0 + CoA_c0 + CO_c0 + 0.5 H2_c0 <=> Acetyl-CoA_c0 + H4MPT_c0 + H_c0');
+%Associate it with mmpmmp0980,0981,0983,0984,0985
+model = changeGeneAssociation(model,'ACS',...
+    'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
+
+% Add exchange and diffusion for carbon monoxide
+model = addReaction(model,{'rxn10480_c0','CO transporter via diffusion'},...
+    'CO_c0 <=> CO_e0');
+model = addReaction(model,{'EX_cpd00204_e0','EX_CO_e0'},...
+    'CO_e0 <=> ');
+% Turn off the supply of CO_e0
+model = changeRxnBounds(model,'EX_cpd00204_e0',0,'l');
+
+% Add formulas and charges for F420 things and for CO_c0 and CO_e0
+[~,idx] = intersect(model.mets,'CO_c0');
+model.metCharge(idx)=1;
+model.metFormulas{idx}='CO';
+[~,idx] = intersect(model.mets,'CO_e0');
+model.metCharge(idx)=1;
+model.metFormulas{idx}='CO';
+[~,idx] = intersect(model.mets,'Oxalate_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C2O4';
+[~,idx] = intersect(model.mets,'7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C16H17N3O7';
+
+[~,idx] = intersect(model.mets,'L-Lactate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C3H5O3';
+[~,idx] = intersect(model.mets,'2-phospho-L-lactate_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C3H4O6P';
+[~,idx] = intersect(model.mets,'lactyl-(2)-diphospho-(5)-guanosine_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C13H16N5O13P2';
+[~,idx] = intersect(model.mets,'Coenzyme_F420-0_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C19H20N3O12P';
+[~,idx] = intersect(model.mets,'Coenzyme_F420-1_c0');
+model.metCharge(idx)=-3;
+model.metFormulas{idx}='C24H26N4O15P';
+[~,idx] = intersect(model.mets,'Coenzyme_F420-3_c0');
+model.metCharge(idx)=-5;
+model.metFormulas{idx}='C34H38N6O21P';
+[~,idx] = intersect(model.mets,'GDP-mannose_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C16H23N5O16P2';
+[~,idx] = intersect(model.mets,'GDP-4-dehydro-D-rhamnose_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C16H21N5O15P2';
+[~,idx] = intersect(model.mets,'GDP-L-fucose_c0');
+model.metCharge(idx)=-2;
+model.metFormulas{idx}='C16H23N5O15P2';
+[~,idx] = intersect(model.mets,'L-Fucose1-phosphate_c0');
+model.metCharge(idx)=-1;
+model.metFormulas{idx}='C6H12O8P';
+[~,idx] = intersect(model.mets,'L-Fucose_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C6H12O5';
+[~,idx] = intersect(model.mets,'L-Fuculose_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='C6H12O5';
+
+% Add in F420:NADP oxidoreductase (From genome paper, gene from NCBI,BioCyc/MetaCyc)
+model = addReaction(model,{'FNO','F420:NADP oxidoreductase'},...
+    'NADP_c0 + Reduced_coenzyme_F420_c0 <=> NADPH_c0 + H_c0 + Coenzyme_F420_c0');
+% Associate it with mmpmmp0980,0981,0983,0984,0985
+model = changeGeneAssociation(model,'FNO','mmp1550');
 
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-model = removeDeadGapFills(model);
+%model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014
