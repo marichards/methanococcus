@@ -1406,16 +1406,16 @@ model.metCharge(idx)=0;
 model.metFormulas{idx}='C6H12O5';
 
 % Add in F420:NADP oxidoreductase (From genome paper, gene from NCBI,BioCyc/MetaCyc)
-model = addReaction(model,{'FNO','F420:NADP oxidoreductase'},...
-    'NADP_c0 + Reduced_coenzyme_F420_c0 <=> NADPH_c0 + H_c0 + Coenzyme_F420_c0');
+%model = addReaction(model,{'FNO','F420:NADP oxidoreductase'},...
+%    'NADP_c0 + Reduced_coenzyme_F420_c0 <=> NADPH_c0 + H_c0 + Coenzyme_F420_c0');
 % Associate it with mmpmmp0980,0981,0983,0984,0985
-model = changeGeneAssociation(model,'FNO','mmp1550');
+%model = changeGeneAssociation(model,'FNO','mmp1550');
 
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-%model = removeDeadGapFills(model);
+model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014
