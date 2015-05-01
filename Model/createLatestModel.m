@@ -1335,7 +1335,7 @@ model = changeRxnBounds(model,'Eha/Ehb',-1000,'l');
 model = removeRxns(model,'CODH_ACS');
 %Add CO-dehydrogenase
 model = addReaction(model,{'CODH','Carbon monoxide dehydrogenase'},...
-    'CO2_c0 + Reducedferredoxin_c0 + 3 H_c0 <=> CO_c0 + Oxidizedferredoxin_c0 + H2O_c0 + 0.5 H2_c0');
+    'CO2_c0 + Reducedferredoxin_c0 + 3 H_c0 <=> CO_c0 + Oxidizedferredoxin_c0 + 0.5 H2_c0');
 %Associate it with mmpmmp0980,0981,0983,0984,0985
 model = changeGeneAssociation(model,'CODH',...
     'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
@@ -1406,16 +1406,22 @@ model.metCharge(idx)=0;
 model.metFormulas{idx}='C6H12O5';
 
 % Add in F420:NADP oxidoreductase (From genome paper, gene from NCBI,BioCyc/MetaCyc)
-%model = addReaction(model,{'FNO','F420:NADP oxidoreductase'},...
-%    'NADP_c0 + Reduced_coenzyme_F420_c0 <=> NADPH_c0 + H_c0 + Coenzyme_F420_c0');
+model = addReaction(model,{'FNO','F420:NADP oxidoreductase'},...
+    'NADP_c0 + Reduced_coenzyme_F420_c0 <=> NADPH_c0 + H_c0 + Coenzyme_F420_c0');
 % Associate it with mmpmmp0980,0981,0983,0984,0985
-%model = changeGeneAssociation(model,'FNO','mmp1550');
+model = changeGeneAssociation(model,'FNO','mmp1550');
+
+%%%%%%%%%%%%%
+% 4/30/2015
+%%%%%%%%%%%%%
+% Restrict reversibility of GAPOR reaction to only be forward (Park 2007)
+model = changeRxnBounds(model,'rxn07191_c0',0,'l');
 
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-model = removeDeadGapFills(model);
+% model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014

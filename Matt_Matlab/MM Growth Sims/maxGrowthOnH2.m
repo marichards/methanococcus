@@ -1,4 +1,4 @@
-function solution = maxGrowthOnCO2(model)
+function solution = maxGrowthOnH2(model)
 
 %Simulate growth on CO2 and H2 media, print out the growth rate and
 %relevant fluxes, return the full solution

@@ -11,7 +11,7 @@ function printRxnFluxes(model,solution,rxns)
 fluxes = solution.x(idx);
 
 %Print out the fluxes for all the reactions
-fprintf('\n\n')
+fprintf('\n')
 for i=1:length(rxns)
     fprintf('%s\t%0.3f\n',rxns{i},fluxes(i))
 end
