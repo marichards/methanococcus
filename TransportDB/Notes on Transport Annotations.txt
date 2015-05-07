@@ -1,0 +1,247 @@
+FERRIC IONS (FE3)
+
+There are lots of genes predicted to be involved in Iron(III) transport:
+mmp0108
+mmp0109
+mmp0110 (IS IN MODEL!)
+mmp0196
+mmp0197
+mmp0198
+mmp1176
+mmp1177
+mmp1178
+mmp1181
+mmp1182
+mmp1183
+Genome paper suggests:
+Ferric iron ABC transporter cluster (mmp0108-0110)
+Iron chelating ABC transporter cluster (mmp0196-0198, mmp1181-1183)
+Iron binding perplasmis proteins (mmp1176-1178)
+I think it might be something like: (mmp0108-0110) or (mmp0196-0198) or (mmp1181-1183) or (mmp1176-1178)
+And that's supported by the genome paper and TransportDB
+
+MOLYBDENUM (MO) [Not yet in model]
+Also Genome paper says we have 4 molybdenum ABC transporters (mmp0205-0207, mmp0504-0506, mmp0514-0516, mmp1650-1652)
+And there's a periplasmic molybdenum binding protein (mmp1111)
+TransportDB has mmp0205-0207, 0504, 0506, 0507, 0514, 0515, 0975, 1649-1652 [doesn't have 0505, 0516, 1111]
+
+TUNGSTEN (W) [Not yet in model]
+Genome paper says mmp1518-1519, points out they look like sulfate; TransportDB says sulfate/molybdate
+
+DIVALENT METAL IONS (?)
+Genome paper says mmp0711 and -1108; TransportDB says Mg/Co, model already has both in model! 
+
+
+Current Transporters (remove as I go through them)
+
+********************** For reaction index 568 **********************
+rxnName: Acetate transport 
+rxn: ACT 
+
+Genes Associated: 
+ 
+
+Flux Bounds: lb = -1000 and ub = 1000 
+
+Reactants: 
+1: Acetate_e0 (met 614, Acetate_e0)
+Products: 
+1: Acetate_c0 (met 16, Acetate_c0)
+
+********************** For reaction index 571 **********************
+rxnName: ATP synthase:Sodium utilizing 
+rxn: ATPS 
+
+Genes Associated: 
+mmp1038 and mmp1039 and mmp1040 and mmp1041 and mmp1042 and mmp1043 and mmp1044 and mmp1045 and mmp1046 
+
+Flux Bounds: lb = -1000 and ub = 1000 
+
+Reactants: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: Na_e0 (met 253, Na_e0)
+Products: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: Na_c0 (met 252, Na_c0)
+
+********************** For reaction index 180 **********************
+rxnName: L-Glutamine-ABC transport c0 
+rxn: rxn05155_c0 
+
+Genes Associated: 
+(mmp1224) 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: L-Glutamine_e0 (met 325, L-Glutamine_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: L-Glutamine_c0 (met 97, L-Glutamine_c0)
+
+********************** For reaction index 145 **********************
+rxnName: L-Proline-ABC transport c0 
+rxn: rxn05165_c0 
+
+Genes Associated: 
+(mmp0868 or mmp0866) 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: L-Proline_e0 (met 255, L-Proline_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: L-Proline_c0 (met 254, L-Proline_c0)
+
+********************** For reaction index 78 **********************
+rxnName: Nitrate-ABC transport c0 
+rxn: rxn05171_c0 
+
+Genes Associated: 
+mmp1260 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: Nitrate_e0 (met 184, Nitrate_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: Nitrate_c0 (met 183, Nitrate_c0)
+
+********************** For reaction index 165 **********************
+rxnName: Taurine-ABC transport c0 
+rxn: rxn05172_c0 
+
+Genes Associated: 
+mmp1260 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: Taurine_e0 (met 311, Taurine_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: Taurine_c0 (met 310, Taurine_c0)
+
+********************** For reaction index 344 **********************
+rxnName: Thiamin-ABC transport c0 
+rxn: rxn05177_c0 
+
+Genes Associated: 
+((mmp0110 or mmp1518)) 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: Thiamin_e0 (met 471, Thiamin_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: Thiamin_c0 (met 470, Thiamin_c0)
+
+********************** For reaction index 298 **********************
+rxnName: Proton sodium antiport c0 
+rxn: rxn05209_c0 
+
+Genes Associated: 
+(mmp0864 
+
+Flux Bounds: lb = -1000 and ub = 1000 
+
+Reactants: 
+1: H_c0 (met 2, H_c0)
+2: Na_e0 (met 253, Na_e0)
+Products: 
+1: H_e0 (met 129, H_e0)
+2: Na_c0 (met 252, Na_c0)
+
+********************** For reaction index 394 **********************
+rxnName: FOLt c0 
+rxn: rxn05255_c0 
+
+Genes Associated: 
+ 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H_e0 (met 129, H_e0)
+2: Folate_e0 (met 537, Folate_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Folate_c0 (met 536, Folate_c0)
+
+********************** For reaction index 173 **********************
+rxnName: PIt8 c0 
+rxn: rxn05313_c0 
+
+Genes Associated: 
+mmp0666 
+
+Flux Bounds: lb = -1000 and ub = 1000 
+
+Reactants: 
+1: Phosphate_e0 (met 83, Phosphate_e0)
+2: Na_e0 (met 253, Na_e0)
+Products: 
+1: Phosphate_c0 (met 34, Phosphate_c0)
+2: Na_c0 (met 252, Na_c0)
+
+********************** For reaction index 263 **********************
+rxnName: cytosine transport in via proton symport c0 
+rxn: rxn05527_c0 
+
+Genes Associated: 
+(mmp0789) 
+
+Flux Bounds: lb = -1000 and ub = 1000 
+
+Reactants: 
+1: H_e0 (met 129, H_e0)
+2: Cytosine_e0 (met 405, Cytosine_e0)
+Products: 
+1: H_c0 (met 2, H_c0)
+2: Cytosine_c0 (met 144, Cytosine_c0)
+
+********************** For reaction index 380 **********************
+rxnName: zinc transport out via ABC system c0 
+rxn: rxn13918_c0 
+
+Genes Associated: 
+ 
+
+Flux Bounds: lb = 0 and ub = 1000 
+
+Reactants: 
+1: H_c0 (met 2, H_c0)
+2: Phosphate_c0 (met 34, Phosphate_c0)
+3: ADP_c0 (met 51, ADP_c0)
+4: Zn2_e0 (met 515, Zn2_e0)
+Products: 
+1: H2O_c0 (met 20, H2O_c0)
+2: ATP_c0 (met 50, ATP_c0)
+3: Zn2_c0 (met 506, Zn2_c0)
+>> 

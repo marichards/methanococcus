@@ -549,10 +549,10 @@ model = changeGeneAssociation(model,'rxn05938_c0',...
     '(mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506)');
 %Remove rxn 00288 and replace with the fumarate reaction
 %model = removeRxns(model,'rxn00288_c0');
-model = addReaction(model,{'SuccOR','Succinate oxidoreductase'},...
+model = addReaction(model,{'Tfr','Thiol:fumarate reductase'},...
     'Fumarate_c0 + CoM_c0 + HTP_c0  -> Succinate_c0 + CoM-S-S-CoB_c0');
-%Add genes for SuccOR
-model = changeGeneAssociation(model,'SuccOR','mmp1277 and mmp1067');
+%Add genes for Tfr
+model = changeGeneAssociation(model,'Tfr','mmp1277 and mmp1067');
 %Change genes for 05939 and 00085
 model = changeGeneAssociation(model,'rxn05939_c0','mmp1687 and mmp1316 and mmp0003 and mmp1315');
 model = changeGeneAssociation(model,'rxn00085_c0','mmp0082 and mmp0081 and mmp0080');
@@ -1418,10 +1418,62 @@ model = changeGeneAssociation(model,'FNO','mmp1550');
 model = changeRxnBounds(model,'rxn07191_c0',0,'l');
 
 %%%%%%%%%%%%%
+% 5/06/2015
+%%%%%%%%%%%%%
+% Add tranporters
+
+% Add mmp1099 to phosphate transport
+model = changeGeneAssociation(model,'rxn05145_c0','(mmp1098 and (mmp0345 or mmp1095) and mmp1097 and mmp1096 and mmp1099) ');
+
+% Add mmp0027 and mmp0484 to potassium transport (TransportDB)
+model = changeGeneAssociation(model,'rxn05596_c0','mmp0027 or mmp0484 or mmp1430 or mmp1599');
+
+
+% Give molybdenum its transporters, then add it to the biomass
+model = addReaction(model,{'EX_cpd00131_e0','EX_Mo_e0'},...
+    'Mo_e0 <=> ');
+model = addReaction(model,{'Mot','ATP-Dependent Molybdenum transport'},...
+    'Mo_e0 + H2O_c0 + ATP_c0 <=> Mo_c0 + H_c0 + ADP_c0 + Phosphate_c0');
+% Add genes for Mo transport
+model = changeGeneAssociation(model,'Mot',...
+    '(mmp0205 and mmp0206 and mmp0207) or (mmp0504 and mmp0505 and mmp0506) or (mmp0514 and mmp0515 and mmp0516) or (mmp1650 and mmp1651 and mmp1652)');
+
+% Add Molybdenum to biomass and add its charge/formula
+[~,idx] = intersect(model.mets,'Mo_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='Mo';
+
+[~,mo_idx] = intersect(model.mets,'Mo_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(mo_idx,bio_idx) = -0.0030965;
+
+% Add lots of genes to Fe3+ transport (3 gene clusters)
+model = changeGeneAssociation(model,'rxn05195_c0',...
+    '(mmp0108 and mmp0109 and mmp0110) or (mmp0196 and mmp0197 and mmp0198) or (mmp1181 and mmp1182 and mmp1183)');
+
+% Add mmp1641 for copper transport (TransportDB)
+model = changeGeneAssociation(model,'rxn10481_c0',...
+    'mmp1165 or mmp1641');
+
+% Add mmp0510 and mmp0720 for calcium transport (TransportDB)
+model = changeGeneAssociation(model,'rxn05513_c0',...
+    'mmp0510 or mmp0720');
+
+% Add mmp0867 for betaine transport (TransportDB)
+model = changeGeneAssociation(model,'rxn05181_c0',...
+    'mmp0866 or mmp0867 or mmp0868');
+
+% Add mmp0681 for hypoxanthine and mmp0689 for uracil
+model = changeGeneAssociation(model,'rxn05201_c0','mmp0681 or mmp0689');
+model = changeGeneAssociation(model,'rxn05197_c0','mmp0681 or mmp0689');
+
+
+
+%%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-% model = removeDeadGapFills(model);
+model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014
