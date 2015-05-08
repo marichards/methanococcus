@@ -1,0 +1,58 @@
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 -> GAR_c0 + 10-Formyltetrahydrofolate_c0 mmp0178 or mmp0179
+
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 -> FAICAR_c0 + Tetrahydrofolate_c0
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 -> H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 -> NAD_c0 + 5-Methyltetrahydrofolate_c0 mmp0981
+
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 -> L-Methionine_c0 + Tetrahydrofolate_c0 mmp1151 and mmp0829
+
+
+
+Replace these reactions with methanopterin in each case; 
+
+Also, here's things we still need to remove from Biomass:
+
+'2-Demethylmenaquinone_8_c0';...
+'5-Methyltetrahydrofolate_c0';...
+'Tetrahydrofolate_c0';...
+'10-Formyltetrahydrofolate_c0';...
+'2-Demethylmenaquinol_8_c0';}...
+
+>> mets = {'2-Demethylmenaquinone_8_c0';...
+'5-Methyltetrahydrofolate_c0';...
+'Tetrahydrofolate_c0';...
+'10-Formyltetrahydrofolate_c0';...
+'2-Demethylmenaquinol_8_c0';}
+>> rxns = findRxnsFromMets(model,mets);
+>> rxns
+
+rxns = 
+    'biomass0'
+    'rxn00686_c0'
+    'rxn00692_c0'
+    'rxn00693_c0'
+    'rxn00912_c0'
+    'rxn03004_c0'
+    'rxn03137_c0'
+    'rxn04954_c0'
+    'rxn08333_c0'
+    'rxn08528_c0'
+    'rxn09315_c0'
+    'rxn12649_c0'
+	
+>> printRxnFormula(model,setdiff(rxns,'biomass0'));
+rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
+rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0 	
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
+rxn08333_c0	H_c0 + Farnesylfarnesylgeraniol_c0 + 1-4-Dihydroxy-2-naphthoate_c0 	->	CO2_c0 + PPi_c0 + 2-Demethylmenaquinol_8_c0 	
+rxn08528_c0	Fumarate_c0 + 2-Demethylmenaquinol_8_c0 	<=>	Succinate_c0 + 2-Demethylmenaquinone_8_c0 	((mmp1277 and mmp1067) or mmp1277)
+rxn09315_c0	H2O_c0 + 2-Demethylmenaquinone_8_c0 + CH33N_c0 	->	H_c0 + 2-Demethylmenaquinol_8_c0 + CH33NO_c0 	mmp1502
+rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+
+Only non-essential: rxn09315
+
+Rxns to change to methanopterin: rxn03004, rxn03137, 
