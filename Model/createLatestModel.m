@@ -1433,17 +1433,17 @@ model = changeGeneAssociation(model,'rxn05596_c0','mmp0027 or mmp0484 or mmp1430
 model = addReaction(model,{'EX_cpd00131_e0','EX_Mo_e0'},...
     'Mo_e0 <=> ');
 model = addReaction(model,{'Mot','ATP-Dependent Molybdenum transport'},...
-    'Mo_e0 + H2O_c0 + ATP_c0 <=> Mo_c0 + H_c0 + ADP_c0 + Phosphate_c0');
+    'Mo_e0 + H2O_c0 + ATP_c0 <=> Molybdenum_c0 + H_c0 + ADP_c0 + Phosphate_c0');
 % Add genes for Mo transport
 model = changeGeneAssociation(model,'Mot',...
     '(mmp0205 and mmp0206 and mmp0207) or (mmp0504 and mmp0505 and mmp0506) or (mmp0514 and mmp0515 and mmp0516) or (mmp1650 and mmp1651 and mmp1652)');
 
 % Add Molybdenum to biomass and add its charge/formula
-[~,idx] = intersect(model.mets,'Mo_c0');
+[~,idx] = intersect(model.mets,'Molybdenum_c0');
 model.metCharge(idx)=0;
 model.metFormulas{idx}='Mo';
 
-[~,mo_idx] = intersect(model.mets,'Mo_c0');
+[~,mo_idx] = intersect(model.mets,'Molybdenum_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 model.S(mo_idx,bio_idx) = -0.0030965;
 
@@ -1467,7 +1467,19 @@ model = changeGeneAssociation(model,'rxn05181_c0',...
 model = changeGeneAssociation(model,'rxn05201_c0','mmp0681 or mmp0689');
 model = changeGeneAssociation(model,'rxn05197_c0','mmp0681 or mmp0689');
 
+% Add mmp0867 for proline transport (TransportDB)
+model = changeGeneAssociation(model,'rxn05165_c0',...
+    'mmp0866 or mmp0867 or mmp0868');
 
+% Add mmp1197 and mmp1198 for nitrate transport and taurine transport (TransportDB)
+model = changeGeneAssociation(model,'rxn05171_c0',...
+    'mmp1260 or mmp1197 or mmp1198');
+model = changeGeneAssociation(model,'rxn05172_c0',...
+    'mmp1260 or mmp1197 or mmp1198');
+
+% Alter genes for Na+/H+ antiporter
+model = changeGeneAssociation(model,'rxn05209_c0',...
+    'mmp0100 or mmp0587 or mmp0679 or mmp0707 or mmp0864');
 
 %%%%%%%%%%%%%
 % 4/16/2015
