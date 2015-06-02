@@ -32,7 +32,7 @@ DIVALENT METAL IONS (?)
 Genome paper says mmp0711 and -1108; TransportDB says Mg/Co, model already has both in model! 
 
 Current Transporters (remove as I go through them)
-
+Benlikeschickenpie!
 ********************** For reaction index 394 **********************
 rxnName: FOLt c0 
 rxn: rxn05255_c0 

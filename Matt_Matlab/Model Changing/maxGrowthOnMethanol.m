@@ -1,4 +1,4 @@
-function solution = maxGrowthOnMethanol(model)
+function [solution,model] = maxGrowthOnMethanol(model)
 
 %Add in the reaction for converting methanol to methyl-coM
 model = addReaction(model,'Methanol_to_MCoM',...
@@ -8,7 +8,12 @@ model = addReaction(model,'Methanol_to_MCoM',...
 model = addReaction(model,'Methanol_supply',...
     'Methanol_c0 <=> ');
 
-%Turn off the MFR
+%Turn off the CO2 uptake
+%model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
+% Turn on the acetate uptake
+model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
+
+% Turn off MFR too
 model = changeRxnBounds(model,'rxn11938_c0',0,'b');
 
 %Simulate growth
@@ -26,6 +31,8 @@ solution = optimizeCbModel(model,[],'one');
 
 %Print the biomass flux
 fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+
+if solution.f > 0 
 %Print the reaction fluxes
 fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
 fprintf('CO2 flux: %f\n',solution.x(co2_idx))
@@ -49,5 +56,5 @@ fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/so
 %Print the ATP yield coefficient (ATP per CH4)
 fprintf('Expected ATP Yield: 0.5\n')
 fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
-
+end
 end

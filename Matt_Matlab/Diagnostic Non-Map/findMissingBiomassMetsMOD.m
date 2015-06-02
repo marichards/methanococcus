@@ -10,9 +10,6 @@ idx = find(model.c);
 % (the reactants)
 required_mets = model.mets(model.S(:,idx)<0);
 
-% Take out all of the required mets from the biomass; this should allow
-% growth no matter what
-
 % Find the biomass reaction index
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 
@@ -20,28 +17,52 @@ required_mets = model.mets(model.S(:,idx)<0);
 [~,idx] = intersect(model.mets,required_mets);
 % But save them first
 coeffs = model.S(idx,bio_idx);
-% Then remove them
-model.S(idx,bio_idx) = 0;
 
-% Now try adding them one at a time. Shouldn't take any randomization at
-% all, so just do it in order
-
+% Now try KOing 1 biomass component at a time and testing for growth
 % Create an array to keep the missing mets in
-missing = {};
-% Now loop through each metabolite
 for i=1:length(required_mets)
-    % Try putting it back into the biomass
-    model.S(idx(i),bio_idx) = coeffs(i);
+    %Create a test model
+    test = model;
+    test.S(idx(i),bio_idx) = 0;
     % Test for growth
     solution = optimizeCbModel(model);
-    % If it doesn't grow 
-    if solution.f <1e-10
-        % Then remove it from the biomass and keep it in an array
-        model.S(idx(i),bio_idx) = 0;
-        missing = [missing;required_mets{i}];
+    % If it grows, break the loop
+    if solution.f > 1e-5
+        solved = 1;
+        missing = required_mets{i};
+        model = test;
+        break
+    else
+        solved = 0;
+        
     end
 end
 
+if ~solved
+    for i = 1:length(required_mets)-1
+        
+        for j = (i+1):length(required_mets)
+            % Make a model with 2 knockouts
+            test = model;
+            test.S(idx(i),bio_idx) = 0;
+            test.S(idx(j),bio_idx) = 0;
+            solution = optimizeCbModel(model);
+    % If it grows, break the loop
+    if solution.f > 1e-5
+        solved = 1;
+        missing = {required_mets{i},required_mets{j}};
+        model = test;
+        break
+    else
+        solved = 0;
+    end
+        end
+    end
+end
+        
+
+% Function end
+end
 
 
 
