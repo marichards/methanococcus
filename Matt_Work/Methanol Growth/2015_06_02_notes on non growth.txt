@@ -1,0 +1,47 @@
+Why are ACP and Calomide the biomass precursors that always don't get made?
+
+rxn03538_c0	Adenosylcobinamide-GDP_c0 + alpha-Ribazole_c0 	->	GMP_c0 + Calomide_c0 	mmp0938
+rxn03537_c0	H_c0 + GTP_c0 + Adenosyl_cobinamide_phosphate_c0 	->	PPi_c0 + Adenosylcobinamide-GDP_c0 	
+rxn03536_c0	ATP_c0 + Adenosyl_cobinamide_c0 	->	H_c0 + ADP_c0 + Adenosyl_cobinamide_phosphate_c0 	
+rxn05029_c0	ATP_c0 + H2_c0 + Cobinamide_c0 	->	2.000000 H_c0 + Triphosphate_c0 + Adenosyl_cobinamide_c0 	
+rxn10449_c0	H2O_c0 + ATP_c0 + Cobinamide_e0 	->	H_c0 + Phosphate_c0 + ADP_c0 + Cobinamide_c0 	
+EX_cpd03422_e0	Cobinamide_e0 	<=>	
+
+And GTP comes from lots of places....what about ACP_c0?
+
+rxn05359_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 2-methylbutyryl-ACP_c0 	->	CO2_c0 + ACP_c0 + 4-methyl-3-oxo-hexanoyl-ACP_c0 	mmp1211
+rxn05363_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 4-methyl-hexanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 6-methyl-3-oxo-octanoyl-ACP_c0 	mmp1211
+rxn05367_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 6-methyl-octanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 8-methyl-3-oxo-decanoyl-ACP_c0 	mmp1211
+rxn05371_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 8-methyl-decanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 10-methyl-3-oxo-dodecanoyl-ACP_c0 	mmp1211
+rxn05375_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 10-methyl-dodecanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 12-methyl-3-oxo-tetra-decanoyl-ACP_c0 	mmp1211
+rxn05379_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 12-methyl-tetra-decanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 14-methyl-3-oxo-hexa-decanoyl-ACP_c0 	mmp1211
+rxn05384_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + isovaleryl-ACP_c0 	->	CO2_c0 + ACP_c0 + 5-methyl-3-oxo-hexanoyl-ACP_c0 	mmp1211
+rxn05388_c0	H_c0 + 5-methyl-hexanoyl-ACP_c0 + Malonyl-acyl-carrierprotein-_c0 	->	CO2_c0 + ACP_c0 + 7-methyl-3-oxo-octanoyl-ACP_c0 	mmp1211
+rxn05392_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 7-methyl-octanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 9-methyl-3-oxo-decanoyl-ACP_c0 	mmp1211
+rxn05396_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 9-methyl-decanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 11-methyl-3-oxo-dodecanoyl-ACP_c0 	mmp1211
+rxn05400_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 11-methyl-dodecanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 13-methyl-3-oxo-tetra-decanoyl-ACP_c0 	mmp1211
+rxn05404_c0	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 13-methyl-tetra-decanoyl-ACP_c0 	->	CO2_c0 + ACP_c0 + 15-methyl-3-oxo-hexa-decanoyl-ACP_c0 	mmp1211
+rxn06023_c0	CoA_c0 + apo-ACP_c0 	->	ACP_c0 + Adenosine_3-5-bisphosphate_c0 	
+rxn06729_c0	UDP-N-acetylglucosamine_c0 + HMA_c0 	->	ACP_c0 + UDP-3-O-beta-hydroxymyristoyl-N-acetylglucosamine_c0 	mmp0350
+rxn08019_c0	H_c0 + ATP_c0 + ocdca_c0 + ACP_c0 	->	PPi_c0 + AMP_c0 + Octadecanoyl-ACP_c0 	
+rxn10954_c0	7.000000 CO2_c0 + 8.000000 H2O_c0 + 16.000000 NADP_c0 + 7.000000 ACP_c0 + Octadecanoyl-ACP_c0 	->	23.000000 H_c0 + 16.000000 NADPH_c0 + 7.000000 Malonyl-acyl-carrierprotein-_c0 + Acetoacetyl-ACP_c0 	
+
+It's all from Malonyl-acyl-carrierprotein-_c0 in the first handful of reactions, but more likely it's these things....
+
+rxn06023_c0	CoA_c0 + apo-ACP_c0 	->	ACP_c0 + Adenosine_3-5-bisphosphate_c0 	
+rxn06729_c0	UDP-N-acetylglucosamine_c0 + HMA_c0 	->	ACP_c0 + UDP-3-O-beta-hydroxymyristoyl-N-acetylglucosamine_c0 	mmp0350
+
+According to normal model, it's this one:
+
+rxn06023_c0	CoA_c0 + apo-ACP_c0 	->	ACP_c0 + Adenosine_3-5-bisphosphate_c0 	
+
+The apo-ACP comes from biomass0; CoA generally comes from here:
+
+rxn05938_c0	H_c0 + CO2_c0 + Acetyl-CoA_c0 + Reducedferredoxin_c0 	<=>	CoA_c0 + Oxidizedferredoxin_c0 + Pyruvate_c0 	(mmp1504 and mmp1502 and mmp1505 and mmp1507 and mmp1503 and mmp1506)
+rxn05939_c0	H_c0 + CO2_c0 + Reducedferredoxin_c0 + Succinyl-CoA_c0 	<=>	CoA_c0 + 2-Oxoglutarate_c0 + Oxidizedferredoxin_c0 	mmp1687 and mmp1316 and mmp0003 and mmp1315
+
+
+
+
+
+
