@@ -1482,6 +1482,12 @@ model = changeGeneAssociation(model,'rxn05209_c0',...
     'mmp0100 or mmp0587 or mmp0679 or mmp0707 or mmp0864');
 
 %%%%%%%%%%%%%
+% 6/04/2015
+%%%%%%%%%%%%%
+% Add an ID to the model
+model.id = 'M_maripaludis_S2_genome_scale';
+
+%%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes

@@ -37,25 +37,24 @@ fprintf(file_id,'{"reactions": [');
 % Loop through the reactions; write things in chunks
 for i=1:length(model.rxns)
     % Print out the subsytem, if it exists, the name, and upper bound
-    fprintf(file_id,'{"subsystem": "%s", "name": "%s", "upper_bound: %f, ',...
+    fprintf(file_id,'{"subsystem": "%s", "name": "%s", "upper_bound: %0.1f, ',...
         model.subSystems{i},model.rxnNames{i},model.ub(i));
     % Print out the lower bound and an empty field for notes, and header for
     % metabolites that we'll fill next
-    fprintf(file_id,'"lower_bound": %f, "notes": {}, "metabolites": {',...
+    fprintf(file_id,'"lower_bound": %0.1f, "notes": {}, "metabolites": {',...
         model.lb(i));
     
     % Use A matrix to print out coefficients for metabolites
     % Find the things with coefficients in that reaction
-    idx = find(model.S(:,i));
+    idx = find(model.S(:,1));
     
     % For each thing in the index 
     for j=1:length(idx)
         % Print out the name of the met and its coefficient
-        fprintf(file_id,'"%s": %f',model.mets{idx(j)},A(idx(j),i));
+        fprintf(file_id,'"%s": %0.1f',model.mets{idx(j)},A(idx(j),i));
         % If it's not the last thing in the list, print a comma
         if j<length(idx)
             fprintf(file_id,', ');
-        % Otherwise, end the metabolites section of reactions
         else
             fprintf(file_id,'}, ');
         end
@@ -71,54 +70,5 @@ end
 
 % PRINT THE MODEL DESCRIPTION AND EMPTY NOTES FIELD
 fprintf(file_id,'"description": "%s", "notes": {}, ',model.description);
-
-% PRINT THE GENES
-fprintf(file_id,'"genes": [');
-% Loop through the genes
-for i = 1:length(model.genes)
-    % For each, print the name and id (they're the same here)
-    fprintf(file_id,'{"name": "%s", "id": "%s"}',...
-        model.genes{i},model.genes{i});
-    % If it's the not the last thing, print a comma
-    if i<length(model.genes)
-        fprintf(file_id,', ');
-    % Otherwise, end the genes section
-    else
-        fprintf(file_id,'], "metabolites": [');
-    end
-end
-
-% PRINT THE METABOLITES
-% Loop through the list
-for i = 1:length(model.mets)
-    % For each, print out its name, notes(empty), annotation(empty),
-    fprintf(file_id,'{"name": "%s", "notes": "{}", "annotation": "{}", ',...
-        model.metNames{i});
-    % _constraint_sense, charge,
-    fprintf(file_id,'"_constraint_sense": "E", "charge": "%d", ',...
-        model.metCharge(i));
-    % _bound, formula, 
-    fprintf(file_id,'"_bound": "0.0", "formula": "%s", ',...
-        model.metFormulas{i});
-    % Print correct compartment 
-    if regexp(model.mets{i},'_c0')
-        fprintf(file_id,'"compartment": "c", ');
-    else
-        fprintf(file_id,'"compartment": "e", ');
-    end
-    % Print the ID
-    fprintf(file_id,'"id": "%s"}',model.mets{i});
-    % If it's the not the last thing, print a comma
-    if i<length(model.mets)
-        fprintf(file_id,', ');
-    % Otherwise, end the metabolites section
-    else
-        fprintf(file_id,'], ');
-    end    
-end
-
-% PRINT THE MODEL ID
-fprintf(file_id,'"id": "%s"}',model.id');
-
-end
     
+%%%%%ALL THAT'S LEFT IS GENES AND METABOLITES%%%%%
