@@ -1,15 +1,25 @@
 function [solution,model] = maxGrowthOnMethanol(model)
 
 %Add in the reaction for converting methanol to methyl-coM
-model = addReaction(model,'Methanol_to_MCoM',...
-    'Methanol_c0 + CoM_c0 + H_c0 -> Methyl_CoM_c0 + H2O_c0');
+model = addReaction(model,{'rxn10568_c0','Methanol: coenzyme M methyltransferase'},...
+    'Methanol_c0 + CoM_c0 -> Methyl_CoM_c0 + H2O_c0');
 
 %Add in the methanol uptake
-model = addReaction(model,'Methanol_supply',...
-    'Methanol_c0 <=> ');
+model = addReaction(model,{'rxn10570_c0','Methanol diffusion'},...
+    'Methanol_e0 <=> Methanol_c0');
+model = addReaction(model,{'EX_cpd00116_e0','EX_Methanol_e0'},...
+    'Methanol_e0 <=> ');
+
+% Add metabolite info for methanol
+[~,idx] = intersect(model.mets,'Methanol_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
+[~,idx] = intersect(model.mets,'Methanol_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
 
 %Turn off the CO2 uptake
-%model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
 % Turn on the acetate uptake
 model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
 
@@ -21,7 +31,7 @@ solution = optimizeCbModel(model,[],'one');
 
 %Find the reaction indices
 [~,h2_idx]  = intersect(model.rxns,'Ex_cpd11640_c0');
-[~,meoh_idx] = intersect(model.rxns,'Methanol_supply');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116_e0');
 [~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
 [~,ch4_idx] = intersect(model.rxns,'Ex_cpd01024_c0');
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');

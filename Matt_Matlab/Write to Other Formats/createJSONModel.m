@@ -37,7 +37,7 @@ fprintf(file_id,'{"reactions": [');
 % Loop through the reactions; write things in chunks
 for i=1:length(model.rxns)
     % Print out the subsytem, if it exists, the name, and upper bound
-    fprintf(file_id,'{"subsystem": "%s", "name": "%s", "upper_bound: %f, ',...
+    fprintf(file_id,'{"subsystem": "%s", "name": "%s", "upper_bound": %f, ',...
         model.subSystems{i},model.rxnNames{i},model.ub(i));
     % Print out the lower bound and an empty field for notes, and header for
     % metabolites that we'll fill next
@@ -64,12 +64,18 @@ for i=1:length(model.rxns)
     % Print the objective coefficient, variable kind, ID, and GPR
     fprintf(file_id,'"objective_coefficient": %f, "variable_kind": "continuous", ',...
         model.c(i));
-    fprintf(file_id,'"id": "%s", "gene_reaction_rule": "%s"}, ',...
+    fprintf(file_id,'"id": "%s", "gene_reaction_rule": "%s"}',...
         model.rxns{i},model.grRules{i});
-    
+    % Decide what to print after the gene_reaction_rule
+    if i<length(model.rxns)
+        fprintf(file_id,', ');
+    % Otherwise, end the genes section
+    else
+        fprintf(file_id,'], ');
+    end
 end
 
-% PRINT THE MODEL DESCRIPTION AND EMPTY NOTES FIELD
+% FINISH THE REACTIONS SECTION AND PRINT THE MODEL DESCRIPTION AND EMPTY NOTES FIELD
 fprintf(file_id,'"description": "%s", "notes": {}, ',model.description);
 
 % PRINT THE GENES
