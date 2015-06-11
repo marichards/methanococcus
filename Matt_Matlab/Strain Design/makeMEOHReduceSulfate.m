@@ -1,7 +1,31 @@
-function solution = maxGrowthOnMethane(model)
+function [solution,model] = makeMEOHReduceSulfate(model)
 
-%Turn off the MFR
-%model = changeRxnBounds(model,'rxn11938_c0',0,'b');
+% First add in methanol pathway
+%Add in the reaction for converting methanol to methyl-coM
+model = addReaction(model,{'rxn10568_c0','Methanol: coenzyme M methyltransferase'},...
+    'Methanol_c0 + CoM_c0 <=> Methyl_CoM_c0 + H2O_c0');
+
+%Add in the methanol uptake
+model = addReaction(model,{'rxn10570_c0','Methanol diffusion'},...
+    'Methanol_e0 <=> Methanol_c0');
+model = addReaction(model,{'EX_cpd00116_e0','EX_Methanol_e0'},...
+    'Methanol_e0 <=> ');
+
+% Add metabolite info for methanol
+[~,idx] = intersect(model.mets,'Methanol_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
+[~,idx] = intersect(model.mets,'Methanol_e0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
+
+%Turn off the CO2 uptake
+%model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
+% Turn on the acetate uptake
+%model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
+
+% Turn off MFR too
+model = changeRxnBounds(model,'rxn11938_c0',0,'b');
 
 %Overall methanol reaction(s): 
 %H2O + SO4 + 5 CH4 = H2S + 5 CH3OH
@@ -15,12 +39,15 @@ function solution = maxGrowthOnMethane(model)
 model = changeRxnBounds(model,'Ex_cpd01024_c0',-1000,'l');
 model = changeRxnBounds(model,'Ex_cpd01024_c0',0,'u');
 %Change methanol to come OUT instead of IN
-model = changeRxnBounds(model,'EX_methanol_c0',0,'l');
-model = changeRxnBounds(model,'EX_methanol_c0',1000,'u');
+model = changeRxnBounds(model,'EX_cpd00116_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd00116_e0',1000,'u');
 
 %Turn off Hydrogen input and let it come out
 model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
 model = changeRxnBounds(model,'Ex_cpd11640_c0',1000,'u');
+
+% Sulfate steps are currently still in there; add in sulfate uptake:
+model = addReaction(model,'Sulfate_uptake','Sulfate_c0 <=>');
 
 %Simulate growth
 solution = optimizeCbModel(model,[],'one');
@@ -35,7 +62,7 @@ solution = optimizeCbModel(model,[],'one');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
 [~,so4_idx] = intersect(model.rxns,'EX_cpd00048_e0');
 
-
+if solution.f > 0 
 %Print the biomass flux
 fprintf('\n\nBiomass flux: %f\n\n',solution.f);
 %Print the reaction fluxes
@@ -64,5 +91,5 @@ fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/so
 %Print the ATP yield coefficient (ATP per CH4)
 fprintf('Expected ATP Yield: 0.5\n')
 fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
-
+end
 end
