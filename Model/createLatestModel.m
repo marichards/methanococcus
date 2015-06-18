@@ -1430,16 +1430,20 @@ model = changeGeneAssociation(model,'rxn05596_c0','mmp0027 or mmp0484 or mmp1430
 
 
 % Give molybdenum its transporters, then add it to the biomass
-model = addReaction(model,{'EX_cpd00131_e0','EX_Mo_e0'},...
-    'Mo_e0 <=> ');
+model = addReaction(model,{'EX_cpd00131_e0','EX_Molybdenum_e0'},...
+    'Molybdenum_e0 <=> ');
 model = addReaction(model,{'Mot','ATP-Dependent Molybdenum transport'},...
-    'Mo_e0 + H2O_c0 + ATP_c0 <=> Molybdenum_c0 + H_c0 + ADP_c0 + Phosphate_c0');
+    'Molybdenum_e0 + H2O_c0 + ATP_c0 <=> Molybdenum_c0 + H_c0 + ADP_c0 + Phosphate_c0');
 % Add genes for Mo transport
 model = changeGeneAssociation(model,'Mot',...
     '(mmp0205 and mmp0206 and mmp0207) or (mmp0504 and mmp0505 and mmp0506) or (mmp0514 and mmp0515 and mmp0516) or (mmp1650 and mmp1651 and mmp1652)');
 
 % Add Molybdenum to biomass and add its charge/formula
 [~,idx] = intersect(model.mets,'Molybdenum_c0');
+model.metCharge(idx)=0;
+model.metFormulas{idx}='Mo';
+
+[~,idx] = intersect(model.mets,'Molybdenum_e0');
 model.metCharge(idx)=0;
 model.metFormulas{idx}='Mo';
 
