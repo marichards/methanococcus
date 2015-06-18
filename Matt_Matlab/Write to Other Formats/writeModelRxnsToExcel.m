@@ -10,6 +10,6 @@ function writeModelRxnsToExcel(model,workbook,sheet)
 
 %Solve the model, write the reactions, fluxes, ub/lb to an excel file
 
-formulas = printRxnFormula(model,model.rxns,'False');
+formulas = printRxnFormula(model,model.rxns,false);
 A = [model.rxns,model.rxnNames,model.grRules,formulas,num2cell(model.lb),num2cell(model.ub)];
 xlswrite(workbook,A,sheet);
