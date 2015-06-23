@@ -105,7 +105,7 @@ else
 
     %if ~isempty(excluded)
 
-    %    warning('The following exchange reactions carry flux but are not accounted for in subsrateRxns')
+    %    warning('The following exchange reactions carry flux but are not accounted for in substrateRxns')
     %    for j = 1:length(excluded)
            %Print out the reactions that are problems
     %        fprintf('%s\n',excluded{j})
