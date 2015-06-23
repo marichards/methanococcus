@@ -1,0 +1,11 @@
+DATABASE	NAME	EC NUMBER(S)	KEGG ID(S)	DELTAG (kcal/mol)	DELTAG ERROR (kcal/mol)	EQUATION	NAME EQ	THERMODYNAMIC FEASIBILTY
+rxn05759	Reduced ferredoxin:H+ oxidoreductase	|1.12.7.2|	R00019	10000000	10000000	(2) cpd00067 + (2) cpd11620 <=> (2) cpd11621 + cpd11640	2 H+ + 2 Reducedferredoxin <=> 2 Oxidizedferredoxin + H2	<=>
+rxn05776	rxn05776	|3.4.11.5|	R00135	-5.853	1.06821	cpd00001 <=> cpd00129	H2O <=> L-Proline	=>
+rxn05775	NADPH:ferrileghemoglobin oxidoreductase	|1.6.2.6|	R00109	10000000	10000000	cpd00005 + cpd00067 + (2) cpd12158 <=> cpd00006 + (2) cpd12160	TPNH + H+ + 2 Ferrileghemoglobin <=> TPN + 2 Ferroleghemoglobin	<=>
+rxn05774	NADPH:ferricytochrome-c2 oxidoreductase	|1.6.2.5|	R00108	10000000	10000000	cpd00005 + cpd00067 + (2) cpd11796 <=> cpd00006 + (2) cpd11798	TPNH + H+ + 2 Ferricytochrome c2 <=> TPN + 2 Ferrocytochrome c2	<=>
+rxn05773	NADH:ferrileghemoglobin oxidoreductase	|1.6.2.6|	R00101	10000000	10000000	cpd00004 + cpd00067 + (2) cpd12158 <=> cpd00003 + (2) cpd12160	NADH + H+ + 2 Ferrileghemoglobin <=> NAD + 2 Ferroleghemoglobin	<=>
+rxn05772	NADH:ferricytochrome-b5 oxidoreductase	|1.6.2.2|	R00100	10000000	10000000	cpd00004 + cpd00067 + (2) cpd11795 <=> cpd00003 + (2) cpd11797	NADH + H+ + 2 Ferricytochrome b5 <=> NAD + 2 Ferrocytochrome b5	<=>
+rxn05771	Ferrocytochrome c2:oxygen oxidoreductase	|1.7.2.1|	R00082	10000000	10000000	cpd00007 + (4) cpd11798 <=> (2) cpd00001 + (4) cpd11796	O2 + 4 Ferrocytochrome c2 <=> 2 H2O + 4 Ferricytochrome c2	<=>
+rxn05770	[Phosphorylase a] phosphohydrolase	|3.1.3.17|	R00077	10000000	10000000	(4) cpd00001 + cpd12067 <=> (4) cpd00009 + (2) cpd12068	4 H2O + Phosphorylase a <=> 4 Phosphate + 2 Phosphorylase b	<=>
+rxn05769	ATP:phosphorylase-b phosphotransferase	|2.7.11.19|		10000000	10000000	(2) cpd00002 + cpd12068 <=> (2) cpd00008 + cpd12067	2 ATP + Phosphorylase b <=> 2 ADP + Phosphorylase a	<=>
+rxn05768	rxn05768			82.8797	0.886587	(2) cpd12781 <=> cpd00007 + (2) cpd12780	2 5-Hydroxy-2-polyprenylphenol <=> O2 + 2 2-Polyprenylphenol	<=
