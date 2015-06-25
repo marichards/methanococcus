@@ -1,11 +1,10 @@
-function [solution,gibbs_flux] = optimizeThermoModel(model,substrateRxns,concentrations,biomass,T,water_rxn)
+function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,concentrations,T,water_rxn)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Version 3: 04/24/2013
-
+%Version 4: 06/23/2015
 
 %GENERAL METHODOLOGY
-%Accepts a model, substrate reactions, and initial concentrations/biomass
+%Accepts a model, substrate reactions, and initial concentrations
 %Accepts a reaction for water
 %Adds a metabolite called "dG[e]"
 %Adds an exchange for dG called 'GIBBS' (EX_dG[e])
@@ -14,6 +13,14 @@ function [solution,gibbs_flux] = optimizeThermoModel(model,substrateRxns,concent
 %Simulates the model
 %Returns solution and overall dG
 %(This is a modified addOverallDG code)
+
+% Inputs
+% model: a COBRA model structure
+% substrateRxns: set of reactions with specified concentrations
+% concentrations: set of concentrations specified for exchange reactions
+% in the model simulation (in mM)
+% T: temperature in Kelvin
+% 
 
 %%%%%%%%%%%%%%%%dG values are from Alberty, at pH=7.0%%%%%%%%%%%%%%%%%%
 %Catch concentrations that are 0....
@@ -32,10 +39,10 @@ else
     R = 8.314e-6; %kJ/mmol*K
 
     %Add the new reaction first, which adds the metabolite
-    model = addReaction(model,'GIBBS_kJ/GDW','dG[e] <=> '); 
+    model = addReaction(model,'GIBBS_kJ/GDW','dG <=> '); 
 
     %Find index of dG
-    [~,met_idx] = intersect(model.mets,'dG[e]');
+    [~,met_idx] = intersect(model.mets,'dG');
 
 
     %Intersect the substrate reactions with the model and make a dictionary
@@ -48,7 +55,7 @@ else
 
        %Change the dG weight for the exchange reaction (Conc in mM)
        model.S(met_idx,dict(substrateRxns{i})) = model.freeEnergy(dict(substrateRxns{i}))...
-           +R*T*log(concentrations(i)/1000);    
+           +R*T*log(concentrations(i));    
     end
     
     %%New Part (4/30/2013)
@@ -59,8 +66,8 @@ else
     %Make the biomass value
     %Biomass Modification: -0.1764 kJ/GDW
     %Instead of using specific biomass ID, find it as the objective
-    rxn_idx = find(model.c~=0);
-    model.S(met_idx,(rxn_idx)) = -0.1764 + R*T*log(biomass);
+    %rxn_idx = find(model.c~=0);
+    %model.S(met_idx,(rxn_idx)) = -0.1764 + R*T*log(biomass);
     
     %%DEBUG CHECK: Print the dG metabolite row
     %model.S(met_idx,:)
@@ -83,7 +90,8 @@ else
         fprintf('\nNO THERMODYNAMICALLY FEASIBLE SOLUTION\n')
         gibbs_flux = [];
     else
-        gibbs_flux = solution.x(end);
+        [~,idx] = intersect(model.rxns,'GIBBS_kJ/GDW');
+        gibbs_flux = solution.x(idx);
     end
 
     %Final thing: return warnings for things produced/consumed that have no
