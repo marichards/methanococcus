@@ -1335,7 +1335,7 @@ model = changeRxnBounds(model,'Eha/Ehb',-1000,'l');
 model = removeRxns(model,'CODH_ACS');
 %Add CO-dehydrogenase
 model = addReaction(model,{'CODH','Carbon monoxide dehydrogenase'},...
-    'CO2_c0 + Reducedferredoxin_c0 + 3 H_c0 <=> CO_c0 + Oxidizedferredoxin_c0 + 0.5 H2_c0');
+    'CO2_c0 + Reducedferredoxin_c0 + 3 H_c0 <=> CO_c0 + Oxidizedferredoxin_c0 + 0.5 H2_c0 + H2O_c0');
 %Associate it with mmpmmp0980,0981,0983,0984,0985
 model = changeGeneAssociation(model,'CODH',...
     'mmp0979 and mmp0980 and mmp0981 and mmp0982 and mmp0983 and mmp0984 and mmp0985');
@@ -1492,10 +1492,30 @@ model = changeGeneAssociation(model,'rxn05209_c0',...
 model.id = 'M_maripaludis_S2_genome_scale';
 
 %%%%%%%%%%%%%
+% 7/08/2015
+%%%%%%%%%%%%%
+% Add homocysteine synthesis reaction from literature
+model = addReaction(model,{'HcyS','Homocysteine Synthesis'},...
+    'L-Aspartate4-semialdehyde_c0 + H2S_c0 + H2_c0 <=> Homocysteine_c0 + H2O_c0');
+model = changeGeneAssociation(model,'HcyS','mmp1358 and mmp1359');
+
+% Remove reactions based on the 2015 Allen paper on homocysteine
+model = removeRxns(model,{'rxn01304_c0','rxn05957_c0'});
+
+% Revise last step of methionine synthesis (Remove folate steps)
+%model = removeRxns(model,...
+%    {'rxn01304_c0','rxn03004_c0','rxn03137_c0','rxn00692_c0','rxn04954_c0','rxn11944_c0'});
+
+% Add the step for methionine synthesis
+model = addReaction(model,{'MetS','Methionine Synthase'},...
+    'Homocysteine_c0 + 5-Methyl-H4MPT_c0 -> L-Methionine_c0 + H4MPT_c0');
+
+
+%%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-model = removeDeadGapFills(model);
+%model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014

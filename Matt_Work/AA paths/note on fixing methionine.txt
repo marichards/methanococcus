@@ -1,0 +1,63 @@
+Put in new reactions, but taking out folates is a problem; here's the reactions that are apparently essential and contain folates:
+
+>> both = intersect(ess_rxns,rxns)
+
+both = 
+
+    'biomass0'
+    'rxn00686_c0'
+    'rxn00692_c0'
+    'rxn00912_c0'
+    'rxn03004_c0'
+    'rxn03137_c0'
+    'rxn04954_c0'
+    'rxn12649_c0'
+Using diagnoseMissingMet, here's what each makes or uses (I think):
+>> mets = diagnoseMissingMet(model,'rxn00686_c0')
+mets = 
+    'Dihydrofolate_c0'
+>> mets = diagnoseMissingMet(model,'rxn00692_c0')
+mets = 
+    '5-10-Methylenetetrahydrofolate_c0'
+    'Tetrahydrofolate_c0'	
+>> mets = diagnoseMissingMet(model,'rxn00912_c0')
+mets = 
+    '2-Dehydropantoate_c0'	
+>> mets = diagnoseMissingMet(model,'rxn03004_c0')
+mets = 
+    '10-Formyltetrahydrofolate_c0'
+    'Tetrahydrofolate_c0'	
+>> mets = diagnoseMissingMet(model,'rxn03137_c0')
+mets = 
+    'AICAR_c0'
+    'FAICAR_c0'
+>> mets = diagnoseMissingMet(model,'rxn04954_c0')
+mets = 
+    '5-Methyltetrahydrofolate_c0'
+>> mets = diagnoseMissingMet(model,'rxn12649_c0')
+mets = 
+    'Tetrahydrofolate_c0'
+	
+What do AICAR and FAICAR do that's important? What about 2-Dehydropantoate and Dihydrofolate? 
+
+Here's the reactions they're in:
+rxn00832_c0	H2O_c0 + IMP_c0 	<=>	FAICAR_c0 	(mmp1373 or mmp1310)
+rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
+rxn01790_c0	NADP_c0 + Pantoate_c0 	<=>	H_c0 + NADPH_c0 + 2-Dehydropantoate_c0 	(mmp0672 or mmp0654)
+rxn03135_c0	L-Glutamine_c0 + phosphoribulosylformimino-AICAR-phosphate_c0 	->	H_c0 + L-Glutamate_c0 + AICAR_c0 + D-erythro-imidazol-glycerol-phosphate_c0 	((mmp0256 or mmp1082) and (mmp1722 or mmp1083))
+rxn03136_c0	SAICAR_c0 	<=>	Fumarate_c0 + AICAR_c0 	mmp0971
+
+All of these are essential, but why? In order:
+mets = 
+    'FAICAR_c0'
+    'IMP_c0'
+mets = 
+    'dTMP_c0'	
+mets = 
+    'Pantoate_c0'	
+mets = 
+    'D-erythro-imidazol-glycerol-phosphate_c0'	
+mets = 
+    'AICAR_c0'
+	
+What does IMP do? Apparently nothing that's essential by itself, and it has lots of reactions	
