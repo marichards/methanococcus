@@ -58,3 +58,8 @@ for i=1:length(model_idx)
     model.rxnKEGGID{model_idx(i)}=reactions.keggIDs{dict_idx(i)};
     model.rxnECNumbers{model_idx(i)}=reactions.ECs{dict_idx(i)};    
 end
+
+% We missed some Seed IDs for compounds and subsystems for reactions
+load('metIDs.mat') 
+[~,idxA,idxB] = intersect(model.mets,metIDs.name);
+model.metSEEDID(idxA)=metIDs.ID(idxB);
