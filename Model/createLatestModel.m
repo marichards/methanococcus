@@ -1510,7 +1510,11 @@ model = removeRxns(model,{'rxn01304_c0','rxn05957_c0'});
 model = addReaction(model,{'MetS','Methionine Synthase'},...
     'Homocysteine_c0 + 5-Methyl-H4MPT_c0 -> L-Methionine_c0 + H4MPT_c0');
 
-
+% Add subsystems 
+[~, idx] = intersect(model.rxns,'HcyS');
+model.subSystems{idx} = 'Methionine Biosynthesis';
+[~, idx] = intersect(model.rxns,'MetS');
+model.subSystems{idx} = 'Methionine Biosynthesis';
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%

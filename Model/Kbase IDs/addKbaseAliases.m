@@ -63,3 +63,9 @@ end
 load('metIDs.mat') 
 [~,idxA,idxB] = intersect(model.mets,metIDs.name);
 model.metSEEDID(idxA)=metIDs.ID(idxB);
+
+% Add subsystems in similar fashion
+load('subsystems.mat')
+[~,idxA,idxB] = intersect(model.rxns,subsystems.IDs);
+model.subSystems(idxA)=subsystems.subs(idxB);
+
