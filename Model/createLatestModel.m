@@ -1534,11 +1534,12 @@ model = addReaction(model,'Filler2',...
 %
 %rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0
 % Might not need this either, but it's probably important for dUMP and dTMP
-rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
+%rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
 rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
 rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
 rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
-rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+% Don't need this
+%rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
 
 %%%%%%%%%%%%%
 % 4/16/2015
