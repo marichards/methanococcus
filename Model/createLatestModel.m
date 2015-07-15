@@ -1500,7 +1500,7 @@ model = addReaction(model,{'HcyS','Homocysteine Synthesis'},...
 model = changeGeneAssociation(model,'HcyS','mmp1358 and mmp1359');
 
 % Remove reactions based on the 2015 Allen paper on homocysteine
-model = removeRxns(model,{'rxn01304_c0','rxn05957_c0'});
+%model = removeRxns(model,{'rxn01304_c0','rxn05957_c0'});
 
 % Revise last step of methionine synthesis (Remove folate steps)
 model = removeRxns(model,...
@@ -1521,34 +1521,101 @@ model = changeRxnBounds(model,'rxn03147_c0',-1000,'l');
 
 % Try to fix the folates missing by replacing their reactions with
 % corresponding methanopterins
-model = addReaction(model,'Filler1',...
-    'L-Serine_c0 + H4MPT_c0 -> H2O_c0 + Glycine_c0 + 5_10-Methylenetetrahydromethanopterin_c0');
-model = addReaction(model,'Filler2',...
-    'H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 -> 2-Dehydropantoate_c0 + H4MPT_c0');
-% I don't think we need this regardless
+% We need this purely to consume the Dihydrofolate
 %rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+model = addReaction(model,{'rxn02430_c0','Dihydromethanopterin reductase'},...
+    'H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 -> NADP_c0 + H4MPT_c0');
 
-%rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
-% Added this already (MetS)
-%rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
-%
+% Add this too for the hydropantoate, which is needed for CoA synthesis
 %rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0
-% Might not need this either, but it's probably important for dUMP and dTMP
+model = addReaction(model,{'H4MPT3M2Om','5,10-Methylenetetrahydromethanopterin 3-Methyl-2-oxobutanoate methyltransferase'},...
+    'H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 ->	2-Dehydropantoate_c0 + H4MPT_c0');
+
+% Might not need this either, but it's probably important for dUMP and
+% dTMP, so add it and leave the Dihydrofolate for now
 %rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
-rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
-rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
-rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
-% Don't need this
-%rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+model = addReaction(model,{'H4MPTdUMPm','5,10-Methylenetetrahydromethanopterin dUMP C-methyltransferase'},...
+    'dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0	-> dTMP_c0 + 7,8-Dihydromethanopterin_c0');
+
+%rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
+model = addReaction(model,{'FH4MPTAf','Formyl-H4MPT AICAR Formyltransferase'},...
+    'AICAR_c0 + 5-Formyl-H4MPT_c0 -> FAICAR_c0 + H4MPT_c0');
+
+% Remove reaction with Methylene-tetrahydrofolate or Dihydrofolate
+rxns = findRxnsFromMets(model,{'5-10-Methylenetetrahydrofolate_c0','Dihydrofolate_c0'});
+model = removeRxns(model,rxns);
+
+% Add info for Dihydromethanopterin
+[~,idx] = intersect(model.mets,'7,8-Dihydromethanopterin_c0');
+model.metCharge(idx) = -3;
+model.metFormulas{idx} = 'C30H40N6O16P';
+model.metSEEDID{idx} = 'cpd03523';
+
+%%%%%%%%%%%%%
+% 7/14/2015
+%%%%%%%%%%%%%
+% Remove "SINK" and replace it with a hypothetical hydroxypyruvaldehyde
+% reduction to G3P
+model = removeRxns(model,'SINK');
+model = addReaction(model,{'HPAr','Hydroxypyruvaldehyde phosphate reductase'},...
+    'Hydroxypyruvaldehyde_phosphate_c0 + NADH_c0 <=> Glyceraldehyde3-phosphate_c0 + NAD_c0');
+
+%Also, remove reactions that have folate
+rxns = findRxnsFromMets(model,{'Folate_c0','Folate_e0'});
+model = removeRxns(model,rxns);
 
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
-%model = removeDeadGapFills(model);
+model = removeDeadGapFills(model);
 
 %%%%%%%%%%%%%
 %9/19/2014
 %%%%%%%%%%%%%
-%Last step should always be to add the kbase aliases:
+%Second to last step should always be to add the kbase aliases:
 model = addKbaseAliases(model);
+
+%%%%%%%%%%%%%
+%7/14/2015
+%%%%%%%%%%%%%
+
+% Last step: fix some reaction names that aren't right and add transport
+% for things that need it
+
+% Change name of CH4 from 'EX_Methane_c0' to 'Methane_c0' and 'Methane_e0'
+[~,idx] = intersect(model.mets,'EX_Methane_c0');
+model.mets{idx} = 'Methane_c0';
+model.metNames{idx} = 'Methane_c0';
+
+% Add a transport (diffusion) for both hydrogen and methane
+model = addReaction(model,{'rxn10542_c0','Hydrogen transport via diffusion'},...
+    'H2_e0 <=> H2_c0');
+[~,idx] = intersect(model.rxns,'rxn10542_c0');
+model.subSystems{idx} = 'Transport';
+
+model = addReaction(model,{'rxn10471_c0','Methane transport via diffusion'},...
+    'Methane_e0 <=> Methane_c0');
+[~,idx] = intersect(model.rxns,'rxn10471_c0');
+model.subSystems{idx} = 'Transport';
+
+% Fix the names and formulas of their exchanges
+% Methane
+[~,idx] = intersect(model.rxns,'Ex_cpd01024_c0');
+model.rxns{idx} = 'EX_cpd01024_e0';
+model = addReaction(model,{'EX_cpd10204_e0','EX_Methane_e0'},...
+    'Methane_e0 <=> ');
+
+[~,idx] = intersect(model.rxns,'Ex_cpd11640_c0');
+model.rxns{idx} = 'EX_cpd11640_e0';
+model = addReaction(model,{'EX_cpd11640_e0','EX_Hydrogen_e0'},...
+    'H2_e0 <=> ');
+
+% Fix names of Cob(I)yrinate_diamide and Cob(II)yrinate_diamide
+[~,idx ] = intersect(model.mets,'CobIyrinate_diamide_c0');
+model.mets{idx} = 'Cob(I)yrinate_diamide_c0';
+model.metNames{idx} = 'Cob(I)yrinate_diamide_c0';
+[~,idx ] = intersect(model.mets,'CobIIyrinate_diamide_c0');
+model.mets{idx} = 'Cob(II)yrinate_diamide_c0';
+model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
+

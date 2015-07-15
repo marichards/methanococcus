@@ -1,0 +1,49 @@
+Doing a comparison between old and new models (cutting things that don't matter):
+
+Model 1 only metabolites: 
+10-Formyltetrahydrofolate_c0|5-Methyltetrahydrofolate_c0|Folate_c0|Folate_e0|O-Succinyl-L-homoserine_c0|Tetrahydrofolate_c0|
+
+Model 1 only reactions: 
+rxn00346_c0	H_c0 + L-Aspartate_c0 	->	CO2_c0 + beta-Alanine_c0 	
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
+rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0 	
+rxn01304_c0	L-Homoserine_c0 + Succinyl-CoA_c0 	->	CoA_c0 + O-Succinyl-L-homoserine_c0 	
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
+rxn05957_c0	H2S_c0 + O-Succinyl-L-homoserine_c0 	->	H_c0 + Homocysteine_c0 + Succinate_c0 	mmp0012
+rxn11944_c0	Tetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-L-methionine_c0 	->	H_c0 + 5-Methyltetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-homocysteine_c0 	mmp0401
+
+Model 2 only reactions: 		
+HcyS	L-Aspartate4-semialdehyde_c0 + H2S_c0 + H2_c0 	<=>	Homocysteine_c0 + H2O_c0 	mmp1358 and mmp1359
+MetS	Homocysteine_c0 + 5-Methyl-H4MPT_c0 	->	L-Methionine_c0 + H4MPT_c0 	
+
+%%%%%%%%%%%%%%%%
+I removed these pairs of folate reactions I removed and methanopterin things I added:
+
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
+Filler1	L-Serine_c0 + H4MPT_c0 	->	H2O_c0 + Glycine_c0 + 5_10-Methylenetetrahydromethanopterin_c0 
+
+rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+Filler2	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + H4MPT_c0 	
+
+Filler4	dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	->	dTMP_c0 + Dihydrofolate_c0 	\
+
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
+Filler5	H_c0 + H4MPT_c0 + N-Formyl-GAR_c0 	->	GAR_c0 + 5-Formyl-H4MPT_c0 	
+
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 
+Filler6	AICAR_c0 + 5-Formyl-H4MPT_c0 	->	H4MPT_c0 + FAICAR_c0 
+	
+
+Filler7	H_c0 + NADH_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	->	NAD_c0 + 5-Methyl-H4MPT_c0 	
+
+%Meaningless transporters and folate I don't need:
+rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+rxn05255_c0	H_e0 + Folate_e0 	->	H_c0 + Folate_c0 
+EX_cpd00393_e0	Folate_e0 	<=>	
+
+!!!!!!!!!!!!!!!!!!!
+I think I know what's wrong...this is apparently a dead end:
+Filler3: 
+'H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 ->	2-Dehydropanatoate_c0 + H4MPT_c0'
+
+Why? What did I take away from these?

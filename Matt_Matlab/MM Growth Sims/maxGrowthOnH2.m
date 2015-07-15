@@ -4,7 +4,7 @@ function solution = maxGrowthOnH2(model)
 %relevant fluxes, return the full solution
 
 %Turn down H2 to -45, not -1000
-model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640_e0',-45,'l');
 %Turn down CO2 to -12, not -1000
 %model = changeRxnBounds(model,'EX_cpd00011_e0',-12,'l');
 
@@ -14,9 +14,9 @@ solution = optimizeCbModel(model,[],'one');
 %Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 
 %Find the reaction indices
-[~,h2_idx]  = intersect(model.rxns,'Ex_cpd11640_c0');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
 [~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'Ex_cpd01024_c0');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
 [~,form_idx] = intersect(model.rxns,'EX_cpd00047_e0');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
