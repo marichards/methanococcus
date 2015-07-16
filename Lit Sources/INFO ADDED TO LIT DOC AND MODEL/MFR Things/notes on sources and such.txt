@@ -1,0 +1,36 @@
+mfnA (from blastP w/Janaschii): mmp0131
+mfnB: (from blastP w/Jannaschii): mmp0708
+mfnC: no blastP hits w/Jannaschii
+mfnD: don't know gene yet
+
+Devised scheme for F1-P synthesis:
+1) Glyceraldehyde-3-phosphate + dihydroxyacetone-P -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O + Pi [MfnB]
+2) 4-(hydroxymethyl)-2-furancarboxaldehyde + Alanine -> 5-(aminomethyl)-3-furanmethanol-P + Pyruvate [MfnC]
+
+Devised scheme for gamma-glutamyl-tyramine synthesis:
+3) Tyrosine -> Tyramine + CO2 [MfnA] {rxn00529_c0}
+4) Tyramine + Glutamate ATP -> gamma-glutamyl-tyramine + ADP + Pi [MfnD]
+
+
+Rest are proposed in 2014 paper (White lab):
+5) 5-(aminomethyl)-3-furanmethanol-P + ATP -> 5-(aminomethyl)-3-furanmethanol-PP + ADP [F1-P->F1-PP]
+6) 5-(aminomethyl)-3-furanmethanol-PP + gamma-glutamyl-tyramine -> APMF-glu
+7) APMF-glu + 6-11 Glutamate -> Methanofuran-d
+
+**APMF-glu is 4{[4-(2-aminoethyl)phenoxy]methyl}-2-furanmethanamine
+
+REACTIONS in KBASE:
+3) is rxn00529_c0
+4) is not there
+
+OTHER COMPOUNDS in KBASE:
+DHAP is cpd00095 (Glycerone-phosphate_c0)
+
+Yeah, that's about it
+1) L-Tyrosine_c0 -> Tyramine_c0 + CO2_c0 [MfnA] {rxn00529_c0}
+2) Tyramine_c0 + L-Glutamate_c0 + ATP_c0 -> gamma-Glutamyl-tyramine_c0
+3) Glyceraldehyde-3-phosphate_c0 + Glycerone-phosphate_c0 -> 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + 2 H2O_c0 + Phosphate_c0 [MfnB]
+4) 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + L-Alanine_c0 -> 5-(aminomethyl)-3-furanmethanol-phosphate_c0 + Pyruvate_c0  [MfnC]
+5) 5-(aminomethyl)-3-furanmethanol-phosphate_c0 + ATP_c0 -> 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0
+6) 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 + gamma-Glutamyl-tyramine_c0 -> 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 
+7) 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 + X L-Glutamate_c0 -> Methanofuran_c0
