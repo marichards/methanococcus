@@ -30,10 +30,10 @@ model = changeRxnBounds(model,'rxn11938_c0',0,'b');
 solution = optimizeCbModel(model,[],'one');
 
 %Find the reaction indices
-[~,h2_idx]  = intersect(model.rxns,'Ex_cpd11640_c0');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
 [~,meoh_idx] = intersect(model.rxns,'EX_cpd00116_e0');
 [~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'Ex_cpd01024_c0');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');

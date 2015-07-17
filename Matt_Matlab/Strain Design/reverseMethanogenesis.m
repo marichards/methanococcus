@@ -36,15 +36,15 @@ model = changeRxnBounds(model,'rxn11938_c0',0,'b');
 %CH4 + 4 NO3- -> CO2 + 4 NO2- + 2 H2O
 
 %Change bounds such that methane goes IN instead of OUT
-model = changeRxnBounds(model,'Ex_cpd01024_c0',-1000,'l');
-model = changeRxnBounds(model,'Ex_cpd01024_c0',0,'u');
+model = changeRxnBounds(model,'EX_cpd01024_e0',-1000,'l');
+model = changeRxnBounds(model,'EX_cpd01024_e0',0,'u');
 %Change methanol to come OUT instead of IN
 model = changeRxnBounds(model,'EX_cpd00116_e0',0,'l');
 model = changeRxnBounds(model,'EX_cpd00116_e0',1000,'u');
 
 %Turn off Hydrogen input and let it come out
-model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
-model = changeRxnBounds(model,'Ex_cpd11640_c0',1000,'u');
+model = changeRxnBounds(model,'EX_cpd11640_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd11640_e0',1000,'u');
 
 % Add in the H2 -> Fd_red reactions 
 model = addReaction(model,{'rxn05759_c0','Reduced ferredoxin:H+ oxidoreductase'},...
@@ -54,10 +54,10 @@ model = addReaction(model,{'rxn05759_c0','Reduced ferredoxin:H+ oxidoreductase'}
 solution = optimizeCbModel(model,[],'one');
 
 %Find the reaction indices
-[~,h2_idx]  = intersect(model.rxns,'Ex_cpd11640_c0');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
 [~,meoh_idx] = intersect(model.rxns,'EX_cpd00116_e0');
 [~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'Ex_cpd01024_c0');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');

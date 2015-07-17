@@ -1524,22 +1524,22 @@ model = changeRxnBounds(model,'rxn03147_c0',-1000,'l');
 % We need this purely to consume the Dihydrofolate
 %rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
 model = addReaction(model,{'rxn02430_c0','Dihydromethanopterin reductase'},...
-    'H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 -> NADP_c0 + H4MPT_c0');
+    'H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 <=> NADP_c0 + H4MPT_c0');
 
 % Add this too for the hydropantoate, which is needed for CoA synthesis
 %rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0
 model = addReaction(model,{'H4MPT3M2Om','5,10-Methylenetetrahydromethanopterin 3-Methyl-2-oxobutanoate methyltransferase'},...
-    'H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 ->	2-Dehydropantoate_c0 + H4MPT_c0');
+    'H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 <=>	2-Dehydropantoate_c0 + H4MPT_c0');
 
 % Might not need this either, but it's probably important for dUMP and
 % dTMP, so add it and leave the Dihydrofolate for now
 %rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
 model = addReaction(model,{'H4MPTdUMPm','5,10-Methylenetetrahydromethanopterin dUMP C-methyltransferase'},...
-    'dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0	-> dTMP_c0 + 7,8-Dihydromethanopterin_c0');
+    'dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0	<=> dTMP_c0 + 7,8-Dihydromethanopterin_c0');
 
 %rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
 model = addReaction(model,{'FH4MPTAf','Formyl-H4MPT AICAR Formyltransferase'},...
-    'AICAR_c0 + 5-Formyl-H4MPT_c0 -> FAICAR_c0 + H4MPT_c0');
+    'AICAR_c0 + 5-Formyl-H4MPT_c0 <=> FAICAR_c0 + H4MPT_c0');
 
 % Remove reaction with Methylene-tetrahydrofolate or Dihydrofolate
 rxns = findRxnsFromMets(model,{'5-10-Methylenetetrahydrofolate_c0','Dihydrofolate_c0'});
