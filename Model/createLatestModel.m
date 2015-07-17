@@ -1,4 +1,4 @@
-function model = createLatestModel()
+    function model = createLatestModel()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %This file is meant to keep all model changes sequentially, starting at the
