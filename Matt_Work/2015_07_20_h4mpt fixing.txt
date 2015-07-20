@@ -1,0 +1,213 @@
+Doing a comparison on the latest working model vs the new one:
+
+>> compareCobraModels(new,model);
+Model 1 only metabolites: 
+7,8-Dihydromethanopterin_c0|Cob(I)yrinate_diamide_c0|Cob(II)yrinate_diamide_c0|H2_e0|Methane_c0|Methane_e0|Molybdenum_e0|UDP-N-acetyl-D-mannosaminouronate_c0|
+Model 2 only metabolties: 
+(S)-2-Hydroxyglutarate_c0|10-Formyltetrahydrofolate_c0|4,5-diketo-6-deoxyfructose_1-phosphate_c0|4-Amino-3-Dehydroquinate_c0|4-Amino-3-Dehydroshikimate_c0|4-Aminoshikimate_c0|4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0|4-ketofructose_1,6-bisphosphate_c0|5-10-Methylenetetrahydrofolate_c0|5-Methyltetrahydrofolate_c0|7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0|CobIIyrinate_diamide_c0|CobIyrinate_diamide_c0|Dihydrofolate_c0|EX_Methane_c0|Folate_c0|Folate_e0|Glycolate_c0|Mo_e0|Tetrahydrofolate_c0|
+Model 1 only reactions: 
+EX_cpd01024_e0	Methane_e0 	<=>		
+EX_cpd11640_e0		<=>	H2_e0 	
+FH4MPTAf	AICAR_c0 + 5-Formyl-H4MPT_c0 	<=>	H4MPT_c0 + FAICAR_c0 	
+H4MPT3M2Om	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	H4MPT_c0 + 2-Dehydropantoate_c0 	
+H4MPTdUMPm	dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	dTMP_c0 + 7,8-Dihydromethanopterin_c0 	
+HPAr	NADH_c0 + Hydroxypyruvaldehyde_phosphate_c0 	<=>	NAD_c0 + Glyceraldehyde3-phosphate_c0 	
+HcyS	L-Aspartate4-semialdehyde_c0 + H2S_c0 + H2_c0 	<=>	Homocysteine_c0 + H2O_c0 	mmp1358 and mmp1359
+MetS	Homocysteine_c0 + 5-Methyl-H4MPT_c0 	->	L-Methionine_c0 + H4MPT_c0 	
+rxn02377_c0	H2O_c0 + 2.000000 NAD_c0 + UDP-N-acetyl-D-mannosamine_c0 	<=>	3.000000 H_c0 + 2.000000 NADH_c0 + UDP-N-acetyl-D-mannosaminouronate_c0 	mmp0706
+rxn02430_c0	H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 	<=>	NADP_c0 + H4MPT_c0 	
+rxn10471_c0	Methane_e0 	<=>	Methane_c0 	
+rxn10542_c0	H2_e0 	<=>	H2_c0 	
+Model 2 only reactions: 
+3DHQAT	NH3_c0 + 3-Dehydroquinate_c0 	<=>	H_c0 + H2O_c0 + 4-Amino-3-Dehydroquinate_c0 	
+4ADSs	4-Amino-3-Dehydroquinate_c0 	<=>	H2O_c0 + 4-Amino-3-Dehydroshikimate_c0 	
+4ASDH	H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0 	<=>	NAD_c0 + 4-Aminoshikimate_c0 	
+4ASDHT	4-Aminoshikimate_c0 	<=>	H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	
+ABEEs	4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	<=>	H2O_c0 + ABEE_c0 	
+EX_cpd00393_e0	Folate_e0 	<=>		
+Ex_cpd01024_c0	EX_Methane_c0 	->		
+Ex_cpd11640_c0		<=>	H2_c0 	
+H4MPTs	H2O_c0 + 2.000000 NADH_c0 + 2.000000 ATP_c0 + 2.000000 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0 	<=>	Phosphate_c0 + 2.000000 NAD_c0 + 2.000000 ADP_c0 + 2.000000 PPi_c0 + 2.000000 S-Adenosyl-homocysteine_c0 + H4MPT_c0 	
+SINK	Hydroxypyruvaldehyde_phosphate_c0 	<=>		
+rxn00512_c0	NAD_c0 + Glycolate_c0 	<=>	H_c0 + NADH_c0 + Glyoxalate_c0 	
+rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
+rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0 	
+rxn00979_c0	H2O_c0 + NAD_c0 + Glycolaldehyde_c0 	->	2.000000 H_c0 + NADH_c0 + Glycolate_c0 	
+rxn01304_c0	L-Homoserine_c0 + Succinyl-CoA_c0 	->	CoA_c0 + O-Succinyl-L-homoserine_c0 	
+rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
+rxn05255_c0	H_e0 + Folate_e0 	->	H_c0 + Folate_c0 	
+rxn10422_c0	4-ketofructose_1,6-bisphosphate_c0 	<=>	Phosphate_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 	
+rxn10432_c0	H_c0 + NADH_c0 + 2-Oxoglutarate_c0 	<=>	NAD_c0 + (S)-2-Hydroxyglutarate_c0 	
+rxn10491_c0	2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	<=>	PPi_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 	
+rxn10494_c0	H_c0 + NADH_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 	<=>	NAD_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	
+rxn10520_c0	NAD_c0 + D-fructose-1_6-bisphosphate_c0 	<=>	3.000000 H_c0 + NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0 	
+rxn11944_c0	Tetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-L-methionine_c0 	->	H_c0 + 5-Methyltetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-homocysteine_c0 	mmp0401
+rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+No reversibility differences between model 1 and model 2
+LB differences between model 1 and model 2:
+rxn03147_c0|
+No UB differences between model 1 and model 2
+Rxn detail differences
+Reaction CODH was 3 H_c0 + CO2_c0 + Reducedferredoxin_c0  <=> H2O_c0 + Oxidizedferredoxin_c0 + 0.5 H2_c0 + CO_c0  in model 1 but 3 H_c0 + CO2_c0 + Reducedferredoxin_c0  <=> Oxidizedferredoxin_c0 + 0.5 H2_c0 + CO_c0  in model 2
+ Reaction EX_cpd00131_e0 was Molybdenum_e0  <=>  in model 1 but Mo_e0  <=>  in model 2
+ Reaction Mot was H2O_c0 + ATP_c0 + Molybdenum_e0  <=> H_c0 + Phosphate_c0 + ADP_c0 + Molybdenum_c0  in model 1 but H2O_c0 + ATP_c0 + Mo_e0  <=> H_c0 + Phosphate_c0 + ADP_c0 + Molybdenum_c0  in model 2
+ Reaction biomass0 was 0.2467 L-Arginine_c0 + 0.0030965 CoA_c0 + 0.1278 L-Methionine_c0 + 35.5403 H2O_c0 + 0.42793 L-Alanine_c0 + 0.21107 L-Threonine_c0 + 0.0030965 NADP_c0 + 0.0030965 Mg_c0 + 0.0030965 NAD_c0 + 0.0030965 Riboflavin_c0 + 40.1102 ATP_c0 + 0.20083 L-Aspartate_c0 + 0.50987 Glycine_c0 + 0.28544 L-Lysine_c0 + 0.17946 L-Serine_c0 + 0.0030965 Siroheme_c0 + 0.0030965 Fe2_c0 + 0.084104 CTP_c0 + 0.13541 GTP_c0 + 0.0030965 Putrescine_c0 + 0.0030965 Spermidine_c0 + 0.21909 L-Glutamate_c0 + 0.21909 L-Glutamine_c0 + 0.021439 dATP_c0 + 0.076146 L-Cysteine_c0 + 0.021439 TTP_c0 + 0.37539 L-Leucine_c0 + 0.0030965 K_c0 + 0.0030965 S-Adenosyl-L-methionine_c0 + Protein_biosynthesis_c0 + 0.090832 UTP_c0 + 0.12068 L-Tyrosine_c0 + DNA_replication_c0 + 0.0030965 Co2_c0 + 0.20083 L-Asparagine_c0 + 0.0030965 H4MPT_c0 + 0.0030965 CoM_c0 + 0.0030965 FAD_c0 + 0.047202 L-Tryptophan_c0 + 0.010608 dCTP_c0 + 0.0030965 Pyridoxal_phosphate_c0 + 0.18435 L-Proline_c0 + 0.0030965 TPP_c0 + 0.0030965 HTP_c0 + 0.0030965 Methanofuran_c0 + RNA_transcription_c0 + 0.0030965 Coenzyme_F420_c0 + 0.2418 L-Isoleucine_c0 + 0.15452 L-Phenylalanine_c0 + 0.010608 dGTP_c0 + 0.079264 L-Histidine_c0 + 0.0030965 Cl-_c0 + 0.35223 L-Valine_c0 + 0.0030965 2-Demethylmenaquinone_8_c0 + 0.0030965 fe3_c0 + 0.0030965 GSH_c0 + 0.0030965 Ca2_c0 + 0.0030965 Calomide_c0 + 0.0030965 ACP_c0 + 0.0030965 Factor_430_c0 + 0.0030965 Coenzyme_F420-3_c0 + 0.0030965 Molybdenum_c0  -> 40 H_c0 + 39.9969 Phosphate_c0 + 40 ADP_c0 + 0.48461 PPi_c0 + 0.0030965 Dimethylbenzimidazole_c0 + 0.0030965 apo-ACP_c0 + Biomass_c0 + 0.0030965 Cobinamide_c0  in model 1 but 0.2467 L-Arginine_c0 + 0.0030965 CoA_c0 + 0.1278 L-Methionine_c0 + 35.5403 H2O_c0 + 0.42793 L-Alanine_c0 + 0.21107 L-Threonine_c0 + 0.0030965 NADP_c0 + 0.0030965 Mg_c0 + 0.0030965 NAD_c0 + 0.0030965 Riboflavin_c0 + 40.1102 ATP_c0 + 0.20083 L-Aspartate_c0 + 0.50987 Glycine_c0 + 0.28544 L-Lysine_c0 + 0.17946 L-Serine_c0 + 0.0030965 Siroheme_c0 + 0.0030965 Fe2_c0 + 0.084104 CTP_c0 + 0.13541 GTP_c0 + 0.0030965 Putrescine_c0 + 0.0030965 Spermidine_c0 + 0.21909 L-Glutamate_c0 + 0.21909 L-Glutamine_c0 + 0.021439 dATP_c0 + 0.076146 L-Cysteine_c0 + 0.021439 TTP_c0 + 0.37539 L-Leucine_c0 + 0.0030965 K_c0 + 0.0030965 S-Adenosyl-L-methionine_c0 + Protein_biosynthesis_c0 + 0.090832 UTP_c0 + 0.12068 L-Tyrosine_c0 + DNA_replication_c0 + 0.0030965 Co2_c0 + 0.20083 L-Asparagine_c0 + 0.0030965 H4MPT_c0 + 0.0030965 CoM_c0 + 0.0030965 FAD_c0 + 0.047202 L-Tryptophan_c0 + 0.010608 dCTP_c0 + 0.0030965 Pyridoxal_phosphate_c0 + 0.18435 L-Proline_c0 + 0.0030965 TPP_c0 + 0.0030965 HTP_c0 + 0.0030965 Methanofuran_c0 + RNA_transcription_c0 + 0.0030965 Coenzyme_F420_c0 + 0.2418 L-Isoleucine_c0 + 0.15452 L-Phenylalanine_c0 + 0.010608 dGTP_c0 + 0.079264 L-Histidine_c0 + 0.0030965 Cl-_c0 + 0.35223 L-Valine_c0 + 0.0030965 2-Demethylmenaquinone_8_c0 + 0.0030965 fe3_c0 + 0.0030965 GSH_c0 + 0.0030965 Ca2_c0 + 0.0030965 5-Methyltetrahydrofolate_c0 + 0.0030965 Tetrahydrofolate_c0 + 0.0030965 Calomide_c0 + 0.0030965 ACP_c0 + 0.0030965 10-Formyltetrahydrofolate_c0 + 0.0030965 Factor_430_c0 + 0.0030965 Coenzyme_F420-3_c0 + 0.0030965 Molybdenum_c0  -> 40 H_c0 + 39.9969 Phosphate_c0 + 40 ADP_c0 + 0.48461 PPi_c0 + 0.0030965 Dimethylbenzimidazole_c0 + 0.0030965 apo-ACP_c0 + Biomass_c0 + 0.0030965 Cobinamide_c0  in model 2
+ Reaction rxn03127_c0 was Methyl_CoM_c0 + HTP_c0  <=> CoM-S-S-CoB_c0 + Methane_c0  in model 1 but Methyl_CoM_c0 + HTP_c0  <=> CoM-S-S-CoB_c0 + EX_Methane_c0  in model 2
+ Reaction rxn06979_c0 was 2 H2O_c0 + 2 ATP_c0 + 2 L-Glutamine_c0 + Cobyrinate_c0  <=> 2 H_c0 + 2 Phosphate_c0 + 2 ADP_c0 + 2 L-Glutamate_c0 + Cob(II)yrinate_diamide_c0  in model 1 but 2 H2O_c0 + 2 ATP_c0 + 2 L-Glutamine_c0 + Cobyrinate_c0  <=> 2 H_c0 + 2 Phosphate_c0 + 2 ADP_c0 + 2 L-Glutamate_c0 + CobIIyrinate_diamide_c0  in model 2
+ Reaction rxn11650_c0 was 2 Cob(II)yrinate_diamide_c0 + FMNH2_c0  -> 2 H_c0 + FMN_c0 + 2 Cob(I)yrinate_diamide_c0  in model 1 but 2 CobIIyrinate_diamide_c0 + FMNH2_c0  -> 2 H_c0 + FMN_c0 + 2 CobIyrinate_diamide_c0  in model 2
+ 
+ Removing the fluff:
+ >> compareCobraModels(new,model);
+Model 1 only metabolites: 
+7,8-Dihydromethanopterin_c0|
+Model 2 only metabolties: 
+(S)-2-Hydroxyglutarate_c0|10-Formyltetrahydrofolate_c0|4,5-diketo-6-deoxyfructose_1-phosphate_c0|4-Amino-3-Dehydroquinate_c0|4-Amino-3-Dehydroshikimate_c0|4-Aminoshikimate_c0|4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0|4-ketofructose_1,6-bisphosphate_c0|5-10-Methylenetetrahydrofolate_c0|5-Methyltetrahydrofolate_c0|7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0|Dihydrofolate_c0|Folate_c0|Folate_e0|Glycolate_c0|Tetrahydrofolate_c0|
+Model 1 only reactions: 
+FH4MPTAf	AICAR_c0 + 5-Formyl-H4MPT_c0 	<=>	H4MPT_c0 + FAICAR_c0 	
+H4MPT3M2Om	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	H4MPT_c0 + 2-Dehydropantoate_c0 	
+H4MPTdUMPm	dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	dTMP_c0 + 7,8-Dihydromethanopterin_c0 		
+HcyS	L-Aspartate4-semialdehyde_c0 + H2S_c0 + H2_c0 	<=>	Homocysteine_c0 + H2O_c0 	mmp1358 and mmp1359
+MetS	Homocysteine_c0 + 5-Methyl-H4MPT_c0 	->	L-Methionine_c0 + H4MPT_c0 	
+rxn02430_c0	H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 	<=>	NADP_c0 + H4MPT_c0 	
+
+Model 2 only reactions: 
+3DHQAT	NH3_c0 + 3-Dehydroquinate_c0 	<=>	H_c0 + H2O_c0 + 4-Amino-3-Dehydroquinate_c0 	
+4ADSs	4-Amino-3-Dehydroquinate_c0 	<=>	H2O_c0 + 4-Amino-3-Dehydroshikimate_c0 	
+4ASDH	H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0 	<=>	NAD_c0 + 4-Aminoshikimate_c0 	
+4ASDHT	4-Aminoshikimate_c0 	<=>	H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	
+ABEEs	4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	<=>	H2O_c0 + ABEE_c0 	
+H4MPTs	H2O_c0 + 2.000000 NADH_c0 + 2.000000 ATP_c0 + 2.000000 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0 	<=>	Phosphate_c0 + 2.000000 NAD_c0 + 2.000000 ADP_c0 + 2.000000 PPi_c0 + 2.000000 S-Adenosyl-homocysteine_c0 + H4MPT_c0 		
+rxn00512_c0	NAD_c0 + Glycolate_c0 	<=>	H_c0 + NADH_c0 + Glyoxalate_c0 	
+rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
+rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0 	
+rxn00979_c0	H2O_c0 + NAD_c0 + Glycolaldehyde_c0 	->	2.000000 H_c0 + NADH_c0 + Glycolate_c0 	
+rxn01304_c0	L-Homoserine_c0 + Succinyl-CoA_c0 	->	CoA_c0 + O-Succinyl-L-homoserine_c0 	
+rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
+rxn05255_c0	H_e0 + Folate_e0 	->	H_c0 + Folate_c0 	
+rxn10422_c0	4-ketofructose_1,6-bisphosphate_c0 	<=>	Phosphate_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 	
+rxn10432_c0	H_c0 + NADH_c0 + 2-Oxoglutarate_c0 	<=>	NAD_c0 + (S)-2-Hydroxyglutarate_c0 	
+rxn10491_c0	2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	<=>	PPi_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 	
+rxn10494_c0	H_c0 + NADH_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 	<=>	NAD_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	
+rxn10520_c0	NAD_c0 + D-fructose-1_6-bisphosphate_c0 	<=>	3.000000 H_c0 + NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0 	
+rxn11944_c0	Tetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-L-methionine_c0 	->	H_c0 + 5-Methyltetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-homocysteine_c0 	mmp0401
+rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+
+
+	
+	Line 71: FH4MPTAf	AICAR_c0 + 5-Formyl-H4MPT_c0 	<=>	H4MPT_c0 + FAICAR_c0 	
+	Line 72: H4MPT3M2Om	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	H4MPT_c0 + 2-Dehydropantoate_c0 	
+	Line 73: H4MPTdUMPm	dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	<=>	dTMP_c0 + 7,8-Dihydromethanopterin_c0 		
+	Line 75: MetS	Homocysteine_c0 + 5-Methyl-H4MPT_c0 	->	L-Methionine_c0 + H4MPT_c0 	
+	Line 76: rxn02430_c0	H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0 	<=>	NADP_c0 + H4MPT_c0 	
+	Line 84: H4MPTs	H2O_c0 + 2.000000 NADH_c0 + 2.000000 ATP_c0 + 2.000000 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0 	<=>	Phosphate_c0 + 2.000000 NAD_c0 + 2.000000 ADP_c0 + 2.000000 PPi_c0 + 2.000000 S-Adenosyl-homocysteine_c0 + H4MPT_c0 		
+	
+***Here's the problem: for some reason, H4MPTs got removed as a dead end. But why????
+
+Here's the synthase reaction:
+H4MPTs	H2O_c0 + 2.000000 NADH_c0 + 2.000000 ATP_c0 + 2.000000 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0 	<=>	Phosphate_c0 + 2.000000 NAD_c0 + 2.000000 ADP_c0 + 2.000000 PPi_c0 + 2.000000 S-Adenosyl-homocysteine_c0 + H4MPT_c0 	
+
+This requires a couple of weird compounds and these are their syntheses:
+rxn10491_c0	2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	<=>	PPi_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 	
+
+rxn10432_c0	H_c0 + NADH_c0 + 2-Oxoglutarate_c0 	<=>	NAD_c0 + (S)-2-Hydroxyglutarate_c0 		
+
+I find it ridiculous to think that we can't make Oxoglutarate, so it must be one of the other two. Now neither of them is here, because they both have genes, but here they are:
+
+rxn02503_c0	ATP_c0 + 6-hydroxymethyl_dihydropterin_c0 	<=>	AMP_c0 + 2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 	mmp0579
+rxn10446_c0	PRPP_c0 + ABEE_c0 	<=>	CO2_c0 + PPi_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	mmp0279
+
+This suggests we're either missing ABEE or 6-hydroxymethyl_dihydropterin. For the first, it ends up here because it has no gene and leads down the pathway I added from literature:
+ABEEs	4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	<=>	H2O_c0 + ABEE_c0 	
+4ASDHT	4-Aminoshikimate_c0 	<=>	H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	
+4ASDH	H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0 	<=>	NAD_c0 + 4-Aminoshikimate_c0 
+4ADSs	4-Amino-3-Dehydroquinate_c0 	<=>	H2O_c0 + 4-Amino-3-Dehydroshikimate_c0 	
+3DHQAT	NH3_c0 + 3-Dehydroquinate_c0 	<=>	H_c0 + H2O_c0 + 4-Amino-3-Dehydroquinate_c0 	
+ADTHOR	H_c0 + H2O_c0 + NAD_c0 + 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 	<=>	NADH_c0 + NH3_c0 + 3-Dehydroquinate_c0 	mmp0006
+ADTHs	L-Aspartate4-semialdehyde_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	->	2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + Hydroxypyruvaldehyde_phosphate_c0 	mmp0686
+rxn10494_c0	H_c0 + NADH_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 	<=>	NAD_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	
+rxn10422_c0	4-ketofructose_1,6-bisphosphate_c0 	<=>	Phosphate_c0 + 4,5-diketo-6-deoxyfructose_1-phosphate_c0 
+rxn10520_c0	NAD_c0 + D-fructose-1_6-bisphosphate_c0 	<=>	3.000000 H_c0 + NADH_c0 + 4-ketofructose_1,6-bisphosphate_c0 
+**I tried adding D-fructose-1_6-bisphosphate_c0 and it didn't work
+
+The second leads here: 
+rxn02504_c0	Dihydroneopterin_c0 	<=>	6-hydroxymethyl_dihydropterin_c0 + Glycolaldehyde_c0 	mmp0243
+
+
+
+--------
+What if I add Dihydroneopterin? Nope
+
+Back to H4MPTs, what if I add one of those components?
+
+	
+rxn00512_c0	NAD_c0 + Glycolate_c0 	<=>	H_c0 + NADH_c0 + Glyoxalate_c0 	
+rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
+rxn00692_c0	L-Serine_c0 + Tetrahydrofolate_c0 	->	H2O_c0 + Glycine_c0 + 5-10-Methylenetetrahydrofolate_c0 	
+rxn00693_c0	Homocysteine_c0 + 5-Methyltetrahydrofolate_c0 	->	L-Methionine_c0 + Tetrahydrofolate_c0 	(mmp1151 and mmp0829)
+rxn00912_c0	H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	2-Dehydropantoate_c0 + Tetrahydrofolate_c0 	
+rxn00979_c0	H2O_c0 + NAD_c0 + Glycolaldehyde_c0 	->	2.000000 H_c0 + NADH_c0 + Glycolate_c0 	
+rxn01304_c0	L-Homoserine_c0 + Succinyl-CoA_c0 	->	CoA_c0 + O-Succinyl-L-homoserine_c0 
+	
+rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
+rxn03004_c0	H_c0 + N-Formyl-GAR_c0 + Tetrahydrofolate_c0 	->	GAR_c0 + 10-Formyltetrahydrofolate_c0 	mmp0178 or mmp0179
+rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
+rxn04954_c0	H_c0 + NADH_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	NAD_c0 + 5-Methyltetrahydrofolate_c0 	mmp0981
+rxn05255_c0	H_e0 + Folate_e0 	->	H_c0 + Folate_c0 	
+rxn11944_c0	Tetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-L-methionine_c0 	->	H_c0 + 5-Methyltetrahydropteroyltri-L-glutamate_c0 + S-Adenosyl-homocysteine_c0 	mmp0401
+rxn12649_c0	2.000000 H_c0 + 2.000000 NADPH_c0 + Folate_c0 	->	2.000000 NADP_c0 + Tetrahydrofolate_c0 	
+
+
+***********
+It's definitely missing the precursor because this worked:
+test = addReaction(new,'BLah','7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 <=> ');
+
+So what am I missing there? 
+rxn10491_c0	2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	<=>	PPi_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 
+
+It's the 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0, because adding it fixed it:
+test = addReaction(new,'BLah','4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 <=> ');
+
+This is made of PRPP_c0 + ABEE_c0; which one? It's ABEE_c0 of course!; what am I missing here? It's not just the fructose16bp...because this doesn't work:
+test = addReaction(new,'BLah','2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 <=> ');
+
+Somewhere in between there and ABEEs is the problem; this isn't it:
+test = addReaction(new,'BLah','3-Dehydroquinate_c0 <=> ');
+
+For a refresher, here is what's in between:
+
+ABEEs	4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	<=>	H2O_c0 + ABEE_c0 	
+4ASDHT	4-Aminoshikimate_c0 	<=>	H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	
+4ASDH	H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0 	<=>	NAD_c0 + 4-Aminoshikimate_c0 
+4ADSs	4-Amino-3-Dehydroquinate_c0 	<=>	H2O_c0 + 4-Amino-3-Dehydroshikimate_c0 	
+3DHQAT	NH3_c0 + 3-Dehydroquinate_c0 	<=>	H_c0 + H2O_c0 + 4-Amino-3-Dehydroquinate_c0 
+
+This works:
+test = addReaction(new,'BLah','4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=> ');
+
+This doesn't: 
+test = addReaction(new,'BLah','4-Amino-3-Dehydroshikimate_c0 <=> ');
+
+In between is this:
+4ASDHT	4-Aminoshikimate_c0 	<=>	H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	
+4ASDH	H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0 	<=>	NAD_c0 + 4-Aminoshikimate_c0 
+
+This doesn't work:
+test = addReaction(new,'BLah','4-Aminoshikimate_c0 <=> ');
+
+If supplementing with carboxylate works but supplementing with 4-Aminoshikimate doesn't work, then this must mean that's the broken link...but that doesn't make sense because all that separates the two is a water, and that can simply come out of the model. 
+-->What direction is that flux going? 
+test = addReaction(new,'BLah','4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=> ');
+BLah	-0.000128726	
+-->So it IS making the carboxylate...is that in any other reaction?
+
+*********Fixed it; accidentally typed a space in the name of my carboxylate; we're all good now

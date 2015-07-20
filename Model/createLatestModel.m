@@ -889,7 +889,7 @@ model = addReaction(model,{'4ASDH','4-aminoshikimate dehydrogenase'},...
 '4-Amino-3-Dehydroshikimate_c0 + NADH_c0 + H_c0 <=>  4-Aminoshikimate_c0 + NAD_c0');
 %4) 4-Aminoshikimate  -> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate + H2O {Hypothetical from Porat 2006}
 model = addReaction(model,{'4ASDHT','4-aminoshikimate dehydratase'},...
-'4-Aminoshikimate_c0 <=> 4-amino-3-hydroxycyclohexa-1,5-diene-1-ca rboxylate_c0 + H2O_c0');
+'4-Aminoshikimate_c0 <=> 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 + H2O_c0');
 %5) 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate -> ABEE + H2O {Hypothetical from Porat 2006}
 model = addReaction(model,{'ABEEs','4-aminobenzoic acid synthase'},...
 '4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=>  ABEE_c0 + H2O_c0');
@@ -1642,12 +1642,5 @@ model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
 %%%%%%%%%%%%%
 %7/16/2015
 %%%%%%%%%%%%%
-
 % Very last step: add free energy values for 1 mM from Equilibrator site
-% To find, used this command:
-% exc_rxns = model.rxns(findExcRxns(model));
-% exc_mets = findMetsFromRxns(model,exc_rxns)
-
-% Eventually, package into a separate code and call it, like the adding
-% Kbase aliases
-
+model = addDG2MM(model);
