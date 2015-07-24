@@ -60,3 +60,66 @@ model = addReaction(model,{'4ASDHT','4-aminoshikimate dehydratase'},...
 model = addReaction(model,{'ABEEs','4-aminobenzoic acid synthase'},...
 '4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 <=>  ABEE_c0 + H2O_c0');
 
+******************
+Origins of Lactaldehyde and Hydroxyacetone (2008 Paper)
+**Note that this paper has no genes for the following reactions:
+Methylglyoxal + F420H2 -> L-Lactaldehyde + F420
+Methylglyoxal + XH2 -> X + hydroxyacetone (not F420)
+
+
+
+Actual DKFP synthesis (2006 Paper):
+Glucose-6-phosphate -> fructose-6-phosphate (MMP1295)
+fructose-6-phosphate + ATP -> fructose-1,6-bisP + ADP 
+fructose-1,6-bisP ->  fructose-1-P (unknown)
+fructose-1,6-bisP -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
+fructose-6-phosphate -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
+Ga-3-P -> Methylglyoxal + Phosphate (MMP0687)
+Methylglyoxal + fructose-1,6-bisP -> DKFP + Ga-3-P
+Methylglyoxal + fructose-1-P -> DKFP + Ga-3-P
+Methylglyoxal + NAD(P)H -> L-lactaldehyde + NAD(P)
+L-lactaldehyde -> Lactate (MJ1411....blast?)
+L-lactaldehyde + DHAP -> 6-deoxysorbose-1-P
+L-lactaldehyde + DHAP -> fuculose-1-P
+L-lactaldehyde + fructose-1-P -> 6-deoxysorbose-1-P
+
+Porat Paper 2004: IORAB1/2 (mmp0713 and mmp0714 or mmp0315 and mmp0316)
+(Rxns from M.acetivorans paper)
+-coa[c] + (2) fdox[c] + indpyr[c]  <=> co2[c] + (2) fdred[c] + h[c] + indaccoa[c]
+-coa[c] + (2) fdox[c] + phpyr[c]  <=> co2[c] + (2) fdred[c] + h[c] + phaccoa[c]
+-34hpp[c] + coa[c] + (2) fdox[c]  <=> co2[c] + (2) fdred[c] + h[c] + hphaccoa[c]
+
+Translated:
+-CoA_c0 + Oxidizedferredoxin_c0 + Indolepyruvate_c0 <=> CO2_c0 + Reducedferredoxin_c0 + H_c0 + S-2-(indol-3-yl)acetyl-CoA_c0
+-CoA_c0 + Oxidizedferredoxin_c0 + Phylloquinone_c0 <=> CO2_c0 + Reducedferredoxin_c0 + H_c0 + 4-Hydroxyphenylacetyl-CoA_c0
+-3-(4-Hydroxyphenyl)pyruvate_c0 + CoA_c0 + Oxidizedferredoxin_c0 <=> CO2_c0 + Reducedferredoxin_c0 + H_c0 + 4-Hydroxyphenylacetyl-CoA
+
+Other reactions these are in: (these are the precursors we see in the 2006 paper)
+-atp[c] + coa[c] + ind3ac[c]  --> amp[c] + indaccoa[c] + ppi[c]
+-atp[c] + coa[c] + pac[c]  --> amp[c] + phaccoa[c] + ppi[c]
+-4hphac[c] + atp[c] + coa[c]  --> amp[c] + ppi[c] + hphaccoa[c]
+
+And the last steps:
+-akg[c] + trp-L[c]  <=> glu-L[c] + indpyr[c]
+-akg[c] + phe-L[c]  <=> glu-L[c] + phpyr[c]
+-akg[c] + tyr-L[c]  <=> 34hpp[c] + glu-L[c]
+
+
+So from Matt's paper, I have a set of reactions...what about in Seed? (second one is already there)
+rxn10586 ATP + CoA + H+ + Indoleacetate => PPi + AMP + S-2-(Indol-3-yl)acetyl-CoA
+Xrxn07193 CoA + Indolepyruvate + Oxidizedferredoxin <=> CO2 + H+ + S-2-(Indol-3-yl)acetyl-CoA + Reducedferredoxin	
+rxn00483 2-Oxoglutarate + L-Tryptophan <=> L-Glutamate + Indolepyruvate
+(Can just use a transporter for this and other acetates...)
+
+rxn01946 ATP + CoA + H+ + 4-Hydroxyphenylacetate => PPi + AMP + 4-Hydroxyphenylacetyl-CoA
+rxn10563 CoA + p-hydroxyphenylpyruvate + (2) ferredoxin (oxidized) 2[4Fe-4S] <=> CO2 + H+ + 4-Hydroxyphenylacetyl-CoA + (2) ferredoxin (reduced) 2[4Fe-4S]
+rxn00527 2-Oxoglutarate + L-Tyrosine <=> L-Glutamate + p-hydroxyphenylpyruvate
+
+rxn01842 ATP + CoA + PACT => PPi + AMP + Phenylacetyl-CoA
+rxn10562 CoA + Phenylpyruvate + (2) ferredoxin (oxidized) 2[4Fe-4S] <=> CO2 + H+ + Phenylacetyl-CoA + (2) ferredoxin (reduced) 2[4Fe-4S]
+rxn00493 2-Oxoglutarate + L-Phenylalanine <=> L-Glutamate + Phenylpyruvate
+
+
+
+
+

@@ -1,0 +1,91 @@
+>> genes = findGenesWORxns(model)
+
+genes = 
+
+    'mmp1144'
+    'mmp1151'
+    'mmp1233'
+    'mmp1553'
+    'mmp1631'
+    'mmp0264'
+    'mmp0305'
+    'mmp0306'
+    'mmp0356'
+    'mmp0388'
+    'mmp0439'
+    'mmp0496'
+    'mmp0529'
+    'mmp0534'
+    'mmp0663'
+    'mmp0737'
+    'mmp0768'
+    'mmp0829'
+    'mmp0919'
+    'mmp1274'
+    'mmp0937'
+	
+Going through Artemis:
+
+mmp1144: bacA, the gene for bacitracin resistance
+
+mmp1151: cobalamin-dependent methionine synthase....I just took this out to remove folates
+
+mmp1233: Receptor protein for Fdh or something
+
+mmp1553: rdxA; catalyzes reduction of flavin, nitrocompound, quinones, and azo compounds using NAD(P)H
+
+mmp1631: don't know what it does; "PAP2-like protein" 
+
+mmp0264: MscMJ; mechanosensitive ion channel
+
+mmp0305 and mmp306: I think these should be added back to rxn05939_c0, where they used to be
+
+mmp0356: might be involved as glycosyltransferase with acetamido sugar synthesis, but we don't know
+
+mmp0388: geranylgeranyl-bacteriochlorophyll reductase gene, bchP; I don't know what I'd have this do, so I'm taking it out
+
+mmp0439: converts between orotate and dihydroorotate; i reannotated this because the electron carriers it used were wrong
+    
+mmp0496: blast from artemis shows it's a glutamate synthase binding domain; remove for now
+
+mmp0529: annotated as sulfate transporter; should probably be tungstate or molybdate
+
+mmp0534: another mechanosensitive ion channel
+
+mmp0663: annotated as sulfate transporter; should probably be tungstate or molybdate
+
+-->Go back to transporters and add things (note: tungstate and molybdate aren't in model but probably should be in biomass)
+** For the moment, leave these two genes alone and maybe add those later
+	
+mmp0737: unknown function, seems to point to aspartate dehydrogenase, but don't really know
+
+mmp0768: unknown function; take this out
+
+mmp0829: cobalamin-dependent methionine synthase....I just took this out to remove folates
+
+mmp0919: subunit of dihydroorotate....I'll put this with 0439, as it was before
+
+mmp1274: acyl-coa synthetases/amp-fa-ligases; was on Acetate + ATP -> Acetyl-CoA + AMP but John removed it...why?
+    
+mmp0937: error I made; i've corrected it now
+
+End result: 
+
+>> genes = findGenesWORxns(model)
+
+genes = 
+
+    'mmp1151'
+    'mmp0305'
+    'mmp0306'
+    'mmp0529'
+    'mmp0663'
+    'mmp0829'
+    'mmp1274'
+	
+-Two I think are an alternative methionine synthesis pathway
+-Two I think are associated with Succinyl-CoA -> Oxoglutarate
+-Two I think are WO4/MoO4 transport genes
+-One I think is associated with Acetate -> Acetyl-CoA
+
+EMAIL THEM! (Or talk on Monday)

@@ -1,4 +1,4 @@
-    function model = createLatestModel()
+function model = createLatestModel()
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %This file is meant to keep all model changes sequentially, starting at the
@@ -693,7 +693,7 @@ model = addReaction(model,'Dsr-LP',...%'H2S_c0 -> Sulfite_c0');
 mets = {'Menaquinone_8_c0';...
     'Ubiquinone-8_c0';...
     'Bactoprenyl_diphosphate_c0';...
-%    '2-Demethylmenaquinone_8_c0';...
+    '2-Demethylmenaquinone_8_c0';...
     'Peptidoglycan_polymer_n_subunits_c0';...
     'Isoheptadecanoylcardiolipin_B._subtilis_c0';...
     'Stearoylcardiolipin_B._subtilis_c0';...
@@ -710,7 +710,7 @@ mets = {'Menaquinone_8_c0';...
     '10-Formyltetrahydrofolate_c0';...
     'Peptidoglycan_polymer_n-1_subunits_c0';...
 %Remove other electron carriers that lead up to these too
-%   '2-Demethylmenaquinol_8_c0';...
+   '2-Demethylmenaquinol_8_c0';...
    'Menaquinone_7_c0';...
    'Menaquinone_7_e0';...
    'Ubiquinol-8_c0';...
@@ -1242,12 +1242,12 @@ model = addReaction(model,{'rxn10525_c0','gamma-F420-0:gamma-L-glutamate ligase'
 model = changeGeneAssociation(model,'rxn10525_c0','mmp0937');
 model = addReaction(model,{'rxn10526_c0','gamma-F420-1:gamma-L-glutamate ligase'},...
     'L-Glutamate_c0 + GTP_c0 + Coenzyme_F420-1_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420_c0');
-model = changeGeneAssociation(model,'rxn10525_c0','mmp0937');
+model = changeGeneAssociation(model,'rxn10526_c0','mmp0937');
 %Also add a glutamate to make F420-3, not our mainstream type, but
 %something we know that we synthesize (CofF)
 model = addReaction(model,{'rxn10527_c0','gamma-F420-2:gamma-L-glutamate ligase'},...
     'L-Glutamate_c0 + GTP_c0 + Coenzyme_F420_c0 <=> Phosphate_c0 + GDP_c0 + H_c0 + Coenzyme_F420-3_c0');
-model = changeGeneAssociation(model,'rxn10525_c0','mmp0170');
+model = changeGeneAssociation(model,'rxn10527_c0','mmp0170');
 
 %Now add the last 2 species to the biomass
 [~,f420_idx] = intersect(model.mets,'Coenzyme_F420_c0');
@@ -1521,6 +1521,7 @@ model = changeRxnBounds(model,'rxn03147_c0',-1000,'l');
 
 % Try to fix the folates missing by replacing their reactions with
 % corresponding methanopterins
+% Add to them the genes from the folate reactions they replace
 % We need this purely to consume the Dihydrofolate
 %rxn00686_c0	H_c0 + NADPH_c0 + Dihydrofolate_c0 	->	NADP_c0 + Tetrahydrofolate_c0 	
 model = addReaction(model,{'rxn02430_c0','Dihydromethanopterin reductase'},...
@@ -1536,7 +1537,7 @@ model = addReaction(model,{'H4MPT3M2Om','5,10-Methylenetetrahydromethanopterin 3
 %rxn01520_c0	dUMP_c0 + 5-10-Methylenetetrahydrofolate_c0 	->	dTMP_c0 + Dihydrofolate_c0 	(mmp1379 or mmp0986)
 model = addReaction(model,{'H4MPTdUMPm','5,10-Methylenetetrahydromethanopterin dUMP C-methyltransferase'},...
     'dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0	<=> dTMP_c0 + 7,8-Dihydromethanopterin_c0');
-
+model = changeGeneAssociation(model,'H4MPTdUMPm','mmp1379 and mmp0986');
 %rxn03137_c0	AICAR_c0 + 10-Formyltetrahydrofolate_c0 	->	FAICAR_c0 + Tetrahydrofolate_c0 	
 model = addReaction(model,{'FH4MPTAf','Formyl-H4MPT AICAR Formyltransferase'},...
     'AICAR_c0 + 5-Formyl-H4MPT_c0 <=> FAICAR_c0 + H4MPT_c0');
@@ -1585,6 +1586,222 @@ model.metSEEDID{idx} = 'cpd03732';
 model.subSystems{idx} = 'None';
 
 %%%%%%%%%%%%%
+%7/21/2015
+%%%%%%%%%%%%%
+% Add WbpABEDI pathway from 2015 acetamido sugars paper
+% WbpA (mmp0353)
+model = addReaction(model,{'rxn00298_c0','UDP-N-acetyl-D-glucosamine:NAD+ 6-oxidoreductase'},...
+    'H2O_c0 + 2 NAD_c0 + UDP-N-acetylglucosamine_c0 <=> 2 NADH_c0 + 3 H_c0 + UDP-N-acetyl-D-glucosaminouronate_c0');
+model = changeGeneAssociation(model,'rxn00298_c0','mmp0353');
+% WbpB (mmp0352)
+model = addReaction(model,{'UGAor','UDP-GlcNAcA:NAD+ oxidoreductase'},...
+    'UDP-N-acetyl-D-glucosaminouronate_c0 + NAD_c0 <=> UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0 + NADH_c0 + H_c0');
+model = changeGeneAssociation(model,'UGAor','mmp0352');
+% WbpE (mmp0351)
+model = addReaction(model,{'UGNAa','UDP-GlcNAC(3keto)A aminase'},...
+    'UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0 + L-Glutamate_c0 <=> UDP-2-acetamido-3-amino-2,3-dideoxy-glucuronate_c0 + 2-Oxoglutarate_c0');
+model = changeGeneAssociation(model,'UGNAa','mmp0351');
+% WbpD (mmp0350)
+model = addReaction(model,{'UGNAna','UDP-GlcNAc(3NH2)A N-acetylase'},...
+    'UDP-2-acetamido-3-amino-2,3-dideoxy-glucuronate_c0 + Acetyl-CoA_c0 <=> UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0 + H_c0 + CoA_c0');
+model = changeGeneAssociation(model,'UGNAna','mmp0350');
+% WbpI (mmp0357)
+model = addReaction(model,{'UGNAe','UDP-GlcNAc(3NAc)A epimerase'},...
+    'UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0 <=> UDP-2,3-diacetamido-2,3-dideoxy-mannuronate_c0');
+model = changeGeneAssociation(model,'UGNAe','mmp0357');
+
+% Add compound information
+[~,idx] = intersect(model.mets,'UDP-N-acetyl-D-glucosaminouronate_c0');
+model.metCharge(idx) = -3;
+model.metFormulas{idx} = 'C17H22N3O18P2';
+model.metSEEDID{idx} = 'cpd02782';
+
+% Add steps to go from mannuronate in 2015 paper; these are in the 2012
+% paper and are genes aglXYZ
+% Put these in one step
+model = addReaction(model,{'UMNAat','UDP-ManNAcA aminotransferase'},...
+    'UDP-2,3-diacetamido-2,3-dideoxy-mannuronate_c0 + H2O_c0 + L-Glutamine_c0 <=> L-Glutamate_c0 + UDP-3-acetamido-2,3-diaminomannuronate_c0');
+model = changeGeneAssociation(model,'UMNAat','mmp1081 and mmp1082 and mmp1083');
+
+% Add step that adds methyl to big sugar and threonine adding step from
+% 2013 paper
+model = addReaction(model,{'2NACmt','NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose methyltransferase'},...
+    'NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0 <=> NDP-(5S)-2-acetamido-2,4-dideoxy-5-O-methyl-alpha-L-erythro-hexos-5-ulo-1,5-pyranose_c0');
+model = changeGeneAssociation(model,'2NACmt','mmp1085');
+
+model = addReaction(model,{'TSot','Tetrasaccharide oligosaccharyltransferase'},...
+    'Lipid_tetrasaccharide_c0 + L-Threonine_c0 <=> Lipid_tetrasaccharide_Thr_c0');
+model = changeGeneAssociation(model,'TSot','mmp1084');
+
+% Add Glycosyltransferases and flagellin oligosaccharyltransferase from 2009 paper
+% AglO
+model = addReaction(model,{'GLCgt','GlcNAc3NAcA glycosyltransferase'},...
+    'UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0 + Lipid_monosaccharide_c0 <=> Lipid_disaccharide_c0');
+model = changeGeneAssociation(model,'GLCgt','mmp1079');
+% AglA
+model = addReaction(model,{'MANgt','ManNAc3NAmA glycosyltransferase'},...
+    'UDP-3-acetamido-2,3-diaminomannuronate_c0 + Lipid_disaccharide_c0 <=> Lipid_trisaccharide_c0');
+model = changeGeneAssociation(model,'MANgt','mmp1080');
+% AglL
+model = addReaction(model,{'2NACgt','NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose glycosyltransferase'},...
+    'NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0 + Lipid_trisaccharide_c0 <=> Lipid_tetrasaccharide_c0');
+model = changeGeneAssociation(model,'2NACgt','mmp1088');
+% AglB
+model = addReaction(model,{'TSost','Tetrasaccharide oligosaccharyltransferase'},...
+    'Lipid_tetrasaccharide_Thr_e0 + Flagellin_e0 <=> Archaellin_e0');
+model = changeGeneAssociation(model,'TSost','mmp1424');
+
+% Add the non-gene associated steps that flip it outside, and add the first
+% sugar
+model = addReaction(model,{'TSf','Tetrasaccharide flippase'},...
+    'Lipid_tetrasaccharide_Thr_c0 <=> Lipid_tetrasaccharide_Thr_e0');
+% Assume that "U" is the "N" from NDP-N-acetyl-D-galactosamine
+model = addReaction(model,{'GALgt','GalNAc glycosyltransferase'},...
+    'UDP-N-acetyl-D-galactosamine_c0 + Membrane_lipid_c0 <=> Lipid_monosaccharide_c0');
+
+% Supply the big sugar, else it won't ever appear
+model = addReaction(model,{'EX_NAC_c0','NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose supply'},...
+    'NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0 <=> ');
+% Also supply the membrane lipid and flagellin
+model = addReaction(model,{'EX_Membrane_lipid_c0','Membrane lipid synthesis'},...
+    'Membrane_lipid_c0 <=> ');
+model = addReaction(model,{'EX_Flagellin_e0','Flagellin synthesis'},...
+    'Flagellin_e0 <=> ');
+
+% Add the Archaellin to the biomass
+[~,arc_idx] = intersect(model.mets,'Archaellin_e0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(arc_idx,bio_idx) = -0.0030965;
+
+
+%%%%%%%%%%%%%
+%7/23/2015
+%%%%%%%%%%%%%
+% Add aryl acid -> aromatic amino acid pathways from 2004 Porat
+% First add a transporter for each; these have no genes
+model = addReaction(model,{'rxn10560_c0','Indole-3-acetate transport via proton symport'},...
+    'H_c0 + Indoleacetate_c0 <=> H_e0 + Indoleacetate_e0');
+model = addReaction(model,{'rxn10559_c0','Hydroxyphenylacetate transport via proton symport'},...
+    'H_e0 + 4-Hydroxyphenylacetate_e0 <=> H_c0 + 4-Hydroxyphenylacetate_c0');
+model = addReaction(model,{'rxn10587_c0','Phenylacetate transport via proton symport'},...
+    'H_e0 + PACT_e0 <=> H_c0 + PACT_c0');
+
+% Next add the transformation from acetates to acetyl-coAs
+
+model = addReaction(model,{'rxn10586_c0','Indoleacetate:CoA ligase'},...
+    'ATP_c0 + CoA_c0 + H_c0 + Indoleacetate_c0 -> PPi_c0 + AMP_c0 + S-2-(indol-3-yl)acetyl-CoA_c0');
+model = addReaction(model,{'rxn01946_c0','4-Hydroxyphenylacetate:CoA ligase (AMP-forming)'},...
+    'ATP_c0 + CoA_c0 + H_c0 + 4-Hydroxyphenylacetate_c0 -> PPi_c0 + AMP_c0 + 4-Hydroxyphenylacetyl-CoA_c0');
+model = addReaction(model,{'rxn01842_c0','Phenylacetate:CoA ligase'},...
+    'ATP_c0 + CoA_c0 + PACT_c0 -> PPi_c0 + AMP_c0 + Phenylacetyl-CoA_c0');
+
+% Add transformation from acetyl-coAs to pyruvates (indolepyruvate is
+% already in the model)
+model = addReaction(model,{'rxn10563_c0','Hydroxyphenylpyruvate ferredoxin oxidoreductase'},...
+    'CoA_c0 + p-hydroxyphenylpyruvate_c0 + Oxidizedferredoxin_c0 <=> CO2_c0 + H_c0 + 4-Hydroxyphenylacetyl-CoA_c0 + Reducedferredoxin_c0');
+model = addReaction(model,{'rxn10562_c0','Phenylpyruvate ferredoxin oxidoreductase'},...
+    'CoA_c0 + Phenylpyruvate_c0 + Oxidizedferredoxin_c0 <=> CO2_c0 + H_c0 + Phenylacetyl-CoA_c0 + Reducedferredoxin_c0');
+
+% Add transformations from pyruvates to aromatic AAs (phenylalanine is
+% already in model
+model = addReaction(model,{'rxn00483_c0','L-Tryptophan:2-oxoglutarate aminotransferase'},...
+    '2-Oxoglutarate_c0 + L-Tryptophan_c0 <=> L-Glutamate_c0 + Indole-3-pyruvate_c0');
+
+% Add genes for the final 3 steps in each case (already did it for
+% rxn10561)
+model = changeGeneAssociation(model,'rxn10586_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn01946_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn01842_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn10563_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn10562_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn00483_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn00527_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+model = changeGeneAssociation(model,'rxn00493_c0','(mmp0315 and mmp0316) or (mmp0713 and mmp0714)');
+
+% Add an exchange for each, but keep them only going out for now (no free
+% amino acids)
+model = addReaction(model,{'EX_cpd00430_e0','EX_PACT_e0'},...
+    'PACT_e0 <=> ');
+model = addReaction(model,{'EX_cpd00489_e0','EX_4-Hydroxyphenylacetate_e0'},...
+    '4-Hydroxyphenylacetate_e0 <=> ');
+model = addReaction(model,{'EX_cpd00703_e0','EX_Indoleacetate_e0'},...
+    'Indoleacetate_e0 <=> ');
+model = changeRxnBounds(model,{'EX_cpd00430_e0','EX_cpd00489_e0','EX_cpd00703_e0'},0,'l');
+
+% Add compound information
+[~,idx] = intersect(model.mets,'PACT_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C8H8O2';
+model.metSEEDID{idx} = 'cpd00430';
+[~,idx] = intersect(model.mets,'4-Hydroxyphenylacetate_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C8H7O3';
+model.metSEEDID{idx} = 'cpd00489';
+[~,idx] = intersect(model.mets,'Indoleacetate_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C10H8NO2';
+model.metSEEDID{idx} = 'cpd00703';
+[~,idx] = intersect(model.mets,'PACT_e0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C8H8O2';
+model.metSEEDID{idx} = 'cpd00430';
+[~,idx] = intersect(model.mets,'4-Hydroxyphenylacetate_e0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C8H7O3';
+model.metSEEDID{idx} = 'cpd00489';
+[~,idx] = intersect(model.mets,'Indoleacetate_e0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C10H8NO2';
+model.metSEEDID{idx} = 'cpd00703';
+[~,idx] = intersect(model.mets,'Phenylacetyl-CoA_c0');
+model.metCharge(idx) = -3;
+model.metFormulas{idx} = 'C29H39N7O17P3S';
+model.metSEEDID{idx} = 'cpd00452';
+[~,idx] = intersect(model.mets,'4-Hydroxyphenylacetyl-CoA_c0');
+model.metCharge(idx) = -3;
+model.metFormulas{idx} = 'C29H39N7O18P3S';
+model.metSEEDID{idx} = 'cpd03165';
+
+
+
+%%%%%%%%%%%%%
+% 7/23/2015
+%%%%%%%%%%%%%
+% Remove some genes that no longer have reactions and don't appear to be
+% metabolic
+model = removeGene(model,'mmp1144');
+model = removeGene(model,'mmp1233');
+model = removeGene(model,'mmp1553');
+model = removeGene(model,'mmp1631');
+model = removeGene(model,'mmp0264');
+model = removeGene(model,'mmp0356');
+model = removeGene(model,'mmp0388');
+model = removeGene(model,'mmp0496');
+model = removeGene(model,'mmp0534');
+model = removeGene(model,'mmp0737');
+model = removeGene(model,'mmp0768');
+
+
+% Reassign the orotate<=>dihydroorotate gene, which Kbase found but it
+% mis-annotated as using the wrong electron carriers
+model = changeGeneAssociation(model,'rxn01361_c0','mmp0439 and mmp0919');
+
+% Add genes for ATP-dependent cobalt ion transport, from TransportDB
+model = addReaction(model,{'rxn05166_c0','Cobalt-ABC transport'},...
+    'H2O_c0 + ATP_c0 + Co2_e0 <=> ADP_c0 + Phopshate_c0 + H_c0 + Co2_c0');
+model = changeGeneAssociation(model,'rxn05166_c0','(mmp0888 and mmp0886) or (mmp1482 and mmp1483 and mmp1484)');
+
+% Add  genes for ATP-dependent glutamine transport
+model = changeGeneAssociation(model,'rxn05155_c0','mmp1224 or mmp0229 or mmp0455');
+
+% Add calcium ABC transporter
+model = addReaction(model,{'rxn10447_c0','Calcium transport via ABC system'},...
+    'H2O_c0 + ATP_c0 + Ca2_e0 -> ADP_c0 + Phosphate_c0 + Ca2_c0 + H_c0');
+model = changeGeneAssociation(model,'rxn10447_c0','mmp0520 or mmp0710');
+
+
+
+%%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
@@ -1607,12 +1824,17 @@ model = addKbaseAliases(model);
 [~,idx] = intersect(model.mets,'EX_Methane_c0');
 model.mets{idx} = 'Methane_c0';
 model.metNames{idx} = 'Methane_c0';
+model.metFormulas{idx} = 'CH4';
 
 % Add a transport (diffusion) for both hydrogen and methane
 model = addReaction(model,{'rxn10542_c0','Hydrogen transport via diffusion'},...
     'H2_e0 <=> H2_c0');
 [~,idx] = intersect(model.rxns,'rxn10542_c0');
 model.subSystems{idx} = 'Transport';
+
+% Add formula for H2
+[~,idx] = intersect(model.mets,'H2_e0');
+model.metFormulas{idx} = 'H2';
 
 model = addReaction(model,{'rxn10471_c0','Methane transport via diffusion'},...
     'Methane_e0 <=> Methane_c0');
