@@ -83,9 +83,9 @@ genes =
     'mmp0829'
     'mmp1274'
 	
--Two I think are an alternative methionine synthesis pathway
--Two I think are associated with Succinyl-CoA -> Oxoglutarate
--Two I think are WO4/MoO4 transport genes
--One I think is associated with Acetate -> Acetyl-CoA
+-Two I think are an alternative methionine synthesis pathway (mmp1151, mmp0829)
+-Two I think are associated with Succinyl-CoA -> Oxoglutarate (mmp0305, mmp0306)
+-Two I think are WO4/MoO4 transport genes (mmp0529, mmp0663)
+-One I think is associated with Acetate -> Acetyl-CoA (mmp1274)
 
 EMAIL THEM! (Or talk on Monday)

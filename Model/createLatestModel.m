@@ -1762,8 +1762,6 @@ model.metCharge(idx) = -3;
 model.metFormulas{idx} = 'C29H39N7O18P3S';
 model.metSEEDID{idx} = 'cpd03165';
 
-
-
 %%%%%%%%%%%%%
 % 7/23/2015
 %%%%%%%%%%%%%
@@ -1788,7 +1786,7 @@ model = changeGeneAssociation(model,'rxn01361_c0','mmp0439 and mmp0919');
 
 % Add genes for ATP-dependent cobalt ion transport, from TransportDB
 model = addReaction(model,{'rxn05166_c0','Cobalt-ABC transport'},...
-    'H2O_c0 + ATP_c0 + Co2_e0 <=> ADP_c0 + Phopshate_c0 + H_c0 + Co2_c0');
+    'H2O_c0 + ATP_c0 + Co2_e0 -> ADP_c0 + Phosphate_c0 + H_c0 + Co2_c0');
 model = changeGeneAssociation(model,'rxn05166_c0','(mmp0888 and mmp0886) or (mmp1482 and mmp1483 and mmp1484)');
 
 % Add  genes for ATP-dependent glutamine transport
@@ -1798,6 +1796,53 @@ model = changeGeneAssociation(model,'rxn05155_c0','mmp1224 or mmp0229 or mmp0455
 model = addReaction(model,{'rxn10447_c0','Calcium transport via ABC system'},...
     'H2O_c0 + ATP_c0 + Ca2_e0 -> ADP_c0 + Phosphate_c0 + Ca2_c0 + H_c0');
 model = changeGeneAssociation(model,'rxn10447_c0','mmp0520 or mmp0710');
+
+%%%%%%%%%%%%%
+% 7/28/2015
+%%%%%%%%%%%%%
+% Add synthesis of DKFP, the real pathway (2006 paper on methylglyoxal)
+% F-1,6-BP <=> F-1-P (hypothetical)
+model =addReaction(model,{'rxn01491_c0','D-Fructose-1,6-bisphosphate phosphohydrolase'},...
+    'H2O_c0 + D-fructose-1_6-bisphosphate_c0 <=> Phosphate_c0 + H_c0 + D-fructose-1-phosphate_c0');
+% F-6-P -> Ga-3-P + Glycerone-P
+model = addReaction(model,{'F6PG3Pl','D-Fructose-6-phosphate D-glyceraldehyde-3-phosphate-lyase'},...
+    'D-fructose-1-phosphate_c0 + Phosphate_c0 <=> Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0');
+model = changeGeneAssociation(model,'F6PG3Pl','mmp0293');
+% Ga-3-P -> Methylglyoxal (2-Oxopropanal)
+model = addReaction(model,{'2OPs','2-Oxopropanal synthase'},...
+    'Glyceraldehyde3-phosphate_c0 <=> 2-Oxopropanal_c0 + Phosphate_c0');
+model = changeGeneAssociation(model,'2OPs','mmp0687');
+% 2-Oxopropanal + F16BP/F1P -> DKFP + Ga-3-P (mmp0293)
+model =addReaction(model,{'DKFPs1','6-Deoxy-5-ketofructose-1-phosphate synthase (Fructose-1,6-bisphosphate utilizing)'},...
+    '2-Oxopropanal_c0 + D-fructose-1_6-bisphosphate_c0 -> 6-deoxy-5-ketofructose-1-phosphate_c0 + Glyceraldehyde3-phosphate_c0');
+model =addReaction(model,{'DKFPs2','6-Deoxy-5-ketofructose-1-phosphate synthase (Fructose-1-phosphate utilizing)'},...
+    '2-Oxopropanal_c0 + D-fructose-1-phosphate_c0 -> 6-deoxy-5-ketofructose-1-phosphate_c0 + Glyceraldehyde3-phosphate_c0');
+model = changeGeneAssociation(model,'DKFPs1','mmp0293');
+model = changeGeneAssociation(model,'DKFPs2','mmp0293');
+% 2-Oxopropanal -> L-lactaldehyde
+model = addReaction(model,{'rxn01618_c0','(S)-Lactaldehyde:NADP+ oxidoreductase'},...
+    'NADP_c0 + L-Lactaldehyde_c0 <=> NADPH_c0 + H_c0 + 2-Oxopropanal_c0');
+
+% Other hypothetical reactions, but they aren't necessary; however, let's
+% take out the reactions I added earlier for Fuculose-1-phosphate and see
+% if we can get that to form from L-lactaldehyde, now that lactaldehyde can
+% come from elsewhere
+model = removeRxns(model,{'rxn00559_c0','rxn00641_c0','rxn00642_c0',...
+    'rxn03962_c0','rxn01431_c0','rxn02262_c0','rxn02263_c0','rxn02319_c0'});
+
+
+% Add information for 2-oxopropanal and F1P
+[~,idx] = intersect(model.mets,'2-Oxopropanal_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C3H4O2';
+model.metSEEDID{idx} = 'cpd00428';
+[~,idx] = intersect(model.mets,'D-fructose-1-phosphate_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C3H4O2';
+model.metSEEDID{idx} = 'cpd00428';
+
+% Remove the hypothetical DKFP pathway that was a placeholder earlier
+model = removeRxns(model,{'rxn10494_c0','rxn10422_c0','rxn10520_c0'});
 
 
 

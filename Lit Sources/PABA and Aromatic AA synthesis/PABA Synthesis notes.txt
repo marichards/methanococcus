@@ -69,19 +69,34 @@ Methylglyoxal + XH2 -> X + hydroxyacetone (not F420)
 
 
 Actual DKFP synthesis (2006 Paper):
-Glucose-6-phosphate -> fructose-6-phosphate (MMP1295)
-fructose-6-phosphate + ATP -> fructose-1,6-bisP + ADP 
-fructose-1,6-bisP ->  fructose-1-P (unknown)
-fructose-1,6-bisP -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
-fructose-6-phosphate -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
-Ga-3-P -> Methylglyoxal + Phosphate (MMP0687)
-Methylglyoxal + fructose-1,6-bisP -> DKFP + Ga-3-P
-Methylglyoxal + fructose-1-P -> DKFP + Ga-3-P
-Methylglyoxal + NAD(P)H -> L-lactaldehyde + NAD(P)
-L-lactaldehyde -> Lactate (MJ1411....blast?)
-L-lactaldehyde + DHAP -> 6-deoxysorbose-1-P
-L-lactaldehyde + DHAP -> fuculose-1-P
-L-lactaldehyde + fructose-1-P -> 6-deoxysorbose-1-P
+1) Glucose-6-phosphate -> fructose-6-phosphate (MMP1295)
+2) fructose-6-phosphate + ATP -> fructose-1,6-bisP + ADP 
+3) fructose-1,6-bisP ->  fructose-1-P (unknown)
+4) fructose-1,6-bisP -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
+5) fructose-6-phosphate -> Ga-3-P + dihydroxyacetone-phosphate(MMP0293)
+6) Ga-3-P -> Methylglyoxal + Phosphate (MMP0687)
+7) Methylglyoxal + fructose-1,6-bisP -> DKFP + Ga-3-P (MMP0293)
+8) Methylglyoxal + fructose-1-P -> DKFP + Ga-3-P (MMP0293)
+9) Methylglyoxal + NAD(P)H -> L-lactaldehyde + NAD(P)
+10) L-lactaldehyde -> Lactate (MJ1411....blast?)
+11) L-lactaldehyde + DHAP -> 6-deoxysorbose-1-P
+12) L-lactaldehyde + DHAP -> fuculose-1-P
+13) L-lactaldehyde + fructose-1-P -> 6-deoxysorbose-1-P
+
+1) **MMP1295: already associated with G6P->F6P (added lit)
+2) f6p->f16p already in model with gene
+3) f16bp -> f1p: add rxn01491_c0
+4) rxn00786 already in model, associated correctly; just add the literature
+5) Doesn't exist; add it with a name, associate with mmp0293
+6) Doesn't exist; add it with a name, associate with MMP0687
+7) Doesn't exist; add it with a name, associate with mmp0293
+8) Doesn't exist; add it with a name, associate with mmp0293
+9) Add rxn01618 to model, no gene
+
+10) 
+11)
+12) Already in model, associated with gene and literature
+13) 
 
 Porat Paper 2004: IORAB1/2 (mmp0713 and mmp0714 or mmp0315 and mmp0316)
 (Rxns from M.acetivorans paper)
