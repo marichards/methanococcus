@@ -1,4 +1,4 @@
-function solution = maxGrowthOnH2(model)
+function [solution,gibbs_flux,model] = maxGrowthOnH2(model,substrate_rxns,concentrations)
 
 %Simulate growth on CO2 and H2 media, print out the growth rate and
 %relevant fluxes, return the full solution
@@ -8,9 +8,15 @@ model = changeRxnBounds(model,'EX_cpd11640_e0',-45,'l');
 %Turn down CO2 to -12, not -1000
 %model = changeRxnBounds(model,'EX_cpd00011_e0',-12,'l');
 
+% Specify substrate reactions and concentrations as 1 mM if not given
+if nargin<2
+    
+    substrate_rxns = {'EX_cpd00011_e0','EX_cpd11640_e0','EX_cpd01024_e0'};
+    concentrations = [1 1 1];
+end
 %Solve by maximizing biomass
-solution = optimizeCbModel(model,[],'one');
-
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+    ,concentrations,310,'EX_cpd00001_e0');
 %Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 
 %Find the reaction indices
@@ -52,7 +58,10 @@ fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/so
 %Find the ATP reaction index
 [~,atp_idx] = intersect(model.rxns,'ATPS');
 %Print the ATP yield coefficient (ATP per CH4)
-fprintf('Expected ATP Yield: 0.5\n')
-fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
+fprintf('Expected ATP/CH4 Yield: 0.5\n')
+fprintf('Predicted ATP/CH4 Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
+
+%Print out the gibbs free energy prediction
+fprintf('Predicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 
 end

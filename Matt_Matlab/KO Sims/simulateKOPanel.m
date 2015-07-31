@@ -480,7 +480,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formate plus H2 simulations
 fprintf('\n================================\nGrowth on Formate + H2\n================================');
-model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640_e0',-45,'l');
 
 % First simulate Wild-type growth
 solution = optimizeCbModel(model,[],'one');
@@ -616,7 +616,7 @@ fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formate plus CO simulations
 fprintf('\n================================\nGrowth on Formate + CO\n================================');
-model = changeRxnBounds(model,'Ex_cpd11640_c0',0,'l');
+model = changeRxnBounds(model,'EX_cpd11640_e0',0,'l');
 model = changeRxnBounds(model,'EX_cpd00204_e0',-45,'l');
 
 % First simulate Wild-type growth

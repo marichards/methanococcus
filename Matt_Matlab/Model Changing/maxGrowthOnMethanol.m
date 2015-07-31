@@ -1,4 +1,4 @@
-function [solution,model] = maxGrowthOnMethanol(model)
+function [solution,gibbs_flux,model] = maxGrowthOnMethanol(model,substrate_rxns,concentrations)
 
 %Add in the reaction for converting methanol to methyl-coM
 model = addReaction(model,{'rxn10568_c0','Methanol: coenzyme M methyltransferase'},...
@@ -18,6 +18,10 @@ model.metFormulas{idx}='CH4O';
 model.metCharge(idx)=0;
 model.metFormulas{idx}='CH4O';
 
+% Add it to the free energy
+[~,idx] = intersect(model.rxns,'EX_cpd00116_e0');
+model.freeEnergy(idx) = -0.0302;
+
 %Turn off the CO2 uptake
 %model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
 % Turn on the acetate uptake
@@ -26,8 +30,15 @@ model.metFormulas{idx}='CH4O';
 % Turn off MFR too
 model = changeRxnBounds(model,'rxn11938_c0',0,'b');
 
-%Simulate growth
-solution = optimizeCbModel(model,[],'one');
+% Specify substrate reactions and concentrations as 1 mM if not given
+if nargin<2
+    
+    substrate_rxns = {'EX_cpd00116_e0','EX_cpd11640_e0','EX_cpd01024_e0'};
+    concentrations = [1 1 1];
+end
+%Solve by maximizing biomass
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+    ,concentrations,310,'EX_cpd00001_e0');
 
 %Find the reaction indices
 [~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
@@ -66,5 +77,9 @@ fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/so
 %Print the ATP yield coefficient (ATP per CH4)
 fprintf('Expected ATP Yield: 0.5\n')
 fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
+
+%Print out the gibbs free energy prediction
+fprintf('Predicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
+
 end
 end

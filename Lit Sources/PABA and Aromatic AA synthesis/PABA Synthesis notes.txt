@@ -93,7 +93,7 @@ Actual DKFP synthesis (2006 Paper):
 8) Doesn't exist; add it with a name, associate with mmp0293
 9) Add rxn01618 to model, no gene
 
-10) 
+10) Already in model, associated with gene and literature
 11)
 12) Already in model, associated with gene and literature
 13) 
@@ -134,6 +134,33 @@ rxn01842 ATP + CoA + PACT => PPi + AMP + Phenylacetyl-CoA
 rxn10562 CoA + Phenylpyruvate + (2) ferredoxin (oxidized) 2[4Fe-4S] <=> CO2 + H+ + Phenylacetyl-CoA + (2) ferredoxin (reduced) 2[4Fe-4S]
 rxn00493 2-Oxoglutarate + L-Phenylalanine <=> L-Glutamate + Phenylpyruvate
 
+
+
+***************
+Added reactions resulted in model blowup on formate (methylglyoxal reactions): 
+
+2OPs	Glyceraldehyde3-phosphate_c0 	<=>	Phosphate_c0 + 2-Oxopropanal_c0 	mmp0687
+DKFPs1	D-fructose-1_6-bisphosphate_c0 + 2-Oxopropanal_c0 	->	Glyceraldehyde3-phosphate_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	mmp0293
+DKFPs2	D-fructose-1-phosphate_c0 + 2-Oxopropanal_c0 	->	Glyceraldehyde3-phosphate_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	mmp0293
+
+F6PG3Pl	Phosphate_c0 + D-fructose-1-phosphate_c0 	->	Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	mmp0293
+rxn01491_c0	H2O_c0 + D-fructose-1_6-bisphosphate_c0 	<=>	H_c0 + Phosphate_c0 + D-fructose-1-phosphate_c0
+ 	
+rxn01618_c0	NADP_c0 + L-Lactaldehyde_c0 	<=>	H_c0 + NADPH_c0 + 2-Oxopropanal_c0 	
+
+Here are the culprits:
+rxn01491_c0	-94.1879	
+F6PG3Pl	-94.1882	
+
+Functioning together, these can go G3P -> F1P, then F1P -> F16BP (using 1 proton)...the F16BP then goes to rxn0786:
+
+rxn00786_c0	D-fructose-1_6-bisphosphate_c0 	<=>	Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	mmp0293
+
+Together, we make a proton into water....this is a problem, because a dumping ground for protons means this reaction can take all the protons from outside it wants and use them to puump out Na+:
+
+rxn05209_c0	2.000000 H_c0 + Na_e0 	<=>	2.000000 H_e0 + Na_c0 	mmp0100 or mmp0587 or mmp0679 or mmp0707 or mmp0864
+
+ 	
 
 
 
