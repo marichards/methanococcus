@@ -1965,6 +1965,13 @@ model = removeGene(model,'mmp0306');
 model = removeGene(model,'mmp0529');
 model = removeGene(model,'mmp0663');
 
+%%%%%%%%%%%%%
+% 7/31/2015
+%%%%%%%%%%%%%
+% Add genes to mcr (C and D)
+model = changeGeneAssociation(model,'rxn03127_c0',...
+    'mmp1555 and mmp1556 and mmp1557 and mmp1558 and mmp1559');
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF ITERATIVE UPDATES
