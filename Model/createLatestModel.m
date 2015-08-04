@@ -1107,6 +1107,7 @@ model = changeGeneAssociation(model,'MfnB','mmp0708');
 model = addReaction(model,{'MfnC','4-HCF-P:alanine aminotransferase'},...
     '4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 + L-Alanine_c0 -> 5-(aminomethyl)-3-furanmethanol-phosphate_c0 + Pyruvate_c0');
 %3 Hypotheteical Reactions
+% Update on 8/3/2015: Genes found in MJ for first two steps, BLAST revealed genes in MM
 model = addReaction(model,{'F1Pp','5-(aminomethyl)-3-furanmethanol-phosphate phosphorylase'},...
     '5-(aminomethyl)-3-furanmethanol-phosphate_c0 + ATP_c0 -> 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 + ADP_c0');
 model = addReaction(model,{'F1PPc','5-(aminomethyl)-3-furanmethanol-pyrophosphate condensation'},...
@@ -1972,6 +1973,15 @@ model = removeGene(model,'mmp0663');
 model = changeGeneAssociation(model,'rxn03127_c0',...
     'mmp1555 and mmp1556 and mmp1557 and mmp1558 and mmp1559');
 
+%%%%%%%%%%%%%
+% 8/3/2015
+%%%%%%%%%%%%%	
+%  Add Genes for 2 steps in MF synthesis based on White lab paper
+model = changeGeneAssociation(model,'F1Pp','mmp1399');
+model = changeGeneAssociation(model,'F1PPc','mmp0072');
+% Add genes for 2 other steps in synthesis too
+model = changeGeneAssociation(model,'MfnC','mmp1072');
+model = changeGeneAssociation(model,'MfnD','mmp0564');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF ITERATIVE UPDATES
