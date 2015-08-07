@@ -1982,6 +1982,47 @@ model = changeGeneAssociation(model,'F1PPc','mmp0072');
 % Add genes for 2 other steps in synthesis too
 model = changeGeneAssociation(model,'MfnC','mmp1072');
 model = changeGeneAssociation(model,'MfnD','mmp0564');
+
+%%%%%%%%%%%%%
+% 8/4/2015
+%%%%%%%%%%%%%	
+% Selenocysteine (selenoprotein) synthesis pathway
+% Metacyc would suggest: rxn09249, rxn11751, rxn02569, rxn11752
+% Genes for those would be: mmp0879,mmp1490,mmp0904,mmp0595
+
+% First step 
+model = addReaction(model,{'rxn09249_c0','Seryl-tRNA synthetase (selenocysteine)'},...
+    'ATP_c0 + L-Serine_c0 + tRNA(SeCys) <=> PPi_c0 + AMP_c0 + L-Seryl-tRNA(Sec)_c0');
+model = changeGeneAssociation(model,'rxn09249_c0','mmp0879');
+% Second step: kinase
+model = addReaction(model,{'rxn11751_c0','L-seryl-tRNA(Sec) kinase'},...
+    'ATP_c0 + L-Seryl-tRNA(Sec)_c0 <=> ADP_c0 + O-Phosphoseryl-tRNA(Sec)_c0');
+model = changeGeneAssociation(model,'rxn11751_c0','mmp1490');
+% Add the selenophosphate synthesis step
+model = addReaction(model,{'rxn02569_c0','ATP:selenide, water phosphotransferase'},...
+    'H2O_c0 + ATP_c0 + Selenide_c0 <=> Phopshate_c0 + AMP_c0 + 2 H_c0 + Selenophosphate_c0');
+model = changeGeneAssociation(model,'rxn02569_c0','mmp0904');
+% Add the selenocysteine synthesis step
+model = addReaction(model,{'rxn11752_c0','O-phosphoseryl-tRNA(Sec) selenium transferase'},...
+    '3 H_c0 + Selenophosphate_c0 + O-Phosphoseryl-tRNA(Sec)_c0 <=> PPi_c0 + L-Selenocysteinyl-tRNA(Sec)_c0');
+model = changeGeneAssociation(model,'rxn11752_c0','mmp0595');
+% Add selenocysteine going to selenoprotein
+model = addReaction(model,{'rxn11950_c0','rxn11950_c0'},...
+    'L-Selenocysteinyl-tRNA(Sec)_c0 <=> Selenoprotein_c0');
+
+% Add synthesis of selenide from selenite (KEGG)
+model = addReaction(model,{'rxn11571_c0','Hydrogen selenide:NADP+ oxidoreductase'},...
+    '3 H2O_c0 + 3 NADP_c0 + Selenide_c0 <=> 3 NADPH_c0 + 3 H_c0 + Selenite_c0');
+% Add the gene from kegg (MMP0959)
+model = changeGeneAssociation(model,'rxn11571_c0','mmp0959');
+
+% Remove NH3-utilizing asparagine synthase
+model = removeRxns(model,'rxn00340_c0');
+
+% Note that the selenocysteine biosynthesis is a dead end, but it's all
+% gene-annotated so I'll keep it. Whether to fill it in later is another
+% question entirely. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF ITERATIVE UPDATES
