@@ -29,10 +29,7 @@ for i = 1:length(model.genes)
     model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{4})','mmp$1');
     model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{3})','mmp0$1');
     model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{2})','mmp00$1');
-    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{1})','mmp000$1');
-    
-    
-    
+    model.genes{i} = regexprep(model.genes{i},'267377.1.peg.([0-9]{1})','mmp000$1');       
 end
 
 %Do it in the rules
@@ -1606,7 +1603,7 @@ model = changeGeneAssociation(model,'rxn00298_c0','mmp0353');
 model.subSystems{idx} = 'Archaellin Synthesis';
 % WbpB (mmp0352)
 model = addReaction(model,{'UGAor','UDP-GlcNAcA:NAD+ oxidoreductase'},...
-    'UDP-N-acetyl-D-glucosaminouronate_c0 + NAD_c0 <=> UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0 + NADH_c0 + H_c0');
+    'UDP-N-acetyl-D-glucosaminouronate_c0 + NAD_c0 <=> UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0 + NADH_c0 + H2_c0');
 model = changeGeneAssociation(model,'UGAor','mmp0352');
 [~, idx] = intersect(model.rxns,'UGAor');
 model.subSystems{idx} = 'Archaellin Synthesis';
@@ -1632,8 +1629,24 @@ model.subSystems{idx} = 'Archaellin Synthesis';
 % Add compound information
 [~,idx] = intersect(model.mets,'UDP-N-acetyl-D-glucosaminouronate_c0');
 model.metCharge(idx) = -3;
-model.metFormulas{idx} = 'C17H22N3O18P2';
+model.metFormulas{idx} = 'C17H22N3O18P2'; %Pubchem: C17H25N3O18P2
 model.metSEEDID{idx} = 'cpd02782';
+% Add compound information
+[~,idx] = intersect(model.mets,'UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C17H20N3O18P2'; %HO-C-H => O=C + H2
+% Add compound information
+[~,idx] = intersect(model.mets,'UDP-2-acetamido-3-amino-2,3-dideoxy-glucuronate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C17H23N4O17P2'; %O=C => H2N-C-H (-O, +NH3)
+% Add compound information
+[~,idx] = intersect(model.mets,'UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C19H25N4O18P2'; %H2N-C-H => Ac-HN-C-H (-H, +C2H3O)
+% Add compound information
+[~,idx] = intersect(model.mets,'UDP-2,3-diacetamido-2,3-dideoxy-mannuronate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C19H25N4O18P2'; %No change in formula
 
 % Add steps to go from mannuronate in 2015 paper; these are in the 2012
 % paper and are genes aglXYZ
@@ -1992,7 +2005,7 @@ model = changeGeneAssociation(model,'MfnD','mmp0564');
 
 % First step 
 model = addReaction(model,{'rxn09249_c0','Seryl-tRNA synthetase (selenocysteine)'},...
-    'ATP_c0 + L-Serine_c0 + tRNA(SeCys) <=> PPi_c0 + AMP_c0 + L-Seryl-tRNA(Sec)_c0');
+    'ATP_c0 + L-Serine_c0 + tRNA(SeCys)_c0 <=> PPi_c0 + AMP_c0 + L-Seryl-tRNA(Sec)_c0');
 model = changeGeneAssociation(model,'rxn09249_c0','mmp0879');
 % Second step: kinase
 model = addReaction(model,{'rxn11751_c0','L-seryl-tRNA(Sec) kinase'},...
@@ -2000,7 +2013,7 @@ model = addReaction(model,{'rxn11751_c0','L-seryl-tRNA(Sec) kinase'},...
 model = changeGeneAssociation(model,'rxn11751_c0','mmp1490');
 % Add the selenophosphate synthesis step
 model = addReaction(model,{'rxn02569_c0','ATP:selenide, water phosphotransferase'},...
-    'H2O_c0 + ATP_c0 + Selenide_c0 <=> Phopshate_c0 + AMP_c0 + 2 H_c0 + Selenophosphate_c0');
+    'H2O_c0 + ATP_c0 + Selenide_c0 <=> Phosphate_c0 + AMP_c0 + 2 H_c0 + Selenophosphate_c0');
 model = changeGeneAssociation(model,'rxn02569_c0','mmp0904');
 % Add the selenocysteine synthesis step
 model = addReaction(model,{'rxn11752_c0','O-phosphoseryl-tRNA(Sec) selenium transferase'},...
@@ -2016,13 +2029,68 @@ model = addReaction(model,{'rxn11571_c0','Hydrogen selenide:NADP+ oxidoreductase
 % Add the gene from kegg (MMP0959)
 model = changeGeneAssociation(model,'rxn11571_c0','mmp0959');
 
+% Gapfill with transport of selenate, selenate to selenite
+model = addReaction(model,{'rxn07210_c0','Selenite:NADP+ oxidoreductase'},...
+    'H2O_c0 + Selenite_c0 + NADP_c0 <=> Selenate_c0 + NADPH_c0');
+model = addReaction(model,{'SEt','Selenate transport'},...
+    'Selenate_e0 <=> Selenate_c0');
+model = addReaction(model,{'EX_cpd03396_e0','EX_Selenate_e0'},...
+    'Selenate_e0 <=> ');
+
+% Add tRNA synthesis (maybe add it as a product in the biomass?)
+% For the moment, add it as an exchange
+model = addReaction(model,{'EX_cpd15573_c0','EX_tRNA(SeCys)_c0'},...
+    'tRNA(SeCys)_c0 <=> ');
+
+% Add Selenoprotein to biomass
+[~,sel_idx] = intersect(model.mets,'Selenoprotein_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(sel_idx,bio_idx) = -0.0030965;
+
 % Remove NH3-utilizing asparagine synthase
 model = removeRxns(model,'rxn00340_c0');
 
-% Note that the selenocysteine biosynthesis is a dead end, but it's all
-% gene-annotated so I'll keep it. Whether to fill it in later is another
-% question entirely. 
-
+% Add compound information for all the compounds I've added here
+[~,idx] = intersect(model.mets,'Selenate_e0');
+model.metCharge(idx) = 4;
+model.metFormulas{idx} = 'H2O4Se';
+model.metSEEDID{idx} = 'cpd03396';
+[~,idx] = intersect(model.mets,'Selenate_c0');
+model.metCharge(idx) = 4;
+model.metFormulas{idx} = 'H2O4Se';
+model.metSEEDID{idx} = 'cpd03396';
+[~,idx] = intersect(model.mets,'Selenite_c0');
+model.metCharge(idx) = 2;
+model.metFormulas{idx} = 'H2O3Se';
+model.metSEEDID{idx} = 'cpd03387';
+[~,idx] = intersect(model.mets,'Selenide_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'H2Se';
+model.metSEEDID{idx} = 'cpd01078';
+[~,idx] = intersect(model.mets,'Selenophosphate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'HO3PSe';
+model.metSEEDID{idx} = 'cpd03078';
+[~,idx] = intersect(model.mets,'L-Selenocysteinyl-tRNA(Sec)_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C18H30NO17P2R3Se';
+model.metSEEDID{idx} = 'cpd15563';
+[~,idx] = intersect(model.mets,'O-Phosphoseryl-tRNA(Sec)_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C12H15N3O5S';
+model.metSEEDID{idx} = 'cpd16442';
+[~,idx] = intersect(model.mets,'L-Seryl-tRNA(Sec)_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C18H28NO18P2R3';
+model.metSEEDID{idx} = 'cpd15565';
+[~,idx] = intersect(model.mets,'tRNA(SeCys)_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C10H12N5O3R';
+model.metSEEDID{idx} = 'cpd15573';
+[~,idx] = intersect(model.mets,'Selenoprotein_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C5H12O';
+model.metSEEDID{idx} = 'cpd16579';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF ITERATIVE UPDATES
@@ -2084,6 +2152,12 @@ model.rxns{idx} = 'EX_cpd01024_e0';
 model = addReaction(model,{'EX_cpd01024_e0','EX_Methane_e0'},...
     'Methane_e0 <=> ');
 
+% Add formula and more for methane
+[~,idx] = intersect(model.mets,'Methane_e0');
+model.metFormulas{idx} = 'CH4';
+model.metCharge(idx) = 0;
+model.metSEEDID{idx} = 'cpd01024';
+
 [~,idx] = intersect(model.rxns,'Ex_cpd11640_c0');
 model.rxns{idx} = 'EX_cpd11640_e0';
 model = addReaction(model,{'EX_cpd11640_e0','EX_Hydrogen_e0'},...
@@ -2100,5 +2174,12 @@ model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
 %%%%%%%%%%%%%
 %7/16/2015
 %%%%%%%%%%%%%
-% Very last step: add free energy values for 1 mM from Equilibrator site
+% Very last step: add free energy values for 1 mM from Equilibrator site...
 model = addDG2MM(model);
+
+%%%%%%%%%%%%%
+%8/10/2015
+%%%%%%%%%%%%%
+% New very last step: remove unused fields of model that I won't be using
+model = rmfield(model,{'metInChIString','metChEBIID','metPubChemID',...
+    'confidenceScores','rxnNotes','rxnReferences'});

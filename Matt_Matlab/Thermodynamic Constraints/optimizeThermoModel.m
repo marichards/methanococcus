@@ -33,7 +33,7 @@ else
     %Error for things not the same size
     if length(substrateRxns) ~= length(concentrations)
 
-        error('Please specify a concentration for each substrate reaction')
+        error('substrateRxns and concentrations must be of equal length')
     end
     %Gas constant specification (Maybe move these out?)
     R = 8.314e-6; %kJ/mmol*K
@@ -44,22 +44,26 @@ else
     %Find index of dG
     [~,met_idx] = intersect(model.mets,'dG');
 
-
-    %Intersect the substrate reactions with the model and make a dictionary
+    % Alter the free energy values for things with substrate reactions in
+    % the free energy vector itself
+    % First grab the index of the exchange reactions in the model
     [rxns,rxn_idx] = intersect(model.rxns,substrateRxns,'stable');
-    dict = containers.Map(rxns,rxn_idx);
-
+    % Make a dictionary
+    dict = containers.Map(rxns,rxn_idx);      
+    % For those indices, change the free energy numbers using concentration
     %Loop: put in the correct free energy term for each:
     %dG = dG_0 + RTln(C)
     for i = 1:length(substrateRxns)
-
        %Change the dG weight for the exchange reaction (Conc in mM)
-       model.S(met_idx,dict(substrateRxns{i})) = model.freeEnergy(dict(substrateRxns{i}))...
+       model.freeEnergy(dict(substrateRxns{i})) = model.freeEnergy(dict(substrateRxns{i}))...
            +R*T*log(concentrations(i));    
     end
     
+    % Add free energy values to S matrix for every one at once
+    model.S(met_idx,1:end-1) = model.freeEnergy;
+
     %%New Part (4/30/2013)
-    %Add water contribution
+    %Add water contribution, which isn't reflected elsewhere
     [~,rxn_idx] = intersect(model.rxns,water_rxn);
     model.S(met_idx,rxn_idx) = model.freeEnergy(rxn_idx);
     
