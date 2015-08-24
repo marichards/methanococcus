@@ -1,0 +1,11 @@
+RXN_ID	NAME EQ
+rxn05759	2 H_c0 + 2 Reducedferredoxin_c0 <=> 2 Oxidizedferredoxin_c0 + H2_c0
+rxn05776	H2O_c0 <=> L-Proline_c0
+rxn05775	TPNH_c0 + H_c0 + 2 Ferrileghemoglobin_c0 <=> TPN_c0 + 2 Ferroleghemoglobin_c0
+rxn05774	TPNH_c0 + H_c0 + 2 Ferricytochrome_c2_c0 <=> TPN_c0 + 2 Ferrocytochrome_c2_c0
+rxn05773	NADH_c0 + H_c0 + 2 Ferrileghemoglobin_c0 <=> NAD_c0 + 2 Ferroleghemoglobin_c0
+rxn05772	NADH_c0 + H_c0 + 2 Ferricytochrome_b5_c0 <=> NAD_c0 + 2 Ferrocytochrome_b5_c0
+rxn05771	O2_c0 + 4 Ferrocytochrome_c2_c0 <=> 2 H2O_c0 + 4 Ferricytochrome_c2_c0
+rxn05770	4 H2O_c0 + Phosphorylase_a_c0 <=> 4 Phosphate_c0 + 2 Phosphorylase_b_c0
+rxn05769	2 ATP_c0 + Phosphorylase_b_c0 <=> 2 ADP_c0 + Phosphorylase_a_c0
+rxn05768	2 5-Hydroxy-2-polyprenylphenol_c0 <=> O2_c0 + 2 2-Polyprenylphenol_c0
