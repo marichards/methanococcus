@@ -174,7 +174,7 @@ model = changeGeneAssociation(model,'rxn03004_c0','mmp0123');
 
 %remove the gene association of 'mmp0882' with reaction 'rxn03084_c0'
 %(gene mmp0178 or mmp0179 are still associated with this reaciton)
-model = changeGeneAssociation(model,'rxn03004_c0','mmp0178 or mmp0179');
+model = changeGeneAssociation(model,'rxn03084_c0','mmp0178 or mmp0179');
 
 %Associate the gene 'mmp0882' with reaction 'rxn02937_c0'
 %(gene mmp1254 are still associated with this reaction)
@@ -2007,41 +2007,58 @@ model = changeGeneAssociation(model,'MfnD','mmp0564');
 model = addReaction(model,{'rxn09249_c0','Seryl-tRNA synthetase (selenocysteine)'},...
     'ATP_c0 + L-Serine_c0 + tRNA(SeCys)_c0 <=> PPi_c0 + AMP_c0 + L-Seryl-tRNA(Sec)_c0');
 model = changeGeneAssociation(model,'rxn09249_c0','mmp0879');
+[~,idx] = intersect(model.rxns,'rxn09249_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Second step: kinase
 model = addReaction(model,{'rxn11751_c0','L-seryl-tRNA(Sec) kinase'},...
     'ATP_c0 + L-Seryl-tRNA(Sec)_c0 <=> ADP_c0 + O-Phosphoseryl-tRNA(Sec)_c0');
 model = changeGeneAssociation(model,'rxn11751_c0','mmp1490');
+[~,idx] = intersect(model.rxns,'rxn11751_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Add the selenophosphate synthesis step
 model = addReaction(model,{'rxn02569_c0','ATP:selenide, water phosphotransferase'},...
     'H2O_c0 + ATP_c0 + Selenide_c0 <=> Phosphate_c0 + AMP_c0 + 2 H_c0 + Selenophosphate_c0');
 model = changeGeneAssociation(model,'rxn02569_c0','mmp0904');
+[~,idx] = intersect(model.rxns,'rxn02569_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Add the selenocysteine synthesis step
 model = addReaction(model,{'rxn11752_c0','O-phosphoseryl-tRNA(Sec) selenium transferase'},...
     '3 H_c0 + Selenophosphate_c0 + O-Phosphoseryl-tRNA(Sec)_c0 <=> PPi_c0 + L-Selenocysteinyl-tRNA(Sec)_c0');
 model = changeGeneAssociation(model,'rxn11752_c0','mmp0595');
+[~,idx] = intersect(model.rxns,'rxn11752_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Add selenocysteine going to selenoprotein
 model = addReaction(model,{'rxn11950_c0','rxn11950_c0'},...
     'L-Selenocysteinyl-tRNA(Sec)_c0 <=> Selenoprotein_c0');
-
+[~,idx] = intersect(model.rxns,'rxn11950_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Add synthesis of selenide from selenite (KEGG)
 model = addReaction(model,{'rxn11571_c0','Hydrogen selenide:NADP+ oxidoreductase'},...
     '3 H2O_c0 + 3 NADP_c0 + Selenide_c0 <=> 3 NADPH_c0 + 3 H_c0 + Selenite_c0');
 % Add the gene from kegg (MMP0959)
 model = changeGeneAssociation(model,'rxn11571_c0','mmp0959');
-
+[~,idx] = intersect(model.rxns,'rxn11571_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
 % Gapfill with transport of selenate, selenate to selenite
 model = addReaction(model,{'rxn07210_c0','Selenite:NADP+ oxidoreductase'},...
     'H2O_c0 + Selenite_c0 + NADP_c0 <=> Selenate_c0 + NADPH_c0');
+[~,idx] = intersect(model.rxns,'rxn07210_c0');
+model.subSystems{idx} = 'Selenocysteine metabolism';
+
 model = addReaction(model,{'SEt','Selenate transport'},...
     'Selenate_e0 <=> Selenate_c0');
+[~,idx] = intersect(model.rxns,'SEt');
+model.subSystems{idx} = 'Transport';
 model = addReaction(model,{'EX_cpd03396_e0','EX_Selenate_e0'},...
     'Selenate_e0 <=> ');
-
+[~,idx] = intersect(model.rxns,'EX_cpd03396_e0');
+model.subSystems{idx} = 'Exchange';
 % Add tRNA synthesis (maybe add it as a product in the biomass?)
 % For the moment, add it as an exchange
 model = addReaction(model,{'EX_cpd15573_c0','EX_tRNA(SeCys)_c0'},...
     'tRNA(SeCys)_c0 <=> ');
-
+[~,idx] = intersect(model.rxns,'EX_cpd15573_c0');
+model.subSystems{idx} = 'Exchange';
 % Add Selenoprotein to biomass
 [~,sel_idx] = intersect(model.mets,'Selenoprotein_c0');
 [~,bio_idx] = intersect(model.rxns,'biomass0');
@@ -2091,6 +2108,152 @@ model.metSEEDID{idx} = 'cpd15573';
 model.metCharge(idx) = 0;
 model.metFormulas{idx} = 'C5H12O';
 model.metSEEDID{idx} = 'cpd16579';
+
+%%%%%%%%%%%%%
+% 8/25/2015
+%%%%%%%%%%%%%
+% Changes to Nucleotide/Nucleoside synthesis
+% Add 2 reactions for mmp1426 (one already exists)
+model = addReaction(model,{'rxn01217_c0','dCMP aminohydrolase'},...
+    'H2O_c0 + H_c0 + dCMP_c0 -> NH3_c0 + dUMP_c0');
+model = changeGeneAssociation(model,'rxn01217_c0','mmp1426');
+model = changeGeneAssociation(model,'rxn01519_c0','mmp1075 or mmp1426');
+[~,idx] = intersect(model.rxns,'rxn01217_c0');
+model.subSystems{idx} = 'None';
+
+% Add guanine phsphoribosyltransferase and hypothanxine
+% phosphoribosyltransferase
+model = addReaction(model,{'rxn00915_c0','GMP:pyrophosphate phosphoribosyltransferase'},...
+    'PRPP_c0 + Guanine_c0 -> PPi_c0 + GMP_c0');
+model = changeGeneAssociation(model,'rxn00915_c0','mmp0145');
+model = addReaction(model,{'rxn00836_c0','IMP:pyrophosphate phosphoribosyltransferase'},...
+    'PRPP_c0 + HYXN_c0 -> PPi_c0 + IMP_c0');
+model = changeGeneAssociation(model,'rxn00836_c0','mmp0145');
+
+% Add subsystem information
+[~,idx] = intersect(model.rxns,'rxn00915_c0');
+model.subSystems{idx} = 'Purine conversions';
+[~,idx] = intersect(model.rxns,'rxn00836_c0');
+model.subSystems{idx} = 'Purine conversions';
+
+% Remove the same gene from the adenine reaction
+model = changeGeneAssociation(model,'rxn00139_c0','mmp0660');
+
+%%%%%%%%%%%%%
+% 8/27/2015
+%%%%%%%%%%%%%
+% Add archeol lipid biosynthesis
+% First added step has no gene that we know of yet
+model = addReaction(model,{'rxn13772_c0','5-diphosphomevalonate carboxylase'},...
+    '5-phosphomevalonate_c0 <=> CO2_c0 + Isopentenylphosphate_c0');
+% Second added step has a gene but no reaction in Seed
+model = addReaction(model,{'IPk','Isopentenyl phosphate kinase'},...
+    'Isopentenylphosphate_c0 + Phosphate_c0 <=> Isopentenyldiphosphate_c0');
+model = changeGeneAssociation(model,'IPk','mmp1645');
+% Third added step is actually already there with the gene association 
+% Fourth through sixth added steps are also there, but their gene
+% associationas are a bit messed up
+model = changeGeneAssociation(model,'rxn01213_c0','mmp0045');
+model = changeGeneAssociation(model,'rxn01466_c0','mmp0045');
+model = changeGeneAssociation(model,'rxn01486_c0','mmp0045');
+
+% Seventh added step 
+model = addReaction(model,{'rxn00611_c0','sn-Glycerol-3-phosphate:NAD+ 2-oxidoreductase'},...
+    'NADH_c0 + H_c0 + Glycerone-phosphate_c0 <=> NAD_c0 + Glycerol-3-phosphate_c0');
+model = changeGeneAssociation(model,'rxn00611_c0','mmp0225');
+model = changeRxnBounds(model,'rxn00611_c0',-1000,'l');
+% Eighth added step
+model = addReaction(model,{'rxn11998_c0','Geranylgeranylglyceryl phosphate synthase'},...
+    'Glycerol-3-phosphate_c0 + Geranylgeranyl_diphosphate_c0 <=> PPi_c0 + sn-3-O-(Geranylgeranyl)glycerol_1-phosphate_c0');
+model = changeGeneAssociation(model,'rxn11998_c0','mmp0007');
+% Ninth added step (Step 11)
+model = addReaction(model,{'rxn03114_c0','Geranylgeranyl diphosphate:sn-3-O-(geranylgeranyl)glycerol'},...
+    'Geranylgeranyl_diphosphate_c0 + sn-3-O-(Geranylgeranyl)glycerol_1-phosphate_c0 <=> PPi_c0 + 2,3-Bis-O-(geranylgeranyl)glycerol_1-phosphate_c0');
+model = changeGeneAssociation(model,'rxn03114_c0','mmp1677');
+% Tenth added step (Step 12)
+model = addReaction(model,{'rxn14345_c0','CTP:2,3-bis-O-(geranylgeranyl)-sn-glycerol-1-phosphatecytidylyltransferase'},...
+    'CTP_c0 + 2,3-Bis-O-(geranylgeranyl)glycerol_1-phosphate_c0 <=> PPi_c0 + CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0');
+model = changeGeneAssociation(model,'rxn14345_c0','mmp1698');
+%%%%End of SEED-contained steps
+% Eleventh added step (Step 13)
+model = addReaction(model,{'ARCSs','Archaetidylserine synthase'},...
+    'CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0 + L-Serine_c0 <=> Archaetidylserine_c0 + CMP_c0');
+model = changeGeneAssociation(model,'ARCSs','mmp1171');
+
+% Final steps saturated the archaeols (Step 16)
+model = addReaction(model,{'CDPDGGR','CDP-Archaeol Digeranylgeranylglycerophospholipid reductase'},...
+    'CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0 + 8 H2_c0 <=> Saturated_CDP-archaeol_c0');
+model = addReaction(model,{'ASDGGR','Archaetidylserine Digeranylgeranylglycerophospholipid reductase'},...
+    'Archaetidylserine_c0 + 8 H2_c0 <=> Saturated_Archaetidylserine_c0');
+% Add the gene for the saturation to both
+model = changeGeneAssociation(model,'CDPDGGR','mmp0388');
+model = changeGeneAssociation(model,'ASDGGR','mmp0388');
+
+% Add the Archaetidylserine and CDP-archaeol to the biomass
+[~,cdparch_idx] = intersect(model.mets,'Saturated_CDP-archaeol_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(cdparch_idx,bio_idx) = -0.0030965;
+[~,arcser_idx] = intersect(model.mets,'Saturated_Archaetidylserine_c0');
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+model.S(arcser_idx,bio_idx) = -0.0030965;
+
+% Add all the compound info and the subsystems for all of these reactions
+[~,idx] = intersect(model.mets,'Guanine_c0');
+model.metCharge(idx) = 0;
+model.metFormulas{idx} = 'C5H5N5O';
+model.metSEEDID{idx} = 'cpd00207';
+[~,idx] = intersect(model.mets,'Isopentenylphosphate_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C5H9O4P';
+model.metSEEDID{idx} = 'cpd17039';
+[~,idx] = intersect(model.mets,'sn-3-O-(Geranylgeranyl)glycerol_1-phosphate_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C23H40O6P';
+model.metSEEDID{idx} = 'cpd02797';
+[~,idx] = intersect(model.mets,'2,3-Bis-O-(geranylgeranyl)glycerol_1-phosphate_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C43H72O6P';
+model.metSEEDID{idx} = 'cpd02824';
+[~,idx] = intersect(model.mets,'CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C52H83N3O13P2';
+model.metSEEDID{idx} = 'cpd18042';
+[~,idx] = intersect(model.mets,'Archaetidylserine_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C46H77NO8P';
+model.metSEEDID{idx} = '';
+[~,idx] = intersect(model.mets,'Saturated_CDP-archaeol_c0');
+model.metCharge(idx) = -2;
+model.metFormulas{idx} = 'C52H99N3O13P2';
+model.metSEEDID{idx} = '';
+[~,idx] = intersect(model.mets,'Saturated_Archaetidylserine_c0');
+model.metCharge(idx) = -1;
+model.metFormulas{idx} = 'C46H93NO8P';
+model.metSEEDID{idx} = '';
+
+% Subsystem info
+[~,idx] = intersect(model.rxns,'rxn13772_c0');
+model.subSystems{idx} = 'Isoprenoid Biosynthesis; Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'IPk');
+model.subSystems{idx} = 'Isoprenoid Biosynthesis; Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'rxn00611_c0');
+model.subSystems{idx} = 'Isoprenoid Biosynthesis; Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'rxn11998_c0');
+model.subSystems{idx} = 'Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'rxn03114_c0');
+model.subSystems{idx} = 'Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'rxn14345_c0');
+model.subSystems{idx} = 'Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'ARCSs');
+model.subSystems{idx} = 'Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'CDPDGGR');
+model.subSystems{idx} = 'Archaeal Lipids';
+[~,idx] = intersect(model.rxns,'ASDGGR');
+model.subSystems{idx} = 'Archaeal Lipids';
+
+% Remove the incorrect reactions
+model = removeRxns(model,{'rxn02322_c0','rxn00829_c0'});
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF ITERATIVE UPDATES
@@ -2170,6 +2333,49 @@ model.metNames{idx} = 'Cob(I)yrinate_diamide_c0';
 [~,idx ] = intersect(model.mets,'CobIIyrinate_diamide_c0');
 model.mets{idx} = 'Cob(II)yrinate_diamide_c0';
 model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
+
+%%%%%%%%%%%%%
+%8/27/2015
+%%%%%%%%%%%%%
+% Fix the "None" subsystems that I can
+%[~,idx] = intersect(model.rxns,'rxn10542_c0');
+%model.subSystems{idx} = 'Transport';
+
+%none = 
+
+%    'rxn00245_c0'
+%    'rxn01999_c0'
+%    'rxn01208_c0'
+%    'rxn08766_c0'
+%    'rxn08019_c0'
+%    'rxn13477_c0'
+%    'rxn10954_c0'
+%    'rxn02269_c0'
+%    'rxn00119_c0'
+%    'rxn00833_c0'
+%    'rxn04675_c0'
+%    'rxn08349_c0'
+%    'rxn05023_c0'
+%    'rxn09429_c0'
+%    'rxn11676_c0'
+%    'rxn09433_c0'
+%    'rxn05744_c0'
+%    'rxn00258_c0'
+%    'rxn05909_c0'
+%    'rxn07741_c0'
+%    'rxn05109_c0'
+%    'rxn02749_c0'
+%    'rxn02751_c0'
+%    'rxn00735_c0'
+%    'rxn08043_c0'
+%    'rxn08764_c0'
+%    'rxn00249_c0'
+%    'Tfr'
+%    'CODH'
+%    'ACS'
+%    'FNO'
+%    'rxn02430_c0'
+%    'rxn02377_c0'
 
 %%%%%%%%%%%%%
 %7/16/2015
