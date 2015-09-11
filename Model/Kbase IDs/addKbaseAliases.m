@@ -7,8 +7,6 @@ load('compound_reaction_dicts.mat')
 
 %Now compounds and reactions are in, both structs
 
-
-
 %COMPOUNDS
 %compounds has 5 fields: seedIDs, names, keggIDs,names_c0,names_e0
 

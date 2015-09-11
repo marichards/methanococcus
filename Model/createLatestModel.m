@@ -681,7 +681,7 @@ model = changeRxnBounds(model,'Hdr_formate',0,'b');
 %Put in the reaction for H2S to Sulfite
 model = addReaction(model,'Dsr-LP',...%'H2S_c0 -> Sulfite_c0');
     'H2S_c0 + 3 H2O_c0 + NAD_c0 -> Sulfite_c0 + NADH_c0 + 2 H2_c0 + 2 H_c0 ');
-    
+model = changeGeneAssociation(model,'Dsr-LP','mmp0083');
 %%%%%%%%%%%%%
 %02/10/2015
 %%%%%%%%%%%%%
@@ -1955,12 +1955,12 @@ model = changeGeneAssociation(model,'GLYPs','mmp0142');
 model.subSystems{idx} = 'Methylglyoxal Metabolism';
 % Add other reactions from same paper that also have no genes
 model = addReaction(model,{'rxn00149_c0','Pyruvaldehyde:NAD+ oxidoreductase'},...
-    'H2O_c0 + NAD_c0 + 2-Oxopropanal -> NADH_c0 + Pyruvate_c0 + 2 H_c0');
+    'H2O_c0 + NAD_c0 + 2-Oxopropanal_c0 -> NADH_c0 + Pyruvate_c0 + 2 H_c0');
 [~,idx] = intersect(model.rxns,'rxn00149_c0');
 model.subSystems{idx} = 'None';
 model = addReaction(model,{'rxn00150_c0','Pyruvaldehyde:NADP+ oxidoreductase'},...
-    'H2O_c0 + NADP_c0 + 2-Oxopropanal -> NADPH_c0 + Pyruvate_c0 + 2 H_c0');
-[~,idx] = intersect(model.rxns,'rxn00149_c0');
+    'H2O_c0 + NADP_c0 + 2-Oxopropanal_c0 -> NADPH_c0 + Pyruvate_c0 + 2 H_c0');
+[~,idx] = intersect(model.rxns,'rxn00150_c0');
 model.subSystems{idx} = 'None';
 % Add other 2 reactions
 % Add compound info for Formaldehyde (which is a dead end)
@@ -2292,21 +2292,28 @@ model.subSystems{idx} = 'Amino Acid Biosynthesis';
 model.mets{idx} = 'Methane_c0';
 model.metNames{idx} = 'Methane_c0';
 model.metFormulas{idx} = 'CH4';
+model.metSEEDID{idx} = 'cpd01024';
+model.metKEGGID{idx} = '';
 
 % Add a transport (diffusion) for both hydrogen and methane
 model = addReaction(model,{'rxn10542_c0','Hydrogen transport via diffusion'},...
     'H2_e0 <=> H2_c0');
 [~,idx] = intersect(model.rxns,'rxn10542_c0');
 model.subSystems{idx} = 'Transport';
+model.rxnKEGGID{idx} = '';
 
 % Add formula for H2
 [~,idx] = intersect(model.mets,'H2_e0');
 model.metFormulas{idx} = 'H2';
+model.metCharge(idx) = 0;
+model.metSEEDID{idx} = 'cpd11640';
+model.metKEGGID{idx} = 'C00282';
 
 model = addReaction(model,{'rxn10471_c0','Methane transport via diffusion'},...
     'Methane_e0 <=> Methane_c0');
 [~,idx] = intersect(model.rxns,'rxn10471_c0');
 model.subSystems{idx} = 'Transport';
+model.rxnKEGGID{idx} = '';
 
 % Fix the names and formulas of their exchanges
 % Methane
@@ -2325,6 +2332,7 @@ model.metSEEDID{idx} = 'cpd01024';
 model.rxns{idx} = 'EX_cpd11640_e0';
 model = addReaction(model,{'EX_cpd11640_e0','EX_Hydrogen_e0'},...
     'H2_e0 <=> ');
+
 
 % Fix names of Cob(I)yrinate_diamide and Cob(II)yrinate_diamide
 [~,idx ] = intersect(model.mets,'CobIyrinate_diamide_c0');

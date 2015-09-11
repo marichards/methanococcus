@@ -1,10 +1,56 @@
-function [recon_rxns,gapfill_rxns]=createRxnConfidenceSheet(model,workbook,sheet)
+function createSupplementaryData(model)
+
+% Takes in the M. maripaludis model and creates the automated portion of
+% the Supplementary Materials Excel workbook containing: 
+% Reactions: info for all reactions, including cross references, formulas,
+% GPRs, subsystems, names, bounds,free energy (if applicable)
+% Metabolites: info for all metabolites, including cross references,
+% formulas, charges
+% FVA Results on H2: bounds for reaction fluxes on H2+CO2 media
+% FVA Results on Formate: bounds for reaction fluxes on formate media
+% 
+
+% Compile the reactions information
+formulas = printRxnFormula(model,model.rxns,false);
+% Add the confidence data from other code (below)
+tags = createRxnConfidenceSheet(model);
+A = [{'ID','Name','KEGG ID','Formula','EC Number(s)','GPR Rules',...
+    'Subsystem','Lower Bound','Upper Bound','Free Energy (kJ/mmol)',...
+    'Origin Tag'};...
+    model.rxns,model.rxnNames,model.rxnKEGGID,formulas,model.rxnECNumbers,...
+    model.grRules,model.subSystems,num2cell(model.lb),...
+    num2cell(model.ub),num2cell(model.freeEnergy),tags];
+xlswrite('Supplementary_Materials.xlsx',A,'Reactions');
+
+% Compile the metabolites information
+A = [{'Name','SEED ID','KEGG ID','Formula','Charge'};...
+    model.mets,model.metSEEDID,model.metKEGGID,model.metFormulas,...
+    num2cell(model.metCharge)];
+xlswrite('Supplementary_Materials.xlsx',A,'Metabolites');
+
+% Run an FVA on the H2-consuming model
+[minFlux,maxFlux] = fluxVariability(model,100);
+% Compile the answers into a sheet with reactions
+A = [{'Reaction ID','Minimum Flux','Maximum Flux'};...
+    model.rxns,num2cell(minFlux),num2cell(maxFlux)];
+xlswrite('Supplementary_Materials.xlsx',A,'FVA on H2');
+
+% Switch to formate and repeat the FVA step
+model = switchToFormate(model);
+[minFlux,maxFlux] = fluxVariability(model,100);
+% Compile the answers into a sheet with reactions
+A = [{'Reaction ID','Minimum Flux','Maximum Flux'};...
+    model.rxns,num2cell(minFlux),num2cell(maxFlux)];
+xlswrite('Supplementary_Materials.xlsx',A,'FVA on Formate');
+
+
+end
+
+function tags=createRxnConfidenceSheet(model)
 %
-%Create an Excel sheet that includes whether each reaction was in the
+%Create a list of tags that includes whether each reaction was in the
 %original reconstruction, gap-filled to make the original model, or
-%manually added later on 
-
-
+%manually added later on, plus tags for transport and exchanges
 %Load the original model (M_mar)
 load('original_model.mat')
 
@@ -80,9 +126,4 @@ for i=1:length(idx)
     tags{idx(i)}='Physiological';
 end
 
-
-%Print out the tags and other reaction info into the excel sheet designated
-formulas = printRxnFormula(model,model.rxns,false);
-A = [{'RxnId','RxnName','Origin Tag','Gene-Rxn Rule','Rxn Formula'};...
-    model.rxns,model.rxnNames,tags,model.grRules,formulas];
-xlswrite(workbook,A,sheet);
+end

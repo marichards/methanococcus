@@ -16,6 +16,7 @@ if nargin<2
     
     substrate_rxns = {'EX_cpd00011_e0','EX_cpd00047_e0','EX_cpd01024_e0'};
     concentrations = [1 1 1];
+    warning_flag = 1;
 end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
@@ -65,6 +66,9 @@ fprintf('Expected ATP/CH4 Yield: 0.5\n')
 fprintf('Predicted ATP/CH4 Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
 
 %Print out the gibbs free energy prediction
+if warning_flag
+    warning('All external metabolite concentrations set to 1 mM');
+end
 fprintf('Predicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 
 end
