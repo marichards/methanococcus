@@ -1,0 +1,707 @@
+id	name	direction	gpr	pathway	enzyme	equation	reference
+biomass0	GramNegativeBiomass auto biomass	>		Exchange		0.2467 L-Arginine_c0 + 0.0030965 CoA_c0 + 0.1278 L-Methionine_c0 + 35.5403 H2O_c0 + 0.42793 L-Alanine_c0 + 0.21107 L-Threonine_c0 + 0.0030965 NADP_c0 + 0.0030965 Mg_c0 + 0.0030965 NAD_c0 + 0.0030965 Riboflavin_c0 + 40.1102 ATP_c0 + 0.20083 L-Aspartate_c0 + 0.50987 Glycine_c0 + 0.28544 L-Lysine_c0 + 0.17946 L-Serine_c0 + 0.0030965 Siroheme_c0 + 0.0030965 Fe2_c0 + 0.084104 CTP_c0 + 0.13541 GTP_c0 + 0.0030965 Putrescine_c0 + 0.0030965 Spermidine_c0 + 0.21909 L-Glutamate_c0 + 0.21909 L-Glutamine_c0 + 0.021439 dATP_c0 + 0.076146 L-Cysteine_c0 + 0.021439 TTP_c0 + 0.37539 L-Leucine_c0 + 0.0030965 K_c0 + 0.0030965 S-Adenosyl-L-methionine_c0 + Protein_biosynthesis_c0 + 0.090832 UTP_c0 + 0.12068 L-Tyrosine_c0 + DNA_replication_c0 + 0.0030965 Co2_c0 + 0.20083 L-Asparagine_c0 + 0.0030965 H4MPT_c0 + 0.0030965 CoM_c0 + 0.0030965 FAD_c0 + 0.047202 L-Tryptophan_c0 + 0.010608 dCTP_c0 + 0.0030965 Pyridoxal_phosphate_c0 + 0.18435 L-Proline_c0 + 0.0030965 TPP_c0 + 0.0030965 HTP_c0 + 0.0030965 Methanofuran_c0 + RNA_transcription_c0 + 0.0030965 Coenzyme_F420_c0 + 0.2418 L-Isoleucine_c0 + 0.15452 L-Phenylalanine_c0 + 0.010608 dGTP_c0 + 0.079264 L-Histidine_c0 + 0.0030965 Cl-_c0 + 0.35223 L-Valine_c0 + 0.0030965 fe3_c0 + 0.0030965 GSH_c0 + 0.0030965 Ca2_c0 + 0.0030965 Calomide_c0 + 0.0030965 ACP_c0 + 0.0030965 Factor_430_c0 + 0.0030965 Coenzyme_F420-3_c0 + 0.0030965 Molybdenum_c0 + 0.0030965 Archaellin_e0 + 0.0030965 Selenoprotein_c0 + 0.0030965 Saturated_CDP-archaeol_c0 + 0.0030965 Saturated_Archaetidylserine_c0  -> 40 H_c0 + 39.9969 Phosphate_c0 + 40 ADP_c0 + 0.48461 PPi_c0 + 0.0030965 Dimethylbenzimidazole_c0 + 0.0030965 apo-ACP_c0 + Biomass_c0 + 0.0030965 Cobinamide_c0 	 
+rxn02483_c0	4-Carboxymuconolactone carboxy-lyase c0	>	(kb|g.575.peg.807 or kb|g.575.peg.486)	Protocatechuate branch of beta-ketoadipate pathway	|4.1.1.44|	H_c0 + 4-Carboxymuconolactone_c0  -> 3-oxoadipate-enol-lactone_c0 + CO2_c0 	 
+rxn00802_c0	N-L-Argininosuccinate arginie-lyase c0	=	kb|g.575.peg.0013	Arginine Biosynthesis	4.3.2.1	L-Argininosuccinate_c0  <=> Fumarate_c0 + L-Arginine_c0 	 
+rxn03638_c0	Acetyl-CoA D-glucosamine-1-phosphate N-acetyltransferase c0	>	(kb|g.575.peg.1076 and kb|g.575.peg.1076)	Peptidoglycan Biosynthesis	2.3.1.157|2.3.1.4	D-Glucosamine1-phosphate_c0 + Acetyl-CoA_c0  -> H_c0 + N-Acetyl-D-glucosamine1-phosphate_c0 + CoA_c0 	 
+rxn06078_c0	O-Acetyl-L-homoserine acetate-lyase adding methanethiol c0	>	kb|g.575.peg.0012	Methionine Biosynthesis	|2.5.1.49|	O-Acetyl-L-homoserine_c0 + H2S2O3_c0 + trdrd_c0  -> trdox_c0 + Homocysteine_c0 + Sulfite_c0 + Acetate_c0 	 
+rxn12636_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H_c0 + H2O_c0 + met-L-ala-L_c0  <=> L-Methionine_c0 + L-Alanine_c0 	 
+rxn12644_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + ala-L-Thr-L_c0  <=> L-Alanine_c0 + L-Threonine_c0 	 
+rxn03492_c0	precorrin-6Y NADP oxidoreductase c0	=	kb|g.575.peg.599	Coenzyme B12 Biosynthesis	|1.3.1.54|	NADP_c0 + Precorrin_6B_c0  <=> H_c0 + Precorrin_6A_c0 + NADPH_c0 	 
+rxn05616_c0	magnesium transport in/out via permease no H c0	=	(kb|g.575.peg.711 or kb|g.575.peg.1108)	Transport	|TC-1.A.35|1.A.35|	Mg_c0  <=> Mg_e0 	 
+rxn02212_c0	2-Dehydro-3-deoxy-D-arabino-heptonate 7-phosphate phosphate-lyase c0	>	kb|g.575.peg.06	Chorismate Synthesis	|4.2.3.4|4.6.1.3|	DAHP_c0  -> H_c0 + 5-Dehydroquinate_c0 + Phosphate_c0 	 
+rxn03419_c0	Formamidopyrimidine nucleoside triphosphate 7 8-8 9-dihydrolase c0	=	kb|g.575.peg.034	Folate Biosynthesis	|3.5.4.16|	H2O_c0 + Formamidopyrimidine_nucleoside_triphosphate_c0  <=> H_c0 + 2_5-Diaminopyrimidine_nucleoside_triphosphate_c0 + Formate_c0 	 
+rxn03052_c0	5-Methyltetrahydropteroyltri-L-glutamate L-homocysteine c0	=	kb|g.575.peg.401	Methionine Biosynthesis	|2.1.1.14|	Homocysteine_c0 + 5-Methyltetrahydropteroyltri-L-glutamate_c0  <=> L-Methionine_c0 + Tetrahydropteroyltri-L-glutamate_c0 	 
+rxn00248_c0	S-malate NAD oxidoreductase c0	<	kb|g.575.peg.0645	Glyoxylate Bypass	1.1.1.37	H_c0 + Oxaloacetate_c0 + NADH_c0  <=> L-Malate_c0 + NAD_c0 	 
+rxn01302_c0	L-Homoserine NADP oxidoreductase c0	<	kb|g.575.peg.1702	Methionine Biosynthesis	1.1.1.3	H_c0 + NADPH_c0 + L-Aspartate4-semialdehyde_c0  <=> NADP_c0 + L-Homoserine_c0 	 
+rxn00048_c0	6 7-Dimethyl-8-1-D-ribityllumazine 6 7-dimethyl-8-1-D-ribityl c0	>	kb|g.575.peg.180	Riboflavin, FMN, and FAD Metabolism	2.5.1.9	2 6-7-Dimethyl-8-1-D-ribityllumazine_c0  -> 4-1-D-Ribitylamino-5-aminouracil_c0 + Riboflavin_c0 	 
+rxn05229_c0	NCAIR synthetase and NCAIR mutase c0	>	(kb|g.575.peg.0282)	De Novo Purine Biosynthesis		ATP_c0 + AIR_c0 + H2CO3_c0  -> H_c0 + Phosphate_c0 + 5'-Phosphoribosyl-4-carboxy-5-aminoimidazole_c0 + ADP_c0 	 
+rxn12637_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + gly-asp-L_c0  <=> L-Aspartate_c0 + Glycine_c0 	 
+rxn00321_c0	L-Lysine 2 3-aminomutase c0	=	kb|g.575.peg.0861	Lysine Degradation	|5.4.3.2|	L-Lysine_c0  <=> L-beta-Lysine_c0 	 
+rxn07586_c0	rxn07586 c0	=	kb|g.575.peg.1591	Coenzyme B12 Biosynthesis		H2O_c0 + Cobalt-precorrin_5_c0  <=> H_c0 + Cobalt-precorrin_5B_c0 + Acetaldehyde_c0 	 
+rxn00902_c0	3-Carboxy-3-hydroxy-4-methylpentanoate 3-methyl-2-oxobutanoate-lyase c0	>	kb|g.575.peg.1063	Branched Chain Amino Acid Biosynthesis	2.3.3.13|4.1.3.12	Acetyl-CoA_c0 + H2O_c0 + 3-Methyl-2-oxobutanoate_c0  -> H_c0 + CoA_c0 + 2-Isopropylmalate_c0 	 
+rxn00952_c0	O-Acetyl-L-homoserine acetate-lyase adding methanethiol c0	>	kb|g.575.peg.0012	Methionine Biosynthesis	|2.5.1.49|4.2.99.8|4.2.99.10|	O-Acetyl-L-homoserine_c0 + H2S_c0  -> H_c0 + Homocysteine_c0 + Acetate_c0 	 
+rxn10230_c0	anteisopentadecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dianteisopentadecanoylglycerol_c0  -> H_c0 + Dianteisopentadecanoylphosphatidylserine_c0 + CMP_c0 	 
+rxn02056_c0	S-Adenosyl-L-methionine uroporphyrin-III C-methyltransferase c0	=	kb|g.575.peg.089	Heme and Siroheme Biosynthesis	|4.99.1.4|	2 H_c0 + Siroheme_c0  <=> Sirohydrochlorin_c0 + Fe2_c0 	 
+rxn00459_c0	2-Phospho-D-glycerate hydro-lyase c0	=	kb|g.575.peg.0396	Glycolysis and Gluconeogenesis	4.2.1.11	2-Phospho-D-glycerate_c0  <=> H2O_c0 + Phosphoenolpyruvate_c0 	 
+rxn10225_c0	isohexadecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	1_2-diisohexadecanoyl-sn-glycerol_3-phosphate_c0 + CTP_c0  <=> CDP-1_2-diisohexadecanoylglycerol_c0 + PPi_c0 	 
+rxn08311_c0	CDP-diacylglycerol synthetase n-C18 0 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dioctadecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-dioctadecanoylglycerol_c0 	 
+rxn01101_c0	3-Phospho-D-glycerate NAD 2-oxidoreductase c0	=	(kb|g.575.peg.1588 or kb|g.575.peg.870)	Serine Biosynthesis	1.1.1.95	NAD_c0 + 3-Phosphoglycerate_c0  <=> H_c0 + NADH_c0 + 3-Phosphonooxypyruvate_c0 	 
+rxn00302_c0	GTP 7 8-8 9-dihydrolase c0	>	kb|g.575.peg.034	Folate Biosynthesis	|3.5.4.16|	H2O_c0 + GTP_c0  -> Formamidopyrimidine_nucleoside_triphosphate_c0 	 
+rxn05145_c0	Orthophosphate-ABC transport c0	>	(kb|g.575.peg.1098 and (kb|g.575.peg.0345 or kb|g.575.peg.1095) and kb|g.575.peg.1097 and kb|g.575.peg.1096 and kb|g.575.peg.1099) 	Transport	|TC-3.A.1.7|3.A.1.7|	H2O_c0 + ATP_c0 + Phosphate_e0  <=> H_c0 + 2 Phosphate_c0 + ADP_c0 	 
+rxn02988_c0	quinolinate synthase c0	>	kb|g.575.peg.1242	NAD/NADP Cofactor Biosynthesis		Iminoaspartate_c0 + Glycerone-phosphate_c0  -> H_c0 + 2 H2O_c0 + Phosphate_c0 + Quinolinate_c0 	 
+rxn07307_c0	2R-O-phospho-3-sulfolactate sulfo-lyase c0	>	kb|g.575.peg.273	Coenzyme M Biosynthesis	|4.4.1.19|	Sulfite_c0 + Phosphoenolpyruvate_c0  -> 2R-Phosphosulfolactate_c0 	 
+rxn02937_c0	2-Formamido-N1-5-phosphoribosylacetamidine cyclo-ligase c0	=	kb|g.575.peg.1254 or kb|g.575.peg.0882	De Novo Purine Biosynthesis	6.3.3.1	ATP_c0 + 5'-Phosphoribosylformylglycinamidine_c0  <=> H_c0 + Phosphate_c0 + ADP_c0 + AIR_c0 	 
+rxn00558_c0	D-Glucose-6-phosphate ketol-isomerase c0	=	kb|g.575.peg.1295	Glycolysis and Gluconeogenesis	5.3.1.9	D-glucose-6-phosphate_c0  <=> D-fructose-6-phosphate_c0 	 
+rxn01406_c0	S-Adenosylmethioninamine putrescine 3-aminopropyltransferase c0	>	kb|g.575.peg.1584	Polyamine Metabolism	2.5.1.16	Putrescine_c0 + S-Adenosylmethioninamine_c0  -> H_c0 + 5-Methylthioadenosine_c0 + Spermidine_c0 	 
+rxn00187_c0	L-Glutamate ammonia ligase ADP-forming c0	>	kb|g.575.peg.1206	Glutamine/Glutamate/Aspartate/Asparagine Biosynthesis	6.3.1.2	ATP_c0 + NH3_c0 + L-Glutamate_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + L-Glutamine_c0 	 
+rxn01200_c0	Sedoheptulose-7-phosphate D-glyceraldehyde-3-phosphate c0	=	(kb|g.575.peg.1113 or kb|g.575.peg.1115)	Pentose Phosphate Pathway	2.2.1.1	Sedoheptulose7-phosphate_c0 + Glyceraldehyde3-phosphate_c0  <=> D-Xylulose5-phosphate_c0 + ribose-5-phosphate_c0 	 
+rxn05232_c0	Ribonucleotide reductase ATP c0	>	kb|g.575.peg.227	Ribonucleotide Reduction	1.17.4.2	trdrd_c0 + ATP_c0  -> trdox_c0 + H2O_c0 + dATP_c0 	 
+rxn00835_c0	ATP inosine 5'-phosphotransferase c0	=	kb|g.575.peg.0418	Purine Conversions	2.7.1.73	ATP_c0 + Inosine_c0  <=> ADP_c0 + IMP_c0 	 
+rxn12844_c0	Gly-Cys aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation	|3.4.11.2|	H2O_c0 + Gly-Cys_c0  <=> Glycine_c0 + L-Cysteine_c0 	 
+rxn01678_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions	2.7.4.6	ATP_c0 + dUDP_c0  <=> ADP_c0 + dUTP_c0 	 
+rxn09208_c0	Phosphatidylserine syntase n-C16 0 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dihexadecanoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_dihexadecanoyl_c0 	 
+rxn10060_c0	NAD kinase dTTP c0	=	kb|g.575.peg.1489	NAD/NADP Cofactor Biosynthesis	|2.7.1.23|	NAD_c0 + TTP_c0  <=> NADP_c0 + dTDP_c0 	 
+rxn00100_c0	ATP dephospho-CoA 3'-phosphotransferase c0	>	(kb|g.575.peg.1071 or kb|g.575.peg.1282)	Coenzyme A Biosynthesis	2.7.1.24	ATP_c0 + Dephospho-CoA_c0  -> CoA_c0 + ADP_c0 	 
+rxn01018_c0	Carbamoyl-phosphate L-aspartate carbamoyltransferase c0	>	(kb|g.575.peg.1104 or kb|g.575.peg.1659)	De Novo Pyrimidine Synthesis	2.1.3.2	L-Aspartate_c0 + Carbamoylphosphate_c0  -> 2 H_c0 + Phosphate_c0 + N-Carbamoyl-L-aspartate_c0 	 
+rxn00806_c0	L-Leucine 2-oxoglutarate aminotransferase c0	=	kb|g.575.peg.132	Branched Chain Amino Acid Biosynthesis	2.6.1.42|2.6.1.6|2.6.1.67	2-Oxoglutarate_c0 + L-Leucine_c0  <=> L-Glutamate_c0 + 4MOP_c0 	 
+rxn02834_c0	Phosphoribosyl-ATP pyrophosphohydrolase c0	>	(kb|g.575.peg.280 and kb|g.575.peg.051)	Histidine Biosynthesis	3.6.1.31	H2O_c0 + Phosphoribosyl-ATP_c0  -> PPi_c0 + Phosphoribosyl-AMP_c0 	 
+rxn02341_c0	N-R-4'-Phosphopantothenoyl-L-cysteine carboxy-lyase c0	>	((kb|g.575.peg.204 or kb|g.575.peg.1606) and (kb|g.575.peg.204 or kb|g.575.peg.1606))	Coenzyme A Biosynthesis	4.1.1.36	H_c0 + R-4'-Phosphopantothenoyl-L-cysteine_c0  -> CO2_c0 + Phosphopantetheine_c0 	 
+rxn03175_c0	N-5'-Phospho-D-ribosylformimino-5-amino-1- c0	=	kb|g.575.peg.417	Histidine Biosynthesis	5.3.1.16	phosphoribosylformiminoaicar-phosphate_c0  <=> phosphoribulosylformimino-AICAR-phosphate_c0 	 
+rxn00786_c0	D-Fructose-1 6-bisphosphate D-glyceraldehyde-3-phosphate-lyase c0	=	kb|g.575.peg.0293	Glycolysis and Gluconeogenesis	4.1.2.13	D-fructose-1_6-bisphosphate_c0  <=> Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	 
+rxn01637_c0	N2-Acetyl-L-ornithine 2-oxoglutarate aminotransferase c0	=	kb|g.575.peg.1101	Arginine Biosynthesis	2.6.1.11	2-Oxoglutarate_c0 + N-Acetylornithine_c0  <=> L-Glutamate_c0 + 2-Acetamido-5-oxopentanoate_c0 	 
+rxn12640_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + ala-L-glu-L_c0  <=> L-Alanine_c0 + L-Glutamate_c0 	 
+rxn05596_c0	potassium transport out via proton antiport c0	=	kb|g.575.peg.027 or kb|g.575.peg.484 or kb|g.575.peg.1430 or kb|g.575.peg.1599	Transport	|TC-2.A.37|2.A.37|	H_e0 + K_c0  <=> H_c0 + K_e0 	 
+rxn02569_c0	ATP selenide water phosphotransferase c0	=	kb|g.575.peg.904	Selenocysteine Metabolism	2.7.9.3	H2O_c0 + ATP_c0 + Selenide_c0  <=> 2 H_c0 + Phosphate_c0 + AMP_c0 + Selenophosphate_c0 	 
+rxn00710_c0	Orotidine-5'-phosphate carboxy-lyase c0	>	kb|g.575.peg.602	De Novo Pyrimidine Synthesis	4.1.1.23	H_c0 + Orotidylic_acid_c0  -> CO2_c0 + UMP_c0 	 
+rxn02775_c0	S-Adenosyl-L-methionine precorrin-4 C20-methyltransferase c0	=	kb|g.575.peg.0319	Coenzyme B12 Biosynthesis	|2.1.1.130|	H_c0 + Precorrin_2_c0 + S-Adenosyl-L-methionine_c0  <=> S-Adenosyl-homocysteine_c0 + Precorrin_3A_c0 	 
+rxn07589_c0	rxn07589 c0	=	kb|g.575.peg.1221	Coenzyme B12 Biosynthesis		S-Adenosyl-L-methionine_c0 + Cobalt-precorrin_7_c0  <=> CO2_c0 + S-Adenosyl-homocysteine_c0 + Cobalt-precorrin_8_c0 	 
+rxn00717_c0	Cytosine aminohydrolase c0	>	kb|g.575.peg.0869	Creatine and Creatinine Degradation	3.5.4.1	H_c0 + H2O_c0 + Cytosine_c0  -> NH3_c0 + Uracil_c0 	 
+rxn10308_c0	myristoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	Myristoyllipoteichoic_acid_n=24__linked__unsubstituted_c0 + 24 UDP-N-acetylglucosamine_c0  <=> 24 UDP_c0 + Myristoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn05249_c0	FACOAL150ISO c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa3_c0  -> PPi_c0 + AMP_c0 + fa3coa_c0 	 
+rxn02897_c0	Nicotinate-nucleotide dimethylbenzimidazole c0	=	kb|g.575.peg.0338	Coenzyme B12 Biosynthesis	|2.4.2.21|	Dimethylbenzimidazole_c0 + Nicotinate_ribonucleotide_c0  <=> H_c0 + Niacin_c0 + alpha-Ribazole_5'-phosphate_c0 	 
+rxn03409_c0	Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine- c0	>	kb|g.575.peg.1206	Peptidoglycan Biosynthesis	|6.3.1.2|	ATP_c0 + NH3_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-ala-D-glu-meso-2-6-diaminopimeloyl-D-ala-D-ala_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-alanyl-D-glutaminyl-meso-2_6-diaminopimeloyl-D-alanyl-D-alanine_c0 	 
+rxn01301_c0	L-Homoserine NAD oxidoreductase c0	<	kb|g.575.peg.1702	Methionine Biosynthesis	|1.1.1.3|	H_c0 + NADH_c0 + L-Aspartate4-semialdehyde_c0  <=> NAD_c0 + L-Homoserine_c0 	 
+rxn07191_c0	D-glyceraldehyde-3-phosphate ferredoxin oxidoreductase c0	>	kb|g.575.peg.945	Glycolysis and Gluconeogenesis	|1.2.7.6|	H2O_c0 + Glyceraldehyde3-phosphate_c0 + Oxidizedferredoxin_c0  <=> 3 H_c0 + 3-Phosphoglycerate_c0 + Reducedferredoxin_c0 	 
+rxn04046_c0	S-adenosyl-L-methionine cobalt-factor-II C20-methyltransferase c0	=	kb|g.575.peg.319	Coenzyme B12 Biosynthesis	|2.1.1.151|	S-Adenosyl-L-methionine_c0 + Cobalt-precorrin_2_c0  <=> H_c0 + S-Adenosyl-homocysteine_c0 + Cobalt-precorrin_3_c0 	 
+rxn13782_c0	Protein biosynthesis c0	>	(kb|g.575.peg.1060 and kb|g.575.peg.0326 and kb|g.575.peg.0946 and kb|g.575.peg.0575 and kb|g.575.peg.0397 and kb|g.575.peg.1592 and kb|g.575.peg.1255 and kb|g.575.peg.1011 and kb|g.575.peg.1026 and kb|g.575.peg.1474 and kb|g.575.peg.0697 and kb|g.575.peg.1510 and kb|g.575.peg.0263 and kb|g.575.peg.1614 and kb|g.575.peg.0584 and kb|g.575.peg.1496 and kb|g.575.peg.0414 and kb|g.575.peg.1616)	Ribosome LSU (Bacteria)		 -> Protein_biosynthesis_c0 	 
+rxn03407_c0	Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine- c0	>	kb|g.575.peg.1206	Peptidoglycan Biosynthesis	|6.3.1.2|	ATP_c0 + NH3_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-alanyl-D-isoglutaminyl-L-lysyl-D-alanyl-D-alanine_c0 	 
+rxn01682_c0	1S 2R-1-C-indol-3-ylglycerol 3-phosphate c0	=	(kb|g.575.peg.1002 and kb|g.575.peg.1003)	Tryptophan Synthesis	4.1.2.8|4.2.1.20	Indoleglycerol_phosphate_c0  <=> Glyceraldehyde3-phosphate_c0 + indol_c0 	 
+rxn02474_c0	5-amino-6-5-phosphoribitylaminouracil NADP 1'-oxidoreductase c0	=	kb|g.575.peg.1348	Riboflavin, FMN, and FAD Metabolism	1.1.1.193	NADP_c0 + 5-Amino-6-5-phosphoribitylaminouracil_c0  <=> H_c0 + NADPH_c0 + 5-Amino-6-5-phosphoribosylaminouracil_c0 	 
+rxn10311_c0	anteisoheptadecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Anteisoheptadecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Anteisoheptadecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn01486_c0	trans trans-Farnesyl-diphosphate isopentenyl-diphosphate c0	>	kb|g.575.peg.045	Archaeal Lipids	|2.5.1.29|	Isopentenyldiphosphate_c0 + Farnesyldiphosphate_c0  -> PPi_c0 + Geranylgeranyl_diphosphate_c0 	 
+rxn00898_c0	2 3-Dihydroxy-3-methylbutanoate hydro-lyase c0	>	kb|g.575.peg.318	Branched Chain Amino Acid Biosynthesis	4.2.1.9	2_3-Dihydroxy-isovalerate_c0  -> H2O_c0 + 3-Methyl-2-oxobutanoate_c0 	 
+rxn01069_c0	O-Phospho-L-homoserine phospho-lyase adding water c0	>	kb|g.575.peg.135	Threonine and Homoserine Biosynthesis	4.2.3.1|4.2.99.2	H2O_c0 + O-Phospho-L-homoserine_c0  -> H_c0 + L-Threonine_c0 + Phosphate_c0 	 
+rxn02113_c0	2-Acetolactate carboxy-lyase c0	>	kb|g.575.peg.613	Acetoin, Butanediol Metabolism	|4.1.1.5|	H_c0 + ALCTT_c0  -> CO2_c0 + ACTN_c0 	 
+rxn00117_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + UDP_c0  <=> ADP_c0 + UTP_c0 	 
+rxn00555_c0	L-Glutamine D-fructose-6-phosphate aminotransferase hexose c0	=	kb|g.575.peg.1680	Formaldehyde Assimilation: Ribulose Monophosphate Pathway	2.6.1.16	D-fructose-6-phosphate_c0 + L-Glutamine_c0  <=> L-Glutamate_c0 + D-Glucosamine_phosphate_c0 	 
+rxn00260_c0	L-Aspartate 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.1396 or kb|g.575.peg.1216 or kb|g.575.peg.1072 or kb|g.575.peg.0391 or kb|g.575.peg.1527)	Amino Acid Biosynthesis	2.6.1.1	L-Aspartate_c0 + 2-Oxoglutarate_c0  <=> Oxaloacetate_c0 + L-Glutamate_c0 	 
+rxn02484_c0	ATP 4-amino-5-hydroxymethyl-2-methylpyrimidine 5-phosphotransferase c0	=	kb|g.575.peg.1639	Thiamin Biosynthesis	2.7.1.49	ATP_c0 + Toxopyrimidine_c0  <=> ADP_c0 + 4-Amino-5-phosphomethyl-2-methylpyrimidine_c0 	 
+rxn00527_c0	L-Tyrosine 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.0315 and kb|g.575.peg.0316) or (kb|g.575.peg.0713 and kb|g.575.peg.0714)	Amino Acid Biosynthesis	2.6.1.1|2.6.1.1 or 2.6.1.9|2.6.1.5|2.6.1.57|2.6.1.9	2-Oxoglutarate_c0 + L-Tyrosine_c0  <=> L-Glutamate_c0 + p-hydroxyphenylpyruvate_c0 	 
+rxn05171_c0	Nitrate-ABC transport c0	>	kb|g.575.peg.1260 or kb|g.575.peg.1197 or kb|g.575.peg.1198	Transport		H2O_c0 + ATP_c0 + Nitrate_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Nitrate_c0 	 
+rxn04052_c0	precorrin-8X methylmutase c0	=	kb|g.575.peg.330	Coenzyme B12 Biosynthesis	|5.4.1.2|	Cobalt-precorrin_8_c0  <=> Cobyrinate_c0 	 
+rxn13783_c0	DNA replication c0	>	((kb|g.575.peg.402 or kb|g.575.peg.1397) and kb|g.575.peg.1516 and kb|g.575.peg.594 and kb|g.575.peg.956 and kb|g.575.peg.1286 and kb|g.575.peg.970)	DNA-Replication		 -> DNA_replication_c0 	 
+rxn04045_c0	sirohydrochlorin cobalt-lyase c0	=	kb|g.575.peg.164	Coenzyme B12 Biosynthesis	|4.99.1.3|	Sirohydrochlorin_c0 + Co2_c0 + H2_c0  <=> Cobalt-precorrin_2_c0 	 
+rxn01974_c0	LL-2 6-Diaminoheptanedioate 2-epimerase c0	=	kb|g.575.peg.0917	Lysine Biosynthesis DAP Pathway	5.1.1.7	LL-2_6-Diaminopimelate_c0  <=> meso-2_6-Diaminopimelate_c0 	 
+rxn12645_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + gly-asn-L_c0  <=> Glycine_c0 + L-Asparagine_c0 	 
+rxn00299_c0	GTP 7 8-8 9-dihydrolase c0	>	kb|g.575.peg.034	Folate Biosynthesis	3.5.4.16	H2O_c0 + GTP_c0  -> H_c0 + Formate_c0 + 7_8-Dihydroneopterin_3'-triphosphate_c0 	 
+rxn00839_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + dADP_c0  <=> ADP_c0 + dATP_c0 	 
+rxn03020_c0	5-Methyl-5 6 7 8-tetrahydromethanopterin 2-mercaptoethanesulfonate c0	=	kb|g.575.peg.1560 and kb|g.575.peg.1561 and kb|g.575.peg.1562 and kb|g.575.peg.1563 and kb|g.575.peg.1564 and kb|g.575.peg.1565 and kb|g.575.peg.1566 and kb|g.575.peg.1567	Methanogenesis	|2.1.1.86|	5-Methyl-H4MPT_c0 + CoM_c0 + 2 Na_c0  <=> Methyl_CoM_c0 + H4MPT_c0 + 2 Na_e0 	 
+rxn00283_c0	L-Alanine racemase c0	=	kb|g.575.peg.1512	Alanine Biosynthesis	5.1.1.1	L-Alanine_c0  <=> D-Alanine_c0 	 
+rxn01022_c0	5'-Methylthioadenosine orthophosphate c0	=	kb|g.575.peg.0185	Methionine Salvage	|2.4.2.28|	H_c0 + Phosphate_c0 + 5-Methylthioadenosine_c0  <=> Adenine_c0 + methylthioribose-1-phosphate_c0 	 
+rxn10221_c0	anteisoheptadecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dianteisoheptadecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-dianteisoheptadecanoylglycerol_c0 	 
+rxn09177_c0	phosphopantothenate-cysteine ligase c0	>	(kb|g.575.peg.204 or kb|g.575.peg.1606)	Coenzyme A Biosynthesis	6.3.2.5	CTP_c0 + L-Cysteine_c0 + 4-phosphopantothenate_c0  -> CMP_c0 + PPi_c0 + R-4'-Phosphopantothenoyl-L-cysteine_c0 	 
+rxn03437_c0	R-2 3-Dihydroxy-3-methylpentanoate hydro-lyase c0	>	kb|g.575.peg.0318	Branched Chain Amino Acid Biosynthesis	|4.2.1.9|	2_3-Dihydroxy-3-methylvalerate_c0  -> H2O_c0 + 3MOP_c0 	 
+rxn02320_c0	5-Amino-2-oxopentanoate 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.1216 and kb|g.575.peg.1527)	Histidine Biosynthesis	2.6.1.9	2-Oxoglutarate_c0 + L-histidinol-phosphate_c0  <=> L-Glutamate_c0 + imidazole_acetol-phosphate_c0 	 
+rxn07587_c0	rxn07587 c0	=	kb|g.575.peg.1203	Coenzyme B12 Biosynthesis		Cobalt-precorrin_5B_c0 + S-Adenosyl-L-methionine_c0  <=> H_c0 + S-Adenosyl-homocysteine_c0 + Cobalt-precorrin_6_c0 	 
+rxn02507_c0	1-2-Carboxyphenylamino-1-deoxy-D-ribulose-5-phosphate c0	>	kb|g.575.peg.1008	Tryptophan Synthesis	4.1.1.48	H_c0 + 1-2-carboxyphenylamino-1-deoxyribulose_5-phosphate_c0  -> CO2_c0 + H2O_c0 + Indoleglycerol_phosphate_c0 	 
+rxn00669_c0	Propanoate CoA ligase ADP-forming c0	=	(kb|g.575.peg.0148)	Protein Acetylation and Deacetylation in Bacteria	6.2.1.13	CoA_c0 + ATP_c0 + Propionate_c0  <=> Phosphate_c0 + ADP_c0 + Propionyl-CoA_c0 	 
+rxn01333_c0	Sedoheptulose-7-phosphate D-glyceraldehyde-3-phosphate c0	=	kb|g.575.peg.1308	Folate Biosynthesis; Pentose Phosphate Pathway	2.2.1.2	Sedoheptulose7-phosphate_c0 + Glyceraldehyde3-phosphate_c0  <=> D-fructose-6-phosphate_c0 + D-Erythrose4-phosphate_c0 	 
+rxn00714_c0	P1 P4-Bis5'-nucleosyl-tetraphosphate nucleotidohydrolase c0	>	kb|g.575.peg.331	Pyrimidine Conversions	|3.6.1.17|	H2O_c0 + UppppU_c0  -> UMP_c0 + UTP_c0 	 
+rxn01434_c0	L-Citrulline L-aspartate ligase AMP-forming c0	=	kb|g.575.peg.0073	Arginine Biosynthesis	6.3.4.5	ATP_c0 + L-Aspartate_c0 + Citrulline_c0  <=> L-Argininosuccinate_c0 + PPi_c0 + AMP_c0 	 
+rxn01116_c0	D-Ribulose-5-phosphate 3-epimerase c0	=	kb|g.575.peg.1114	Pentose Phosphate Pathway	5.1.3.1	D-Ribulose5-phosphate_c0  <=> D-Xylulose5-phosphate_c0 	 
+rxn08308_c0	CDP-diacylglycerol synthetase n-C14 1 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-ditetradec-7-enoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-ditetradec-7-enoylglycerol_c0 	 
+rxn00409_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + CDP_c0  <=> ADP_c0 + CTP_c0 	 
+rxn02213_c0	3-Dehydroquinate hydro-lyase c0	>	kb|g.575.peg.1394	Chorismate Synthesis	4.2.1.10	5-Dehydroquinate_c0  -> H2O_c0 + 3-Dehydroshikimate_c0 	 
+rxn03062_c0	3-Isopropylmalate NAD oxidoreductase c0	=	kb|g.575.peg.539	Branched Chain Amino Acid Biosynthesis	1.1.1.85	NAD_c0 + 3-Isopropylmalate_c0  <=> H_c0 + NADH_c0 + 2-isopropyl-3-oxosuccinate_c0 	 
+rxn03446_c0	O-Phospho-4-hydroxy-L-threonine phospho-lyase adding water c0	>	kb|g.575.peg.0135	Threonine and Homoserine Biosynthesis	|4.2.3.1|	H2O_c0 + 4-Phosphonooxy-threonine_c0  -> H_c0 + Phosphate_c0 + 4-Hydroxy-L-threonine_c0 	 
+rxn01519_c0	dUTP nucleotidohydrolase c0	>	kb|g.575.peg.1075 or kb|g.575.peg.1426	Folate Biosynthesis	3.6.1.19|3.6.1.23	H2O_c0 + dUTP_c0  -> PPi_c0 + dUMP_c0 	 
+rxn00029_c0	5-Aminolevulinate hydro-lyaseadding 5-aminolevulinate and c0	>	kb|g.575.peg.1258	Heme and Siroheme Biosynthesis	4.2.1.24	2 5-Aminolevulinate_c0  -> H_c0 + 2 H2O_c0 + Porphobilinogen_c0 	 
+rxn03491_c0	S-Adenosyl-L-methionine 1-precorrin-6Y C5 15-methyltransferase c0	=	(kb|g.575.peg.1227 or kb|g.575.peg.1221)	Coenzyme B12 Biosynthesis	|2.1.1.132|	Precorrin_6B_c0 + 2 S-Adenosyl-L-methionine_c0  <=> 2 H_c0 + CO2_c0 + 2 S-Adenosyl-homocysteine_c0 + Precorrin_8_c0 	 
+rxn01964_c0	L-Serine hydro-lyase adding indoleglycerol-phosphate c0	>	(kb|g.575.peg.1002 and kb|g.575.peg.1003)	Tryptophan Synthesis	4.2.1.20	L-Serine_c0 + Indoleglycerol_phosphate_c0  -> H2O_c0 + Glyceraldehyde3-phosphate_c0 + L-Tryptophan_c0 	 
+rxn12510_c0	ATP pantothenate 4'-phosphotransferase c0	=	kb|g.575.peg.0398	Coenzyme A Biosynthesis	2.7.1.33	ATP_c0 + PAN_c0  <=> ADP_c0 + 4-phosphopantothenate_c0 	 
+rxn09207_c0	Phosphatidylserine syntase n-C14 1 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-ditetradec-7-enoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_ditetradec-7-enoyl_c0 	 
+rxn02380_c0	beta-D-Glucose 6-phosphate ketol-isomerase c0	=	kb|g.575.peg.1295	Glycolysis and Gluconeogenesis	|5.3.1.9|	beta-D-Glucose_6-phosphate_c0  <=> D-fructose-6-phosphate_c0 	 
+rxn00474_c0	L-Serine hydro-lyase adding indoleglycerol-phosphate c0	>	(kb|g.575.peg.1002 and kb|g.575.peg.1003)	Tryptophan Synthesis	4.2.1.20	L-Serine_c0 + indol_c0  -> H2O_c0 + L-Tryptophan_c0 	 
+rxn03435_c0	R-2 3-Dihydroxy-3-methylpentanoate NADP oxidoreductase c0	=	kb|g.575.peg.654	Coenzyme A Biosynthesis; Branched Chain Amino Acid Biosynthesis 	|1.1.1.86|	NADP_c0 + 2_3-Dihydroxy-3-methylvalerate_c0  <=> H_c0 + NADPH_c0 + R-3-Hydroxy-3-methyl-2-oxopentanoate_c0 	 
+rxn01673_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + dCDP_c0  <=> ADP_c0 + dCTP_c0 	 
+rxn12845_c0	Gly-Leu aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation	|3.4.11.2|	H2O_c0 + Gly-Leu_c0  <=> Glycine_c0 + L-Leucine_c0 	 
+rxn00085_c0	L-Glutamate NADP oxidoreductase transaminating c0	=	kb|g.575.peg.0082 and kb|g.575.peg.0081 and kb|g.575.peg.0080	Glutamine/Glutamate/Aspartate/Asparagine Biosynthesis	1.4.1.13	NADP_c0 + 2 L-Glutamate_c0  <=> H_c0 + NADPH_c0 + L-Glutamine_c0 + 2-Oxoglutarate_c0 	 
+rxn00832_c0	IMP 1 2-hydrolase decyclizing c0	=	(kb|g.575.peg.1373 or kb|g.575.peg.1310)	De Novo Purine Biosynthesis	3.5.4.10	H2O_c0 + IMP_c0  <=> FAICAR_c0 	 
+rxn00295_c0	UDP-N-acetyl-D-glucosamine 4-epimerase c0	=	kb|g.575.peg.1090	N-Linked Glycosylation in Bacteria	|5.1.3.7|	UDP-N-acetylglucosamine_c0  <=> UDP-N-acetyl-D-galactosamine_c0 	 
+rxn02187_c0	2-Acetolactate methylmutase c0	=	kb|g.575.peg.654	Valine, Leucine, and Isoleucine Biosynthesis	|5.4.99.3|1.1.1.86|	ALCTT_c0  <=> 2-Oxo-3-hydroxyisovalerate_c0 	 
+rxn01219_c0	ATP CMP phosphotransferase c0	=	kb|g.575.peg.0626	Pyrimidine Conversions	2.7.4.14	ATP_c0 + dCMP_c0  <=> ADP_c0 + dCDP_c0 	 
+rxn03514_c0	S-adenosyl-L-methionine precorrin-4 C11 methyltransferase c0	=	kb|g.575.peg.1662	Coenzyme B12 Biosynthesis	|2.1.1.133|	S-Adenosyl-L-methionine_c0 + Precorrin_4_c0  <=> H_c0 + S-Adenosyl-homocysteine_c0 + Precorrin_5_c0 	 
+rxn01270_c0	L-Aspartate 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.1072 or kb|g.575.peg.1527)	Phenylalanine and Tyrosine Branches from Chorismate	|2.6.1.57|2.6.1.78|	Oxaloacetate_c0 + Pretyrosine_c0  <=> L-Aspartate_c0 + Prephenate_c0 	 
+rxn08309_c0	CDP-diacylglycerol synthetase n-C16 0 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dihexadecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-dihexadecanoylglycerol_c0 	 
+rxn08312_c0	CDP-diacylglycerol synthetase n-C18 1 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dioctadec-11-enoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-dioctadec-11-enoylglycerol_c0 	 
+rxn05144_c0	rxn05144 c0	>	(kb|g.575.peg.103 or kb|g.575.peg.1656)	Pyridoxin(Vitamin B6) Biosynthesis		L-Glutamine_c0 + Glyceraldehyde3-phosphate_c0 + D-Ribulose5-phosphate_c0  -> 2 H_c0 + 3 H2O_c0 + Phosphate_c0 + L-Glutamate_c0 + Pyridoxal_phosphate_c0 	 
+rxn00410_c0	UTP ammonia ligaseADP-forming c0	=	kb|g.575.peg.893	Pyrimidine Conversions	|6.3.4.2|	ATP_c0 + NH3_c0 + UTP_c0  <=> 2 H_c0 + Phosphate_c0 + ADP_c0 + CTP_c0 	 
+rxn05221_c0	Na proline symport c0	=	((kb|g.575.peg.1700 or kb|g.575.peg.0220) or kb|g.575.peg.0221)	Transport		Na_e0 + L-Proline_e0  <=> Na_c0 + L-Proline_c0 	 
+rxn09210_c0	Phosphatidylserine syntase n-C18 0 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dioctadecanoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_dioctadecanoyl_c0 	 
+rxn00782_c0	D-Glyceraldehyde-3-phosphate NADP oxidoreductasephosphorylating c0	>	kb|g.575.peg.0325	Glycolysis and Gluconeogenesis	|1.2.1.12|1.2.1.13|1.2.1.59|	NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0  -> NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0 	 
+rxn01607_c0	ATP R-mevalonate 5-phosphotransferase c0	=	kb|g.575.peg.1335	Isoprenoid Biosynthesis; Archaeal Lipids	|2.7.1.36|	ATP_c0 + Mevalonic_acid_c0  <=> ADP_c0 + 5-phosphomevalonate_c0 	 
+rxn01000_c0	Prephenate hydro-lyase decarboxylating c0	>	kb|g.575.peg.1528	Phenylalanine and Tyrosine Branches from Chorismate	4.2.1.51|4.2.1.91	H_c0 + Prephenate_c0  -> CO2_c0 + H2O_c0 + Phenylpyruvate_c0 	 
+rxn00675_c0	Propinol adenylate CoA ligase AMP-forming c0	>	kb|g.575.peg.0148	Protein Acetylation and Deacetylation in Bacteria	|6.2.1.1|6.2.1.17|	CoA_c0 + Propionyladenylate_c0  -> AMP_c0 + Propionyl-CoA_c0 	 
+rxn02305_c0	2-Methyl-4-amino-5-hydroxymethylpyrimidine-diphosphate 4-methyl-5- c0	=	kb|g.575.peg.1139	Thiamin Biosynthesis	2.5.1.3	H_c0 + 4-Amino-2-methyl-5-diphosphomethylpyrimidine_c0 + 4-Methyl-5-2-phosphoethyl-thiazole_c0  <=> PPi_c0 + Thiamine_phosphate_c0 	 
+rxn02296_c0	6-Carboxyhyxanoate CoA ligase AMP-forming c0	>	kb|g.575.peg.1575	Biotin Biosynthesis	|6.2.1.14|	H_c0 + CoA_c0 + ATP_c0 + Pimelate_c0  -> PPi_c0 + AMP_c0 + Pimeloyl-CoA_c0 	 
+rxn12641_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + L-alanylglycine_c0  <=> L-Alanine_c0 + Glycine_c0 	 
+rxn10315_c0	isohexadecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Isohexadecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Isohexadecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn00711_c0	UMP pyrophosphate phosphoribosyltransferase c0	>	(kb|g.575.peg.0680)	De Novo Pyrimidine Synthesis	2.4.2.9	Uracil_c0 + PRPP_c0  -> PPi_c0 + UMP_c0 	 
+rxn10309_c0	stearoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Stearoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Stearoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn12633_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + ala-L-asp-L_c0  <=> L-Alanine_c0 + L-Aspartate_c0 	 
+rxn05250_c0	FACOAL160ISO c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa6_c0  -> PPi_c0 + AMP_c0 + fa6coa_c0 	 
+rxn03174_c0	2-Amino-4-hydroxy-6-erythro-1 2 3-trihydroxypropyl c0	>	kb|g.575.peg.034	Folate Biosynthesis	|3.5.4.16|	2_5-Diamino-6-5'-triphosphoryl-3'_4'-trihydroxy-2'-oxopentyl-_amino-4-oxopyrimidine_c0  -> H2O_c0 + 7_8-Dihydroneopterin_3'-triphosphate_c0 	 
+rxn00763_c0	Glycerol NAD oxidoreductase c0	=	kb|g.575.peg.0802	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	1.1.1.1|1.1.1.2|1.1.1.21|1.1.1.72	NAD_c0 + Glycerol_c0  <=> H_c0 + NADH_c0 + D-Glyceraldehyde_c0 	 
+rxn00138_c0	Deamino-NAD ammonia ligase AMP-forming c0	>	kb|g.575.peg.1349	NAD/NADP Cofactor Biosynthesis	6.3.1.5	ATP_c0 + NH3_c0 + Deamido-NAD_c0  -> NAD_c0 + PPi_c0 + AMP_c0 	 
+rxn03136_c0	1-5'-Phosphoribosyl-5-amino-4-N-succinocarboxamide-imidazole c0	=	kb|g.575.peg.971	De Novo Purine Biosynthesis	4.3.2.2	SAICAR_c0  <=> Fumarate_c0 + AICAR_c0 	 
+rxn05165_c0	L-Proline-ABC transport c0	>	kb|g.575.peg.866 or kb|g.575.peg.867 or kb|g.575.peg.868	Transport		H2O_c0 + ATP_c0 + L-Proline_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + L-Proline_c0 	 
+rxn00988_c0	Acetoacetate CoA ligase AMP-forming c0	>	(kb|g.575.peg.566)	Branched Chain Amino Acid Degradation Regulons	|6.2.1.16|	H_c0 + CoA_c0 + ATP_c0 + Acetoacetate_c0  -> PPi_c0 + AMP_c0 + Acetoacetyl-CoA_c0 	 
+rxn05236_c0	Ribonucleotide reductase UTP c0	>	kb|g.575.peg.227	Ribonucleotide Reduction	1.17.4.2	trdrd_c0 + UTP_c0  -> trdox_c0 + H2O_c0 + dUTP_c0 	 
+rxn02835_c0	1-5-phospho-D-ribosyl-AMP 1 6-hydrolase c0	=	(kb|g.575.peg.0280 and kb|g.575.peg.0051)	Histidine Biosynthesis	3.5.4.19	H2O_c0 + Phosphoribosyl-AMP_c0  <=> phosphoribosylformiminoaicar-phosphate_c0 	 
+rxn00726_c0	Chorismate pyruvate-lyase amino-accepting c0	>	(kb|g.575.peg.1006 and kb|g.575.peg.1005)	Tryptophan Synthesis	|4.1.3.27|	NH3_c0 + Chorismate_c0  -> H_c0 + H2O_c0 + Pyruvate_c0 + Anthranilate_c0 	 
+rxn03147_c0	1-5-Phosphoribosyl-5-amino-4-carboxyimidazole L-aspartate ligase c0	=	kb|g.575.peg.0540	De Novo Purine Biosynthesis	6.3.2.6	5'-Phosphoribosyl-4-carboxy-5-aminoimidazole_c0 + ATP_c0 + L-Aspartate_c0  -> 2 H_c0 + Phosphate_c0 + ADP_c0 + SAICAR_c0 	 
+rxn00650_c0	membrane alanyl aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation	|3.4.11.2|3.4.11.1|3.4.11.23|3.4.13.3|	H2O_c0 + Cys-Gly_c0  <=> Glycine_c0 + L-Cysteine_c0 	 
+rxn01241_c0	Dihydrolipoamide NAD oxidoreductase c0	=	kb|g.575.peg.1332	TCA Cycle	|1.8.1.4|	NAD_c0 + Dihydrolipoamide_c0  <=> H_c0 + NADH_c0 + Lipoamide_c0 	 
+rxn10229_c0	isopentadecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-diisopentadecanoylglycerol_c0  -> H_c0 + CMP_c0 + Diisopentadecanoylphosphatidylserine_c0 	 
+rxn00776_c0	Uracil hydro-lyase adding D-ribose 5-phosphate c0	>	(kb|g.575.peg.0268)	tRNA Modification (Bacteria); rRNA Modification (Bacteria)	|4.2.1.70|	ribose-5-phosphate_c0 + Uracil_c0  -> H2O_c0 + Pseudouridine_5'-phosphate_c0 	 
+rxn12646_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + Gly-Gln_c0  <=> Glycine_c0 + L-Glutamine_c0 	 
+rxn09296_c0	hydrogen peroxide reductase thioredoxin c0	>	(kb|g.575.peg.1635 or kb|g.575.peg.0958)	Glycine Reductase, Sarcosine Reductase, and Betaine Reductase		trdrd_c0 + H2O2_c0  -> trdox_c0 + 2 H2O_c0 	 
+rxn01255_c0	5-O-1-Carboxyvinyl-3-phosphoshikimate phosphate-lyase c0	>	kb|g.575.peg.1333	Chorismate Synthesis	4.2.3.5	5-O-1-Carboxyvinyl-3-phosphoshikimate_c0  -> H_c0 + Phosphate_c0 + Chorismate_c0 	 
+rxn03194_c0	S-2-Aceto-2-hydroxybutanoate pyruvate-lyase carboxylating c0	=	(kb|g.575.peg.0651 and kb|g.575.peg.0650)	Branched Chain Amino Acid Biosynthesis; Acetoin, Butanediol Metabolism	|2.2.1.6|	2-Hydroxyethyl-ThPP_c0 + 2-Oxobutyrate_c0  <=> 2-Aceto-2-hydroxybutanoate_c0 + TPP_c0 	 
+rxn10222_c0	isotetradecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-diisotetradecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-diisotetradecanoylglycerol_c0 	 
+rxn11938_c0	Formylmethanofuran NAD oxidoreductase c0	=	(kb|g.575.peg.1244 and kb|g.575.peg.1245 and kb|g.575.peg.1246 and kb|g.575.peg.1247 and kb|g.575.peg.1248 and (kb|g.575.peg.1249 or kb|g.575.peg.070)) or (kb|g.575.peg.508 and kb|g.575.peg.509 and kb|g.575.peg.510 and (kb|g.575.peg.511 or kb|g.575.peg.512))	Methanogenesis	|1.2.99.5|	H2O_c0 + Oxidizedferredoxin_c0 + Formylmethanofuran_c0  <=> H_c0 + CO2_c0 + Reducedferredoxin_c0 + Methanofuran_c0 	 
+rxn02287_c0	S-Adenosyl-L-methionine uroporphyrin-III C-methyltransferase c0	=	kb|g.575.peg.0966	Coenzyme B12 Biosynthesis	|2.1.1.107|	2 S-Adenosyl-L-methionine_c0 + UroporphyrinogenIII_c0  <=> 2 H_c0 + 2 S-Adenosyl-homocysteine_c0 + Precorrin_2_c0 	 
+rxn02475_c0	2 5-Diamino-6-hydroxy-4-5-phosphoribosylamino-pyrimidine c0	>	(kb|g.575.peg.1348)	Riboflavin, FMN, and FAD Metabolism	3.5.4.26	H_c0 + H2O_c0 + 2_5-Diamino-6-5'-phosphoribosylamino-4-pyrimidineone_c0  -> NH3_c0 + 5-Amino-6-5-phosphoribosylaminouracil_c0 	 
+rxn00147_c0	ATP pyruvate water phosphotransferase c0	>	kb|g.575.peg.1094	Glycolysis and Gluconeogenesis	2.7.9.2	H2O_c0 + ATP_c0 + Pyruvate_c0  -> H_c0 + Phosphate_c0 + Phosphoenolpyruvate_c0 + AMP_c0 	 
+rxn02774_c0	S-Adenosyl-L-methionine uroporphyrin-III C-methyltransferase c0	=	(kb|g.575.peg.0966 or kb|g.575.peg.0089)	Heme and Siroheme Biosynthesis	|1.3.1.76|2.1.1.107|	NAD_c0 + Precorrin_2_c0  <=> H_c0 + NADH_c0 + Sirohydrochlorin_c0 	 
+rxn05172_c0	Taurine-ABC transport c0	>	kb|g.575.peg.1260 or kb|g.575.peg.1197 or kb|g.575.peg.1198	Transport	|3.A.1.17|	H2O_c0 + ATP_c0 + Taurine_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Taurine_c0 	 
+rxn03057_c0	5-Methylthio-5-deoxy-D-ribose-1-phosphate ketol-isomerase c0	=	kb|g.575.peg.1618	Methionine Salvage	5.3.1.23	methylthioribose-1-phosphate_c0  <=> methylthioribulose-1-phosphate_c0 	 
+rxn01485_c0	D-Glucosamine 1-phosphate 1 6-phosphomutase c0	=	kb|g.575.peg.1077	Sialic Acid Metabolism	5.4.2.10|5.4.2.2	D-Glucosamine1-phosphate_c0  <=> D-Glucosamine_phosphate_c0 	 
+rxn13784_c0	RNA transcription c0	>	(kb|g.575.peg.1526 and kb|g.575.peg.323)	tRNA Modification (Bacteria)		 -> RNA_transcription_c0 	 
+rxn00245_c0	R-Tartrate hydro-lyase c0	>	(kb|g.575.peg.1548 or kb|g.575.peg.130)	None	4.2.1.32|4.2.1.81	Tartrate_c0  -> H2O_c0 + Oxaloacetate_c0 	 
+rxn01629_c0	S-4-Amino-5-oxopentanoate 4 5-aminomutase c0	=	kb|g.575.peg.224	Heme and Siroheme Biosynthesis	5.4.3.8	5-Aminolevulinate_c0  <=> L-Glutamate1-semialdehyde_c0 	 
+rxn06874_c0	reduced ferredoxin dinitrogen oxidoreductase ATP-hydrolysing c0	>	kb|g.575.peg.853 and kb|g.575.peg.856 and kb|g.575.peg.857 and kb|g.575.peg.858 and kb|g.575.peg.859 and kb|g.575.peg.860	Nitrogen Fixation	|1.18.6.1|	16 H2O_c0 + 16 ATP_c0 + 4 Reducedferredoxin_c0 + N2_c0  <=> 6 H_c0 + 16 Phosphate_c0 + 16 ADP_c0 + 2 NH3_c0 + 4 Oxidizedferredoxin_c0 + H2_c0 	 
+rxn06299_c0	Hydrogen acceptor oxidoreductase c0	=	(kb|g.575.peg.1382 and kb|g.575.peg.1383 and kb|g.575.peg.1384 and kb|g.575.peg.1385) or (kb|g.575.peg.817 and kb|g.575.peg.818 and kb|g.575.peg.819 and kb|g.575.peg.820)	Methanogenesis	|1.12.98.1|	H2_c0 + Coenzyme_F420_c0  <=> Reduced_coenzyme_F420_c0 	 
+rxn05313_c0	PIt8 c0	=	kb|g.575.peg.666	Transport	|TC-2.A.58|2.A.58|	Phosphate_e0 + 3 Na_e0  <=> Phosphate_c0 + 3 Na_c0 	 
+rxn00966_c0	chorismate pyruvate-lyase 4-hydroxybenzoate-forming c0	>	kb|g.575.peg.0543	Ubiquionine Biosynthesis	|4.1.3.40|	Chorismate_c0  -> Pyruvate_c0 + 4-Hydroxybenzoate_c0 	 
+rxn00785_c0	D-Fructose 6-phosphate D-glyceraldehyde-3-phosphate glycolaldehyde c0	=	(kb|g.575.peg.1113 or kb|g.575.peg.1115)	Pentose Phosphate Pathway	2.2.1.1	D-fructose-6-phosphate_c0 + Glyceraldehyde3-phosphate_c0  <=> D-Xylulose5-phosphate_c0 + D-Erythrose4-phosphate_c0 	 
+rxn03084_c0	5'-Phosphoribosylformylglycinamide L-glutamine amido-ligase c0	>	kb|g.575.peg.178 or kb|g.575.peg.179	De Novo Purine Biosynthesis	6.3.5.3	H2O_c0 + ATP_c0 + L-Glutamine_c0 + N-Formyl-GAR_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + 5'-Phosphoribosylformylglycinamidine_c0 + L-Glutamate_c0 	 
+rxn00011_c0	pyruvate thiamin diphosphate acetaldehydetransferase c0	>	(kb|g.575.peg.651 and kb|g.575.peg.650)	Methionine Degradation	|1.2.4.1|2.2.1.6|4.1.1.1|	H_c0 + Pyruvate_c0 + TPP_c0  -> CO2_c0 + 2-Hydroxyethyl-ThPP_c0 	 
+rxn00292_c0	UDP-N-acetyl-D-glucosamine 2-epimerase c0	>	(kb|g.575.peg.705 or kb|g.575.peg.357)	Sialic Acid Metabolism	|5.1.3.14|	H2O_c0 + UDP-N-acetylglucosamine_c0  -> UDP_c0 + N-Acetyl-D-mannosamine_c0 	 
+rxn05252_c0	FACOAL170ISO c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa11_c0  -> PPi_c0 + AMP_c0 + fa11coa_c0 	 
+rxn05155_c0	L-Glutamine-ABC transport c0	>	kb|g.575.peg.1224 or kb|g.575.peg.0229 or kb|g.575.peg.0455	Transport	|3.A.1.3|	H2O_c0 + ATP_c0 + L-Glutamine_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + L-Glutamine_c0 	 
+rxn01513_c0	ATP dTMP phosphotransferase c0	=	kb|g.575.peg.1034	Pyrimidine Conversions	2.7.4.12|2.7.4.9	ATP_c0 + dTMP_c0  <=> ADP_c0 + dTDP_c0 	 
+rxn02476_c0	Phosphoenolpyruvate 3-phosphoshikimate c0	=	kb|g.575.peg.1205	Chorismate Synthesis	2.5.1.19	Phosphoenolpyruvate_c0 + 3-phosphoshikimate_c0  <=> H_c0 + Phosphate_c0 + 5-O-1-Carboxyvinyl-3-phosphoshikimate_c0 	 
+rxn01575_c0	L-Isoleucine 2-oxoglutarate aminotransferase c0	=	kb|g.575.peg.0132	Amino Acid Biosynthesis	2.6.1.42	2-Oxoglutarate_c0 + L-Isoleucine_c0  <=> L-Glutamate_c0 + 3MOP_c0 	 
+rxn09206_c0	Phosphatidylserine syntase n-C14 0 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-ditetradecanoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_ditetradecanoyl_c0 	 
+rxn00781_c0	D-Glyceraldehyde-3-phosphate NAD oxidoreductasephosphorylating c0	=	kb|g.575.peg.325	Glycolysis and Gluconeogenesis	1.2.1.12|1.2.1.13|1.2.1.59	NADP_c0 + Phosphate_c0 + Glyceraldehyde3-phosphate_c0  <=> NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0 	 
+rxn05181_c0	Betaine-ABC transport c0	>	kb|g.575.peg.866 or kb|g.575.peg.867 or kb|g.575.peg.868	Transport	|3.A.1.12|	H2O_c0 + ATP_c0 + BET_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + BET_c0 	 
+rxn00775_c0	ADPribose ribophosphohydrolase c0	>	kb|g.575.peg.339	NAD/NADP Cofactor Biosynthesis	|3.6.1.13|	H2O_c0 + ADPribose_c0  -> ribose-5-phosphate_c0 + AMP_c0 	 
+rxn00364_c0	ATP CMP phosphotransferase c0	=	kb|g.575.peg.626	Pyrimidine Conversions	2.7.4.14	ATP_c0 + CMP_c0  <=> ADP_c0 + CDP_c0 	 
+rxn00515_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.283	Purine Conversions; Pyrimidine Conversions	|2.7.4.6|	ATP_c0 + IDP_c0  <=> ADP_c0 + ITP_c0 	 
+rxn01025_c0	5-Methylcytosine aminohydrolase c0	>	kb|g.575.peg.869	Pyrimidine Conversions	|3.5.4.1|	H_c0 + H2O_c0 + 5-Methylcytosine_c0  -> NH3_c0 + Thymine_c0 	 
+rxn02186_c0	2 3-Dihydroxy-3-methylbutanoate NADP oxidoreductase isomerizing c0	=	kb|g.575.peg.0654	Coenzyme A Biosynthesis; Branched Chain Amino Acid Biosynthesis 	1.1.1.86	H_c0 + NADPH_c0 + ALCTT_c0  <=> NADP_c0 + 2_3-Dihydroxy-isovalerate_c0 	 
+rxn10227_c0	anteisoheptadecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dianteisoheptadecanoylglycerol_c0  -> H_c0 + CMP_c0 + Dianteisoheptadecanoylphosphatidylserine_c0 	 
+rxn12846_c0	Gly-Phe aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation	|3.4.11.2|	H2O_c0 + Gly-Phe_c0  <=> Glycine_c0 + L-Phenylalanine_c0 	 
+rxn05201_c0	Hypoxanthine ion-coupled transport c0	=	kb|g.575.peg.681 or kb|g.575.peg.689	Transport		H_e0 + HYXN_e0  <=> H_c0 + HYXN_c0 	 
+rxn02789_c0	2-Isopropylmalate hydro-lyase c0	=	(kb|g.575.peg.136 or kb|g.575.peg.1149)	Branched Chain Amino Acid Biosynthesis	4.2.1.33	2-Isopropylmalate_c0  <=> H2O_c0 + 2-Isopropylmaleate_c0 	 
+rxn00830_c0	Isopentenyl-diphosphate delta3-delta2-isomerase c0	=	kb|g.575.peg.0043	Isoprenoid Biosynthesis; Archaeal Lipids	5.3.3.2	Isopentenyldiphosphate_c0  <=> DMAPP_c0 	 
+rxn08180_c0	Biotin synthase c0	>	kb|g.575.peg.1238	Biotin Biosynthesis	|2.8.1.6|	S-Adenosyl-L-methionine_c0 + Dethiobiotin_c0 + S_c0  -> H_c0 + L-Methionine_c0 + 5'-Deoxyadenosine_c0 + BIOT_c0 	 
+rxn00800_c0	N6-1 2-DicarboxyethylAMP AMP-lyase c0	=	kb|g.575.peg.971	De Novo Purine Biosynthesis	4.3.2.2	Adenylosuccinate_c0  <=> Fumarate_c0 + AMP_c0 	 
+rxn05234_c0	Ribonucleotide reductase GTP c0	>	kb|g.575.peg.0227	Ribonucleotide Reduction	1.17.4.2	trdrd_c0 + GTP_c0  -> trdox_c0 + H2O_c0 + dGTP_c0 	 
+rxn01465_c0	S-Dihydroorotate amidohydrolase c0	=	kb|g.575.peg.1009	De Novo Pyrimidine Synthesis	3.5.2.3	H2O_c0 + S-Dihydroorotate_c0  <=> H_c0 + N-Carbamoyl-L-aspartate_c0 	 
+rxn00863_c0	L-Histidinal NAD oxidoreductase c0	>	kb|g.575.peg.968	Histidine Biosynthesis	|1.1.1.23|	H2O_c0 + NAD_c0 + L-Histidinal_c0  -> 2 H_c0 + NADH_c0 + L-Histidine_c0 	 
+rxn09449_c0	fatty-acid--CoA ligase octadecanoate c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + ocdca_c0  -> PPi_c0 + AMP_c0 + strcoa_c0 	 
+rxn03436_c0	S-2-Aceto-2-hydroxybutanoate NADP oxidoreductase isomerizing c0	=	kb|g.575.peg.0654	Coenzyme A Biosynthesis; Branched Chain Amino Acid Biosynthesis 	|1.1.1.86|5.4.99.3|	2-Aceto-2-hydroxybutanoate_c0  <=> R-3-Hydroxy-3-methyl-2-oxopentanoate_c0 	 
+rxn08307_c0	CDP-diacylglycerol synthetase n-C14 0 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-ditetradecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-ditetradecanoylglycerol_c0 	 
+rxn05555_c0	iron II transport via ABC system c0	>	kb|g.575.peg.630	Transport		H2O_c0 + ATP_c0 + Fe2_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Fe2_c0 	 
+rxn02159_c0	L-Histidinol NAD oxidoreductase c0	=	kb|g.575.peg.0968	Histidine Biosynthesis	|1.1.1.23|	NAD_c0 + L-Histidinol_c0  <=> H_c0 + NADH_c0 + L-Histidinal_c0 	 
+rxn00727_c0	Chorismate pyruvate-lyase amino-accepting c0	>	(kb|g.575.peg.1006 and kb|g.575.peg.1005)	Tryptophan Synthesis	4.1.3.27	L-Glutamine_c0 + Chorismate_c0  -> H_c0 + L-Glutamate_c0 + Pyruvate_c0 + Anthranilate_c0 	 
+rxn04385_c0	L-threonine-O-3-phosphate carboxy-lyase c0	>	kb|g.575.peg.231	Coenzyme B12 Biosynthesis	|4.1.1.81|	H_c0 + L-Threonine_phosphate_c0  -> CO2_c0 + R-1-Aminopropan-2-yl_phosphate_c0 	 
+rxn01300_c0	ATP L-homoserine O-phosphotransferase c0	=	kb|g.575.peg.295	Methionine Biosynthesis	2.7.1.39	L-Homoserine_c0 + ATP_c0  <=> ADP_c0 + O-Phospho-L-homoserine_c0 	 
+rxn00175_c0	Acetate CoA ligase AMP-forming c0	>	kb|g.575.peg.148	Pyruvate Metabolism II: Acetyl-CoA, Acetogenesis from Pyruvate	6.2.1.1	H_c0 + CoA_c0 + Acetate_c0 + ATP_c0  <=> Acetyl-CoA_c0 + PPi_c0 + AMP_c0 	 
+rxn06979_c0	rxn06979 c0	=	(kb|g.575.peg.1478 or kb|g.575.peg.1477 or kb|g.575.peg.0028)	Coenzyme B12 Biosynthesis	|6.3.1.-|	2 H2O_c0 + 2 ATP_c0 + 2 L-Glutamine_c0 + Cobyrinate_c0  <=> 2 H_c0 + 2 Phosphate_c0 + 2 ADP_c0 + 2 L-Glutamate_c0 + Cob(II)yrinate_diamide_c0 	 
+rxn12642_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + Ala-His_c0  <=> L-Alanine_c0 + L-Histidine_c0 	 
+rxn05247_c0	FACOAL140ISO c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa1_c0  -> PPi_c0 + AMP_c0 + fa1coa_c0 	 
+rxn00986_c0	Propanoate CoA ligase AMP-forming c0	>	kb|g.575.peg.0148	Protein Acetylation and Deacetylation in Bacteria	|6.2.1.1|6.2.1.17|	PPi_c0 + Propionyladenylate_c0  -> H_c0 + ATP_c0 + Propionate_c0 	 
+rxn07588_c0	rxn07588 c0	=	kb|g.575.peg.1227	Coenzyme B12 Biosynthesis		S-Adenosyl-L-methionine_c0 + Cobalt-precorrin_6B_c0  <=> H_c0 + S-Adenosyl-homocysteine_c0 + Cobalt-precorrin_7_c0 	 
+rxn10473_c0	chlorideion transport out via diffusion c0	=		Transport		Cl-_e0  <=> Cl-_c0 	 
+rxn05559_c0	formate transport in via proton symport c0	=	kb|g.575.peg.1301	Transport		H_e0 + Formate_e0  <=> H_c0 + Formate_c0 	 
+rxn03068_c0	R-2 3-Dihydroxy-3-methylbutanoate NADP oxidoreductase c0	=	kb|g.575.peg.0654	Coenzyme A Biosynthesis; Branched Chain Amino Acid Biosynthesis 	|1.1.1.86|	NADP_c0 + 2_3-Dihydroxy-isovalerate_c0  <=> H_c0 + NADPH_c0 + 2-Oxo-3-hydroxyisovalerate_c0 	 
+rxn12634_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + gly-glu-L_c0  <=> Glycine_c0 + L-Glutamate_c0 	 
+rxn01269_c0	Prephenate NADP oxidoreductasedecarboxylating c0	>	kb|g.575.peg.1514	Chorismate Synthesis	|1.3.1.13|1.3.1.43|	NADP_c0 + Prephenate_c0  -> CO2_c0 + NADPH_c0 + p-hydroxyphenylpyruvate_c0 	 
+rxn04048_c0	cobalt-precorrin-4 methyltransferase c0	=	kb|g.575.peg.1662	Coenzyme B12 Biosynthesis	|2.1.1.133|	S-Adenosyl-L-methionine_c0 + Cobalt-precorrin_4_c0  <=> Cobalt-precorrin_5_c0 + S-Adenosyl-homocysteine_c0 	 
+rxn00278_c0	L-Alanine NAD oxidoreductase deaminating c0	=	kb|g.575.peg.1513	Pyruvate Alanine Serine Interconversions	|1.4.1.1|	H2O_c0 + L-Alanine_c0 + NAD_c0  <=> H_c0 + NADH_c0 + NH3_c0 + Pyruvate_c0 	 
+rxn00790_c0	5-Phosphoribosylamine pyrophosphate phosphoribosyltransferase c0	>	kb|g.575.peg.1146	De Novo Purine Biosynthesis	2.4.2.14	H2O_c0 + L-Glutamine_c0 + PRPP_c0  -> PPi_c0 + L-Glutamate_c0 + 5-Phosphoribosylamine_c0 	 
+rxn00060_c0	Porphobilinogen ammonia-lyase polymerizing c0	>	kb|g.575.peg.872	Heme and Siroheme Biosynthesis	2.5.1.61|4.3.1.8	H2O_c0 + 4 Porphobilinogen_c0  -> 4 NH3_c0 + Hydroxymethylbilane_c0 	 
+rxn04050_c0	precorrin-6A reductase c0	=	kb|g.575.peg.599	Coenzyme B12 Biosynthesis	|1.3.1.54|	H_c0 + NADPH_c0 + Cobalt-precorrin_6_c0  <=> NADP_c0 + Cobalt-precorrin_6B_c0 	 
+rxn02473_c0	D-erythro-1-Imidazol-4-ylglycerol 3-phosphate hydro-lyase c0	>	kb|g.575.peg.548	Histidine Biosynthesis	4.2.1.19	D-erythro-imidazol-glycerol-phosphate_c0  -> H2O_c0 + imidazole_acetol-phosphate_c0 	 
+rxn00834_c0	IMP NAD oxidoreductase c0	=	kb|g.575.peg.0133	Purine Conversions	1.1.1.205	H2O_c0 + NAD_c0 + IMP_c0  <=> H_c0 + NADH_c0 + XMP_c0 	 
+rxn12639_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + Ala-Gln_c0  <=> L-Alanine_c0 + L-Glutamine_c0 	 
+rxn03080_c0	6 7-Dimethyl-8-1-D-ribityllumazine 6 7-dimethyl-8-1-D-ribityl c0	=	kb|g.575.peg.50	Riboflavin, FMN, and FAD Metabolism	2.5.1.9	4-1-D-Ribitylamino-5-aminouracil_c0 + 3-4-dihydroxy-2-butanone4-phosphate_c0  <=> H_c0 + 2 H2O_c0 + Phosphate_c0 + 6-7-Dimethyl-8-1-D-ribityllumazine_c0 	 
+rxn03085_c0	5 10-Methylenetetrahydromethanopterin coenzyme-F420 oxidoreductase c0	=	kb|g.575.peg.0058	Methanogenesis	|1.5.99.11|	Reduced_coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> 5-Methyl-H4MPT_c0 + Coenzyme_F420_c0 	 
+rxn02297_c0	6-Carboxyhexanoyl-CoA L-alanine C-carboxyhexanoyltransferase c0	>	kb|g.575.peg.1574	Sphingolipid Biosynthesis; Biotin Biosynthesis	2.3.1.47	H_c0 + L-Alanine_c0 + Pimeloyl-CoA_c0  -> CO2_c0 + CoA_c0 + 8-Amino-7-oxononanoate_c0 	 
+rxn05040_c0	3 4-Dihydroxy-2-butanone 4-phosphate synthase c0	>	(kb|g.575.peg.0183)	Riboflavin, FMN, and FAD Metabolism		D-Ribulose5-phosphate_c0  -> H_c0 + Formate_c0 + 3-4-dihydroxy-2-butanone4-phosphate_c0 	 
+rxn00105_c0	ATP nicotinamide-nucleotide adenylyltransferase c0	=	kb|g.575.peg.1578	NAD/NADP Cofactor Biosynthesis	2.7.7.1|2.7.7.18	ATP_c0 + Nicotinamide_ribonucleotide_c0  <=> NAD_c0 + PPi_c0 	 
+rxn00799_c0	S-Malate hydro-lyase c0	=	(kb|g.575.peg.0130 or kb|g.575.peg.1548)	TCA Cycle	4.2.1.2	L-Malate_c0  <=> Fumarate_c0 + H2O_c0 	 
+rxn00313_c0	meso-2 6-Diaminoheptanedioate carboxy-lyase c0	>	kb|g.575.peg.1200	Lysine Biosynthesis DAP Pathway	4.1.1.20	H_c0 + meso-2_6-Diaminopimelate_c0  -> CO2_c0 + L-Lysine_c0 	 
+rxn10226_c0	isoheptadecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-diisoheptadecanoylglycerol_c0  -> H_c0 + CMP_c0 + Diisoheptadecanoylphosphatidylserine_c0 	 
+rxn05248_c0	FACOAL150anteiso c0	>	kb|g.575.peg.0566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa4_c0  -> PPi_c0 + AMP_c0 + fa4coa_c0 	 
+rxn10223_c0	isopentadecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-diisopentadecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-diisopentadecanoylglycerol_c0 	 
+rxn00285_c0	Succinate CoA ligase ADP-forming c0	=	(kb|g.575.peg.1105 and kb|g.575.peg.0955)	TCA Cycle	6.2.1.4|6.2.1.5	CoA_c0 + Succinate_c0 + ATP_c0  <=> Phosphate_c0 + ADP_c0 + Succinyl-CoA_c0 	 
+rxn10307_c0	palmitoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Palmitoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Palmitoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn00770_c0	ATP D-ribose-5-phosphate pyrophosphotransferase c0	=	kb|g.575.peg.410	Pentose Phosphate Pathway; De Novo Purine Biosynthesis	2.7.6.1	ATP_c0 + ribose-5-phosphate_c0  <=> AMP_c0 + PRPP_c0 	 
+rxn00192_c0	Acetyl-CoA L-glutamate N-acetyltransferase c0	>	kb|g.575.peg.0897	Arginine Biosynthesis	2.3.1.1	Acetyl-CoA_c0 + L-Glutamate_c0  -> H_c0 + CoA_c0 + N-Acetyl-L-glutamate_c0 	 
+rxn05938_c0	Pyruvate Oxidoreductase	=	(kb|g.575.peg.1504 and kb|g.575.peg.1502 and kb|g.575.peg.1505 and kb|g.575.peg.1507 and kb|g.575.peg.1503 and kb|g.575.peg.1506)	Pyruvate:Ferredoxin Oxidoreductase	|1.2.7.1|	H_c0 + CO2_c0 + Acetyl-CoA_c0 + Reducedferredoxin_c0  <=> CoA_c0 + Oxidizedferredoxin_c0 + Pyruvate_c0 	 
+rxn00211_c0	UDPglucose NAD oxidoreductase c0	=	kb|g.575.peg.706	Sucrose Metabolism; Teichuronic Acid Biosynthesis	1.1.1.22	H2O_c0 + 2 NAD_c0 + UDP-glucose_c0  <=> 3 H_c0 + 2 NADH_c0 + UDPglucuronate_c0 	 
+rxn04783_c0	glycinamide ribonucleotide transformylase c0	>	kb|g.575.peg.123	De Novo Purine Biosynthesis	|2.1.2.-|Undetermined|	Formate_c0 + ATP_c0 + GAR_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + N-Formyl-GAR_c0 	 
+rxn01739_c0	ATP shikimate 3-phosphotransferase c0	=	kb|g.575.peg.320	Chorismate Synthesis	2.7.1.71	ATP_c0 + Shikimate_c0  <=> ADP_c0 + 3-phosphoshikimate_c0 	 
+rxn00543_c0	Ethanol NAD oxidoreductase c0	=	kb|g.575.peg.802	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|1.1.1.1|1.1.1.71|	NAD_c0 + Ethanol_c0  <=> H_c0 + NADH_c0 + Acetaldehyde_c0 	 
+rxn05235_c0	Ribonucleotide reductase CTP c0	>	kb|g.575.peg.227	Ribonucleotide Reduction	1.17.4.2	trdrd_c0 + CTP_c0  -> trdox_c0 + H2O_c0 + dCTP_c0 	 
+rxn06591_c0	L-glutamate-semialdehyde NADP c0	=	kb|g.575.peg.0088	Heme and Siroheme Biosynthesis	|1.2.1.70|	H_c0 + NADPH_c0 + L-Glutamyl-tRNA-Glu_c0  <=> NADP_c0 + L-Glutamate1-semialdehyde_c0 + tRNA-Glu_c0 	 
+rxn00126_c0	ATP L-methione S-adenosyltransferase c0	>	kb|g.575.peg.1640	Methionine Biosynthesis	2.5.1.6	L-Methionine_c0 + H2O_c0 + ATP_c0  -> Phosphate_c0 + PPi_c0 + S-Adenosyl-L-methionine_c0 	 
+rxn00414_c0	Carbon-dioxide L-glutamine amido-ligase ADP-forming c0	>	(kb|g.575.peg.1589 and kb|g.575.peg.1013)	De Novo Pyrimidine Synthesis	6.3.5.5	H2O_c0 + 2 ATP_c0 + H2CO3_c0 + L-Glutamine_c0  -> H_c0 + Phosphate_c0 + 2 ADP_c0 + L-Glutamate_c0 + Carbamoylphosphate_c0 	 
+rxn06937_c0	L-Glutamate tRNAGlu ligase AMP-forming c0	>	kb|g.575.peg.1011	tRNA Aminoacylation; Heme and Siroheme Biosynthesis	6.1.1.17|6.1.1.24	H_c0 + ATP_c0 + L-Glutamate_c0 + tRNA-Glu_c0  -> PPi_c0 + AMP_c0 + L-Glutamyl-tRNA-Glu_c0 	 
+rxn03127_c0	2-Methylthioethanesulfonate N-7-thioheptanoyl-3-O- c0	=	kb|g.575.peg.1555 and kb|g.575.peg.1556 and kb|g.575.peg.1557 and kb|g.575.peg.1558 and kb|g.575.peg.1559	Methanogenesis	|2.8.4.1|	Methyl_CoM_c0 + HTP_c0  <=> CoM-S-S-CoB_c0 + Methane_c0 	 
+rxn10312_c0	isotetradecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Isotetradecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Isotetradecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn02508_c0	N-5-Phospho-beta-D-ribosylanthranilate ketol-isomerase c0	=	kb|g.575.peg.1004	Tryptophan Synthesis	5.3.1.24	N-5-phosphoribosyl-anthranilate_c0  <=> 1-2-carboxyphenylamino-1-deoxyribulose_5-phosphate_c0 	 
+rxn00127_c0	S-Adenosyl-L-methionine carboxy-lyase c0	>	kb|g.575.peg.1583	Polyamine Metabolism	4.1.1.50	H_c0 + S-Adenosyl-L-methionine_c0  -> CO2_c0 + S-Adenosylmethioninamine_c0 	 
+rxn05251_c0	FACOAL170anteiso c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + fa12_c0  -> PPi_c0 + AMP_c0 + fa12coa_c0 	 
+rxn02938_c0	1-5-Phospho-D-ribosyl-5-amino-4-imidazolecarboxylate carboxy-lyase c0	>	kb|g.575.peg.282	De Novo Purine Biosynthesis	|4.1.1.21|	H_c0 + 5'-Phosphoribosyl-4-carboxy-5-aminoimidazole_c0  -> CO2_c0 + AIR_c0 	 
+rxn00139_c0	AMP pyrophosphate phosphoribosyltransferase c0	>	kb|g.575.peg.660	cAMP Signaling in Bacteria; Purine Conversions	2.4.2.7|2.4.2.8	Adenine_c0 + PRPP_c0  -> PPi_c0 + AMP_c0 	 
+rxn05736_c0	fatty-acid--CoA ligase tetradecanoate c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + Myristic_acid_c0  -> PPi_c0 + AMP_c0 + Myristoyl-CoA_c0 	 
+rxn05527_c0	cytosine transport in via proton symport c0	=	(kb|g.575.peg.789)	Transport		H_e0 + Cytosine_e0  <=> H_c0 + Cytosine_c0 	 
+rxn02465_c0	N-Acetyl-L-glutamate-5-semialdehyde NADP 5-oxidoreductase c0	>	kb|g.575.peg.0116	Arginine Biosynthesis	1.2.1.38	NADPH_c0 + n-acetylglutamyl-phosphate_c0  -> NADP_c0 + Phosphate_c0 + 2-Acetamido-5-oxopentanoate_c0 	 
+rxn09205_c0	Phosphatidylserine syntase n-C12 0 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-didodecanoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_didodecanoyl_c0 	 
+rxn05957_c0	O-Succinyl-L-homoserine succinate-lyase adding cysteine c0	>	kb|g.575.peg.012	Methionine Biosynthesis	|2.5.1.48|4.2.99.9|2.5.1.-|	H2S_c0 + O-Succinyl-L-homoserine_c0  -> H_c0 + Homocysteine_c0 + Succinate_c0 	 
+rxn03513_c0	S-Adenosyl-L-methionine precorrin-3B C17-methyltransferase c0	=	kb|g.575.peg.953	Coenzyme B12 Biosynthesis	|2.1.1.131|	S-Adenosyl-L-methionine_c0 + Precorrin_3B_c0  <=> 2 H_c0 + S-Adenosyl-homocysteine_c0 + Precorrin_4_c0 	 
+rxn00549_c0	D-Fructose-1 6-bisphosphate 1-phosphohydrolase c0	=	kb|g.575.peg.0317	Glycolysis and Gluconeogenesis	3.1.3.11	H2O_c0 + D-fructose-1_6-bisphosphate_c0  -> H_c0 + Phosphate_c0 + D-fructose-6-phosphate_c0 	 
+rxn01257_c0	chorismate L-glutamine aminotransferase c0	=	kb|g.575.peg.1005	Folate Biosynthesis; Tryptophan Synthesis	|2.6.1.85|	L-Glutamine_c0 + Chorismate_c0  <=> L-Glutamate_c0 + ADC_c0 	 
+rxn01740_c0	Shikimate NADP 5-oxidoreductase c0	=	kb|g.575.peg.0936	Chorismate Synthesis	1.1.1.25|1.1.1.282	NADP_c0 + Shikimate_c0  <=> H_c0 + NADPH_c0 + 3-Dehydroshikimate_c0 	 
+rxn12847_c0	Gly-Try aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation	|3.4.11.2|	H2O_c0 + Gly-Tyr_c0  <=> Glycine_c0 + L-Tyrosine_c0 	 
+rxn00416_c0	L-aspartate L-glutamine amido-ligase AMP-forming c0	>	kb|g.575.peg.0918	Glutamine/Glutamate/Aspartate/Asparagine Biosynthesis	6.3.5.4	H2O_c0 + ATP_c0 + L-Aspartate_c0 + L-Glutamine_c0  -> PPi_c0 + L-Glutamate_c0 + AMP_c0 + L-Asparagine_c0 	 
+rxn01620_c0	L-Fuculose-1-phosphate lactaldehyde-lyase c0	=	kb|g.575.peg.1187	L-Fucose Utilization	4.1.2.17	L-Fuculose1-phosphate_c0  <=> Glycerone-phosphate_c0 + L-Lactaldehyde_c0 	 
+rxn00903_c0	L-Valine 2-oxoglutarate aminotransferase c0	=	kb|g.575.peg.132	Amino Acid Biosynthesis	2.6.1.42|2.6.1.6	2-Oxoglutarate_c0 + L-Valine_c0  <=> 3-Methyl-2-oxobutanoate_c0 + L-Glutamate_c0 	 
+rxn00947_c0	Palmitate CoA ligase AMP-forming c0	>	kb|g.575.peg.0566	HMG CoA Synthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + Palmitate_c0  -> PPi_c0 + AMP_c0 + Palmitoyl-CoA_c0 	 
+rxn10310_c0	isoheptadecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Isoheptadecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Isoheptadecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn00838_c0	IMP L-aspartate ligase GDP-forming c0	>	kb|g.575.peg.1432	Histidine Biosynthesis; Purine Conversions	6.3.4.4	L-Aspartate_c0 + GTP_c0 + IMP_c0  -> 2 H_c0 + Phosphate_c0 + Adenylosuccinate_c0 + GDP_c0 	 
+rxn00297_c0	UDP-N-acetyl-D-glucosamine 2-epimerase c0	=	(kb|g.575.peg.0705 or kb|g.575.peg.0357)	Sialic Acid Metabolism	5.1.3.14	UDP-N-acetylglucosamine_c0  <=> UDP-N-acetyl-D-mannosamine_c0 	 
+rxn00065_c0	ATP pyrophosphate-lyase cyclizing c0	>	(kb|g.575.peg.1064 or kb|g.575.peg.1120)	cAMP Signaling in Bacteria	4.6.1.1	ATP_c0  -> PPi_c0 + cAMP_c0 	 
+rxn00141_c0	S-Adenosyl-L-homocysteine hydrolase c0	=	kb|g.575.peg.0920	Methionine Biosynthesis/Degradation	3.3.1.1	H2O_c0 + S-Adenosyl-homocysteine_c0  <=> Homocysteine_c0 + Adenosine_c0 	 
+rxn01454_c0	S-3-Hydroxy-3-methylglutaryl-CoA acetoacetyl-CoA-lyase c0	>	kb|g.575.peg.1211	Isoprenoid Biosynthesis; Archaeal Lipids	|2.3.3.10|4.1.3.5|	Acetyl-CoA_c0 + H2O_c0 + Acetoacetyl-CoA_c0  -> H_c0 + CoA_c0 + HMG-CoA_c0 	 
+rxn00337_c0	ATP L-aspartate 4-phosphotransferase c0	=	kb|g.575.peg.1017	Lysine Biosynthesis DAP Pathway; Threonine and Homoserine Biosynthesis	2.7.2.4	H_c0 + ATP_c0 + L-Aspartate_c0  <=> ADP_c0 + 4-Phospho-L-aspartate_c0 	 
+rxn00777_c0	D-Ribose-5-phosphate ketol-isomerase c0	=	kb|g.575.peg.1189	Pentose Phosphate Pathway	5.3.1.6	ribose-5-phosphate_c0  <=> D-Ribulose5-phosphate_c0 	 
+rxn01512_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + dTDP_c0  <=> ADP_c0 + TTP_c0 	 
+rxn01466_c0	Geranyl-diphosphate isopentenyl-diphosphate geranyltrans-transferase c0	=	kb|g.575.peg.045	Archaeal Lipids	2.5.1.1|2.5.1.10|2.5.1.29	Isopentenyldiphosphate_c0 + Geranyldiphosphate_c0  <=> PPi_c0 + Farnesyldiphosphate_c0 	 
+rxn02185_c0	2-Acetolactate pyruvate-lyase carboxylating c0	=	(kb|g.575.peg.0651 and kb|g.575.peg.0650)	Branched Chain Amino Acid Synthesis; Acetoin, Butanediol Metabolism	|2.2.1.6|	ALCTT_c0 + TPP_c0  <=> Pyruvate_c0 + 2-Hydroxyethyl-ThPP_c0 	 
+rxn03406_c0	Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine- c0	>	kb|g.575.peg.1206	Peptidoglycan Biosynthesis; Amino Acid Biosynthesis	|6.3.1.2|	ATP_c0 + NH3_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-alanyl-D-glutamyl-L-lysyl-D-alanyl-D-alanine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-alanyl-D-glutaminyl-L-lysyl-D-alanyl-D-alanine_c0 	 
+rxn01106_c0	2-Phospho-D-glycerate 2 3-phosphomutase c0	=	(kb|g.575.peg.0598 or kb|g.575.peg.1439 or kb|g.575.peg.0112)	Glycolysis and Gluconeogenesis; Theronine and Homoserine Biosynthesis	5.4.2.1|5.4.2.4	2-Phospho-D-glycerate_c0  <=> 3-Phosphoglycerate_c0 	 
+rxn00293_c0	UTP N-acetyl-alpha-D-glucosamine-1-phosphate uridylyltransferase c0	=	(kb|g.575.peg.1076 and kb|g.575.peg.1076)	Peptidoglycan Biosynthesis	2.7.7.23	N-Acetyl-D-glucosamine1-phosphate_c0 + UTP_c0  <=> PPi_c0 + UDP-N-acetylglucosamine_c0 	 
+rxn05740_c0	cpd00155 phosphorylase c0	=	kb|g.575.peg.1220	Glycogen Metabolism	2.4.1.1	H_c0 + Phosphate_c0 + Glycogen_c0  <=> Glucose-1-phosphate_c0 + glycogenn-1_c0 	 
+rxn11544_c0	Hydrogenobyrinate <=> Hydrogenobyrinate a c diamide c0	=	(kb|g.575.peg.1478 or kb|g.575.peg.1477 or kb|g.575.peg.0028)	Coenzyme B12 Biosynthesis		H2O_c0 + 2 ATP_c0 + 2 L-Glutamine_c0 + Hydrogenobyrinate_c0  <=> 2 ADP_c0 + PPi_c0 + 2 L-Glutamate_c0 + Hydrogenobyrinate_diamide_c0 	 
+rxn02277_c0	7 8-Diaminononanoate carbon-dioxide cyclo-ligase c0	>	kb|g.575.peg.1573	Biotin Biosynthesis	6.3.3.3	CO2_c0 + ATP_c0 + 7-8-Diaminononanoate_c0  -> 3 H_c0 + Phosphate_c0 + ADP_c0 + Dethiobiotin_c0 	 
+rxn12638_c0	aminopeptidase c0	>	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + gly-pro-L_c0  -> H_c0 + Glycine_c0 + L-Proline_c0 	 
+rxn02480_c0	5 10-Methenyltetrahydromethanopterin 10-hydrolase decyclizing c0	=	kb|g.575.peg.1191	Methanogenesis	|3.5.4.27|	H2O_c0 + 5_10-Methenyltetrahydromethanopterin_c0  <=> H_c0 + 5-Formyl-H4MPT_c0 	 
+rxn12643_c0	aminopeptidase c0	>	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + Ala-Leu_c0  -> L-Alanine_c0 + L-Leucine_c0 	 
+rxn03079_c0	5 10-Methylenetetrahydromethanopterin coenzyme-F420 oxidoreductase c0	=	kb|g.575.peg.372	Methanogenesis	|1.5.99.9|	H_c0 + Coenzyme_F420_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> Reduced_coenzyme_F420_c0 + 5_10-Methenyltetrahydromethanopterin_c0 	 
+rxn02264_c0	Hydroxymethylbilane hydro-lyasecyclizing c0	=	kb|g.575.peg.394	Heme and Siroheme Biosynthesis	4.2.1.75	Hydroxymethylbilane_c0  <=> H2O_c0 + UroporphyrinogenIII_c0 	 
+rxn05209_c0	Proton sodium antiport c0	=	kb|g.575.peg.0100 or kb|g.575.peg.0587 or kb|g.575.peg.0679 or kb|g.575.peg.0707 or kb|g.575.peg.0864	Transport		2 H_c0 + Na_e0  <=> 2 H_e0 + Na_c0 	 
+rxn08306_c0	CDP-diacylglycerol synthetase n-C12 0 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-didodecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-didodecanoylglycerol_c0 	 
+rxn00148_c0	ATP pyruvate O2-phosphotransferase c0	=	kb|g.575.peg.1605	Glycolysis and Gluconeogenesis	2.7.1.40	ATP_c0 + Pyruvate_c0  <=> ADP_c0 + Phosphoenolpyruvate_c0 	 
+rxn00214_c0	UDPglucose 4-epimerase c0	=	kb|g.575.peg.1090	N-Linked Glycosylation in Bacteria	5.1.3.2	UDP-glucose_c0  <=> UDP-galactose_c0 	 
+rxn05197_c0	Uracil ion-coupled transport c0	=	kb|g.575.peg.681 or kb|g.575.peg.689	Transport	|TC-2.A.40|2.A.40|	H_e0 + Uracil_e0  <=> H_c0 + Uracil_c0 	 
+rxn05289_c0	TRDR c0	=	kb|g.575.peg.0959	Thioredoxin-disulfide Reductase; Pyrimidine Conversions	1.6.4.5|1.8.1.9	H_c0 + trdox_c0 + NADPH_c0  <=> trdrd_c0 + NADP_c0 	 
+rxn10228_c0	isotetradecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-diisotetradecanoylglycerol_c0  -> H_c0 + CMP_c0 + Diisotetradecanoylphosphatidylserine_c0 	 
+rxn01977_c0	alpha-D-Glucose 6-phosphate ketol-isomerase c0	=	kb|g.575.peg.1295	Glycolysis and Gluconeogenesis	|5.1.3.15|5.3.1.9|	D-glucose-6-phosphate_c0  <=> beta-D-Glucose_6-phosphate_c0 	 
+rxn09448_c0	fatty-acid--CoA ligase octadecenoate c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + octadecenoate_c0  -> PPi_c0 + AMP_c0 + Octadecenoyl-CoA_c0 	 
+rxn03421_c0	GTP 7 8-8 9-dihydrolase c0	=	kb|g.575.peg.0034	Folate Biosynthesis	|3.5.4.16|6.-.-.-|	2_5-Diaminopyrimidine_nucleoside_triphosphate_c0  <=> 2_5-Diamino-6-5'-triphosphoryl-3'_4'-trihydroxy-2'-oxopentyl-_amino-4-oxopyrimidine_c0 	 
+rxn12635_c0	aminopeptidase c0	=	(kb|g.575.peg.1204 or kb|g.575.peg.1444)	Protein Degradation		H2O_c0 + Gly-Met_c0  <=> L-Methionine_c0 + Glycine_c0 	 
+rxn00213_c0	UTP alpha-D-glucose-1-phosphate uridylyltransferase c0	=	kb|g.575.peg.1091	Sucrose Metabolism	2.7.7.9	UTP_c0 + Glucose-1-phosphate_c0  <=> PPi_c0 + UDP-glucose_c0 	 
+rxn10314_c0	anteisopentadecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Anteisopentadecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Anteisopentadecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn00493_c0	L-Phenylalanine 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis	2.6.1.1|2.6.1.1 or 2.6.1.9|2.6.1.5|2.6.1.57|2.6.1.58|2.6.1.9	2-Oxoglutarate_c0 + L-Phenylalanine_c0  <=> L-Glutamate_c0 + Phenylpyruvate_c0 	 
+rxn00789_c0	1-5-Phospho-D-ribosyl-ATP pyrophosphate phosphoribosyl-transferase c0	>	kb|g.575.peg.947	Histidine Biosynthesis	2.4.2.17	ATP_c0 + PRPP_c0  -> PPi_c0 + Phosphoribosyl-ATP_c0 	 
+rxn06077_c0	L-methionine oxidized-thioredoxin S-oxidoreductase c0	=	kb|g.575.peg.848	Peptide Methionine Sufoxide Reductase	|1.8.4.13|1.8.4.14|	trdox_c0 + L-Methionine_c0 + H2O_c0  <=> trdrd_c0 + L-Methionine_S-oxide_c0 	 
+rxn02895_c0	5-Phospho-D-ribosylamine glycine ligase ADP-forming c0	>	kb|g.575.peg.0392	De Novo Purine Biosynthesis	6.3.4.13	ATP_c0 + Glycine_c0 + 5-Phosphoribosylamine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + GAR_c0 	 
+rxn09211_c0	Phosphatidylserine syntase n-C18 1 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dioctadec-11-enoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_dioctadec-11-enoyl_c0 	 
+rxn02312_c0	S-Adenosyl-L-methionine 8-amino-7-oxononanoate aminotransferase c0	=	kb|g.575.peg.0865	Biotin Biosynthesis	2.6.1.62	S-Adenosyl-L-methionine_c0 + 8-Amino-7-oxononanoate_c0  <=> 7-8-Diaminononanoate_c0 + S-Adenosyl-4-methylthio-2-oxobutanoate_c0 	 
+rxn00438_c0	ATP thiamin-phosphate phosphotransferase c0	=	kb|g.575.peg.1124	Thiamin Biosynthesis	2.7.4.16	ATP_c0 + Thiamine_phosphate_c0  <=> ADP_c0 + TPP_c0 	 
+rxn10474_c0	cobalt transport in/out via permease no H c0	=	(kb|g.575.peg.0711 or kb|g.575.peg.1108)	Transport		Co2_c0  <=> Co2_e0 	 
+rxn01643_c0	L-Aspartate-4-semialdehyde NADP oxidoreductase phosphorylating c0	>	kb|g.575.peg.1391	Lysine Biosynthesis; Threonine and Homoserine Biosynthesis	1.2.1.11	NADPH_c0 + 4-Phospho-L-aspartate_c0  -> NADP_c0 + Phosphate_c0 + L-Aspartate4-semialdehyde_c0 	 
+rxn09209_c0	Phosphatidylserine syntase n-C16 1 c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-dihexadec-9-enoylglycerol_c0  -> H_c0 + CMP_c0 + phosphatidylserine_dihexadec-9-enoyl_c0 	 
+rxn02431_c0	Formylmethanofuran 5 6 7 8-tetrahydromethanopterin c0	=	kb|g.575.peg.1609	Methanogenesis	|2.3.1.101|	Methanofuran_c0 + 5-Formyl-H4MPT_c0  -> H_c0 + H4MPT_c0 + Formylmethanofuran_c0 	 
+rxn01999_c0	dTDP-4-amino-4 6-dideoxy-D-glucose 2-oxoglutarate aminotransferase c0	=	kb|g.575.peg.351	None	2.6.1.33	2-Oxoglutarate_c0 + dTDP-4-amino-4_6-dideoxy-D-glucose_c0  <=> L-Glutamate_c0 + dTDP-4-oxo-6-deoxy-D-glucose_c0 	 
+rxn01362_c0	Orotidine-5'-phosphate pyrophosphate phosphoribosyltransferase c0	>	(kb|g.575.peg.0079 or kb|g.575.peg.1492)	De Novo Pyrimidine Synthesis	2.4.2.10	PRPP_c0 + Orotate_c0  -> PPi_c0 + Orotidylic_acid_c0 	 
+rxn06493_c0	dihydrolipoylprotein NAD oxidoreductase c0	=	kb|g.575.peg.1332	Glycine and Serine Utilization	|1.8.1.4|	NAD_c0 + Dihydrolipolprotein_c0  <=> H_c0 + NADH_c0 + Lipoylprotein_c0 	 
+rxn02402_c0	Nicotinate-nucleotide pyrophosphate phosphoribosyltransferase c0	>	kb|g.575.peg.0877	NAD/NADP Cofactor Biosynthesis	2.4.2.19	2 H_c0 + Quinolinate_c0 + PRPP_c0  -> CO2_c0 + PPi_c0 + Nicotinate_ribonucleotide_c0 	 
+rxn10224_c0	anteisopentadecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dianteisopentadecanoyl-sn-glycerol_3-phosphate_c0  <=> CDP-1_2-dianteisopentadecanoylglycerol_c0 + PPi_c0 	 
+rxn10231_c0	isohexadecanoyl-CDPdiacylglycerol-serine O-phosphatidyltransferase c0	>	kb|g.575.peg.1171	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.8.8|	L-Serine_c0 + CDP-1_2-diisohexadecanoylglycerol_c0  -> H_c0 + CMP_c0 + Diisohexadecanoylphosphatidylserine_c0 	 
+rxn02811_c0	3-Isopropylmalate hydro-lyase c0	=	(kb|g.575.peg.1149 and kb|g.575.peg.136)	Branched Chain Amino Acid Biosynthesis	4.2.1.33	3-Isopropylmalate_c0  <=> H2O_c0 + 2-Isopropylmaleate_c0 	 
+rxn05939_c0	2-oxoglutarate synthase rev c0	=	kb|g.575.peg.1687 and kb|g.575.peg.1316 and kb|g.575.peg.003 and kb|g.575.peg.1315	TCA Cycle	|1.2.7.3|	H_c0 + CO2_c0 + Reducedferredoxin_c0 + Succinyl-CoA_c0  <=> CoA_c0 + 2-Oxoglutarate_c0 + Oxidizedferredoxin_c0 	 
+rxn01019_c0	Carbamoyl-phosphate L-ornithine carbamoyltransferase c0	>	kb|g.575.peg.553	Arginine Biosynthesis	2.1.3.3	Carbamoylphosphate_c0 + Ornithine_c0  -> 2 H_c0 + Phosphate_c0 + Citrulline_c0 	 
+rxn00412_c0	UTP ammonia ligaseADP-forming c0	>	kb|g.575.peg.0893	Pyrimidine Conversions	6.3.4.2	H2O_c0 + ATP_c0 + L-Glutamine_c0 + UTP_c0  -> 2 H_c0 + Phosphate_c0 + ADP_c0 + CTP_c0 + L-Glutamate_c0 	 
+rxn08310_c0	CDP-diacylglycerol synthetase n-C16 1 c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-dihexadec-9-enoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-dihexadec-9-enoylglycerol_c0 	 
+rxn03135_c0	Imidazole-glycerol-3-phosphate synthase c0	>	((kb|g.575.peg.0256 or kb|g.575.peg.1082) and (kb|g.575.peg.1722 or kb|g.575.peg.1083))	Histidine Biosynthesis		L-Glutamine_c0 + phosphoribulosylformimino-AICAR-phosphate_c0  -> H_c0 + L-Glutamate_c0 + AICAR_c0 + D-erythro-imidazol-glycerol-phosphate_c0 	 
+rxn00469_c0	N2-Acetyl-L-ornithine amidohydrolase c0	=	kb|g.575.peg.1398	Arginine Biosynthesis	3.5.1.14|3.5.1.16	H2O_c0 + N-Acetylornithine_c0  <=> Acetate_c0 + Ornithine_c0 	 
+rxn12512_c0	R-4'-Phosphopantothenate L-cysteine ligase c0	>	(kb|g.575.peg.0204 or kb|g.575.peg.1606)	Coenzyme A Biosynthesis	|6.3.2.5|	ATP_c0 + L-Cysteine_c0 + 4-phosphopantothenate_c0  -> PPi_c0 + R-4'-Phosphopantothenoyl-L-cysteine_c0 + AMP_c0 	 
+rxn00791_c0	N-5-Phospho-D-ribosylanthranilate pyrophosphate c0	>	kb|g.575.peg.1007	Tryptophan Synthesis	2.4.2.18	PRPP_c0 + Anthranilate_c0  -> PPi_c0 + N-5-phosphoribosyl-anthranilate_c0 	 
+rxn08040_c0	UDP-N-acetylglucosamine undecaprenylphosphate N-acetylglucosamine -1-phosphate transferase c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis		UDP-N-acetylglucosamine_c0 + Undecaprenylphosphate_c0  <=> UMP_c0 + Undecaprenyl_diphospho_N-acetyl-glucosamine_c0 	 
+rxn01636_c0	N2-Acetyl-L-ornithine L-glutamate N-acetyltransferase c0	=	kb|g.575.peg.897	Arginine Biosynthesis	|2.3.1.35|	L-Glutamate_c0 + N-Acetylornithine_c0  <=> N-Acetyl-L-glutamate_c0 + Ornithine_c0 	 
+rxn00914_c0	ATP inosine 5'-phosphotransferase c0	=	kb|g.575.peg.0418	Purine Conversions	|2.7.1.73|	ATP_c0 + Guanosine_c0  <=> ADP_c0 + GMP_c0 	 
+rxn03843_c0	Farnesyl diphosphate Isopentenyl diphosphate farnesyl transferase c0	>	kb|g.575.peg.1345	Isoprenoid Biosynthesis	|2.5.1.-|	Isopentenyldiphosphate_c0 + Farnesyldiphosphate_c0  -> PPi_c0 + trans_trans_cis-Geranylgeranyl_diphosphate_c0 	 
+rxn01329_c0	D-Mannose 6-phosphate 1 6-phosphomutase c0	=	(kb|g.575.peg.1372 or kb|g.575.peg.1077)	Mannose Metabolism	5.4.2.8	D-mannose-6-phosphate_c0  <=> D-Mannose1-phosphate_c0 	 
+rxn04047_c0	precorrin-3B C17-methyltransferase c0	=	kb|g.575.peg.953	Coenzyme B12 Biosynthesis	|2.1.1.131|	S-Adenosyl-L-methionine_c0 + Cobalt-precorrin_3_c0  <=> H_c0 + S-Adenosyl-homocysteine_c0 + Cobalt-precorrin_4_c0 	 
+rxn05177_c0	Thiamin-ABC transport c0	>	((kb|g.575.peg.110 or kb|g.575.peg.1518))	Transport		H2O_c0 + ATP_c0 + Thiamin_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Thiamin_c0 	 
+rxn01353_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.0283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + dGDP_c0  <=> ADP_c0 + dGTP_c0 	 
+rxn00077_c0	ATP NAD 2'-phosphotransferase c0	=	kb|g.575.peg.1489	NAD/NADP Cofactor Biosynthesis	2.7.1.23	NAD_c0 + ATP_c0  <=> NADP_c0 + ADP_c0 	 
+rxn05667_c0	Urea transport via facilitate diffusion c0	=		Transport		Urea_e0  <=> Urea_c0 	 
+rxn09450_c0	fatty-acid--CoA ligase hexadecenoate peroxisomal c0	>	kb|g.575.peg.566	Unsaturated Fatty Acid Biosynthesis; Biotin Biosynthesis	|6.2.1.3|	H_c0 + CoA_c0 + ATP_c0 + hexadecenoate_c0  -> PPi_c0 + AMP_c0 + Hexadecenoyl-CoA_c0 	 
+rxn01213_c0	Dimethylallyl-diphosphate isopentenyl-diphosphate c0	=	kb|g.575.peg.45	Archaeal Lipids	2.5.1.1|2.5.1.10|2.5.1.29	Isopentenyldiphosphate_c0 + DMAPP_c0  <=> PPi_c0 + Geranyldiphosphate_c0 	 
+rxn01917_c0	ATP N-acetyl-L-glutamate 5-phosphotransferase c0	=	kb|g.575.peg.0063	Arginine Biosynthesis	2.7.2.8	H_c0 + ATP_c0 + N-Acetyl-L-glutamate_c0  <=> ADP_c0 + n-acetylglutamyl-phosphate_c0 	 
+rxn01100_c0	ATP 3-phospho-D-glycerate 1-phosphotransferase c0	=	kb|g.575.peg.1532	Glycolysis and Gluconeogenesis	2.7.2.3	H_c0 + ATP_c0 + 3-Phosphoglycerate_c0  <=> ADP_c0 + 1_3-Bisphospho-D-glycerate_c0 	 
+rxn02339_c0	4-Hydroxy-L-glutamate 2-oxoglutarate aminotransferase c0	=	(kb|g.575.peg.1396 or kb|g.575.peg.1216 or kb|g.575.peg.1072)	Amino Acid Biosynthesis	|2.6.1.23|2.6.1.1|	2-Oxoglutarate_c0 + 4-Hydroxy-L-glutamate_c0  <=> L-Glutamate_c0 + 4-Hydroxy-2-oxoglutarate_c0 	 
+rxn02175_c0	ATP pantetheine-4'-phosphate adenylyltransferase c0	=	kb|g.575.peg.1093	Coenzyme A Biosynthesis	2.7.7.3	ATP_c0 + Phosphopantetheine_c0  <=> PPi_c0 + Dephospho-CoA_c0 	 
+rxn00288_c0	Succinate acceptor oxidoreductase c0	>	(kb|g.575.peg.1277 and kb|g.575.peg.1067)	Succinate Dehydrogenase	1.3.99.1	Fumarate_c0 + FADH2_c0  -> Succinate_c0 + FAD_c0 	 
+rxn01790_c0	R-Pantoate NADP 2-oxidoreductase c0	=	(kb|g.575.peg.0672 or kb|g.575.peg.0654)	Coenzyme A Biosynthesis; Branched Chain Amino Acid Biosynthesis 	1.1.1.169	NADP_c0 + Pantoate_c0  <=> H_c0 + NADPH_c0 + 2-Dehydropantoate_c0 	 
+rxn03075_c0	ATP 4-methyl-5-2-hydroxyethyl-thiazole 2-phosphotransferase c0	=	kb|g.575.peg.1138	Thiamin Biosynthesis	2.7.1.50	ATP_c0 + 4-Methyl-5-2-hydroxyethyl-thiazole_c0  <=> ADP_c0 + 4-Methyl-5-2-phosphoethyl-thiazole_c0 	 
+rxn00747_c0	D-Glyceraldehyde-3-phosphate ketol-isomerase c0	=	kb|g.575.peg.687	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	5.3.1.1	Glyceraldehyde3-phosphate_c0  <=> Glycerone-phosphate_c0 	 
+rxn00707_c0	ITP cytidine 5'-phosphotransferase c0	=	kb|g.575.peg.0626	Pyrimidine Conversions	|2.7.1.48|	ITP_c0 + Cytidine_c0  <=> CMP_c0 + IDP_c0 	 
+rxn03108_c0	ATP 4-amino-2-methyl-5-phosphomethylpyrimidine phosphotransferase c0	=	kb|g.575.peg.1639	Thiamin Biosynthesis	2.7.4.7	ATP_c0 + 4-Amino-5-phosphomethyl-2-methylpyrimidine_c0  <=> ADP_c0 + 4-Amino-2-methyl-5-diphosphomethylpyrimidine_c0 	 
+rxn03512_c0	Precorrin 8X 11 12-methylmutase c0	=	kb|g.575.peg.330	Coenzyme B12 Synthesis	|5.4.1.2|	H_c0 + Precorrin_8_c0  <=> Hydrogenobyrinate_c0 	 
+rxn00237_c0	ATP nucleoside-diphosphate phosphatransferase c0	=	kb|g.575.peg.283	Purine Conversions; Pyrimidine Conversions	2.7.4.6	ATP_c0 + GDP_c0  <=> ADP_c0 + GTP_c0 	 
+rxn00420_c0	L-O-Phosphoserine phosphohydrolase c0	>	(kb|g.575.peg.542 or kb|g.575.peg.541)	Glycine and Serine Utilization; Serine Biosynthesis	3.1.3.3	H2O_c0 + phosphoserine_c0  -> H_c0 + Phosphate_c0 + L-Serine_c0 	 
+rxn00001_c0	Pyrophosphate phosphohydrolase c0	>	kb|g.575.peg.0219	HPr Catabolite Repression System	3.6.1.1	H2O_c0 + PPi_c0  -> 2 H_c0 + 2 Phosphate_c0 	 
+rxn10313_c0	isopentadecanoyl-lipoteichoic acid synthesis n=24 linked N-acetylglucosamine substituted c0	=	kb|g.575.peg.1423	Teichoic and Lipoteichoic Acids Biosynthesis	|2.7.8.-|	24 UDP-N-acetylglucosamine_c0 + Isopentadecanoyllipoteichoic_acid_n=24__linked__unsubstituted_c0  <=> 24 UDP_c0 + Isopentadecanoyllipoteichoic_acid_n=24__linked__N-acetyl-D-glucosamine_c0 	 
+rxn01268_c0	Prephenate NAD oxidoreductasedecarboxylating c0	>	kb|g.575.peg.1514	Chorismate Synthesis	1.3.1.12|1.3.1.43|1.3.1.52	NAD_c0 + Prephenate_c0  -> CO2_c0 + NADH_c0 + p-hydroxyphenylpyruvate_c0 	 
+rxn10220_c0	isoheptadecanoyl-phosphatidate cytidylyltransferase c0	=	kb|g.575.peg.1698	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)	|2.7.7.41|	CTP_c0 + 1_2-diisoheptadecanoyl-sn-glycerol_3-phosphate_c0  <=> PPi_c0 + CDP-1_2-diisoheptadecanoylglycerol_c0 	 
+rxn00858_c0	Agmatine amidinohydrolase c0	>	kb|g.575.peg.1585	Polyamine Metabnolism; Arginine and Ornithine Degradation	3.5.3.11	H2O_c0 + Agmatine_c0  -> Putrescine_c0 + Urea_c0 	 
+rxn10571_c0	magnesium transport via ABC system c0	>		Transport		H2O_c0 + Mg_e0 + ATP_c0  -> H_c0 + Mg_c0 + Phosphate_c0 + ADP_c0 	 
+rxn05195_c0	Fe3-ABC transport c0	>	(kb|g.575.peg.0108 and kb|g.575.peg.0109 and kb|g.575.peg.0110) or (kb|g.575.peg.0196 and kb|g.575.peg.0197 and kb|g.575.peg.0198) or (kb|g.575.peg.1181 and kb|g.575.peg.1182 and kb|g.575.peg.1183)	Transport		H2O_c0 + ATP_c0 + fe3_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + fe3_c0 	 
+rxn00062_c0	ATP phosphohydrolase protein-secreting c0	>		Non-Growth Associated Maintenance	|3.6.1.3|3.6.1.5|3.6.1.8|3.6.1.15|3.6.3.1|3.6.3.2|3.6.3.3|3.6.3.4|3.6.3.5|3.6.3.6|3.6.3.7|3.6.3.8|3.6.3.9|3.6.3.10|3.6.3.11|3.6.3.12|3.6.3.14|3.6.3.15|3.6.3.16|3.6.3.17|3.6.3.18|3.6.3.19|3.6.3.20|3.6.3.21|3.6.3.22|3.6.3.23|3.6.3.24|3.6.3.25|3.6.3.26|3.6.3.27|3.6.3.28|3.6.3.29|3.6.3.30|3.6.3.31|3.6.3.32|3.6.3.33|3.6.3.34|3.6.3.35|3.6.3.36|3.6.3.37|3.6.3.38|3.6.3.39|3.6.3.40|3.6.3.41|3.6.3.42|3.6.3.43|3.6.3.44|3.6.3.46|3.6.3.47|3.6.3.48|3.6.3.49|3.6.3.50|3.6.3.51|3.6.3.52|3.6.3.53|3.6.4.1|3.6.4.2|3.6.4.3|3.6.4.4|3.6.4.5|3.6.4.6|3.6.4.7|3.6.4.8|3.6.4.9|3.6.4.10|3.6.4.11|3.6.1.-|	H2O_c0 + ATP_c0  -> H_c0 + Phosphate_c0 + ADP_c0 	 
+rxn01208_c0	2-Oxo-4-methyl-3-carboxypentanoate decarboxylation c0	>		None		H_c0 + 2-isopropyl-3-oxosuccinate_c0  -> CO2_c0 + 4MOP_c0 	 
+rxn05319_c0	H2Ot5 c0	>		Transport		H2O_c0  -> H2O_e0 	 
+rxn05467_c0	CO2 transport via diffusion c0	=		Transport		CO2_e0  <=> CO2_c0 	 
+rxn03393_c0	Octaprenyl-hydroxybenzoate decarboxylase c0	>	(kb|g.575.peg.1288 and kb|g.575.peg.1552)	Hydroxyaromatic Decarboxylase Family	|4.1.1.-|	H_c0 + 3-Octaprenyl-4-hydroxybenzoate_c0  -> CO2_c0 + 2-Octaprenylphenol_c0 	 
+rxn00623_c0	hydrogen-sulfide NADP oxidoreductase c0	>	kb|g.575.peg.0078	Sulfate Assimilation	1.8.1.2|1.8.2.2	4 H_c0 + Sulfite_c0 + 3 NADPH_c0  -> 3 H2O_c0 + 3 NADP_c0 + H2S_c0 	 
+rxn02832_c0	O-succinylbenzoate-CoA synthase c0	=		Menaquinone and Phylloquinone Biosynthesis	|4.2.1.-|4.2.1.113|	H2O_c0 + Succinylbenzoate_c0  <=> SHCHC_c0 	 
+rxn10052_c0	adenylate kinase Inorganic triphosphate c0	>		Purine Conversions	|2.7.4.3|	H_c0 + AMP_c0 + Triphosphate_c0  -> ADP_c0 + PPi_c0 	 
+rxn05388_c0	5-methyl-hexanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + 5-methyl-hexanoyl-ACP_c0 + Malonyl-acyl-carrierprotein-_c0  -> CO2_c0 + ACP_c0 + 7-methyl-3-oxo-octanoyl-ACP_c0 	 
+rxn13918_c0	zinc transport out via ABC system c0	>		Transport		H_c0 + Phosphate_c0 + ADP_c0 + Zn2_e0  -> H2O_c0 + ATP_c0 + Zn2_c0 	 
+rxn05359_c0	4-methyl-3-oxo-hexanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 2-methylbutyryl-ACP_c0  -> CO2_c0 + ACP_c0 + 4-methyl-3-oxo-hexanoyl-ACP_c0 	 
+rxn02288_c0	Uroporphyrinogen-III carboxy-lyase c0	>	(kb|g.575.peg.0830 and kb|g.575.peg.1150)	Heme and Siroheme Biosynthesis	4.1.1.37	4 H_c0 + UroporphyrinogenIII_c0  -> 4 CO2_c0 + CoproporphyrinogenIII_c0 	 
+rxn13160_c0	Fatty acid permease c0	>		Transport		ddca_e0  -> ddca_c0 	 
+rxn08766_c0	beta-ketoacyl-ACP synthase 2 c0	>	kb|g.575.peg.1211	None		CO2_c0 + CoA_c0 + Acetoacetyl-ACP_c0  -> H_c0 + Acetyl-CoA_c0 + Malonyl-acyl-carrierprotein-_c0 	 
+rxn08019_c0	acyl-acyl-carrier-protein synthetase n-C18 0 c0	>		None	|6.2.1.20|	H_c0 + ATP_c0 + ocdca_c0 + ACP_c0  -> PPi_c0 + AMP_c0 + Octadecanoyl-ACP_c0 	 
+rxn00737_c0	L-threonine ammonia-lyase c0	>		Branched Chain Amino Acid Biosynthesis	|4.3.1.19|	L-Threonine_c0  -> NH3_c0 + 2-Oxobutyrate_c0 	 
+rxn05396_c0	9-methyl-decanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 9-methyl-decanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 11-methyl-3-oxo-dodecanoyl-ACP_c0 	 
+rxn05029_c0	ATP cobinamide Cobeta-adenosyltransferase c0	>		Coenzyme B12 Biosynthesis	|2.5.1.17|	ATP_c0 + H2_c0 + Cobinamide_c0  -> 2 H_c0 + Triphosphate_c0 + Adenosyl_cobinamide_c0 	 
+rxn10181_c0	NMN permease c0	>		Transport		Nicotinamide_ribonucleotide_e0  -> Nicotinamide_ribonucleotide_c0 	 
+rxn01675_c0	dTTP alpha-D-glucose-1-phosphate thymidylyltransferase c0	>	kb|g.575.peg.1076	dTDP-Rhamnose Synthesis	2.7.7.24|2.7.7.33	TTP_c0 + Glucose-1-phosphate_c0  -> PPi_c0 + dTDPglucose_c0 	 
+rxn01644_c0	L-Aspartate-4-semialdehyde hydro-lyase adding pyruvate and c0	>	kb|g.575.peg.0576	Lysine Biosynthesis DAP Pathway	4.2.1.52	L-Aspartate4-semialdehyde_c0 + Pyruvate_c0  -> H_c0 + 2 H2O_c0 + Dihydrodipicolinate_c0 	 
+rxn01997_c0	dTDPglucose 4 6-hydro-lyase c0	>	kb|g.575.peg.1090	dTDP-Rhamnose Synthesis	4.2.1.46	dTDPglucose_c0  -> H2O_c0 + dTDP-4-oxo-6-deoxy-D-glucose_c0 	 
+rxn05379_c0	12-methyl-tetra-decanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 12-methyl-tetra-decanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 14-methyl-3-oxo-hexa-decanoyl-ACP_c0 	 
+rxn05371_c0	8-methyl-decanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 8-methyl-decanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 10-methyl-3-oxo-dodecanoyl-ACP_c0 	 
+rxn00300_c0	GTP 7 8-8 9-dihydrolase pyrophosphate-forming c0	>	kb|g.575.peg.0183	Riboflavin, FMN, and FAD Metabolism	|3.5.4.25|	3 H2O_c0 + GTP_c0  -> H_c0 + Formate_c0 + PPi_c0 + 2_5-Diamino-6-5'-phosphoribosylamino-4-pyrimidineone_c0 	 
+rxn00392_c0	ATP riboflavin 5'-phosphotransferase c0	>		Ubiquionine Biosynthesis	2.7.1.26	Riboflavin_c0 + ATP_c0  -> ADP_c0 + FMN_c0 	 
+rxn03397_c0	UDP-L-rhamnose flavonol-3-O-D-glucoside L-rhamnosyltransferase c0	>	kb|g.575.peg.0497	Ubiquionine Biosynthesis	|2.1.1.-|	S-Adenosyl-L-methionine_c0 + 2-Octaprenyl-6-methoxy-1_4-benzoquinone_c0  -> H_c0 + S-Adenosyl-homocysteine_c0 + 2-Octaprenyl-3-methyl-6-methoxy-1_4-benzoquinone_c0 	 
+rxn10481_c0	Copper transport via ABC system c0	>	kb|g.575.peg.1165 or kb|g.575.peg.1641	Transport		H2O_c0 + ATP_c0 + Cu2_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Cu2_c0 	 
+rxn13477_c0	Hexaprenyl-pyrophosphate-synthase c0	>		None		3 PPi_c0 + all-trans-Hexaprenyl_diphosphate_c0  -> 3 Isopentenyldiphosphate_c0 + Farnesyldiphosphate_c0 	 
+rxn10954_c0	C180SN c0	>		None		7 CO2_c0 + 8 H2O_c0 + 16 NADP_c0 + 7 ACP_c0 + Octadecanoyl-ACP_c0  -> 23 H_c0 + 16 NADPH_c0 + 7 Malonyl-acyl-carrierprotein-_c0 + Acetoacetyl-ACP_c0 	 
+rxn02914_c0	3-Phosphoserine 2-oxoglutarate aminotransferase c0	>	kb|g.575.peg.0391	Glycine and Serine Utilization; Serine Biosynthesis; Pyridoxin Biosynthesis	2.6.1.52	3-Phosphonooxypyruvate_c0 + L-Glutamate_c0  -> 2-Oxoglutarate_c0 + phosphoserine_c0 	 
+rxn00350_c0	glutathione hydralase periplasmic c0	>		Glutathione: Biosynthesis and gamma-Glutamyl Cycle	|2.3.2.2|3.4.11.4|	H2O_c0 + GSH_c0  -> L-Glutamate_c0 + Cys-Gly_c0 	 
+rxn03536_c0	Adenosyl cobinamide kinase c0	>		Coenzyme B12 Biosynthesis	|2.7.1.156|	ATP_c0 + Adenosyl_cobinamide_c0  -> H_c0 + ADP_c0 + Adenosyl_cobinamide_phosphate_c0 	 
+rxn05054_c0	adenosylcobyric acid R-1-aminopropan-2-ol ligase ADP-forming c0	>	kb|g.575.peg.951	Coenzyme B12 Biosynthesis	|6.3.1.10|	H_c0 + Phosphate_c0 + ADP_c0 + Adenosyl_cobinamide_c0  -> ATP_c0 + Adenosylcobyric_acid_c0 + 1-Aminopropan-2-ol_c0 	 
+rxn02160_c0	L-Histidinol-phosphate phosphohydrolase c0	>	kb|g.575.peg.548	Histidine Biosynthesis	3.1.3.15	H2O_c0 + L-histidinol-phosphate_c0  -> H_c0 + Phosphate_c0 + L-Histidinol_c0 	 
+rxn12008_c0	rxn12008 c0	>	kb|g.575.peg.0045	Polyprenyl Diphosphate Biosynthesis		Isopentenyldiphosphate_c0 + all-trans-Heptaprenyl_diphosphate_c0  -> PPi_c0 + Farnesylfarnesylgeraniol_c0 	 
+rxn05039_c0	pyrimidine phosphatase c0	>		Riboflavin, FMN, and FAD Metabolism	|3.1.3.-|	H2O_c0 + 5-Amino-6-5-phosphoribitylaminouracil_c0  -> H_c0 + Phosphate_c0 + 4-1-D-Ribitylamino-5-aminouracil_c0 	 
+rxn02269_c0	S-3-methyl-2-oxopentanoate NAD 2-oxidoreductase c0	>	kb|g.575.peg.1259	None	|1.2.1.25|	CoA_c0 + NAD_c0 + 3MOP_c0  -> CO2_c0 + NADH_c0 + 2-Methylbutyryl-CoA_c0 	 
+rxn09659_c0	spermine irreversible uniport c0	>		Transport		Spermine_e0  -> Spermine_c0 	 
+rxn03891_c0	trans-hexaprenyltranstransferase c0	=	kb|g.575.peg.0045	Polyprenyl Diphosphate Biosynthesis	|2.5.1.30|	Isopentenyldiphosphate_c0 + all-trans-Hexaprenyl_diphosphate_c0  <=> PPi_c0 + all-trans-Heptaprenyl_diphosphate_c0 	 
+rxn01256_c0	Chorismate pyruvatemutase c0	>		Chorismate Synthesis; Phenylalanine Synthesis	5.4.99.5	Chorismate_c0  -> Prephenate_c0 	 
+rxn00102_c0	Carbonic acid hydro-lyase c0	>	kb|g.575.peg.1299 or kb|g.575.peg.0049	CO2 Uptake, Carboxysome	|4.2.1.1|	CO2_c0 + H2O_c0  -> H_c0 + H2CO3_c0 	 
+rxn05618_c0	manganese transport in via proton symport c0	>		Transport	|TC-2.A.55|2.A.55|	H_e0 + Mn2_e0  -> H_c0 + Mn2_c0 	 
+rxn09562_c0	guanylate kinase GMP dATP c0	>		Purine Conversions	|2.7.4.8|	dATP_c0 + GMP_c0  -> dADP_c0 + GDP_c0 	 
+rxn01972_c0	N6-Acetyl-LL-2 6-diaminoheptanedioate amidohydrolase c0	>		Lysine Biosynthesis DAP Pathway	|3.5.1.47|	H2O_c0 + N-acetyl-LL-2_6-diaminopimelate_c0  -> Acetate_c0 + LL-2_6-Diaminopimelate_c0 	 
+rxn05513_c0	calcium efflux via ABC system c0	>	kb|g.575.peg.0510 or kb|g.575.peg.0720	Transport		H_c0 + Phosphate_c0 + ADP_c0 + Ca2_e0  -> H2O_c0 + ATP_c0 + Ca2_c0 	 
+rxn03537_c0	Adenosyl cobinamide phosphate guanyltransferase c0	>		Coenzyme B12 Biosynthesis	|2.7.7.62|	H_c0 + GTP_c0 + Adenosyl_cobinamide_phosphate_c0  -> PPi_c0 + Adenosylcobinamide-GDP_c0 	 
+rxn13781_c0	Dephospho-CoA transporter c0	>		Transport		2 H_e0 + Dephospho-CoA_e0  -> 2 H_c0 + Dephospho-CoA_c0 	 
+rxn03030_c0	Acetyl-CoA L-2 3 4 5-tetrahydrodipicolinate N2-acetyltransferase c0	>	kb|g.575.peg.350	Lysine Biosynthesis DAP Pathway	|2.3.1.89|	Acetyl-CoA_c0 + H2O_c0 + tetrahydrodipicolinate_c0  -> CoA_c0 + L-2-Acetamido-6-oxopimelate_c0 	 
+rxn00119_c0	ATP nucleoside-phosphate phosphotransferase c0	>	kb|g.575.peg.0385	None	|2.7.4.4|2.7.4.14|2.7.4.22|2.7.4.-|	ATP_c0 + UMP_c0  -> ADP_c0 + UDP_c0 	 
+rxn01265_c0	Nicotinate D-ribonucleotide pyrophosphate phosphoribosyltransferase c0	>		NAD/NADP Cofactor Biosynthesis	|2.4.2.11|	H_c0 + Niacin_c0 + PRPP_c0  -> PPi_c0 + Nicotinate_ribonucleotide_c0 	 
+rxn03919_c0	D-glycero-D-manno-heptose 1 7-bisphosphate phosphatase c0	>	(kb|g.575.peg.0359 and kb|g.575.peg.1170 and kb|g.575.peg.0590)	LOS Core Oligosaccharide Biosynthesis	|3.1.-.-|	H2O_c0 + D-Glycero-D-manno-heptose1-7-bisphosphate_c0  -> H_c0 + Phosphate_c0 + D-Glycero-D-manno-heptose1-phosphate_c0 	 
+rxn01068_c0	L-Threonine NAD oxidoreductase c0	>		Threonine Degradation; Glycine Biosynthesis	1.1.1.103	L-Threonine_c0 + NAD_c0  -> H_c0 + NADH_c0 + L-2-Amino-acetoacetate_c0 	 
+rxn05384_c0	3-methylbutanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + isovaleryl-ACP_c0  -> CO2_c0 + ACP_c0 + 5-methyl-3-oxo-hexanoyl-ACP_c0 	 
+rxn02831_c0	O-Succinylbenzoate CoA ligase AMP-forming c0	=		Menaquinone and Phylloquinone Biosynthesis	6.2.1.26	H_c0 + CoA_c0 + ATP_c0 + Succinylbenzoate_c0  <=> PPi_c0 + AMP_c0 + Succinylbenzoyl-CoA_c0 	 
+rxn11650_c0	cobIIyrinic acid-a c-diamide FMN oxidoreductase c0	<	kb|g.575.peg.0115	Coenzyme B12 Biosynthesis	|1.16.8.1|	2 Cob(II)yrinate_diamide_c0 + FMNH2_c0  -> 2 H_c0 + FMN_c0 + 2 Cob(I)yrinate_diamide_c0 	 
+rxn00137_c0	Adenosine 3' 5'-bisphosphate 3'2'-phosphohydrolase c0	>		Inorganic Sulfur Assimilation	3.1.3.7	H2O_c0 + Adenosine_3-5-bisphosphate_c0  -> H_c0 + Phosphate_c0 + AMP_c0 	 
+rxn03150_c0	alpha-ribazole 5-phosphate phosphatase c0	>		Coenzyme B12 Biosynthesis	|3.1.3.73|	H2O_c0 + alpha-Ribazole_5'-phosphate_c0  -> H_c0 + Phosphate_c0 + alpha-Ribazole_c0 	 
+rxn00172_c0	Acetate CoA ligase ADP-forming c0	>	kb|g.575.peg.253	Pyruvate Metabolism II: Acetyl-CoA, Acetogenesis from Pyruvate	|6.2.1.13|	CoA_c0 + Acetate_c0 + ATP_c0  -> Acetyl-CoA_c0 + Phosphate_c0 + ADP_c0 	 
+rxn00917_c0	Xanthosine-5'-phosphate L-glutamine amido-ligase AMP-forming c0	>	(kb|g.575.peg.0894 and kb|g.575.peg.1445)	Purine Conversions	6.3.5.2	H2O_c0 + ATP_c0 + L-Glutamine_c0 + XMP_c0  -> H_c0 + PPi_c0 + L-Glutamate_c0 + AMP_c0 + GMP_c0 	 
+rxn00274_c0	Succinyl-CoA glycine C-succinyl-transferasedecarboxylating c0	>	kb|g.575.peg.1574	Glycine and Serine Utilization; Threonine Degradation; Glycine Biosynthesis	2.3.1.29|2.3.1.37	CoA_c0 + L-2-Amino-acetoacetate_c0  -> Acetyl-CoA_c0 + Glycine_c0 	 
+rxn05400_c0	11-methyl-dodecanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 11-methyl-dodecanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 13-methyl-3-oxo-tetra-decanoyl-ACP_c0 	 
+rxn09668_c0	Octadecenoate n-C18 1 transport in via uniport c0	>		Transport		octadecenoate_e0  -> octadecenoate_c0 	 
+rxn03540_c0	adenosylcobyric acid synthase glutamine-hydrolysing c0	<	kb|g.575.peg.1215	Coenzyme B12 Biosynthesis	|6.3.5.10|	4 H2O_c0 + 4 ATP_c0 + 4 L-Glutamine_c0 + Adenosyl_cobyrinate_diamide_c0  -> 4 H_c0 + 4 Phosphate_c0 + 4 ADP_c0 + 4 L-Glutamate_c0 + Adenosylcobyric_acid_c0 	 
+rxn01538_c0	ATP thiamine phosphotransferase c0	>		Thiamin Biosynthesis	2.7.1.89	ATP_c0 + Thiamin_c0  -> ADP_c0 + Thiamine_phosphate_c0 	 
+rxn05404_c0	13-methyl-tetra-decanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 13-methyl-tetra-decanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 15-methyl-3-oxo-hexa-decanoyl-ACP_c0 	 
+rxn05392_c0	7-methyl-octanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 7-methyl-octanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 9-methyl-3-oxo-decanoyl-ACP_c0 	 
+rxn05367_c0	6-methyl-octanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 6-methyl-octanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 8-methyl-3-oxo-decanoyl-ACP_c0 	 
+rxn03408_c0	UDP-N-acetylglucosamine-N-acetylmuramyl-pentapeptidepyrophosphoryl-undecaprenol N-acetylglucosamine transferase c0	>	kb|g.575.peg.403	Peptidoglycan Biosynthesis	|2.4.1.227|	UDP-N-acetylglucosamine_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2-6-diaminopimeloyl-D-alanyl-D-alanine_c0  -> UDP_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-N-acetylglucosamine-L-ala-D-glu-meso-2-6-diaminopimeloyl-D-ala-D-ala_c0 	 
+rxn06729_c0	R-3-Hydroxytetradecanoly-acyl-carrier-protein UDP-N-acetyl- c0	>	kb|g.575.peg.0350	KDO2-Lipid A Biosynthesis	2.3.1.129	UDP-N-acetylglucosamine_c0 + HMA_c0  -> ACP_c0 + UDP-3-O-beta-hydroxymyristoyl-N-acetylglucosamine_c0 	 
+rxn00470_c0	L-Ornithine carboxy-lyase c0	>		Polyamine Metabolism; Arginine and Ornithine Degradation	4.1.1.17	H_c0 + Ornithine_c0  -> CO2_c0 + Putrescine_c0 	 
+rxn06023_c0	CoA apo-acyl-carrier-protein pantetheinephosphotransferase c0	>		Fatty Acid Biosynthesis	2.7.8.7	CoA_c0 + apo-ACP_c0  -> ACP_c0 + Adenosine_3-5-bisphosphate_c0 	 
+rxn00086_c0	glutathione NADP oxidoreductase c0	>	kb|g.575.peg.1332	Glutathione: Redox Cycle	1.6.4.2|1.8.1.7	H_c0 + NADPH_c0 + Oxidized_glutathione_c0  -> NADP_c0 + 2 GSH_c0 	 
+rxn03086_c0	Acetyl-L L-diaminopimelate aminotransferase c0	>	kb|g.575.peg.1072	Lysine Biosynthesis DAP Pathway	|2.6.1.-|	L-Glutamate_c0 + L-2-Acetamido-6-oxopimelate_c0  -> 2-Oxoglutarate_c0 + N-acetyl-LL-2_6-diaminopimelate_c0 	 
+rxn10449_c0	Cobinamide transport via ABC system c0	>		Transport		H2O_c0 + ATP_c0 + Cobinamide_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Cobinamide_c0 	 
+rxn00541_c0	L-Threonine acetaldehyde-lyase c0	>		Threonine Degradation; Glycine Biosynthesis	4.1.2.5	L-Threonine_c0  -> Glycine_c0 + Acetaldehyde_c0 	 
+rxn01332_c0	Phosphoenolpyruvate D-erythrose-4-phosphate c0	>	kb|g.575.peg.1528	Chorismate Synthesis	2.5.1.54|4.1.2.15	H2O_c0 + Phosphoenolpyruvate_c0 + D-Erythrose4-phosphate_c0  -> H_c0 + DAHP_c0 + Phosphate_c0 	 
+rxn03904_c0	UDPMurAcoyl-L-Ala-D-gamma-Glu-L-Lys-D-Ala-D-Ala undecaprenyl- c0	>	kb|g.575.peg.1423	Peptidoglycan Biosynthesis	2.7.8.13	Undecaprenylphosphate_c0 + UDP-N-acetylmuramoyl-L-alanyl-D-glutamyl-6-carboxy-L-lysyl-D-alanyl-_D-alanine_c0  -> UMP_c0 + Undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2-6-diaminopimeloyl-D-alanyl-D-alanine_c0 	 
+rxn08618_c0	glucosyltransferase I LPS core synthesis c0	>	kb|g.575.peg.1293	LOS core oligosaccharide biosynthesis	|2.4.1.-|	UDP-glucose_c0 + inner_core_oligosaccharide_lipid_A_c0  -> UDP_c0 + glucosyl-inner_core_oligosaccharide_lipid_A_c0 	 
+rxn00833_c0	5'-Inosinate phosphoribohydrolase c0	>		None	|3.2.2.12|	ribose-5-phosphate_c0 + HYXN_c0  -> H2O_c0 + IMP_c0 	 
+rxn01258_c0	Chorismate hydroxymutase c0	=		Menaquinone and Phylloquinone Biosynthesis	|5.4.4.2|5.4.99.6|	Chorismate_c0  <=> Isochorismate_c0 	 
+rxn10161_c0	Octadecanoate transport via proton symport c0	>		Transport		H_e0 + ocdca_e0  -> H_c0 + ocdca_c0 	 
+rxn00611_c0	sn-Glycerol-3-phosphate NAD 2-oxidoreductase c0	=	kb|g.575.peg.0225	Isoprenoid Biosynthesis; Archaeal Lipids	|1.1.1.8|1.1.1.94|1.1.1.261|	H_c0 + NADH_c0 + Glycerone-phosphate_c0  -> NAD_c0 + Glycerol-3-phosphate_c0 	 
+rxn00122_c0	ATP FMN adenylyltransferase c0	>		Riboflavin, FMN, and FAD Metabolism	2.7.7.2	ATP_c0 + FMN_c0  -> PPi_c0 + FAD_c0 	 
+rxn09677_c0	oxidized glutathione irreversible uniport c0	>		Transport		Oxidized_glutathione_e0  -> Oxidized_glutathione_c0 	 
+rxn01117_c0	D-Arabinose-5-phosphate ketol-isomerase c0	>	kb|g.575.peg.1016	KDO2-Lipid A Biosynthesis	5.3.1.13	D-Ribulose5-phosphate_c0  -> D-Arabinose5-phosphate_c0 	 
+rxn04675_c0	isochorismate 2-oxoglutarate cyclodienyltransferasedecarboxylating c0	>		None	|2.5.1.64|4.1.1.71 / 4.1.3.-|	CO2_c0 + Pyruvate_c0 + SHCHC_c0  -> H_c0 + 2-Oxoglutarate_c0 + Isochorismate_c0 	 
+rxn05735_c0	aldehyde dehydrogenase aminoacetaldehyde NAD c0	>	kb|g.575.peg.1487	Glycerolipid and Glycerophospholipid Metabolism (Bacteria)		H2O_c0 + NAD_c0 + Aminoacetaldehyde_c0  -> 2 H_c0 + NADH_c0 + Glycine_c0 	 
+rxn02929_c0	2 3 4 5-Tetrahydrodipicolinate NADP oxidoreductase c0	>	kb|g.575.peg.0923	Lysine Biosynthesis DAP Pathway	1.3.1.26	H_c0 + NADPH_c0 + Dihydrodipicolinate_c0  -> NADP_c0 + tetrahydrodipicolinate_c0 	 
+rxn10163_c0	Tetradecanoate transport via proton symport c0	>		Transport		H_e0 + Myristic_acid_e0  -> H_c0 + Myristic_acid_c0 	 
+rxn05375_c0	10-methyl-dodecanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 10-methyl-dodecanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 12-methyl-3-oxo-tetra-decanoyl-ACP_c0 	 
+rxn09128_c0	Phospholipase A1 phosphatidate n-C18 0 periplasm c0	>	kb|g.575.peg.0276	Triacylglycerol Metabolism	|3.1.1.32|	H_c0 + ocdca_c0 + 2-octadecanoyl-sn-glycerol_3-phosphate_c0  -> H2O_c0 + 1_2-dioctadecanoyl-sn-glycerol_3-phosphate_c0 	 
+rxn05363_c0	4-methyl-hexanoyl-ACP malonyl-acyl-carrier-protein C-acyltransferase decarboxylating c0	>	kb|g.575.peg.1211	Fatty Acid Biosynthesis	|2.3.1.0|	H_c0 + Malonyl-acyl-carrierprotein-_c0 + 4-methyl-hexanoyl-ACP_c0  -> CO2_c0 + ACP_c0 + 6-methyl-3-oxo-octanoyl-ACP_c0 	 
+rxn02898_c0	O-Succinylbenzoyl-CoA 1 4-dihydroxy-2-naphthoate-lyase c0	>		Menaquinone and Phylloquinone Biosynthesis	4.1.3.36	CoA_c0 + 1-4-Dihydroxy-2-naphthoate_c0  -> Succinylbenzoyl-CoA_c0 	 
+rxn03538_c0	Adenosylcobalamin 5'-phosphate synthase c0	>	kb|g.575.peg.0938	Coenzyme B12 Biosynthesis; Heme and Siroheme Biosynthesis	|2.7.8.26|	Adenosylcobinamide-GDP_c0 + alpha-Ribazole_c0  -> GMP_c0 + Calomide_c0 	 
+rxn08349_c0	2 3-diketo-5-methylthio-1-phosphopentane degradation reaction c0	>		None		3 H2O_c0 + 2 NAD_c0 + 2_3-diketo5-methylthio-1-phosphopentane_c0  -> 5 H_c0 + Phosphate_c0 + Formate_c0 + 2 NADH_c0 + 4-methylthio_2-oxobutyrate_c0 	 
+rxn05023_c0	rxn05023 c0	>		None	|3.1.2.-|	H2O_c0 + 1_4-Dihydroxy-2-naphthoyl-CoA_c0  -> H_c0 + CoA_c0 + 1-4-Dihydroxy-2-naphthoate_c0 	 
+rxn00471_c0	L-Ornithine ammonia-lyasecyclizing c0	>		Threonine Degradation; Arginine and Ornithine Degradation	|4.3.1.12|	Ornithine_c0  -> H_c0 + NH3_c0 + L-Proline_c0 	 
+rxn09429_c0	fatty acid synthase n-C18 0 c0	>		None	|2.3.1.85|	3 H_c0 + 2 NADPH_c0 + Palmitate_c0 + Malonyl-CoA_c0  -> CO2_c0 + CoA_c0 + H2O_c0 + 2 NADP_c0 + ocdca_c0 	 
+rxn00346_c0	L-Aspartate 1-carboxy-lyase c0	>		Coenzyme A Biosynthesis	4.1.1.11|4.1.1.15	H_c0 + L-Aspartate_c0  -> CO2_c0 + beta-Alanine_c0 	 
+rxn00351_c0	gamma-L-Glutamyl-L-cysteine glycine ligase ADP-forming c0	>	kb|g.575.peg.1600	Glutathione Biosynthesis	6.3.2.3	ATP_c0 + Glycine_c0 + gamma-Glutamylcysteine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + GSH_c0 	 
+rxn01791_c0	R-Pantoate beta-alanine ligase AMP-forming c0	>	kb|g.575.peg.0087	Coenzyme A Biosynthesis	6.3.2.1	ATP_c0 + Pantoate_c0 + beta-Alanine_c0  -> PPi_c0 + AMP_c0 + PAN_c0 	 
+rxn11676_c0	acetyl-phosphate ammonia thioredoxin disulfide c0	>		None	|1.21.4.2|	2 H_c0 + trdrd_c0 + Phosphate_c0 + Glycine_c0  -> trdox_c0 + H2O_c0 + NH3_c0 + Acetylphosphate_c0 	 
+rxn01501_c0	R-Mevalonate NADP oxidoreductase CoA acylating c0	>	kb|g.575.peg.087	Isoprenoid Biosynthesis; Archaeal Lipids	|1.1.1.34|	2 H_c0 + 2 NADPH_c0 + HMG-CoA_c0  -> CoA_c0 + 2 NADP_c0 + Mevalonic_acid_c0 	 
+rxn00250_c0	Pyruvate carbon-dioxide ligase ADP-forming c0	>	kb|g.575.peg.340 and kb|g.575.peg.341	Pyruvate Metabolism I: Anaplerotic Reactions, PEP	|6.4.1.1|	ATP_c0 + H2CO3_c0 + Pyruvate_c0  -> H_c0 + Phosphate_c0 + Oxaloacetate_c0 + ADP_c0 	 
+rxn00646_c0	L-Glutamate L-cysteine gamma-ligase ADP-forming c0	>	kb|g.575.peg.0437	Glutathione Biosynthesis	6.3.2.2	ATP_c0 + L-Glutamate_c0 + L-Cysteine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + gamma-Glutamylcysteine_c0 	 
+rxn00225_c0	ATP acetate phosphotransferase c0	>		Pyruvate Metabolism II: Acetyl-CoA, Acetogenesis from Pyruvate	2.7.2.1|2.7.2.15	ADP_c0 + Acetylphosphate_c0  -> H_c0 + Acetate_c0 + ATP_c0 	 
+rxn05466_c0	Ammonia transport via diffusion c0	>	(kb|g.575.peg.0068 and kb|g.575.peg.0065)	Transport		NH3_e0  -> NH3_c0 	 
+rxn09433_c0	fatty acid synthase n-C16 0 c0	>		None	|2.3.1.85|	3 H_c0 + 2 NADPH_c0 + Myristic_acid_c0 + Malonyl-CoA_c0  -> CO2_c0 + CoA_c0 + H2O_c0 + 2 NADP_c0 + Palmitate_c0 	 
+rxn05287_c0	GGTT c0	>	kb|g.575.peg.0045	Polyprenyl Diphosphate Biosynthesis		Isopentenyldiphosphate_c0 + Geranylgeranyl_diphosphate_c0  -> PPi_c0 + pendp_c0 	 
+rxn11703_c0	2-succinyl-6-hydroxy-2 4-cyclohexadiene-1-carboxylate synthase c0	>		Menaquinone and Phylloquinone Biosynthesis	|4.2.99.20|	2-Succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate_c0  -> Pyruvate_c0 + SHCHC_c0 	 
+rxn00379_c0	ATP sulfate adenylyltransferase c0	>	kb|g.575.peg.0941	Sulfate Assimilation	|2.7.7.4|	H_c0 + ATP_c0 + Sulfate_c0  -> PPi_c0 + APS_c0 	 
+rxn05108_c0	2-keto-4-methylthiobutyrate transamination c0	>	kb|g.575.peg.1527	Methionine Salvage	|2.6.1.5|2.6.1.57|	L-Glutamate_c0 + 4-methylthio_2-oxobutyrate_c0  -> L-Methionine_c0 + 2-Oxoglutarate_c0 	 
+rxn11702_c0	2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate c0	>		Menaquinone and Phylloquinone Biosynthesis	|2.2.1.9|	H_c0 + 2-Oxoglutarate_c0 + Isochorismate_c0  -> CO2_c0 + 2-Succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate_c0 	 
+rxn05744_c0	b-ketoacyl synthetase n-C14 0 c0	>		None	|2.3.1.41|	17 H_c0 + Acetyl-CoA_c0 + 12 NADPH_c0 + 6 Malonyl-CoA_c0  -> 6 CO2_c0 + 7 CoA_c0 + 5 H2O_c0 + 12 NADP_c0 + Myristic_acid_c0 	 
+rxn03892_c0	PPTT c0	>	kb|g.575.peg.0045	Polyprenyl Diphosphate Biosynthesis	|2.5.1.33|	Isopentenyldiphosphate_c0 + pendp_c0  -> PPi_c0 + all-trans-Hexaprenyl_diphosphate_c0 	 
+rxn02155_c0	ATP nicotinamide-nucleotide adenylyltransferase c0	>		NAD/NADP Cofactor Biosynthesis	2.7.7.1|2.7.7.18	ATP_c0 + Nicotinate_ribonucleotide_c0  -> PPi_c0 + Deamido-NAD_c0 	 
+rxn00258_c0	Malonyl-CoA pyruvate carboxyltransferase c0	>		None	|2.1.3.1|	Acetyl-CoA_c0 + Oxaloacetate_c0  -> Pyruvate_c0 + Malonyl-CoA_c0 	 
+rxn05256_c0	APSPTi c0	>	kb|g.575.peg.1681	Cysteine Biosynthesis	|1.8.4.10|	trdrd_c0 + APS_c0  -> trdox_c0 + Sulfite_c0 + AMP_c0 	 
+rxn05104_c0	S-Methyl-5-thio-D-ribulose-1-phosphate hydro-lyase c0	>	kb|g.575.peg.1187	Methionine Salvage	|4.2.1.109|	methylthioribulose-1-phosphate_c0  -> H2O_c0 + 2_3-diketo5-methylthio-1-phosphopentane_c0 	 
+rxn05909_c0	L-Serine hydro-lyase adding homocysteine c0	>		None	|4.2.1.22|	H2S_c0 + L-Serine_c0  -> H2O_c0 + L-Cysteine_c0 	 
+rxn00157_c0	Acetyl-CoA formate C-acetyltransferase c0	>	kb|g.575.peg.0580	Formate Hydrogenase	2.3.1.54	CoA_c0 + Pyruvate_c0  -> Acetyl-CoA_c0 + Formate_c0 	 
+rxn00178_c0	Acetyl-CoA acetyl-CoA C-acetyltransferase c0	>	kb|g.575.peg.1212	Branched Chain Amino Acid Degradation Regulons	2.3.1.16|2.3.1.9	2 Acetyl-CoA_c0  -> CoA_c0 + Acetoacetyl-CoA_c0 	 
+rxn05024_c0	rxn05024 c0	>		Menaquinone and Phylloquinone Biosynthesis	|4.1.3.36|	H_c0 + Succinylbenzoyl-CoA_c0  -> H2O_c0 + 1_4-Dihydroxy-2-naphthoyl-CoA_c0 	 
+rxn00134_c0	ATP adenosine 5'-phosphotransferase c0	>	kb|g.575.peg.0418	Purine Conversions	2.7.1.20|2.7.1.74	ATP_c0 + Adenosine_c0  -> ADP_c0 + AMP_c0 	 
+EX_cpd00254_e0	EX Mg e0	=		Exchange		Mg_e0  <=> 	 
+EX_cpd00009_e0	EX Phosphate e0	=		Exchange		Phosphate_e0  <=> 	 
+EX_cpd00067_e0	EX H e0	>		Exchange		H_e0  <=> 	 
+EX_cpd00205_e0	EX K e0	=		Exchange		K_e0  <=> 	 
+EX_cpd00209_e0	EX Nitrate e0	>		Exchange		Nitrate_e0  <=> 	 
+EX_cpd00971_e0	EX Na e0	>		Exchange		Na_e0  <=> 	 
+EX_cpd00129_e0	EX L-Proline e0	>		Exchange		L-Proline_e0  <=> 	 
+EX_cpd00210_e0	EX Taurine e0	>		Exchange		Taurine_e0  <=> 	 
+EX_cpd00053_e0	EX L-Glutamine e0	=		Exchange		L-Glutamine_e0  <=> 	 
+EX_cpd00540_e0	EX BET e0	>		Exchange		BET_e0  <=> 	 
+EX_cpd00226_e0	EX HYXN e0	>		Exchange		HYXN_e0  <=> 	 
+EX_cpd10515_e0	EX Fe2 e0	=		Exchange		Fe2_e0  <=> 	 
+EX_cpd00099_e0	EX Cl- e0	=		Exchange		Cl-_e0  <=> 	 
+EX_cpd00047_e0	EX Formate e0	=		Exchange		Formate_e0  <=> 	 
+EX_cpd00307_e0	EX Cytosine e0	>		Exchange		Cytosine_e0  <=> 	 
+EX_cpd15302_c0	EX glycogenn-1 c0	>		Exchange		glycogenn-1_c0  <=> 	 
+EX_cpd00092_e0	EX Uracil e0	>		Exchange		Uracil_e0  <=> 	 
+EX_cpd00149_e0	EX Co2 e0	=		Exchange		Co2_e0  <=> 	 
+EX_cpd00305_e0	EX Thiamin e0	=		Exchange		Thiamin_e0  <=> 	 
+EX_cpd00073_e0	EX Urea e0	>		Exchange		Urea_e0  <=> 	 
+EX_cpd10516_e0	EX fe3 e0	=		Exchange		fe3_e0  <=> 	 
+EX_cpd00001_e0	EX H2O e0	=		Exchange		H2O_e0  <=> 	 
+EX_cpd00011_e0	EX CO2 e0	=		Exchange		CO2_e0  <=> 	 
+EX_cpd11416_c0	EX Biomass c0	>		Exchange		Biomass_c0  <=> 	 
+EX_cpd00034_e0	EX Zn2 e0	=		Exchange		Zn2_e0  <=> 	 
+EX_cpd01741_e0	EX ddca e0	>		Exchange		ddca_e0  <=> 	 
+EX_cpd00355_e0	EX Nicotinamide ribonucleotide e0	=		Exchange		Nicotinamide_ribonucleotide_e0  <=> 	 
+EX_cpd00058_e0	EX Cu2 e0	=		Exchange		Cu2_e0  <=> 	 
+EX_cpd00558_e0	EX Spermine e0	>		Exchange		Spermine_e0  <=> 	 
+EX_cpd00030_e0	EX Mn2 e0	=		Exchange		Mn2_e0  <=> 	 
+EX_cpd00063_e0	EX Ca2 e0	=		Exchange		Ca2_e0  <=> 	 
+EX_cpd00655_e0	EX Dephospho-CoA e0	>		Exchange		Dephospho-CoA_e0  <=> 	 
+EX_cpd15269_e0	EX octadecenoate e0	=		Exchange		octadecenoate_e0  <=> 	 
+EX_cpd03422_e0	EX Cobinamide e0	>		Exchange		Cobinamide_e0  <=> 	 
+EX_cpd01080_e0	EX ocdca e0	>		Exchange		ocdca_e0  <=> 	 
+EX_cpd00111_e0	EX Oxidized glutathione e0	>		Exchange		Oxidized_glutathione_e0  <=> 	 
+EX_cpd03847_e0	EX Myristic acid e0	>		Exchange		Myristic_acid_e0  <=> 	 
+EX_cpd00013_e0	EX NH3 e0	=		Exchange		NH3_e0  <=> 	 
+EX_cpd01024_e0	EX_Methane_e0	>		Exchange		Methane_e0  <=> 	 
+EX_cpd11640_e0	EX_Hydrogen_e0	<		Exchange		 <=> H2_e0 	 
+HdrABC	HdrABC	=	((kb|g.575.peg.825 and kb|g.575.peg.821 and kb|g.575.peg.822 and kb|g.575.peg.823 and kb|g.575.peg.824) or (kb|g.575.peg.1697 and kb|g.575.peg.1692 and kb|g.575.peg.1693 and kb|g.575.peg.1694 and kb|g.575.peg.1695 and kb|g.575.peg.1696)) and ((kb|g.575.peg.1053 and kb|g.575.peg.1054) or (kb|g.575.peg.1155 and kb|g.575.peg.1154))	Methanogenesis		Oxidizedferredoxin_c0 + CoM-S-S-CoB_c0 + 2 H2_c0  -> 2 H_c0 + Reducedferredoxin_c0 + CoM_c0 + HTP_c0 	 
+Eha/Ehb	Eha/Ehb	=	(kb|g.575.peg.1448 and kb|g.575.peg.1449 and kb|g.575.peg.1450 and kb|g.575.peg.1451 and kb|g.575.peg.1452 and kb|g.575.peg.1453 and kb|g.575.peg.1454 and kb|g.575.peg.1455 and kb|g.575.peg.1456 and kb|g.575.peg.1457 and kb|g.575.peg.1458 and kb|g.575.peg.1459 and kb|g.575.peg.1460 and kb|g.575.peg.1461 and kb|g.575.peg.1462 and kb|g.575.peg.1463 and kb|g.575.peg.1464 and kb|g.575.peg.1465 and kb|g.575.peg.1466 and kb|g.575.peg.1467) or (kb|g.575.peg.1621 and kb|g.575.peg.1622 and kb|g.575.peg.1623 and kb|g.575.peg.1624 and kb|g.575.peg.1625 and kb|g.575.peg.1626 and kb|g.575.peg.1627 and kb|g.575.peg.1628 and kb|g.575.peg.1629 and kb|g.575.peg.1073 and kb|g.575.peg.1074 and kb|g.575.peg.1469 and kb|g.575.peg.400 and kb|g.575.peg.1153)	Methanogenesis		Oxidizedferredoxin_c0 + 2 Na_e0 + H2_c0  -> 2 H_c0 + Reducedferredoxin_c0 + 2 Na_c0 	 
+rxn04042_c0	ADP:D-glucose 6-phosphotransferase	=	kb|g.575.peg.1296	Glycolysis	|2.7.1.147|	ADP_c0 + D-Glucose_c0  <=> D-glucose-6-phosphate_c0 + AMP_c0 	 
+rxn04043_c0	ADP:D-fructose-6-phosphate 1-phosphotransferase	=	kb|g.575.peg.1296	Glycolysis	|2.7.1.146|	ADP_c0 + D-fructose-6-phosphate_c0  <=> D-fructose-1_6-bisphosphate_c0 + AMP_c0 	 
+rxn04026_c0	Sulfopyruvate carboxy-lyase	>	kb|g.575.peg.411 and kb|g.575.peg.1689	Coenzyme M Biosynthesis	|4.1.1.79|	H_c0 + 3-sulfopyruvate_c0  -> CO2_c0 + sulfoacetaldehyde_c0 	 
+rxn04934_c0	(R)-2-hydroxyacid:NAD+ oxidoreductase	=	kb|g.575.peg.1133	Coenzyme M Biosynthesis	|1.1.1.272|	NAD_c0 + (2R)-3-sulfolactate_c0  <=> H_c0 + NADH_c0 + 3-sulfopyruvate_c0 	 
+rxn04036_c0	(R)-2-phospho-3-sulfolactate phosphohydrolase	>	kb|g.575.peg.161	Coenzyme M Biosynthesis	|3.1.3.71|	H2O_c0 + 2R-Phosphosulfolactate_c0  -> H_c0 + Phosphate_c0 + (2R)-3-sulfolactate_c0 	 
+rxn07741_c0	LL-2,6-diaminoheptanedioate:2-Oxoglutarate aminotransferase	=	kb|g.575.peg.1527	None	|4.2.1.-|	H_c0 + H2O_c0 + L-Glutamate_c0 + tetrahydrodipicolinate_c0  <=> 2-Oxoglutarate_c0 + LL-2_6-Diaminopimelate_c0 	 
+rxn05109_c0	Citramalate_synthase	>	kb|g.575.peg.1018	None	|2.3.3.-|2.3.1.182|	Acetyl-CoA_c0 + H2O_c0 + Pyruvate_c0  -> H_c0 + CoA_c0 + Citramalate_c0 	 
+rxn02749_c0	(R)-2-Methylmalate hydro-lyase	=	kb|g.575.peg.1149	None	|4.2.1.35|	Citramalate_c0  <=> H2O_c0 + Citraconate_c0 	 
+rxn02751_c0	Isopropylmalate_isomerase	=	kb|g.575.peg.1480	None		2 H_c0 + H2O_c0 + Citraconate_c0  <=> H2_c0 + D-erythro-3-methylmalate_c0 	 
+rxn00735_c0	Methylmalate_dehydrogenase	=	kb|g.575.peg.539	None		NAD_c0 + H2_c0 + D-erythro-3-methylmalate_c0  <=> 2 H_c0 + CO2_c0 + NADH_c0 + 2-Oxobutyrate_c0 	 
+rxn08043_c0	2-aceto-2-hydroxybutanoate synthase	>	kb|g.575.peg.650 or kb|g.575.peg.651	None	|4.1.3.18|	H_c0 + Pyruvate_c0 + 2-Oxobutyrate_c0  -> CO2_c0 + 2-Aceto-2-hydroxybutanoate_c0 	 
+rxn08764_c0	ketol-acid reductoisomerase (2-Acetolactate)	=	kb|g.575.peg.654	None	1.1.1.86	H_c0 + NADPH_c0 + 2-Aceto-2-hydroxybutanoate_c0  <=> NADP_c0 + 2_3-Dihydroxy-3-methylvalerate_c0 	 
+rxn00405_c0	Arginine carboxy-lyase	>	kb|g.575.peg.1582	Arginine and Ornithine Degradation	4.1.1.19	H_c0 + L-Arginine_c0  -> CO2_c0 + Agmatine_c0 	 
+rxn00171_c0	Acetaldehyde:NAD+ oxidoreductase (CoA-acetylating	=	kb|g.575.peg.1423	Tryptophan Catabolism; Pyruvate Metabolism II: Acetyl-CoA, Acetogenesis from Pyruvate	1.2.1.10	CoA_c0 + NAD_c0 + Acetaldehyde_c0  <=> H_c0 + Acetyl-CoA_c0 + NADH_c0 	 
+EX_cpd00029_e0	Acetate exchange	>		Exchange		Acetate_e0  <=> 	 
+ACT	Acetate transport	=		Transport		Acetate_e0  <=> Acetate_c0 	 
+rxn10561_c0	Indolepyruvate ferredoxin oxidoreductase	=	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis		CoA_c0 + Oxidizedferredoxin_c0 + Indole-3-pyruvate_c0  <=> H_c0 + CO2_c0 + Reducedferredoxin_c0 + S-2-(indol-3-yl)acetyl-CoA_c0 	 
+rxn06696_c0	Hydrogen:5,10-methenyltetrahydromethanopterin oxidoreductase	=	kb|g.575.peg.127	Methanogenesis	|1.12.98.2|	H2_c0 + 5_10-Methenyltetrahydromethanopterin_c0  <=> H_c0 + 5_10-Methylenetetrahydromethanopterin_c0 	 
+ATPS	ATP synthase:Sodium utilizing	=	kb|g.575.peg.1038 and kb|g.575.peg.1039 and kb|g.575.peg.1040 and kb|g.575.peg.1041 and kb|g.575.peg.1042 and kb|g.575.peg.1043 and kb|g.575.peg.1044 and kb|g.575.peg.1045 and kb|g.575.peg.1046	Methanogenesis		H_c0 + Phosphate_c0 + ADP_c0 + 4 Na_e0  <=> H2O_c0 + ATP_c0 + 4 Na_c0 	 
+Fdh	Formate dehydrogenase	>	(kb|g.575.peg.138 and kb|g.575.peg.139) or (kb|g.575.peg.1297 and kb|g.575.peg.1298)	Methanogenesis		H_c0 + Formate_c0 + Coenzyme_F420_c0  -> CO2_c0 + Reduced_coenzyme_F420_c0 	 
+Hdr_formate	Formate-utilizing heterodisulfide reductase	=	((kb|g.575.peg.825 or kb|g.575.peg.1697) and ((kb|g.575.peg.1053 and kb|g.575.peg.1054) or (kb|g.575.peg.1155 and kb|g.575.peg.1154))) and ((kb|g.575.peg.138 and kb|g.575.peg.139) or (kb|g.575.peg.1297 and kb|g.575.peg.1298)) and (kb|g.575.peg.1696 or kb|g.575.peg.821)	Methanogenesis		2 Formate_c0 + Oxidizedferredoxin_c0 + CoM-S-S-CoB_c0  -> 2 CO2_c0 + Reducedferredoxin_c0 + CoM_c0 + HTP_c0 	 
+rxn00249_c0	(S)-Malate:NADP+ oxidoreductase	<	kb|g.575.peg.645	None	|1.1.1.82|	H_c0 + NADPH_c0 + Oxaloacetate_c0  <=> NADP_c0 + L-Malate_c0 	 
+Tfr	Thiol:fumarate reductase	>	kb|g.575.peg.1277 and kb|g.575.peg.1067	None		Fumarate_c0 + CoM_c0 + HTP_c0  -> Succinate_c0 + CoM-S-S-CoB_c0 	 
+EX_cpd00035_e0	EX L-Alanine e0	=		Exchange		L-Alanine_e0  -> 	 
+EX_cpd00117_e0	EX D-Alanine e0	=		Exchange		D-Alanine_e0  -> 	 
+rxn05215_c0	L-Alanine permease	=	kb|g.575.peg.1511	Transport		Na_e0 + L-Alanine_e0  <=> L-Alanine_c0 + Na_c0 	 
+rxn13660_c0	D-Alanine permease	=	kb|g.575.peg.1511	Transport		Na_e0 + D-Alanine_e0  <=> D-Alanine_c0 + Na_c0 	 
+EX_cpd00528_e0	EX Nitrogen e0	>		Exchange		N2_e0  -> 	 
+rxn10577_c0	Nitrogen exchange, diffusion	=		Transport		N2_e0  <=> N2_c0 	 
+rxn10541_c0	H2S transport (diffusion)	=		Transport		H2S_e0  <=> H2S_c0 	 
+EX_cpd00239_e0	EX_H2S_e0	=		Exchange		H2S_e0  <=> 	 
+Dsr-LP	Dsr-LP	>	kb|g.575.peg.83	Sulfur Assimilation		3 H2O_c0 + NAD_c0 + H2S_c0  -> 2 H_c0 + Sulfite_c0 + NADH_c0 + 2 H2_c0 	 
+rxn10434_c0	alpha-ketoglutarate:CoA ligase	=	kb|g.575.peg.153	Coenzyme B Biosynthesis		Acetyl-CoA_c0 + 2-Oxoglutarate_c0  <=> H_c0 + CoA_c0 + trans-homoaconitate_c0 	 
+rxn10608_c0	trans-homoaconitate hydrolase	=		Coenzyme B Biosynthesis		H2O_c0 + trans-homoaconitate_c0  <=> S-homocitrate_c0 	 
+rxn10599_c0	(S)-homocitrate dehydratase	=		Coenzyme B Biosynthesis		S-homocitrate_c0  <=> H2O_c0 + cis-Homoaconitate_c0 	 
+rxn10472_c0	cis-homoaconitate hydrolase	=	kb|g.575.peg.1480 and kb|g.575.peg.381	Coenzyme B Biosynthesis		H2O_c0 + cis-Homoaconitate_c0  <=> threo-isohomocitrate_c0 	 
+rxn10612_c0	threo-isohomocitrate dehydrogenase	=	kb|g.575.peg.880	Coenzyme B Biosynthesis		NAD_c0 + threo-isohomocitrate_c0  <=> CO2_c0 + NADH_c0 + 2-oxohexanedioic_acid_c0 	 
+rxn10433_c0	alpha-ketoadipate:CoA ligase	=	kb|g.575.peg.153	Coenzyme B Biosynthesis		Acetyl-CoA_c0 + H2O_c0 + 2-oxohexanedioic_acid_c0  <=> H_c0 + CoA_c0 + (R)-(homo)2citrate_c0 	 
+rxn10595_c0	(R)-(homo)2citrate dehydratase	=	kb|g.575.peg.1480 and kb|g.575.peg.381	Coenzyme B Biosynthesis		(R)-(homo)2citrate_c0  <=> H2O_c0 + cis-(homo)2aconitate_c0 	 
+rxn10468_c0	cis-(homo)2aconitate hydrolase	=	kb|g.575.peg.1480 and kb|g.575.peg.381	Coenzyme B Biosynthesis		H2O_c0 + cis-(homo)2aconitate_c0  <=> (-)threo-iso(homo)2citrate_c0 	 
+rxn10610_c0	threo-iso(homo)2citrate dehydrogenase	=	kb|g.575.peg.880	Coenzyme B Biosynthesis		NAD_c0 + (-)threo-iso(homo)2citrate_c0  <=> CO2_c0 + NADH_c0 + 2-oxoheptanedioic_acid_c0 	 
+rxn10435_c0	alpha-ketopimelate:CoA ligase	=	kb|g.575.peg.153	Coenzyme B Biosynthesis		Acetyl-CoA_c0 + H2O_c0 + 2-oxoheptanedioic_acid_c0  <=> H_c0 + CoA_c0 + (R)-(homo)3citrate_c0 	 
+rxn10596_c0	(R)-(homo)3citrate dehydratase	=	kb|g.575.peg.1480 and kb|g.575.peg.381	Coenzyme B Biosynthesis		(R)-(homo)3citrate_c0  <=> H2O_c0 + cis-(homo)3aconitate_c0 	 
+rxn10469_c0	cis-(homo)3aconitate hydrolase	=	kb|g.575.peg.1480 and kb|g.575.peg.381	Coenzyme B Biosynthesis		H2O_c0 + cis-(homo)3aconitate_c0  <=> (-)threo-iso(homo)3citrate_c0 	 
+rxn10611_c0	threo-iso(homo)3citrate dehydrogenase	=	kb|g.575.peg.880	Coenzyme B Biosynthesis		NAD_c0 + (-)threo-iso(homo)3citrate_c0  <=> CO2_c0 + NADH_c0 + 2-Oxosuberate_c0 	 
+rxn11855_c0	rxn11855	=		Coenzyme B Biosynthesis		H_c0 + 2-Oxosuberate_c0  <=> CO2_c0 + 7-oxoheptanoic_acid_c0 	 
+rxn10424_c0	7-mercaptoheptanoate synthase	=		Coenzyme B Biosynthesis		H_c0 + NADH_c0 + L-Cysteine_c0 + 7-oxoheptanoic_acid_c0  <=> NAD_c0 + L-Serine_c0 + 7-mercaptoheptanoic_acid_c0 	 
+rxn10425_c0	7-mercaptoheptanoylthreonine synthase	=		Coenzyme B Biosynthesis		L-Threonine_c0 + ATP_c0 + 7-mercaptoheptanoic_acid_c0  <=> H_c0 + Phosphate_c0 + ADP_c0 + 7-mercaptoheptanoylthreonine_c0 	 
+rxn10475_c0	Coenzyme B synthase	=		Coenzyme B Biosynthesis		ATP_c0 + 7-mercaptoheptanoylthreonine_c0  <=> ADP_c0 + HTP_c0 	 
+MptA	MptA	>	kb|g.575.peg.34	Tetrahydromethanopterin Biosynthesis		H2O_c0 + GTP_c0  -> H_c0 + Formate_c0 + PPi_c0 + 7,8-dihydronepterin_2_3-cyclicphosphate_c0 	 
+rxn10490_c0	7,8-dihydronepterin 2':3'-cyclicphosphate hydrolase	>	kb|g.575.peg.230	Tetrahydromethanopterin Biosynthesis		H2O_c0 + 7,8-dihydronepterin_2_3-cyclicphosphate_c0  -> Dihydroneopterin_phosphate_c0 	 
+rxn03168_c0	Dihydroneopterin monophosphate dephosphorylase	=		Tetrahydromethanopterin Biosynthesis	|3.6.1.-|	H2O_c0 + Dihydroneopterin_phosphate_c0  <=> H_c0 + Phosphate_c0 + Dihydroneopterin_c0 	 
+rxn02504_c0	Dihydroneopterin aldolase	=	kb|g.575.peg.243	Tetrahydromethanopterin Biosynthesis	|4.1.2.25|	Dihydroneopterin_c0  <=> 6-hydroxymethyl_dihydropterin_c0 + Glycolaldehyde_c0 	 
+rxn02503_c0	ATP:2-amino-4-hydroxy-6-hydroxymethyl-7,8-dihydropteridine	=	kb|g.575.peg.579	Tetrahydromethanopterin Biosynthesis	|2.7.6.3|	ATP_c0 + 6-hydroxymethyl_dihydropterin_c0  <=> AMP_c0 + 2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 	 
+rxn10446_c0	beta-ribofuranosylaminobenzene 5'-phosphate synthase	=	kb|g.575.peg.279	Tetrahydromethanopterin Biosynthesis		PRPP_c0 + ABEE_c0  <=> CO2_c0 + PPi_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0 	 
+rxn10491_c0		=		Tetrahydromethanopterin Biosynthesis		2-Amino-4-hydroxy-6-hydroxymethyl-7-8-dihydropteridinediphosphate_c0 + 4-(B-D-ribofuranosyl)aminobenzene_5-phosphate_c0  <=> PPi_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 	 
+H4MPTs	Tetrahydromethanopterin synthase	=		Tetrahydromethanopterin Biosynthesis		H2O_c0 + 2 NADH_c0 + 2 ATP_c0 + 2 S-Adenosyl-L-methionine_c0 + PRPP_c0 + 7,8-dihydropterin-6-ylmethyl-4-(B-D-ribofuranosyl)_aminobenzene_5-phosphate_c0 + (S)-2-Hydroxyglutarate_c0  <=> Phosphate_c0 + 2 NAD_c0 + 2 ADP_c0 + 2 PPi_c0 + 2 S-Adenosyl-homocysteine_c0 + H4MPT_c0 	 
+rxn10432_c0	(S)-alpha-hydroxyglutarate dehydrogenase	=		Tetrahydromethanopterin Biosynthesis		H_c0 + NADH_c0 + 2-Oxoglutarate_c0  <=> NAD_c0 + (S)-2-Hydroxyglutarate_c0 	 
+ADTHs	ADTH synthase	>	kb|g.575.peg.686	Tetrahydromethanopterin Biosynthesis		L-Aspartate4-semialdehyde_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0  -> 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + Hydroxypyruvaldehyde_phosphate_c0 	 
+ADTHOR	ADTH oxidoreductase	=	kb|g.575.peg.6	Tetrahydromethanopterin Biosynthesis		H_c0 + H2O_c0 + NAD_c0 + 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0  <=> NADH_c0 + NH3_c0 + 3-Dehydroquinate_c0 	 
+3DHQAT	3-dehydroquinate aminotransferase	=		Tetrahydromethanopterin Biosynthesis		NH3_c0 + 3-Dehydroquinate_c0  <=> H_c0 + H2O_c0 + 4-Amino-3-Dehydroquinate_c0 	 
+4ADSs	4-aminodehydroshikimate synthase	=		Tetrahydromethanopterin Biosynthesis		4-Amino-3-Dehydroquinate_c0  <=> H2O_c0 + 4-Amino-3-Dehydroshikimate_c0 	 
+4ASDH	4-aminoshikimate dehydrogenase	=		Tetrahydromethanopterin Biosynthesis		H_c0 + NADH_c0 + 4-Amino-3-Dehydroshikimate_c0  <=> NAD_c0 + 4-Aminoshikimate_c0 	 
+4ASDHT	4-aminoshikimate dehydratase	=		Tetrahydromethanopterin Biosynthesis		4-Aminoshikimate_c0  <=> H2O_c0 + 4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0 	 
+ABEEs	4-aminobenzoic acid synthase	=		Tetrahydromethanopterin Biosynthesis		4-amino-3-hydroxycyclohexa-1,5-diene-1-carboxylate_c0  <=> H2O_c0 + ABEE_c0 	 
+rxn00979_c0	Glycolaldehyde:NAD+ oxidoreductase	=		Glycolate, Glyoxylate Interconversions	1.2.1.21	H2O_c0 + NAD_c0 + Glycolaldehyde_c0  <=> 2 H_c0 + NADH_c0 + Glycolate_c0 	 
+rxn00512_c0	Glycolate:NAD+ oxidoreductase	=		Glycolate, Glyoxylate Interconversions	|1.1.1.26|1.1.1.29|	NAD_c0 + Glycolate_c0  <=> H_c0 + NADH_c0 + Glyoxalate_c0 	 
+rxn00272_c0	L-Alanine:glyoxylate aminotransferase	=		Serine-Glyoxylate Cycle	|2.6.1.44|	L-Alanine_c0 + Glyoxalate_c0  <=> Glycine_c0 + Pyruvate_c0 	 
+COMs	Coenzyme M synthesis	>		Coenzyme M Biosynthesis		H2S_c0 + H2_c0 + sulfoacetaldehyde_c0  -> H2O_c0 + CoM_c0 	 
+rxn00529_c0	L-Tyrosine carboxylase	>	kb|g.575.peg.131	Methanofuran Biosynthesis	|4.1.1.25|4.1.1.28|	H_c0 + L-Tyrosine_c0  -> CO2_c0 + Tyramine_c0 	 
+MfnD	Tyramine-glutamate ligase	>	kb|g.575.peg.564	Methanofuran Biosynthesis		ATP_c0 + L-Glutamate_c0 + Tyramine_c0  -> H_c0 + Phosphate_c0 + ADP_c0 + gamma-Glutamyl-tyramine_c0 	 
+MfnB	Tyramine-glutamate ligase	>	kb|g.575.peg.708	Methanofuran Biosynthesis		Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0  -> H_c0 + 2 H2O_c0 + Phosphate_c0 + 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0 	 
+MfnC	4-HCF-P:alanine aminotransferase	>	kb|g.575.peg.1072	Methanofuran Biosynthesis		L-Alanine_c0 + 4-(hydroxymethyl)-2-furancarboxaldehyde-phosphate_c0  -> Pyruvate_c0 + 5-(aminomethyl)-3-furanmethanol-phosphate_c0 	 
+F1Pp	5-(aminomethyl)-3-furanmethanol-phosphate phosphorylase	>	kb|g.575.peg.1399	Methanofuran Biosynthesis		ATP_c0 + 5-(aminomethyl)-3-furanmethanol-phosphate_c0  -> ADP_c0 + 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0 	 
+F1PPc	5-(aminomethyl)-3-furanmethanol-pyrophosphate condensation	>	kb|g.575.peg.72	Methanofuran Biosynthesis		gamma-Glutamyl-tyramine_c0 + 5-(aminomethyl)-3-furanmethanol-pyrophosphate_c0  -> PPi_c0 + 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0 	 
+MFs	Methanofuran synthase	>		Methanofuran Biosynthesis		3 L-Glutamate_c0 + H2_c0 + 4((4-(2-aminoethyl)phenoxy)methyl)-2-furanmethanamine_c0  -> 2 H2O_c0 + 2 NH3_c0 + Methanofuran_c0 	 
+rxn10508_c0	coenzyme F430 precursor synthase 1 (aminase)	=		Coenzyme F430 Biosynthesis		2 H2O_c0 + 2 ATP_c0 + 2 L-Glutamine_c0 + Precorrin_2_c0 + Ni2_c0  <=> 4 H_c0 + 2 Phosphate_c0 + 2 ADP_c0 + 2 L-Glutamate_c0 + Pyrrochorphinate_c0 	 
+rxn10509_c0	coenzyme F430 precursor synthase 2 (reduction)	=		Coenzyme F430 Biosynthesis		2 H_c0 + NADH_c0 + Pyrrochorphinate_c0  <=> NAD_c0 + Dihydrocorphinate_c0 	 
+rxn10510_c0	coenzyme F430 precursor synthase 3 (reduction)	=		Coenzyme F430 Biosynthesis		H_c0 + NADH_c0 + Dihydrocorphinate_c0  <=> NAD_c0 + Tetrahydrocorphinate_c0 	 
+rxn10511_c0	coenzyme F430 precursor synthase 4 (cyclization)	=		Coenzyme F430 Biosynthesis		Tetrahydrocorphinate_c0  <=> 15_17-seco-F430-17-acid_c0 	 
+rxn10512_c0	coenzyme F430 precursor synthase 5 (cyclization)	=		Coenzyme F430 Biosynthesis		H_c0 + 15_17-seco-F430-17-acid_c0  <=> H2O_c0 + Factor_430_c0 	 
+EX_cpd00244_e0	EX_Ni2_e0	=		Exchange		Ni2_e0  <=> 	 
+rxn05174_c0	Nickel-ABC Transport	>		Transport		H2O_c0 + ATP_c0 + Ni2_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Ni2_c0 	 
+rxn00097_c0	ATP:AMP phosphotransferase	>	kb|g.575.peg.1031	Purine Conversions	2.7.4.3	ATP_c0 + AMP_c0  -> 2 ADP_c0 	 
+rxn10499_c0	7,8-didemethyl-8-hydroxy-5-deazariboflavin synthetase	=	kb|g.575.peg.876 and kb|g.575.peg.56	Coenzyme F420 Biosynthesis		H2O_c0 + 2 NADP_c0 + 4-1-D-Ribitylamino-5-aminouracil_c0 + p-hydroxyphenylpyruvate_c0  <=> 2 H_c0 + 2 NADPH_c0 + NH3_c0 + Oxalate_c0 + 7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 	 
+rxn01053_c0	(S)-lactaldehyde:NAD+ oxidoreductase	=	kb|g.575.peg.1487	Coenzyme F420 Biosynthesis	1.2.1.21|1.2.1.22	H2O_c0 + NAD_c0 + L-Lactaldehyde_c0  <=> 2 H_c0 + NADH_c0 + L-Lactate_c0 	 
+rxn10567_c0	LPPG synthetase	=	kb|g.575.peg.117	Coenzyme F420 Biosynthesis		H_c0 + GTP_c0 + 2-phospho-L-lactate_c0  <=> PPi_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0 	 
+rxn10420_c0	2-phospho-L-lactate synthase	=		Coenzyme F420 Biosynthesis		GTP_c0 + L-Lactate_c0  <=> H_c0 + GDP_c0 + 2-phospho-L-lactate_c0 	 
+rxn10566_c0	LPPG:Fo 2-phospho-L-lactate transferase	=	kb|g.575.peg.404	Coenzyme F420 Biosynthesis		7,8-didemethyl-8-hydroxy-5-deazariboflavin_c0 + lactyl-(2)-diphospho-(5)-guanosine_c0  <=> GMP_c0 + Coenzyme_F420-0_c0 	 
+rxn10525_c0	gamma-F420-0:gamma-L-glutamate ligase	=	kb|g.575.peg.937	Coenzyme F420 Biosynthesis		GTP_c0 + L-Glutamate_c0 + Coenzyme_F420-0_c0  <=> H_c0 + Phosphate_c0 + GDP_c0 + Coenzyme_F420-1_c0 	 
+rxn10526_c0	gamma-F420-1:gamma-L-glutamate ligase	=	kb|g.575.peg.937	Coenzyme F420 Biosynthesis		GTP_c0 + L-Glutamate_c0 + Coenzyme_F420-1_c0  <=> H_c0 + Phosphate_c0 + Coenzyme_F420_c0 + GDP_c0 	 
+rxn10527_c0	gamma-F420-2:gamma-L-glutamate ligase	=	kb|g.575.peg.170	Coenzyme F420 Biosynthesis		GTP_c0 + L-Glutamate_c0 + Coenzyme_F420_c0  <=> H_c0 + Phosphate_c0 + GDP_c0 + Coenzyme_F420-3_c0 	 
+rxn05734_c0	aldehyde dehydrogenase (glyoxylate, NAD)	=		Methylglyoxal Metabolism		H2O_c0 + NAD_c0 + Glyoxalate_c0  <=> 2 H_c0 + NADH_c0 + Oxalate_c0 	 
+rxn01361_c0	(S)-Dihydroorotate:(acceptor) oxidoreductase	=	kb|g.575.peg.439 and kb|g.575.peg.919	De Novo Pyrimidine Synthesis	|1.3.1.14|1.3.99.11|1.3.3.2|	NAD_c0 + S-Dihydroorotate_c0  <=> H_c0 + NADH_c0 + Orotate_c0 	 
+CODH	Carbon monoxide dehydrogenase	=	kb|g.575.peg.979 and kb|g.575.peg.980 and kb|g.575.peg.981 and kb|g.575.peg.982 and kb|g.575.peg.983 and kb|g.575.peg.984 and kb|g.575.peg.985	None		3 H_c0 + CO2_c0 + Reducedferredoxin_c0  <=> H2O_c0 + Oxidizedferredoxin_c0 + 0.5 H2_c0 + CO_c0 	 
+ACS	Acetyl-CoA synthase	=	kb|g.575.peg.979 and kb|g.575.peg.980 and kb|g.575.peg.981 and kb|g.575.peg.982 and kb|g.575.peg.983 and kb|g.575.peg.984 and kb|g.575.peg.985	None		CoA_c0 + 5-Methyl-H4MPT_c0 + 0.5 H2_c0 + CO_c0  <=> H_c0 + Acetyl-CoA_c0 + H4MPT_c0 	 
+rxn10480_c0	CO transporter via diffusion	=		Transport		CO_c0  <=> CO_e0 	 
+EX_cpd00204_e0	EX_CO_e0	>		Exchange		CO_e0  <=> 	 
+FNO	F420:NADP oxidoreductase	=	kb|g.575.peg.1550	None		NADP_c0 + Reduced_coenzyme_F420_c0  <=> H_c0 + NADPH_c0 + Coenzyme_F420_c0 	 
+EX_cpd00131_e0	EX_Molybdenum_e0	=		Exchange		Molybdenum_e0  <=> 	 
+Mot	ATP-Dependent Molybdenum transport	=	(kb|g.575.peg.205 and kb|g.575.peg.206 and kb|g.575.peg.207) or (kb|g.575.peg.504 and kb|g.575.peg.505 and kb|g.575.peg.506) or (kb|g.575.peg.514 and kb|g.575.peg.515 and kb|g.575.peg.516) or (kb|g.575.peg.1650 and kb|g.575.peg.1651 and kb|g.575.peg.1652)	Transport		H2O_c0 + ATP_c0 + Molybdenum_e0  <=> H_c0 + Phosphate_c0 + ADP_c0 + Molybdenum_c0 	 
+HcyS	Homocysteine Synthesis	=	kb|g.575.peg.1358 and kb|g.575.peg.1359	Methionine Biosynthesis		L-Aspartate4-semialdehyde_c0 + H2S_c0 + H2_c0  <=> Homocysteine_c0 + H2O_c0 	 
+MetS	Methionine Synthase	>	kb|g.575.peg.401	Methionine Biosynthesis		Homocysteine_c0 + 5-Methyl-H4MPT_c0  -> L-Methionine_c0 + H4MPT_c0 	 
+rxn02430_c0	Dihydromethanopterin reductase	=		None		H_c0 + NADPH_c0 + 7,8-Dihydromethanopterin_c0  <=> NADP_c0 + H4MPT_c0 	 
+H4MPT3M2Om	5,10-Methylenetetrahydromethanopterin 3-Methyl-2-oxobutanoate methyltransferase	=		Coenzyme A Biosynthesis		H2O_c0 + 3-Methyl-2-oxobutanoate_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> H4MPT_c0 + 2-Dehydropantoate_c0 	 
+H4MPTdUMPm	5,10-Methylenetetrahydromethanopterin dUMP C-methyltransferase	=	kb|g.575.peg.1379 and kb|g.575.peg.986	Pyrimidine Conversions		dUMP_c0 + 5_10-Methylenetetrahydromethanopterin_c0  <=> dTMP_c0 + 7,8-Dihydromethanopterin_c0 	 
+FH4MPTAf	Formyl-H4MPT AICAR Formyltransferase	=		De Novo Purine Biosynthesis		AICAR_c0 + 5-Formyl-H4MPT_c0  <=> H4MPT_c0 + FAICAR_c0 	 
+HPAr	Hydroxypyruvaldehyde phosphate reductase	=		Coenzyme F420 Biosynthesis		NADH_c0 + Hydroxypyruvaldehyde_phosphate_c0  <=> NAD_c0 + Glyceraldehyde3-phosphate_c0 	 
+rxn02377_c0	UDP-N-acetyl-D-mannosamine:NAD+ 1-oxidoreductase	=	kb|g.575.peg.706	None	|1.1.1.-|	H2O_c0 + 2 NAD_c0 + UDP-N-acetyl-D-mannosamine_c0  <=> 3 H_c0 + 2 NADH_c0 + UDP-N-acetyl-D-mannosaminouronate_c0 	 
+rxn00298_c0	UDP-N-acetyl-D-glucosamine:NAD+ 6-oxidoreductase	=	kb|g.575.peg.353	Archaellin Synthesis	|1.1.1.136|	H2O_c0 + 2 NAD_c0 + UDP-N-acetylglucosamine_c0  <=> 3 H_c0 + 2 NADH_c0 + UDP-N-acetyl-D-glucosaminouronate_c0 	 
+UGAor	UDP-GlcNAcA:NAD+ oxidoreductase	=	kb|g.575.peg.352	Archaellin Synthesis		NAD_c0 + UDP-N-acetyl-D-glucosaminouronate_c0  <=> NADH_c0 + H2_c0 + UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0 	 
+UGNAa	UDP-GlcNAC(3keto)A aminase	=	kb|g.575.peg.351	Archaellin Synthesis		L-Glutamate_c0 + UDP-2-acetamido-2-deoxy-3-oxo-glucuronate_c0  <=> 2-Oxoglutarate_c0 + UDP-2-acetamido-3-amino-2,3-dideoxy-glucuronate_c0 	 
+UGNAna	UDP-GlcNAc(3NH2)A N-acetylase	=	kb|g.575.peg.350	Archaellin Synthesis		Acetyl-CoA_c0 + UDP-2-acetamido-3-amino-2,3-dideoxy-glucuronate_c0  <=> H_c0 + CoA_c0 + UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0 	 
+UGNAe	UDP-GlcNAc(3NAc)A epimerase	=	kb|g.575.peg.357	Archaellin Synthesis		UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0  <=> UDP-2,3-diacetamido-2,3-dideoxy-mannuronate_c0 	 
+UMNAat	UDP-ManNAcA aminotransferase	=	kb|g.575.peg.1081 and kb|g.575.peg.1082 and kb|g.575.peg.1083	Archaellin Synthesis		H2O_c0 + L-Glutamine_c0 + UDP-2,3-diacetamido-2,3-dideoxy-mannuronate_c0  <=> L-Glutamate_c0 + UDP-3-acetamido-2,3-diaminomannuronate_c0 	 
+2NACmt	NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose methyltransferase	=	kb|g.575.peg.1085	Archaellin Synthesis		NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0  <=> NDP-(5S)-2-acetamido-2,4-dideoxy-5-O-methyl-alpha-L-erythro-hexos-5-ulo-1,5-pyranose_c0 	 
+TSot	Tetrasaccharide oligosaccharyltransferase	=	kb|g.575.peg.1084	Archaellin Synthesis		L-Threonine_c0 + Lipid_tetrasaccharide_c0  <=> Lipid_tetrasaccharide_Thr_c0 	 
+GLCgt	GlcNAc3NAcA glycosyltransferase	=	kb|g.575.peg.1079	Archaellin Synthesis		UDP-2,3-diacetamido-2,3-dideoxy-glucuronate_c0 + Lipid_monosaccharide_c0  <=> Lipid_disaccharide_c0 	 
+MANgt	ManNAc3NAmA glycosyltransferase	=	kb|g.575.peg.1080	Archaellin Synthesis		UDP-3-acetamido-2,3-diaminomannuronate_c0 + Lipid_disaccharide_c0  <=> Lipid_trisaccharide_c0 	 
+2NACgt	NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose glycosyltransferase	=	kb|g.575.peg.1088	Archaellin Synthesis		NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0 + Lipid_trisaccharide_c0  <=> Lipid_tetrasaccharide_c0 	 
+TSost	Tetrasaccharide oligosaccharyltransferase	=	kb|g.575.peg.1424	Archaellin Synthesis		Lipid_tetrasaccharide_Thr_e0 + Flagellin_e0  <=> Archaellin_e0 	 
+TSf	Tetrasaccharide flippase	=		Transport		Lipid_tetrasaccharide_Thr_c0  <=> Lipid_tetrasaccharide_Thr_e0 	 
+GALgt	GalNAc glycosyltransferase	=		Archaellin Synthesis		UDP-N-acetyl-D-galactosamine_c0 + Membrane_lipid_c0  <=> Lipid_monosaccharide_c0 	 
+EX_NAC_c0	NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose supply	=		Exchange		NDP-2-acetamino-2,4-dideoxy-5-O-methyl-hexos-5-ulo-1,5-pyranose_c0  <=> 	 
+EX_Membrane_lipid_c0	Membrane lipid synthesis	=		Exchange		Membrane_lipid_c0  <=> 	 
+EX_Flagellin_e0	Flagellin synthesis	=		Exchange		Flagellin_e0  <=> 	 
+rxn10560_c0	Indole-3-acetate transport via proton symport	=		Transport		H_c0 + Indoleacetate_c0  <=> H_e0 + Indoleacetate_e0 	 
+rxn10559_c0	Hydroxyphenylacetate transport via proton symport	=		Transport		H_e0 + 4-Hydroxyphenylacetate_e0  <=> H_c0 + 4-Hydroxyphenylacetate_c0 	 
+rxn10587_c0	Phenylacetate transport via proton symport	=		Transport		H_e0 + PACT_e0  <=> H_c0 + PACT_c0 	 
+rxn10586_c0	Indoleacetate:CoA ligase	>	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis		H_c0 + CoA_c0 + ATP_c0 + Indoleacetate_c0  -> PPi_c0 + AMP_c0 + S-2-(indol-3-yl)acetyl-CoA_c0 	 
+rxn01946_c0	4-Hydroxyphenylacetate:CoA ligase (AMP-forming)	>	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis	|6.2.1.30|6.2.1.-|	H_c0 + CoA_c0 + ATP_c0 + 4-Hydroxyphenylacetate_c0  -> PPi_c0 + AMP_c0 + 4-Hydroxyphenylacetyl-CoA_c0 	 
+rxn01842_c0	Phenylacetate:CoA ligase	>	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis	6.2.1.30	CoA_c0 + ATP_c0 + PACT_c0  -> PPi_c0 + AMP_c0 + Phenylacetyl-CoA_c0 	 
+rxn10563_c0	Hydroxyphenylpyruvate ferredoxin oxidoreductase	=	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis		CoA_c0 + Oxidizedferredoxin_c0 + p-hydroxyphenylpyruvate_c0  <=> H_c0 + CO2_c0 + Reducedferredoxin_c0 + 4-Hydroxyphenylacetyl-CoA_c0 	 
+rxn10562_c0	Phenylpyruvate ferredoxin oxidoreductase	=	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis		CoA_c0 + Oxidizedferredoxin_c0 + Phenylpyruvate_c0  <=> H_c0 + CO2_c0 + Reducedferredoxin_c0 + Phenylacetyl-CoA_c0 	 
+rxn00483_c0	L-Tryptophan:2-oxoglutarate aminotransferase	=	(kb|g.575.peg.315 and kb|g.575.peg.316) or (kb|g.575.peg.713 and kb|g.575.peg.714)	Amino Acid Biosynthesis	|2.6.1.27|	2-Oxoglutarate_c0 + L-Tryptophan_c0  <=> L-Glutamate_c0 + Indole-3-pyruvate_c0 	 
+EX_cpd00430_e0	EX_PACT_e0	>		Exchange		PACT_e0  <=> 	 
+EX_cpd00489_e0	EX_4-Hydroxyphenylacetate_e0	>		Exchange		4-Hydroxyphenylacetate_e0  <=> 	 
+EX_cpd00703_e0	EX_Indoleacetate_e0	>		Exchange		Indoleacetate_e0  <=> 	 
+rxn05166_c0	Cobalt-ABC transport	>	(kb|g.575.peg.888 and kb|g.575.peg.886) or (kb|g.575.peg.1482 and kb|g.575.peg.1483 and kb|g.575.peg.1484)	Transport		H2O_c0 + ATP_c0 + Co2_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Co2_c0 	 
+rxn10447_c0	Calcium transport via ABC system	>	kb|g.575.peg.520 or kb|g.575.peg.710	Transport		H2O_c0 + ATP_c0 + Ca2_e0  -> H_c0 + Phosphate_c0 + ADP_c0 + Ca2_c0 	 
+rxn01491_c0	D-Fructose-1,6-bisphosphate phosphohydrolase	=		Methylglyoxal Metabolism	|3.1.3.68|	H2O_c0 + D-fructose-1_6-bisphosphate_c0  <=> H_c0 + Phosphate_c0 + D-fructose-1-phosphate_c0 	 
+F6PG3Pl	D-Fructose-6-phosphate D-glyceraldehyde-3-phosphate-lyase	>	kb|g.575.peg.293	Methylglyoxal Metabolism		Phosphate_c0 + D-fructose-1-phosphate_c0  -> Glycerone-phosphate_c0 + Glyceraldehyde3-phosphate_c0 	 
+2OPs	2-Oxopropanal synthase	=	kb|g.575.peg.687	Methylglyoxal Metabolism		Glyceraldehyde3-phosphate_c0  <=> Phosphate_c0 + 2-Oxopropanal_c0 	 
+DKFPs1	6-Deoxy-5-ketofructose-1-phosphate synthase (Fructose-1,6-bisphosphate utilizing)	>	kb|g.575.peg.293	Methylglyoxal Metabolism		D-fructose-1_6-bisphosphate_c0 + 2-Oxopropanal_c0  -> Glyceraldehyde3-phosphate_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	 
+DKFPs2	6-Deoxy-5-ketofructose-1-phosphate synthase (Fructose-1-phosphate utilizing)	>	kb|g.575.peg.293	Methylglyoxal Metabolism		D-fructose-1-phosphate_c0 + 2-Oxopropanal_c0  -> Glyceraldehyde3-phosphate_c0 + 6-deoxy-5-ketofructose-1-phosphate_c0 	 
+rxn01618_c0	(S)-Lactaldehyde:NADP+ oxidoreductase	=		Methylglyoxal Metabolism	|1.2.1.49|	NADP_c0 + L-Lactaldehyde_c0  <=> H_c0 + NADPH_c0 + 2-Oxopropanal_c0 	 
+LAFor	(S)-Lactaldehyde:F420 oxidoreductase	>		Methylglyoxal Metabolism		Coenzyme_F420_c0 + L-Lactaldehyde_c0  -> H_c0 + Reduced_coenzyme_F420_c0 + 2-Oxopropanal_c0 	 
+GLYPs	Glycerone-phosphate synthase	=	kb|g.575.peg.142	Methylglyoxal Metabolism		Pyruvate_c0 + Formaldehyde_c0  <=> CO2_c0 + Glycerone-phosphate_c0 	 
+rxn00149_c0	Pyruvaldehyde:NAD+ oxidoreductase	>		None	|1.2.1.22|1.2.1.23|	H2O_c0 + NAD_c0 + 2-Oxopropanal_c0  -> 2 H_c0 + NADH_c0 + Pyruvate_c0 	 
+rxn00150_c0	Pyruvaldehyde:NADP+ oxidoreductase	>		None	|1.2.1.49|	H2O_c0 + NADP_c0 + 2-Oxopropanal_c0  -> 2 H_c0 + NADPH_c0 + Pyruvate_c0 	 
+rxn09249_c0	Seryl-tRNA synthetase (selenocysteine)	=	kb|g.575.peg.879	Selenocysteine metabolism	|6.1.1.11|	ATP_c0 + L-Serine_c0 + tRNA(SeCys)_c0  <=> PPi_c0 + AMP_c0 + L-Seryl-tRNA(Sec)_c0 	 
+rxn11751_c0	L-seryl-tRNA(Sec) kinase	=	kb|g.575.peg.1490	Selenocysteine metabolism	|2.7.1.-|	ATP_c0 + L-Seryl-tRNA(Sec)_c0  <=> ADP_c0 + O-Phosphoseryl-tRNA(Sec)_c0 	 
+rxn11752_c0	O-phosphoseryl-tRNA(Sec) selenium transferase	=	kb|g.575.peg.595	Selenocysteine metabolism	|2.9.1.-|	3 H_c0 + Selenophosphate_c0 + O-Phosphoseryl-tRNA(Sec)_c0  <=> PPi_c0 + L-Selenocysteinyl-tRNA(Sec)_c0 	 
+rxn11950_c0	rxn11950_c0	=		Selenocysteine metabolism		L-Selenocysteinyl-tRNA(Sec)_c0  <=> Selenoprotein_c0 	 
+rxn11571_c0	Hydrogen selenide:NADP+ oxidoreductase	=	kb|g.575.peg.959	Selenocysteine metabolism	|1.8.1.-|	3 H2O_c0 + 3 NADP_c0 + Selenide_c0  <=> 3 H_c0 + 3 NADPH_c0 + Selenite_c0 	 
+rxn07210_c0	Selenite:NADP+ oxidoreductase	=		Selenocysteine metabolism	|1.97.1.9|	H2O_c0 + NADP_c0 + Selenite_c0  <=> NADPH_c0 + Selenate_c0 	 
+SEt	Selenate transport	=		Transport		Selenate_e0  <=> Selenate_c0 	 
+EX_cpd03396_e0	EX_Selenate_e0	=		Exchange		Selenate_e0  <=> 	 
+EX_cpd15573_c0	EX_tRNA(SeCys)_c0	=		Exchange		tRNA(SeCys)_c0  <=> 	 
+rxn01217_c0	dCMP aminohydrolase	>	kb|g.575.peg.1426	None	|3.5.4.12|	H_c0 + H2O_c0 + dCMP_c0  -> NH3_c0 + dUMP_c0 	 
+rxn00915_c0	GMP:pyrophosphate phosphoribosyltransferase	>	kb|g.575.peg.145	Purine conversions	|2.4.2.7|2.4.2.8|2.4.2.22|	PRPP_c0 + Guanine_c0  -> PPi_c0 + GMP_c0 	 
+rxn00836_c0	IMP:pyrophosphate phosphoribosyltransferase	>	kb|g.575.peg.145	Purine conversions	2.4.2.8	PRPP_c0 + HYXN_c0  -> PPi_c0 + IMP_c0 	 
+rxn13772_c0	5-diphosphomevalonate carboxylase	=		Isoprenoid Biosynthesis; Archaeal Lipids	|4.1.1.33|	5-phosphomevalonate_c0  <=> CO2_c0 + Isopentenylphosphate_c0 	 
+IPk	Isopentenyl phosphate kinase	=	kb|g.575.peg.1645	Isoprenoid Biosynthesis; Archaeal Lipids		Phosphate_c0 + Isopentenylphosphate_c0  <=> Isopentenyldiphosphate_c0 	 
+rxn11998_c0	Geranylgeranylglyceryl phosphate synthase	=	kb|g.575.peg.7	Archaeal Lipids	|2.5.1.41|	Geranylgeranyl_diphosphate_c0 + Glycerol-3-phosphate_c0  <=> PPi_c0 + sn-3-O-(Geranylgeranyl)glycerol_1-phosphate_c0 	 
+rxn03114_c0	Geranylgeranyl diphosphate:sn-3-O-(geranylgeranyl)glycerol	=	kb|g.575.peg.1677	Archaeal Lipids	|2.5.1.42|	Geranylgeranyl_diphosphate_c0 + sn-3-O-(Geranylgeranyl)glycerol_1-phosphate_c0  <=> PPi_c0 + 2,3-Bis-O-(geranylgeranyl)glycerol_1-phosphate_c0 	 
+rxn14345_c0	CTP:2,3-bis-O-(geranylgeranyl)-sn-glycerol-1-phosphatecytidylyltransferase	=	kb|g.575.peg.1698	Archaeal Lipids	 2.7.7.67	CTP_c0 + 2,3-Bis-O-(geranylgeranyl)glycerol_1-phosphate_c0  <=> PPi_c0 + CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0 	 
+ARCSs	Archaetidylserine synthase	=	kb|g.575.peg.1171	Archaeal Lipids		L-Serine_c0 + CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0  <=> CMP_c0 + Archaetidylserine_c0 	 
+CDPDGGR	CDP-Archaeol Digeranylgeranylglycerophospholipid reductase	=	kb|g.575.peg.388	Archaeal Lipids		8 H2_c0 + CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol_c0  <=> Saturated_CDP-archaeol_c0 	 
+ASDGGR	Archaetidylserine Digeranylgeranylglycerophospholipid reductase	=	kb|g.575.peg.388	Archaeal Lipids		8 H2_c0 + Archaetidylserine_c0  <=> Saturated_Archaetidylserine_c0 	 
+rxn10542_c0	Hydrogen transport via diffusion	=		Transport		H2_e0  <=> H2_c0 	 
+rxn10471_c0	Methane transport via diffusion	=		Transport		Methane_e0  <=> Methane_c0 	 
