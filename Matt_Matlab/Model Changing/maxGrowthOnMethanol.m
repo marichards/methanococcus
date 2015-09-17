@@ -1,53 +1,54 @@
 function [solution,gibbs_flux,model] = maxGrowthOnMethanol(model,substrate_rxns,concentrations)
 
 %Add in the reaction for converting methanol to methyl-coM
-model = addReaction(model,{'rxn10568_c0','Methanol: coenzyme M methyltransferase'},...
-    'Methanol_c0 + CoM_c0 <=> Methyl_CoM_c0 + H2O_c0');
+model = addReaction(model,{'rxn10568[c0]','Methanol: coenzyme M methyltransferase'},...
+    'Methanol[c0] + CoM[c0] <=> Methyl_CoM[c0] + H2O[c0]');
 
 %Add in the methanol uptake
-model = addReaction(model,{'rxn10570_c0','Methanol diffusion'},...
-    'Methanol_e0 <=> Methanol_c0');
-model = addReaction(model,{'EX_cpd00116_e0','EX_Methanol_e0'},...
-    'Methanol_e0 <=> ');
+model = addReaction(model,{'rxn10570[c0]','Methanol diffusion'},...
+    'Methanol[e0] <=> Methanol[c0]');
+model = addReaction(model,{'EX_cpd00116[e0]','EX_Methanol[e0]'},...
+    'Methanol[e0] <=> ');
 
 % Add metabolite info for methanol
-[~,idx] = intersect(model.mets,'Methanol_c0');
+[~,idx] = intersect(model.mets,'Methanol[c0]');
 model.metCharge(idx)=0;
 model.metFormulas{idx}='CH4O';
-[~,idx] = intersect(model.mets,'Methanol_e0');
+[~,idx] = intersect(model.mets,'Methanol[e0]');
 model.metCharge(idx)=0;
 model.metFormulas{idx}='CH4O';
 
 % Add it to the free energy
-[~,idx] = intersect(model.rxns,'EX_cpd00116_e0');
+[~,idx] = intersect(model.rxns,'EX_cpd00116[e0]');
 model.freeEnergy(idx) = -0.0302;
 
 %Turn off the CO2 uptake
-%model = changeRxnBounds(model,'EX_cpd00011_e0',0,'l');
+%model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
 % Turn on the acetate uptake
-%model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
+%model = changeRxnBounds(model,'EX_cpd00029[e0]',-1000,'l');
 
 % Turn off MFR too
-model = changeRxnBounds(model,'rxn11938_c0',0,'b');
+model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2
     
-    substrate_rxns = {'EX_cpd00116_e0','EX_cpd11640_e0','EX_cpd01024_e0'};
+    substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
     concentrations = [1 1 1];
+    warning_flag = 1;
 end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
-    ,concentrations,310,'EX_cpd00001_e0');
+    ,concentrations,310,'EX_cpd00001[e0]');
 
 %Find the reaction indices
-[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
-[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116_e0');
-[~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
-[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
-[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
-[~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
 
 
 %Print the biomass flux
@@ -79,6 +80,10 @@ fprintf('Expected ATP Yield: 0.5\n')
 fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(ch4_idx))
 
 %Print out the gibbs free energy prediction
+%Add a warning for simulations with no concentrations given
+if warning_flag
+    warning('All external metabolite concentrations set to 1 mM');
+end
 fprintf('Predicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 
 end

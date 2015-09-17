@@ -18,7 +18,7 @@ function [transRxns,nonTransRxns] = findTransRxnsMOD(model,inclExc)
 % [p], and [e]
 %
 % Jeff Orth  8/31/07
-
+% Modified by Matthew Richards 9/17/2015 to use compartments [c0],[p0],[e0]
 if nargin < 2
     inclExc = false;
 end
@@ -27,11 +27,11 @@ isTrans = zeros(1,length(model.rxns));
 
 for i = 1:length(model.rxns)
     mets = model.mets(find(model.S(:,i)));
-    cMets = regexp(mets,'_c0');
+    cMets = regexp(mets,'\[c0\]');
     hasCs = ~isempty([cMets{:}]);
-    pMets = regexp(mets,'_p0');
+    pMets = regexp(mets,'\[p0\]');
     hasPs = ~isempty([pMets{:}]);
-    eMets = regexp(mets,'_e0');
+    eMets = regexp(mets,'\[e0\]');
     hasEs = ~isempty([eMets{:}]);
     
     if (sum([hasCs,hasPs,hasEs]) > 1) || hasEs&&inclExc

@@ -5,33 +5,33 @@ function [solution,gibbs_flux,model] = maxGrowthOnFormate(model,substrate_rxns,c
 
 %Note: Formate is HCO2
 %Turn off H2 Input
-model = changeRxnBounds(model,'EX_cpd11640_e0',0,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 %Turn on Formate Input
-model = changeRxnBounds(model,'EX_cpd00047_e0',-45,'l');
+model = changeRxnBounds(model,'EX_cpd00047[e0]',-45,'l');
 %Turn on H+ or else it gets no growth
-model = changeRxnBounds(model,'EX_cpd00067_e0',-100,'l');
+model = changeRxnBounds(model,'EX_cpd00067[e0]',-100,'l');
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2
     
-    substrate_rxns = {'EX_cpd00011_e0','EX_cpd00047_e0','EX_cpd01024_e0'};
+    substrate_rxns = {'EX_cpd00011[e0]','EX_cpd00047[e0]','EX_cpd01024[e0]'};
     concentrations = [1 1 1];
     warning_flag = 1;
 end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
-    ,concentrations,310,'EX_cpd00001_e0');
+    ,concentrations,310,'EX_cpd00001[e0]');
 
 %Find indices of important reactions
-[~,h_idx] = intersect(model.rxns,'EX_cpd00067_e0');
-[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
-[~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
-[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
-[~,form_idx] = intersect(model.rxns,'EX_cpd00047_e0');
-[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
-[~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
-[~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
+[~,h_idx] = intersect(model.rxns,'EX_cpd00067[e0]');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,form_idx] = intersect(model.rxns,'EX_cpd00047[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,ac_idx] = intersect(model.rxns,'EX_cpd00029[e0]');
 
 %Print out the fluxes
 %Print the biomass flux

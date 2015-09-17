@@ -11,7 +11,7 @@ function createSupplementaryData(model)
 % 
 
 % Compile the reactions information
-formulas = printRxnFormula(model,model.rxns,false);
+formulas = printRxnFormula(model,model.rxns,false,false,true);
 % Add the confidence data from other code (below)
 tags = createRxnConfidenceSheet(model);
 A = [{'ID','Name','KEGG ID','Formula','EC Number(s)','GPR Rules',...
@@ -23,8 +23,8 @@ A = [{'ID','Name','KEGG ID','Formula','EC Number(s)','GPR Rules',...
 xlswrite('Supplementary_Materials.xlsx',A,'Reactions');
 
 % Compile the metabolites information
-A = [{'Name','SEED ID','KEGG ID','Formula','Charge'};...
-    model.mets,model.metSEEDID,model.metKEGGID,model.metFormulas,...
+A = [{'ID','Name','KEGG ID','Formula','Charge'};...
+    model.mets,model.metNames,model.metKEGGID,model.metFormulas,...
     num2cell(model.metCharge)];
 xlswrite('Supplementary_Materials.xlsx',A,'Metabolites');
 

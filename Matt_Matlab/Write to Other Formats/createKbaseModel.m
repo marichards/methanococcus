@@ -100,6 +100,6 @@ fprintf(compound_file_id,'id\tname\taliases\tcharge\tformula\n');
 %Loop through the compounds and write them to the file accordingly
 for i=1:length(model.mets)
     %Print out each part of the compounds
-    fprintf(compound_file_id,'%s\t%s\tKEGG:%s;SEED:%s\t%d\t%s\n',...
-       model.mets{i},model.metNames{i},model.metKEGGID{i},model.metSEEDID{i},model.metCharge(i),model.metFormulas{i}); 
+    fprintf(compound_file_id,'%s\t%s\tKEGG:%s\t%d\t%s\n',...
+       model.mets{i},model.metNames{i},model.metKEGGID{i},model.metCharge(i),model.metFormulas{i}); 
 end

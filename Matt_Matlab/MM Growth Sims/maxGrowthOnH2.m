@@ -4,32 +4,32 @@ function [solution,gibbs_flux,model] = maxGrowthOnH2(model,substrate_rxns,concen
 %relevant fluxes, return the full solution
 
 %Turn down H2 to -45, not -1000
-model = changeRxnBounds(model,'EX_cpd11640_e0',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
 %Turn down CO2 to -12, not -1000
-%model = changeRxnBounds(model,'EX_cpd00011_e0',-12,'l');
+%model = changeRxnBounds(model,'EX_cpd00011[e0]',-12,'l');
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2
     
-    substrate_rxns = {'EX_cpd00011_e0','EX_cpd11640_e0','EX_cpd01024_e0'};
+    substrate_rxns = {'EX_cpd00011[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
     concentrations = [1 1 1];
     warning_flag = 1;
 end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
-    ,concentrations,310,'EX_cpd00001_e0');
+    ,concentrations,310,'EX_cpd00001[e0]');
 %Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 
 %Find the reaction indices
-[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640_e0');
-[~,co2_idx] = intersect(model.rxns,'EX_cpd00011_e0');
-[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024_e0');
-[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001_e0');
-[~,form_idx] = intersect(model.rxns,'EX_cpd00047_e0');
-[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013_e0');
-[~,po4_idx] = intersect(model.rxns,'EX_cpd00009_e0');
-[~,ac_idx] = intersect(model.rxns,'EX_cpd00029_e0');
-%[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239_e0');
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,form_idx] = intersect(model.rxns,'EX_cpd00047[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,ac_idx] = intersect(model.rxns,'EX_cpd00029[e0]');
+%[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
 
 
 %Print the biomass flux

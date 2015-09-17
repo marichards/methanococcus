@@ -2386,14 +2386,25 @@ model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
 %    'rxn02377_c0'
 
 %%%%%%%%%%%%%
-%7/16/2015
-%%%%%%%%%%%%%
-% Very last step: add free energy values for 1 mM from Equilibrator site...
-model = addDG2MM(model);
-
-%%%%%%%%%%%%%
 %8/10/2015
 %%%%%%%%%%%%%
 % New very last step: remove unused fields of model that I won't be using
 model = rmfield(model,{'metInChIString','metChEBIID','metPubChemID',...
     'confidenceScores','rxnNotes','rxnReferences'});
+
+%%%%%%%%%%%%%
+%9/17/2015
+%%%%%%%%%%%%%
+% Found acetate transport; fix it to be Kbase ID
+[~,idx] = intersect(model.rxns,'ACT');
+model.rxns{idx} = 'rxn10904_c0';
+
+% Latest last step: change the names to IDs and change compartment tags to
+% make it SBML compatible and hopefully more Kbase-compatible
+model = convertNamesToIDs(model);
+
+%%%%%%%%%%%%%
+%7/16/2015
+%%%%%%%%%%%%%
+% Very last step: add free energy values for 1 mM from Equilibrator site...
+model = addDG2MM(model);
