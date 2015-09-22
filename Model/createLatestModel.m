@@ -870,14 +870,14 @@ model = addReaction(model,{'ADTHs','ADTH synthase'},...
 model = changeGeneAssociation(model,'ADTHs','mmp0686');
 %aroB' gene from Porat 2006 paper
 model = addReaction(model,{'ADTHOR','ADTH oxidoreductase'},...
-'2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + H2O_c0 + NAD_c0 + H_c0 <=> 3-Dehydroquinate_c0 + NH3_c0 + NADH_c0');
+'2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate_c0 + H2O_c0 + NAD_c0 + H_c0 <=> 5-Dehydroquinate_c0 + NH3_c0 + NADH_c0');
 model = changeGeneAssociation(model,'ADTHOR','mmp0006');
 
 %Add 5 hypothetical reactions with hypothetical compounds, all from Porat
 %2006
 %1) DHQ + NH3 -> 4-amino-DHQ {Hypothetical from Porat 2006}
 model = addReaction(model,{'3DHQAT','3-dehydroquinate aminotransferase'},...
-'3-Dehydroquinate_c0 + NH3_c0  <=> 4-Amino-3-Dehydroquinate_c0 + H_c0 + H2O_c0');
+'5-Dehydroquinate_c0 + NH3_c0  <=> 4-Amino-3-Dehydroquinate_c0 + H_c0 + H2O_c0');
 %2) 4-amino-DHQ -> 4-amino-DHS + H2O {Hypothetical from Porat 2006}
 model = addReaction(model,{'4ADSs','4-aminodehydroshikimate synthase'},...
 '4-Amino-3-Dehydroquinate_c0  <=> 4-Amino-3-Dehydroshikimate_c0 + H2O_c0');
@@ -1049,11 +1049,7 @@ model.metFormulas{idx}='C7H11NO5';
 [~,idx] = intersect(model.mets,'Hydroxypyruvaldehyde_phosphate_c0');
 model.metCharge(idx)=0;
 model.metFormulas{idx}='C3H5O6P';
-%3-Dehydroquinate_c0
-[~,idx] = intersect(model.mets,'3-Dehydroquinate_c0');
-model.metCharge(idx)=-1;
-model.metFormulas{idx}='C7H9O6';
-%4-Amino-3-Dehydroquinate_c0
+%4-Amino-5-Dehydroquinate_c0
 [~,idx] = intersect(model.mets,'4-Amino-3-Dehydroquinate_c0');
 model.metCharge(idx)=-1;
 model.metFormulas{idx}='C7H10O5N';
@@ -1932,7 +1928,7 @@ model.metSEEDID{idx} = 'cpd00428';
 [~,idx] = intersect(model.mets,'D-fructose-1-phosphate_c0');
 model.metCharge(idx) = 0;
 model.metFormulas{idx} = 'C3H4O2';
-model.metSEEDID{idx} = 'cpd00428';
+model.metSEEDID{idx} = 'cpd00802';
 
 % Remove the hypothetical DKFP pathway that was a placeholder earlier
 model = removeRxns(model,{'rxn10494_c0','rxn10422_c0','rxn10520_c0'});
