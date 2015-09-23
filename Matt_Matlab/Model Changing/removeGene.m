@@ -105,3 +105,25 @@ end
 
 %Lastly, remove gene from model.genes
 model.genes(idx)=[];
+
+%% New addition on 9/22/2015: fix the indexing on model.rules that is caused by removing the gene
+% Must go through all reactions and make the rule match the grRule
+
+% Go over each grRule (through each reaction)
+for j = 1:length(model.grRules)
+    % Pull out the genes and rule encodes by grRules
+    [genes,rule] = parseBoolean(model.grRules{j});
+    % For each gene in the rule
+    for i = 1:length(genes)
+        % Find the gene index in the model
+        geneID = find(strcmp(model.genes,genes{i}));
+        % Set the index to 1 to show it's part of the rxn (index of j)
+        model.rxnGeneMat(j,geneID) = 1;
+        % Convert the rule using the indices of the genes
+        rule = strrep(rule,['x(' num2str(i) ')'],['x(' num2str(geneID) ')']);;
+    end
+    model.rules{j} = rule;
+end
+    
+    
+    

@@ -1,4 +1,4 @@
-function compareGeneEIs(model)
+function compareGeneEIs(model,cutoff)
 
 %Compare our model prediction to what they have
 
@@ -12,7 +12,7 @@ common_genes = intersect(model.genes,EIs.all);
 %Then run gene essentiality
 grRatio = singleGeneDeletion(model,'FBA',common_genes);
 %Find the essential ones
-essentials = common_genes(grRatio<0.1);
+essentials = common_genes(grRatio<=cutoff);
 non_essentials = setdiff(common_genes,essentials);
 
 
@@ -26,40 +26,40 @@ non_essentials = setdiff(common_genes,essentials);
 %FN: Is non-essential, Predicted essential (
 
 fprintf('\nStatistics for All Cases\n\n')
-fprintf('Cases\tTP\tTN\tFP\tFN\tMCC\t\n')
+fprintf('Cases\tTP\tTN\tFP\tFN\tACC\tMCC\t\n')
 %Compare the all 4
 TP = length(intersect(non_essentials,setdiff(common_genes,EIs.four)));
 TN = length(intersect(essentials,EIs.four));
 FP = length(intersect(non_essentials,EIs.four));
 FN = length(intersect(essentials,setdiff(common_genes,EIs.four)));
-
+acc = 100*(TP+TN)/(TP+TN+FP+FN);
 MCC = (TP*TN-FP*FN)/sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN));
-fprintf('4\t\t%d\t%d\t%d\t%d\t%0.3f\n',TP,TN,FP,FN,MCC);
+fprintf('4\t\t%d\t%d\t%d\t%d\t%0.1f\t%0.3f\n',TP,TN,FP,FN,acc,MCC);
 
 %Compare the 3
 TP = length(intersect(non_essentials,setdiff(common_genes,EIs.three)));
 TN = length(intersect(essentials,EIs.three));
 FP = length(intersect(non_essentials,EIs.three));
 FN = length(intersect(essentials,setdiff(common_genes,EIs.three)));
-
+acc = 100*(TP+TN)/(TP+TN+FP+FN);
 MCC = (TP*TN-FP*FN)/sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN));
-fprintf('3\t\t%d\t%d\t%d\t%d\t%0.3f\n',TP,TN,FP,FN,MCC);
+fprintf('3\t\t%d\t%d\t%d\t%d\t%0.1f\t%0.3f\n',TP,TN,FP,FN,acc,MCC);
 
 %Compare the 2
 TP = length(intersect(non_essentials,setdiff(common_genes,EIs.two)));
 TN = length(intersect(essentials,EIs.two));
 FP = length(intersect(non_essentials,EIs.two));
 FN = length(intersect(essentials,setdiff(common_genes,EIs.two)));
-
+acc = 100*(TP+TN)/(TP+TN+FP+FN);
 MCC = (TP*TN-FP*FN)/sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN));
-fprintf('2\t\t%d\t%d\t%d\t%d\t%0.3f\n',TP,TN,FP,FN,MCC);
+fprintf('2\t\t%d\t%d\t%d\t%d\t%0.1f\t%0.3f\n',TP,TN,FP,FN,acc,MCC);
 
 %Compare the 1
 TP = length(intersect(non_essentials,setdiff(common_genes,EIs.one)));
 TN = length(intersect(essentials,EIs.one));
 FP = length(intersect(non_essentials,EIs.one));
 FN = length(intersect(essentials,setdiff(common_genes,EIs.one)));
-
+acc = 100*(TP+TN)/(TP+TN+FP+FN);
 MCC = (TP*TN-FP*FN)/sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN));
-fprintf('1\t\t%d\t%d\t%d\t%d\t%0.3f\n',TP,TN,FP,FN,MCC);
+fprintf('1\t\t%d\t%d\t%d\t%d\t%0.1f\t%0.3f\n',TP,TN,FP,FN,acc,MCC);
 
