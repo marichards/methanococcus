@@ -8,7 +8,12 @@ function createSupplementaryData(model)
 % formulas, charges
 % FVA Results on H2: bounds for reaction fluxes on H2+CO2 media
 % FVA Results on Formate: bounds for reaction fluxes on formate media
-% 
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% Matthew Richards, 09/28/2015
+
 
 % Compile the reactions information
 formulas = printRxnFormula(model,model.rxns,false,false,true);
@@ -48,10 +53,21 @@ end
 
 function tags=createRxnConfidenceSheet(model)
 %
-%Create a list of tags that includes whether each reaction was in the
-%original reconstruction, gap-filled to make the original model, or
-%manually added later on, plus tags for transport and exchanges
-%Load the original model (M_mar)
+% Create a list of tags that includes whether each reaction was in the
+% original reconstruction, gap-filled to make the original model, or
+% manually added later on, plus tags for transport and exchanges
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% OUTPUT
+% tags: a list of origin tags for each reaction in the M. maripaludis model
+% that indicates the origin or every reaction
+%
+% Matthew Richards, 09/28/2015
+
+
+%Load the original draft model (M_mar)
 load('original_model.mat')
 
 %Remove the non-genes from the original model
@@ -113,7 +129,6 @@ end
 for i=1:length(idx)
     tags{idx(i)}='Manual Addition';
 end
-
 
 %%%
 % I want to do something different for transport: if they're Kbase things,

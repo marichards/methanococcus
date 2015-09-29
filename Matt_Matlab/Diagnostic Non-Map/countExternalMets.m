@@ -1,21 +1,33 @@
-function extMets = countExternalMets(model)
+function extMets = countExternalMets(model,external_compartment)
 
-%Go through model and count all the external metabolites
+% Goes through COBRA model and grabs all the external metabolites
 %
-%Input: a COBRA model
+% INPUT
+% model: a COBRA Toolbox model structure
 %
-%Output: all the external metabolites
+% OPTIONAL INPUT
+% external_compartment: notation for the extracelluar compartment used in
+% the supplied model. (Default = 'e0')
 %
+% OUTPUT 
+% extMets: all the external metabolites
+%
+% Matthew Richards, 09/24/2015
 
-%Create an array to write to
+% Check if there's a different external compartment specified
+if nargin < 2
+    external_compartment = 'e0';
+end
+
+% Create an array to write to
 extMets = {};
 
-%Loop through metabolites
+% Loop through metabolites
 for i=1:length(model.mets)
    
-    %Check if there's an e0
-    if regexp(model.mets{i},'e0')
-        %Add it
+    % Check if there's an e0
+    if regexp(model.mets{i},external_compartment)
+        % Add it if there is
         extMets=[extMets; model.mets{i}];
     end
     

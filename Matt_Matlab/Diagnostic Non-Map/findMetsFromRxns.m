@@ -1,15 +1,19 @@
 function mets = findMetsFromRxns(model,rxns)
 
-%Find the metabolites in a given reaction
+% A parallel function to "findRxnsFromMets" that takes in a list of
+% reactions and returns a list of all metabolites in the given reactions
+%
+% INPUT:
+% model: a COBRA Toolbox model structure
+% rxns: a list of reactions to look for in the supplied model
+%
+% OUTPUT:
+% mets: the list of metabolites that appear in any of the 'rxns'
+%
+% Matthew Richards, 09/24/2015
 
-%Inputs:
-%model: a COBRA model structure
-%rxns: a list of reactions to look for
 
-%Outputs:
-%mets: the list of metabolites that appear in any of the 'rxns'
-
-%First find the reaction index
+% First find the reaction index
 [~,idx] = intersect(model.rxns,rxns);
 
 %Using that index, find all indices of metabolites (less than 1)

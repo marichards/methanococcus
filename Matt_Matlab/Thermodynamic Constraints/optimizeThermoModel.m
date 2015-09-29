@@ -22,8 +22,8 @@ function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,c
 % T: temperature in Kelvin
 % 
 
-%%%%%%%%%%%%%%%%dG values are from Alberty, at pH=7.0%%%%%%%%%%%%%%%%%%
-%Catch concentrations that are 0....
+%dG values are at pH=7.0 and ionic strength of 0.1 M
+%Catch concentrations that are 0
 if any(~concentrations)
     solution = optimizeCbModel(model,[],'one');
     gibbs_flux = inf;

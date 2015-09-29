@@ -2,7 +2,13 @@ function simulateKOPanel(model)
 
 % For the M. maripaludis S2 model, simulate the model for known gene KO
 % experiments to get predictions and compare predictions to reality. Do all
-% possible KOs for all 4 conditions
+% possible KOs for all 4 conditions, not just the replicates of experiments
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% Matthew Richards, 09/24/2015
+
 
 % Alteration on 05/26/2015: Add MCC and accuracy calculations
 % Create TP/TN/FP/FN metrics to fill up on appropriate things

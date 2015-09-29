@@ -1,15 +1,36 @@
 function [solution,gibbs_flux,model] = maxGrowthOnFormate(model,substrate_rxns,concentrations)
 
-%Simulate growth on CO2 and Formate media, print out the growth rate and
-%relevant fluxes, return the full solution
+% Simulate M. maripaludis growth on Formate media, with ammonia as the
+% nitrogen source. Print out the growth rate and relevant fluxes, return
+% the full solution, the predicted free energy generation, and the modified
+% model with the overall Gibbs free energy reaction added to the S matrix
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+% 
+% OPTIONAL INPUT
+% substrate_rxns: a list of exchange reactions in the M. maripaludis model
+% for which a known concentration will be supplied. If supplied, it must be
+% accompanied by a corresponding "concentrations" array. (Default =
+% {'EX_cpd00011[e]','EX_cpd00047[e0]','EX_cpd01024[e0]'})
+% concentrations: a list of effective concentrations in mM corresponding to
+% the exchange reactions listed in "substrate_rxns". (Default = [1 1 1])
+%
+% OUTPUT
+% solution: a flux distribution solution from running FBA on the M.
+% maripaludis model that maximizes biomass yield
+% gibbs_flux: model prediction of overall free energy generation, based on
+% the model exchange fluxes in the solution
+% model: the M. maripaludis model, with an additional reaction
+% (GIBBS_kJ/GDW) that predicts overall free energy generation
+% 
+% Matthew Richards, 09/24/2015
 
-%Note: Formate is HCO2
-%Turn off H2 Input
-model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
-%Turn on Formate Input
-model = changeRxnBounds(model,'EX_cpd00047[e0]',-45,'l');
-%Turn on H+ or else it gets no growth
-model = changeRxnBounds(model,'EX_cpd00067[e0]',-100,'l');
+% Ensure formate is the electron source
+model = switchToFormate(model);
+
+% Make sure that ammonia is the nitrogen source
+model = switchToNH3(model);
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2

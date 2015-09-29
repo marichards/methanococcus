@@ -1,12 +1,36 @@
 function [solution,gibbs_flux,model] = maxGrowthOnH2(model,substrate_rxns,concentrations)
 
-%Simulate growth on CO2 and H2 media, print out the growth rate and
-%relevant fluxes, return the full solution
+% Simulate M. maripaludis growth on CO2 and H2 media, with ammonia as the
+% nitrogen source. Print out the growth rate and relevant fluxes, return
+% the full solution, the predicted free energy generation, and the modified
+% model with the overall Gibbs free energy reaction added to the S matrix
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+% 
+% OPTIONAL INPUT
+% substrate_rxns: a list of exchange reactions in the M. maripaludis model
+% for which a known concentration will be supplied. If supplied, it must be
+% accompanied by a corresponding "concentrations" array. (Default =
+% {'EX_cpd00011[e]','EX_cpd11640[e0]','EX_cpd01024[e0]'})
+% concentrations: a list of effective concentrations in mM corresponding to
+% the exchange reactions listed in "substrate_rxns". (Default = [1 1 1])
+%
+% OUTPUT
+% solution: a flux distribution solution from running FBA on the M.
+% maripaludis model that maximizes biomass yield
+% gibbs_flux: model prediction of overall free energy generation, based on
+% the model exchange fluxes in the solution
+% model: the M. maripaludis model, with an additional reaction
+% (GIBBS_kJ/GDW) that predicts overall free energy generation
+% 
+% Matthew Richards, 09/24/2015
 
-%Turn down H2 to -45, not -1000
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
-%Turn down CO2 to -12, not -1000
-%model = changeRxnBounds(model,'EX_cpd00011[e0]',-12,'l');
+% Ensure that H2 is the electron source
+model = switchToH2(model);
+
+% Make sure that ammonia is the nitrogen source
+model = switchToNH3(model);
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2
@@ -18,8 +42,8 @@ end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]');
-%Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 
+%Pull out the overall reaction CO2 + 4H2 --> CH4 + 2H2O
 %Find the reaction indices
 [~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
 [~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
@@ -29,8 +53,6 @@ end
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
 [~,ac_idx] = intersect(model.rxns,'EX_cpd00029[e0]');
-%[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
-
 
 %Print the biomass flux
 fprintf('\n\nBiomass flux: %f\n\n',solution.f);
@@ -43,8 +65,6 @@ fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
 fprintf('PO4 flux: %f\n',solution.x(po4_idx))
 fprintf('Acetate flux: %f\n',solution.x(ac_idx))
-%fprintf('Sulfide flux: %f\n',solution.x(h2s_idx))
-
 
 %Print the per-CO2 actual reaction
 fprintf('\nOverall reaction:\nCO2 + 4 H2 --> 2 H2O + CH4\n')

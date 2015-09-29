@@ -1,7 +1,13 @@
 function displayModelStats(model)
 
-% Take in the M. maripaludis model and display the statistics I want for
-% the paper
+% Take in the M. maripaludis model and display the statistics for the
+% comparison table in the paper, plus a few more useful ones. 
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% Matthew Richards, 09/24/2015
+
 
 % First, take number of genes
 num_genes = length(model.genes);

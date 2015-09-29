@@ -1,12 +1,26 @@
 function model = switchToFormate(model)
 
-%Switches M.maripaludis model from H2 to formate 
+% Switches M.maripaludis model from H2 to formate as the main electron
+% source. Also ensures that acetate is turned off and protons are supplied
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% OUTPUT
+% model: a reconfigured version of the model, set to grow with formate as
+% the electron donor
+%
+% Matthew Richards, 09/29/2015
 
-% Turn off H2 Input
+
+% Turn H2 off
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 
-% Turn on Formate Input
+% Turn up formate
 model = changeRxnBounds(model,'EX_cpd00047[e0]',-45,'l');
 
-% Allow uptake of H+
+%Turn on H+ or else it gets no growth
 model = changeRxnBounds(model,'EX_cpd00067[e0]',-1000,'l');
+
+% Be sure to turn off the acetate input, just in case
+model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');

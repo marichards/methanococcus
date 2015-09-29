@@ -67,7 +67,6 @@ for i=1:length(rxn_idx)
           
 	%Catch no-zero cases
 	genes = regexprep(genes,'mmp','kb\|g.575.peg.');
-	genes
     fprintf(model_file_id,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t \n',...
         model.rxns{rxn_idx(i)},model.rxnNames{rxn_idx(i)},direction,genes,model.subSystems{rxn_idx(i)},model.rxnECNumbers{rxn_idx(i)},formula{1});
 end

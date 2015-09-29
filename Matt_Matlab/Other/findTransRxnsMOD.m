@@ -1,5 +1,6 @@
 function [transRxns,nonTransRxns] = findTransRxnsMOD(model,inclExc)
-%findTransRxns identify all transport reactions in a model
+% findTransRxnsMOD identifies all transport reactions in the M. maripaludis
+% model, or any other model that includes compartments 'c0','p0','e0'. 
 %
 % [transRxns,nonTransRxns] = findTransRxns(model,inclExc)
 %
@@ -14,11 +15,14 @@ function [transRxns,nonTransRxns] = findTransRxnsMOD(model,inclExc)
 % transRxns         all transport reactions in the model
 % nonTransRxns      all non-transport reactions in the model
 %
-% right now, this function only works with models the compartments [c],
-% [p], and [e]
+% right now, this function only works with models the compartments [c0],
+% [p0], and [e0]
 %
 % Jeff Orth  8/31/07
-% Modified by Matthew Richards 9/17/2015 to use compartments [c0],[p0],[e0]
+%
+% Modified by Matthew Richards to fit compartments for M. maripaludis,
+% 09/28/2015
+
 if nargin < 2
     inclExc = false;
 end
