@@ -1,20 +1,39 @@
 function createKbaseModel(model,model_filename,media_filename,compound_filename)
+%%
+% Takes in a COBRA model and converts it to a TSV file compatible with the
+% Kbase Narrative import function. Outputs a model (reactions) file, a
+% media file, and a compounds file that can be separately imported. 
+%
+% INPUT
+% model: a COBRA Toolbox model structure
+% model_filename: a supplied name for the model (or reactions) file created
+% for upload to Kbase
+% media_filename: a supplied name for the media file created for upload to
+% Kbase
+% compound_filename: a supplied name for the compound file created for
+% upload to Kbase
+%
+%Written by Matthew Richards 01/21/2015
+%Edited by MR 03/31/2015 to fix media file and create compound file
 
-%Create 3 files:
-%model_file: a tab-delimited file the contains all reactions, their
-%directions, and their formulae. The biomass equation comes first. Anything
-%that doesn't fit a category gets a blank space
-%id name direction gpr pathway_enzyme equation reference
+%%
+% Create 3 files:
+% model_file: a tab-delimited file the contains all reactions, their
+% directions, and their formulae. The biomass equation comes first.
+% Anything that doesn't fit a category gets a blank space. Format is as
+% follows: 
+% id name direction gpr pathway_enzyme equation reference
+%
+% media_file: a tab-delimited file that contains all media compounds, their
+% concentrations (0.01), their lb, and their ub
+% compid conc lb ub
+%
+% compound_file: a tab-delimited file that contains all model compounds and
+% their information encoded in the model with specified format:
+% id	name	aliases	charge	formula
+% Aliases: KEGG:C00001;BiGG:h2o
 
-%media_file: a tab-delimited file that contains all media compounds, their
-%concentrations (0.01), their lb, and their ub
-%compid conc lb ub
-
-
-%%%%%%%%%
-%Written by Matthew Richards 2015/01/21
-%Edited by MR 2015/03/31 to fix media file and create compound file
-
+%%
 %Create the model file
 model_file_id = fopen(sprintf('%s.txt',model_filename),'w');
 %Print the headers

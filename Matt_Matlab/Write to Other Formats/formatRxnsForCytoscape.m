@@ -1,17 +1,17 @@
 function formatRxnsForCytoscape(model,rxns,filename)
+%%
+%Formats a supplied set of reactions into a text file for import into the
+%network visualization software, Cystoscape.
+%
+% INPUT
+% model: a COBRA Toolbox model structure
+% rxns: a cell array containing reaction IDs of interestfor the supplied
+% model
+% filename: a character string used to name the output file
+% 
+% Matthew Richards, 09/29/2015
 
-%Format a set of reactions for cytoscape
-%Want a text file with clearly-delimited reactant/reaction or
-%reaction/product
-
-%Input:
-%rxns - a cell array containing reaction IDs for a COBRA model
-%filename - a character string used to name the output file
-
-%Output: 
-%A text file named 'filename.txt' that contains the selected reactions
-%formatted for Cytoscape visualization
-
+%%
 %Open the text file
 file_id = fopen(sprintf('%s.txt',filename),'w');
 

@@ -1,8 +1,18 @@
 function omix_strings = formatRxnsForOmix(model,rxns,filename)
+%%
+%Formats a supplied set of reactions into a text file for import into the
+%network visualization software, OMIX.
+%
+% INPUT
+% model: a COBRA Toolbox model structure
+% rxns: a cell array containing reaction IDs of interestfor the supplied
+% model
+% filename: a character string used to name the output file
+% 
+% Matthew Richards, 09/29/2015
 
-%For reactions, want to print it as such:
-%reaction name : reaction formula 
 
+%%
 %Make a filename
 file_id = fopen(sprintf('%s.txt',filename),'w');
 

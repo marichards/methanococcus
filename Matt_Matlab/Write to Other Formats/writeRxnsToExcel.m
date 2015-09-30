@@ -1,14 +1,20 @@
 function writeRxnsToExcel(model,rxns,workbook,sheet)
+%%
+% Takes a specified set of reactions from a COBRA model and writes them to
+% an Excel file, along with their names, GPR relationships, and
+% formulas.
+%
+% INPUT:
+% model: a COBRA Toolbox model structure
+% rxns: a list of reaction IDs for reactions of interest
+% workbook: an excel workbook to write to (.xlsx)
+% sheet: a specified excel sheet to write to
+%
+% Matthew Richards, 09/29/2015
 
-%This code will simulate a COBRA model for maximizing biomass, then write
-%the reactions and fluxes to an Excel sheet. 
 
-%Inputs:
-%model: a cobra model structure
-%workbook: an excel workbook to write to (.xlsx)
-%sheet: an excel sheet to write to
-
-%Solve the model, write the reactions, name, genes, and formula to an excel file
+%%
+% Write the reactions, name, genes, and formula to an excel file
 [rxns,idx]=intersect(model.rxns,rxns);
 names = model.rxnNames(idx);
 genes = model.grRules(idx);

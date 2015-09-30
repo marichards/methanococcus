@@ -4,14 +4,16 @@ function [model,removed_rxns] = removeDeadGapFills(model)
 % reactions to find reactions that fall under both headings, and remove
 % those reactions from the model. 
 %
-% Inputs
-% model: a COBRA model structure
+% INPUT
+% model: a COBRA Toolbox model structure
 %
-% Outputs
-% model: the input model with dead end, non-gene associated reactions
-% removed
-% removed_rxns: dead end, non-gene associated reactions that were removed
-% from the model
+% OUTPUT
+% model: the supplied model with all dead end reactions without genes
+% removed from the model
+% removed_rxns: the list of dead end, non-gene associated reactions that
+% were removed from the model
+%
+% Matthew Richards, 09/29/2015
 
 % Step 1: Grab dead end reactions from the model as a subset
 [~,~,rxns] = removeDeadEnds(model);

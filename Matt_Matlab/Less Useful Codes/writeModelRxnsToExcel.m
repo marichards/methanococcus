@@ -2,6 +2,8 @@ function writeModelRxnsToExcel(model,workbook,sheet)
 
 %This code will simulate a COBRA model for maximizing biomass, then write
 %the reactions and fluxes to an Excel sheet. 
+%%% This is obsolete; just use "writeRxnsToExcel" with "model.rxns" as
+%%% input
 
 %Inputs:
 %model: a cobra model structure

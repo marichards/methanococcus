@@ -1,8 +1,15 @@
 function createJSONModel(model,model_filename)
+%%
+% Takes in a COBRA model and writes it to a JSON file for use in COBRApy or
+% in Escher for viewing network maps
+%
+% INPUT
+% model: a COBRA Toolbox model structure
+% model_filename: a filename for the resulting JSON model file
+%
+% Matthew Richards, 06/03/2015
 
-% Take in a COBRA model structure and write it to a JSON file for use in
-% COBRApy or in Escher
-
+%%
 % JSON format is as follows: 
 % Reactions:
 % {"reactions": [{"subsystem": "Pyruvate Metabolism", "name": "acetaldehyde
@@ -21,8 +28,6 @@ function createJSONModel(model,model_filename)
 % {"name": "Nicotinamide-adenine-dinucleotide", "notes": "{}", "annotation": "{}", "_constraint_sense": "E", "charge": "0", "_bound": "0.0", "formula": "C21H26N7O14P2", "compartment": "c", "id": "nad_c"},
 % End of Metabolites and Model:
 % ": "c", "id": "s7p_c"}], "id": "Ecoli_core_model"}
-
-% Written by Matt Richards, 6/3/2015
 %%%%%%%%%%%%%%%%%%
 
 % First, initiate the file:
@@ -75,7 +80,8 @@ for i=1:length(model.rxns)
     end
 end
 
-% FINISH THE REACTIONS SECTION AND PRINT THE MODEL DESCRIPTION AND EMPTY NOTES FIELD
+% Finish the model reactions, print the description, and an empty notes
+% field by default
 fprintf(file_id,'"description": "%s", "notes": {}, ',model.description);
 
 % PRINT THE GENES
