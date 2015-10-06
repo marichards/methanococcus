@@ -1,47 +1,54 @@
 function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,concentrations,T,water_rxn)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Version 4: 06/23/2015
+%%
+% Version 4: 06/23/2015
+%
+% Accepts a model and necessary parameters for estimating thermodynamics of
+% the overall system. Adds a new metabolite "dG" to the system that measures
+% the free energy contribution for each exchange metabolite and a new
+% reaction "GIBBS_kJ/GDW" that sums overall free energy for the system
+%
+% INPUT:
+% model: a COBRA Toolbox model structure with a freeEnergy field
+% substrateRxns: a set of exchange reactions for metabolites with specified
+% concentrations
+% concentrations: a set of concentrations corresponding to the specified
+% substrateRxns (in mM)
+% T: temperature (in Kelvin) for simulating growth
+% water_rxn: identity of the water exchange reaction in the model. Water is
+% treated separately from the aqueous metabolites and must be specified
+% here.
+%
+% OUTPUT:
+% solution: an FBA flux distribution that optimizes the supplied model
+% gibbs_flux: an estimation of free energy produced by the model in the
+% specified flux distribution (in kJ/gDCW/h)
+% model: the supplied model with the addition of an overall reaction,
+% GIBBS_kJ/GDW, that sums free energy for exchange reactions flowing in and
+% out of the model
+%
+% Matthew Richards, 10/06/2015
 
-%GENERAL METHODOLOGY
-%Accepts a model, substrate reactions, and initial concentrations
-%Accepts a reaction for water
-%Adds a metabolite called "dG[e]"
-%Adds an exchange for dG called 'GIBBS' (EX_dG[e])
-%Modifies exchanges to include dG[e] by adding a row
-%Row values: adjusted for concentration (or biomass amount)
-%Simulates the model
-%Returns solution and overall dG
-%(This is a modified addOverallDG code)
 
-% Inputs
-% model: a COBRA model structure
-% substrateRxns: set of reactions with specified concentrations
-% concentrations: set of concentrations specified for exchange reactions
-% in the model simulation (in mM)
-% T: temperature in Kelvin
-% 
-
-%dG values are at pH=7.0 and ionic strength of 0.1 M
-%Catch concentrations that are 0
+% dG values are at pH=7.0 and ionic strength of 0.1 M
+% Catch concentrations that are 0
 if any(~concentrations)
     solution = optimizeCbModel(model,[],'one');
-    gibbs_flux = inf;
-    
+    gibbs_flux = inf;  
 else
     
-    %Error for things not the same size
+    % Give an error for things not the same size
     if length(substrateRxns) ~= length(concentrations)
-
         error('substrateRxns and concentrations must be of equal length')
     end
-    %Gas constant specification (Maybe move these out?)
+    
+    % Gas constant specification
     R = 8.314e-6; %kJ/mmol*K
 
-    %Add the new reaction first, which adds the metabolite
+    % Add the new reaction first, which adds the metabolite
     model = addReaction(model,'GIBBS_kJ/GDW','dG <=> '); 
 
-    %Find index of dG
+    % Find index of dG
     [~,met_idx] = intersect(model.mets,'dG');
 
     % Alter the free energy values for things with substrate reactions in
@@ -51,10 +58,10 @@ else
     % Make a dictionary
     dict = containers.Map(rxns,rxn_idx);      
     % For those indices, change the free energy numbers using concentration
-    %Loop: put in the correct free energy term for each:
-    %dG = dG_0 + RTln(C)
+    % Loop: put in the correct free energy term for each:
+    % Basis: dG = dG_0 + RTln(C)
     for i = 1:length(substrateRxns)
-       %Change the dG weight for the exchange reaction (Conc in mM)
+       % Change the dG weight for the exchange reaction (Conc in mM)
        model.freeEnergy(dict(substrateRxns{i})) = model.freeEnergy(dict(substrateRxns{i}))...
            +R*T*log(concentrations(i));    
     end
@@ -62,68 +69,24 @@ else
     % Add free energy values to S matrix for every one at once
     model.S(met_idx,1:end-1) = model.freeEnergy;
 
-    %%New Part (4/30/2013)
-    %Add water contribution, which isn't reflected elsewhere
+    % New Part (4/30/2013)
+    % Add water contribution, which isn't reflected elsewhere
     [~,rxn_idx] = intersect(model.rxns,water_rxn);
     model.S(met_idx,rxn_idx) = model.freeEnergy(rxn_idx);
-    
-    %Make the biomass value
-    %Biomass Modification: -0.1764 kJ/GDW
-    %Instead of using specific biomass ID, find it as the objective
-    %rxn_idx = find(model.c~=0);
-    %model.S(met_idx,(rxn_idx)) = -0.1764 + R*T*log(biomass);
-    
-    %%DEBUG CHECK: Print the dG metabolite row
-    %model.S(met_idx,:)
 
-    %Last step before simulating: restrict model coming out so that it must be < 0 and
-    %there's no lower bound
-    %For dynamic for now, don't set an upper bound, let dynamic code do that
-    %model = changeRxnBounds(model,'GIBBS_kJ/GDW',0,'u');
-
-    %W/O BIOMASS, MAKE UB -15 KJ/MOL, OR -0.015 KJ/MMOL
-    %model = changeRxnBounds(model,'GIBBS_kJ/GDW',-0.015,'u');
+    % Let the free energy be as low as it desires
     model = changeRxnBounds(model,'GIBBS_kJ/GDW',-inf,'l');
 
-    %Simulate the model
+    % Simulate the model with minimization of overall flux
     solution = optimizeCbModel(model,[],'one');
 
-    %Find the gibbs flux
-    %If no solution, return that!
+    % Find the gibbs flux
     if isempty(solution.x)
+        % If no solution, return that
         fprintf('\nNO THERMODYNAMICALLY FEASIBLE SOLUTION\n')
         gibbs_flux = [];
     else
         [~,idx] = intersect(model.rxns,'GIBBS_kJ/GDW');
         gibbs_flux = solution.x(idx);
     end
-
-    %Final thing: return warnings for things produced/consumed that have no
-    %substrate reaction specified
-    %Find exchange reactions
-    %exchanges = model.rxns(findExcRxns(model));
-
-    %Find the indices of these exchanges where flux is non-zero
-    %nonZero = find(solution.x(findExcRxns(model)));
-
-    %Use to find the exchange reaction IDs for non-zero
-    %nonZero_exchanges = exchanges(nonZero);
-
-    %Find the ones in the non-Zero that aren't in substrate reactions
-    %excluded = setdiff(nonZero_exchanges,substrateRxns);
-
-    %Pull the GIBBS kJ_GDW out of excluded
-    %excluded = setdiff(excluded,'GIBBS_kJ/GDW');
-
-    %if ~isempty(excluded)
-
-    %    warning('The following exchange reactions carry flux but are not accounted for in substrateRxns')
-    %    for j = 1:length(excluded)
-           %Print out the reactions that are problems
-    %        fprintf('%s\n',excluded{j})
-    %    end
-    %end
 end
-
-
-

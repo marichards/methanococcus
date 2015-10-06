@@ -1,7 +1,19 @@
 function thermo_model = addDG2MM(model)
 
-% Add the dG array specifically to the M. mariapludis model using values
-% from the Equilibrator site
+% Adds the freeEnergy array specifically to the M. mariapludis model using
+% values in kJ/mmol for 0.1 M ionic strength, pH=7, and effective
+% concentration of 1 mM. Values are taken from the Equilibrator website
+% (http://equilibrator.weizmann.ac.il/)
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% OUTPUT
+% thermo_model: the M. maripaludis model with an additional freeEnergy
+% field that specifies standard free energy for each exchange metabolite
+%
+% Matthew Richards, 10/06/2015
+
 
 % Specify the exchanges we'll be using
 exchanges = {...
@@ -9,71 +21,71 @@ exchanges = {...
     'EX_cpd00254[e0]';...
     % Phosphate[e0]	
     'EX_cpd00009[e0]';...
-    %H[e0]
+    % H[e0]
     'EX_cpd00067[e0]';...
-    %Nitrate[e0]
+    % Nitrate[e0]
     'EX_cpd00209[e0]';...
-    %L-Proline[e0]
+    % L-Proline[e0]
     'EX_cpd00129[e0]';...
-    %L-Glutamine[e0]
+    % L-Glutamine[e0]
     'EX_cpd00053[e0]';...
-    %HYXN[e0]
+    % HYXN[e0]
     'EX_cpd00226[e0]';...
-    %Fe2[e0]
+    % Fe2[e0]
     'EX_cpd10515[e0]';...
-    %Formate[e0]
+    % Formate[e0]
     'EX_cpd00047[e0]';...
-    %Cytosine[e0]
+    % Cytosine[e0]
     'EX_cpd00307[e0]';...
-    %glycogenn-1[c0]
+    % glycogenn-1[c0]
     'EX_cpd15302[c0]';...
-    %Uracil[e0]
+    % Uracil[e0]
     'EX_cpd00092[e0]';...
-    %Urea[e0]
+    % Urea[e0]
     'EX_cpd00073[e0]';...
-    %fe3[e0]
+    % fe3[e0]
     'EX_cpd10516[e0]';...
-    %H2O[e0]
+    % H2O[e0]
     'EX_cpd00001[e0]';...
-    %CO2[e0]
+    % CO2[e0]
     'EX_cpd00011[e0]';...
-    %ddca[e0]
+    % ddca[e0]
     'EX_cpd01741[e0]';...
-    %Nicotinamide_ribonucleotide[e0]
+    % Nicotinamide_ribonucleotide[e0]
     'EX_cpd00355[e0]';...
-    %Spermine[e0]
+    % Spermine[e0]
     'EX_cpd00558[e0]';...
-    %Dephospho-CoA[e0]
+    % Dephospho-CoA[e0]
     'EX_cpd00655[e0]';...
-    %ocdca[e0]
+    % ocdca[e0]
     'EX_cpd01080[e0]';...
-    %Oxidized_glutathione[e0]
+    % Oxidized_glutathione[e0]
     'EX_cpd00111[e0]';...
-    %Myristic_acid[e0]
+    % Myristic_acid[e0]
     'EX_cpd03847[e0]';...
-    %NH3[e0]
+    % NH3[e0]
     'EX_cpd00013[e0]';...
-    %Methane[e0]
+    % Methane[e0]
     'EX_cpd01024[e0]';...
-    %H2[e0]
+    % H2[e0]
     'EX_cpd11640[e0]';...
-    %Acetate[e0]
+    % Acetate[e0]
     'EX_cpd00029[e0]';...
-    %L-Alanine[e0]
+    % L-Alanine[e0]
     'EX_cpd00035[e0]';...
-    %D-Alanine[e0]
+    % D-Alanine[e0]
     'EX_cpd00117[e0]';...
-    %N2[e0]
+    % N2[e0]
     'EX_cpd00528[e0]';...
-    %H2S[e0]
+    % H2S[e0]
     'EX_cpd00239[e0]';...
-    %CO[e0]
+    % CO[e0]
     'EX_cpd00204[e0]';...
-    %Phenylacetate[e0]
+    % Phenylacetate[e0]
     'EX_cpd00430[e0]'
-    %4-Hydroxyphenylacetate[e0]
+    % 4-Hydroxyphenylacetate[e0]
     'EX_cpd00489[e0]'
-    %Indoleacetate[e0]
+    % Indoleacetate[e0]
     'EX_cpd00703[e0]'
     };
 
@@ -146,15 +158,15 @@ dGs = [...
     0.0344;...
     % CO[e0]
     -0.1370;...
-    %Phenylacetate[e0]
+    % Phenylacetate[e0]
     0.0596;...
-    %4-Hydroxyphenylacetate[e0]
+    % 4-Hydroxyphenylacetate[e0]
     -0.1461;...
-    %Indoleacetate[e0]
+    % Indoleacetate[e0]
     0.1898;...
     ];
 
-% Add error for dG just in case
+% Pull error for dG just in case, but don't add to the model for now
 dG_error = [...
     % Mg[e0]
     0.0058;...
@@ -220,11 +232,11 @@ dG_error = [...
     0.0058;...
     % CO[e0]
     0.0058;...    
-    %Phenylacetate[e0]
+    % Phenylacetate[e0]
     0.0058;...
-    %4-Hydroxyphenylacetate[e0]
+    % 4-Hydroxyphenylacetate[e0]
     0.0051;...
-    %Indoleacetate[e0]
+    % Indoleacetate[e0]
     0.0085;...
     ];
 
