@@ -2400,6 +2400,12 @@ model.rxns{idx} = 'rxn10904_c0';
 model = convertNamesToIDs(model);
 
 %%%%%%%%%%%%%
+%10/06/2015
+%%%%%%%%%%%%%
+% New last step: add the ChEBI IDs based on KEGG IDs for metabolites
+model = addChEBIIDs(model);
+
+%%%%%%%%%%%%%
 %7/16/2015
 %%%%%%%%%%%%%
 % Very last step: add free energy values for 1 mM from Equilibrator site...
