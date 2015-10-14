@@ -1,5 +1,5 @@
 function createSupplementaryData(model)
-
+%%
 % Takes in the M. maripaludis model and creates the automated portion of
 % the Supplementary Materials Excel workbook containing: 
 % Reactions: info for all reactions, including cross references, formulas,
@@ -28,9 +28,9 @@ A = [{'ID','Name','KEGG ID','Formula','EC Number(s)','GPR Rules',...
 xlswrite('Supplementary_Materials.xlsx',A,'Reactions');
 
 % Compile the metabolites information
-A = [{'ID','Name','KEGG ID','Formula','Charge'};...
-    model.mets,model.metNames,model.metKEGGID,model.metFormulas,...
-    num2cell(model.metCharge)];
+A = [{'ID','Name','KEGG ID','ChEBI ID','Formula','Charge'};...
+    model.mets,model.metNames,model.metKEGGID,model.metChEBIID,...
+    model.metFormulas,num2cell(model.metCharge)];
 xlswrite('Supplementary_Materials.xlsx',A,'Metabolites');
 
 % Run an FVA on the H2-consuming model
@@ -52,7 +52,7 @@ xlswrite('Supplementary_Materials.xlsx',A,'FVA on Formate');
 end
 
 function tags=createRxnConfidenceSheet(model)
-%
+%%
 % Create a list of tags that includes whether each reaction was in the
 % original reconstruction, gap-filled to make the original model, or
 % manually added later on, plus tags for transport and exchanges
