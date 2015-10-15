@@ -15,7 +15,7 @@ function model = switchToAcetate(model)
 
 
 % Turn H2 to 45
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
 
 % Turn off formate
 model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');

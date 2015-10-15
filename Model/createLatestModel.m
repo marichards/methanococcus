@@ -2382,6 +2382,15 @@ model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
 %    'rxn02377_c0'
 
 %%%%%%%%%%%%%
+%10/15/2015
+%%%%%%%%%%%%%
+% New late step: make the methane output the bound on growth
+model = changeRxnBounds(model,'EX_cpd01024_e0',10,'b');
+
+% Also, make acetate consumption enabled by default
+model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
+
+%%%%%%%%%%%%%
 %8/10/2015
 %%%%%%%%%%%%%
 % New very last step: remove unused fields of model that I won't be using
@@ -2398,6 +2407,13 @@ model.rxns{idx} = 'rxn10904_c0';
 % Latest last step: change the names to IDs and change compartment tags to
 % make it SBML compatible and hopefully more Kbase-compatible
 model = convertNamesToIDs(model);
+
+%%%%%%%%%%%%%
+%10/15/2015
+%%%%%%%%%%%%%
+
+% Remove remaining remnants of sulfate reduction pathway
+model = removeRxns(model,{'rxn00379[c0]','rxn05256[c0]'});
 
 %%%%%%%%%%%%%
 %10/06/2015

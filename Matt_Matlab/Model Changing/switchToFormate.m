@@ -17,7 +17,7 @@ function model = switchToFormate(model)
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 
 % Turn up formate
-model = changeRxnBounds(model,'EX_cpd00047[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd00047[e0]',-1000,'l');
 
 %Turn on H+ or else it gets no growth
 model = changeRxnBounds(model,'EX_cpd00067[e0]',-1000,'l');

@@ -1,36 +1,5 @@
-function [solution,gibbs_flux,model] = reverseMethanogenesis(model,substrate_rxns,concentrations)
+function [solution,gibbs_flux,model] =  produceMethanolReduceSulfite(model,substrate_rxns,concentrations)
 
-% Simulate a growth of a mutated M. maripaludis strain with the ability to
-% uptake and utilize methane for growth and reverse methanogenesis to
-% produce methanol with ammonia as the nitrogen source. Print out the
-% growth rate and relevant fluxes, return the full solution, the predicted
-% free energy generation, and the modified model with the overall Gibbs
-% free energy reaction added to the S matrix
-%
-% INPUT
-% model: the M. maripaludis model, a COBRA Toolbox model structure
-% 
-% OPTIONAL INPUT
-% substrate_rxns: a list of exchange reactions in the M. maripaludis model
-% for which a known concentration will be supplied. If supplied, it must be
-% accompanied by a corresponding "concentrations" array. (Default =
-% {'EX_cpd00116[e]','EX_cpd11640[e0]','EX_cpd01024[e0]'})
-% concentrations: a list of effective concentrations in mM corresponding to
-% the exchange reactions listed in "substrate_rxns". (Default = [1 1 1])
-%
-% OUTPUT
-% solution: a flux distribution solution from running FBA on the modified
-% M. maripaludis model that maximizes biomass yield
-% gibbs_flux: model prediction of overall free energy generation, based on
-% the model exchange fluxes in the solution
-% model: the M. maripaludis model, with the added methanol uptake pathway,
-% an added electron transfer from H2 to ferredoxin, and an additional
-% reaction (GIBBS_kJ/GDW) that predicts overall free energy generation.
-% Note that because the first step of hydrogenotrophic methanogenesis has
-% been constrained to 0 in this model, it will not grow
-% hydrogenotrophically unless this constraint is removed.
-% 
-% Matthew Richards, 09/28/2015
 
 
 % First add in methanol pathway
@@ -84,16 +53,24 @@ model = changeRxnBounds(model,'EX_cpd00035[e0]',0,'l');
 % Turn down nitrogen
 model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 
-% Turn off FWD too, so we can't grow on CO2
-model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
+% Add Sulfite reduction to sulfide (F420 as carrier)
+model = addReaction(model,'F420-dependent_sulfite_reductase',...
+    'cpd00067[c0] + cpd00081[c0] + 3 cpd00792[c0]  -> 3 cpd00001[c0] + 3 cpd00649[c0] + cpd00239[c0]');
 
-% Add in the H2 -> Fd_red reactions 
-model = addReaction(model,{'rxn05759[c0]','Reduced ferredoxin:H+ oxidoreductase'},...
-    '2 cpd00067[c0] + cpd11620[c0] <=> cpd11640[c0] + cpd11621[c0]');
-    
+% Add Sulfite source, not worrying about exchange/transporter for now
+model = addReaction(model,'Sulfite_supply','cpd00081[c0] <=> ');
+
+% Give it pyruvate and let it GROW!
+model = addReaction(model,'Pyruvate_supply','cpd00020[c0] <=> ');
+
 % Add a row to freeEnergy to make dimensions correct
-[~,idx] = intersect(model.rxns,'rxn05759[c0]');
+[~,idx] = intersect(model.rxns,'F420-dependent_sulfite_reductase');
 model.freeEnergy(idx) = 0;
+[~,idx] = intersect(model.rxns,'Sulfite_supply');
+model.freeEnergy(idx) = 0;
+[~,idx] = intersect(model.rxns,'Pyruvate_supply');
+model.freeEnergy(idx) = 0;
+
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    
     substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
@@ -102,6 +79,7 @@ if nargin<2
 else
     warning_flag = 0;
 end
+
 % Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]');
