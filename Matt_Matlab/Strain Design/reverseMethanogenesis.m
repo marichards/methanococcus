@@ -90,6 +90,7 @@ model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
 % Add in the H2 -> Fd_red reactions 
 model = addReaction(model,{'rxn05759[c0]','Reduced ferredoxin:H+ oxidoreductase'},...
     '2 cpd00067[c0] + cpd11620[c0] <=> cpd11640[c0] + cpd11621[c0]');
+    
 % Add a row to freeEnergy to make dimensions correct
 [~,idx] = intersect(model.rxns,'rxn05759[c0]');
 model.freeEnergy(idx) = 0;
