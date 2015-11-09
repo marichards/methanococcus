@@ -1976,6 +1976,15 @@ model = removeGene(model,'mmp0529');
 model = removeGene(model,'mmp0663');
 
 %%%%%%%%%%%%%
+% 11/9/2015
+%%%%%%%%%%%%%
+model = removeGene(model,'mmp1151');
+model = removeGene(model,'mmp1681');
+model = removeGene(model,'mmp1723');
+model = removeGene(model,'mmp0829');
+model = removeGene(model,'mmp0941');
+
+%%%%%%%%%%%%%
 % 7/31/2015
 %%%%%%%%%%%%%
 % Add genes to mcr (C and D)
