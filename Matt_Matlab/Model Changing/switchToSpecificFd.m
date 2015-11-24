@@ -46,9 +46,11 @@ model = addReaction(model,{'Hdr_formate',name},...
 
 % Add charges for added metabolites (specific ferredoxins)
 %    'Fdox*1[c0]'
-model.metCharge(end-3)=6;
+[~,idx] = intersect(model.mets,'Fdox*1[c0]');
+model.metCharge(idx)=6;
 %    'Fdred*1[c0]'
-model.metCharge(end-2)=4;
+[~,idx] = intersect(model.mets,'Fdred*1[c0]');
+model.metCharge(idx)=4;
 
 % Allow specific ferredoxin to substitute for general in a pinch
 model = addReaction(model,'Oxidized_Fd_promiscuity',...
@@ -65,30 +67,41 @@ model.freeEnergy(idx) = 0;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Another option is to add a second specific ferredoxin to another set of
 % reactions. This is currently not being enforced
-% other reactions together
+
+% 11/23/2015
+% Enforce these constraints as well
 %%Add EhB, indolepyruvate oxidoreductase with new specific ferredoxin; both are dead for now	
-%model = addReaction(model,'Ehb',...
-%    'Fdox*2[c0] + 2.000000 Na_e0 + H2[c0] <=>	2.000000 H[c0] + Fdred*2[c0] + 2.000000 Na[c0]');
-%[~,idx] = intersect(model.rxns,'rxn10561[c0]');
-%name = model.rxnNames{idx};
-%model = addReaction(model,{'rxn10561[c0]',name},...
-%    'Indole-3-pyruvate[c0] + Fdox*2[c0] + CoA[c0] <=> S-2-(indol-3-yl)acetyl-CoA[c0] + CO2[c0] + Fdred*2[c0] + H[c0]');
+model = addReaction(model,{'Ehb','Ehb'},...
+    'Fdox*2[c0] + 2.000000 cpd00971[e0] + cpd11640[c0] <=> 2.000000 cpd00067[c0] + Fdred*2[c0] + 2.000000 cpd00971[c0]');
+[~,idx] = intersect(model.rxns,'Ehb');
+model.freeEnergy(idx) = 0;
+
+[~,idx] = intersect(model.rxns,'rxn10561[c0]');
+name = model.rxnNames{idx};
+model = addReaction(model,{'rxn10561[c0]',name},...
+    'cpd00010[c0] + Fdox*2[c0] + cpd00278[c0] 	<=>	cpd00067[c0] + cpd00011[c0] + Fdred*2[c0] + cpd11175[c0]');
 %%Give the CODH, rxn05938, and rxn05939 the same ferredoxin
-%[~,idx] = intersect(model.rxns,'CODH_ACS');
-%name = model.rxnNames{idx};	
-%model = addReaction(model,{'CODH_ACS',name},...
-%    'CO2[c0] + CoA[c0] + 2 H[c0] + Fdred*2[c0] + 5-Methyl-H4MPT[c0] <=> Acetyl-CoA[c0] + Fdox*2[c0] + H2O[c0] + H4MPT[c0]');
-%[~,idx] = intersect(model.rxns,'rxn05938[c0]');
-%name = model.rxnNames{idx};
-%model = addReaction(model,{'rxn05938[c0]',name},...
-%    'H[c0] + CO2[c0] + Acetyl-CoA[c0] + Fdred*2[c0] <=>	CoA[c0] + Fdox*2[c0] + Pyruvate[c0]');
-%[~,idx] = intersect(model.rxns,'rxn05939[c0]');
-%name = model.rxnNames{idx};
-%model = addReaction(model,{'rxn05939[c0]',name},...
-%    'H[c0] + CO2[c0] + Fdred*2[c0] + Succinyl-CoA[c0] 	<=>	CoA[c0] + 2-Oxoglutarate[c0] + Fdox*2[c0]');
-%%%    'Fdox*2[c0]'
-%model.metCharge(end-1)=6;
-%%%    'Fdred*2[c0]'
-%model.metCharge(end)=4;
+[~,idx] = intersect(model.rxns,'CODH');
+name = model.rxnNames{idx};	
+model = addReaction(model,{'CODH',name},...
+    '3 cpd00067[c0] + cpd00011[c0] + Fdred*2[c0] 	<=>	cpd00001[c0] + Fdox*2[c0] + 0.500000 cpd11640[c0] + cpd00204[c0]');
+
+[~,idx] = intersect(model.rxns,'rxn05938[c0]');
+name = model.rxnNames{idx};
+model = addReaction(model,{'rxn05938[c0]',name},...
+    'cpd00067[c0] + cpd00011[c0] + cpd00022[c0] + Fdred*2[c0] 	<=>	cpd00010[c0] + Fdox*2[c0] + cpd00020[c0]');
+
+[~,idx] = intersect(model.rxns,'rxn05939[c0]');
+name = model.rxnNames{idx};
+model = addReaction(model,{'rxn05939[c0]',name},...
+    'cpd00067[c0] + cpd00011[c0] + Fdred*2[c0] + cpd00078[c0] 	<=>	cpd00010[c0] + cpd00024[c0] + Fdox*2[c0]');
+
+% Add charges for added metabolites (specific ferredoxins)
+%    'Fdox*2[c0]'
+[~,idx] = intersect(model.mets,'Fdox*2[c0]');
+model.metCharge(idx)=6;
+%    'Fdred*2[c0]'
+[~,idx] = intersect(model.mets,'Fdred*2[c0]');
+model.metCharge(idx)=4;
 	
 

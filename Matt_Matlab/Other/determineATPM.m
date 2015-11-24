@@ -1,4 +1,4 @@
-function [gam,ngam] = determineATPM(model,growth_rates,ch4_rates)
+function [gam,ngam,atp_fluxes] = determineATPM(model,growth_rates,ch4_rates)
 
 % Using measured experimental growth rates and methane evolution rate,
 % constrain the model to measured rates and measure ATP hydrolysis that

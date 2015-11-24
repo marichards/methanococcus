@@ -29,15 +29,29 @@ fprintf(file_id,'Sets\ni metabolites in S (m)\n/\n');
 
 % 4/21/2015
 % Alter mets so it prints the index, not the ID
+
+% 11/23/2015
+% Print the compound ID
+% If it's internal, strip off the compartment. 
+% If it's external, leave the compartment tag with an underscore
+% Save that metabolite ID to this temporary model
 for i=1:length(model.mets)
-    fprintf(file_id,'CPD%0.3d\n',i);
+    model.mets{i} = strrep(model.mets{i},'[c0]','');
+    model.mets{i} = strrep(model.mets{i},'[e0]','_e0');
+    fprintf(file_id,'%s\n',model.mets{i})
 end
 
 % More formatting
 fprintf(file_id,'/\nj reactions in S (n)\n/\n');
 
 % Print reactions set
+% 11/23/2015
+% Replace brackets and slahses with underscores
+% Save those reaction IDs to this temporary model
 for j=1:length(model.rxns)
+    model.rxns{j} = strrep(model.rxns{j},'[','_');
+    model.rxns{j} = strrep(model.rxns{j},']','');
+    model.rxns{j} = strrep(model.rxns{j},'/','_');
     fprintf(file_id,'%s\n',model.rxns{j});
 end
 
@@ -65,16 +79,19 @@ for i = 1:length(model.mets)
     % For each thing in the index,
     for j=1:length(idx)
         %Print out the rxn.met and then the coefficient
-        % 4/21/2015
-        % Alter mets so it prints the index, not the ID
-        fprintf(file_id,'CPD%0.3d.%s\t%f\n',i,model.rxns{idx(j)},A(i,idx(j)));
+        % 11/23/2015
+        % Print out the new met and rxn
+        fprintf(file_id,'%s.%s\t%f\n',model.mets{i},model.rxns{idx(j)},A(i,idx(j)));
     end
 end
+fprintf(file_id,'/');
 
-fprintf(file_id,'/;\n\nGene-Reaction Relationships\n/\n');
+% 11/23/2015
+% Comment out GPRs for now, they're not necessary
+%fprintf(file_id,'/;\n\nGene-Reaction Relationships\n/\n');
 
 % Print out GPRs in reaction\tgpr format:
-for i =1:length(model.rxns)
-fprintf(file_id,'%s\t%s\n',model.rxns{i},model.grRules{i});
-end
-fprintf(file_id,'/;');
+%for i =1:length(model.rxns)
+%fprintf(file_id,'%s\t%s\n',model.rxns{i},model.grRules{i});
+%end
+%fprintf(file_id,'/;');
