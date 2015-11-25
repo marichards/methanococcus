@@ -1,3 +1,4 @@
+Compound    Concentration   Production_Bound(-)    Uptake_Bound(+)
 FLGN[e0]	0.01	-1000.000000	1000.000000
 MEMLIP[c0]	0.01	-1000.000000	1000.000000
 N2A24D5MH4U15P[c0]	0.01	-1000.000000	1000.000000

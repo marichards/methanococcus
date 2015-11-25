@@ -138,11 +138,6 @@ fprintf('CH4 + %0.2f CO2 --> %0.2f CH3OH + H2O\n\n',...
 %Print the yield coefficient (grams biomass per mole CH4 produced)
 fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',-solution.f*1000/solution.x(ch4_idx))
 
-%Find the ATP reaction index
-[~,atp_idx] = intersect(model.rxns,'ATPS');
-%Print the ATP yield coefficient (ATP per CH4)
-fprintf('Expected ATP Yield: 0.5\n')
-fprintf('Predicted ATP Yield: %0.3f\n\n', solution.x(atp_idx)/solution.x(meoh_idx))
 
 % Print out the gibbs free energy prediction
 % Add a warning for simulations with no concentrations given
