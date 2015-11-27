@@ -2289,7 +2289,7 @@ model.subSystems{idx} = 'Amino Acid Biosynthesis';
 %11/20/2015
 %%%%%%%%%%%%%
 % Make Fdh reversible
-model = changeRxnBounds(model,'Fdh',0,'l');
+model = changeRxnBounds(model,'Fdh',-1000,'l');
 
 %%%%%%%%%%%%%
 %7/14/2015
