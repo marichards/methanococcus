@@ -1,4 +1,4 @@
-function [solution,gibbs_flux,model] = maxGrowthOnMethanol(model,substrate_rxns,concentrations)
+function [solution,gibbs_flux,model] = maxGrowthOnMethanolOnly(model,substrate_rxns,concentrations)
 
 % Simulate a growth of a mutated M. maripaludis strain with the ability to
 % uptake and utilize Methanol + H2 for growth and methanogenesis, with
@@ -70,11 +70,10 @@ model = changeRxnBounds(model,'EX_cpd00035[e0]',0,'l');
 % Turn down nitrogen
 model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 
-% Turn off FWD too, to force the model to use the MeOH
-model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
-
 % Turn off H2
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
+% Turn off CO2
+model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    

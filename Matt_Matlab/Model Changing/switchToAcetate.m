@@ -14,7 +14,7 @@ function model = switchToAcetate(model)
 % Matthew Richards, 09/29/2015
 
 
-% Turn H2 to 45
+% Turn H2 on
 model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
 
 % Turn off formate
@@ -25,3 +25,6 @@ model = changeRxnBounds(model,'EX_cpd00067[e0]',0,'l');
 
 % Turn acetate on
 model = changeRxnBounds(model,'EX_cpd00029[e0]',-1000,'l');
+
+% Set a bound on methane
+model = changeRxnBounds(model,'EX_cpd01024[e0]',32.66,'b');

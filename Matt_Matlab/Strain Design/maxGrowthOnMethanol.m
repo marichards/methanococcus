@@ -71,7 +71,9 @@ model = changeRxnBounds(model,'EX_cpd00035[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 
 % Turn off FWD too, to force the model to use the MeOH
-model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
+%model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
+% Turn off CO2
+model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    
