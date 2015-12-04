@@ -197,7 +197,7 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
+% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0985)
 ko_model = deleteModelGenes(ko_model,...
     {'mmp0983','mmp0984','mmp0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
