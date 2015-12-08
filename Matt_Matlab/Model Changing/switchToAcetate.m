@@ -27,4 +27,4 @@ model = changeRxnBounds(model,'EX_cpd00067[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd00029[e0]',-1000,'l');
 
 % Set a bound on methane
-model = changeRxnBounds(model,'EX_cpd01024[e0]',32.66,'b');
+model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');

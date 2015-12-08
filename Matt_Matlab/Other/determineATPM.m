@@ -5,7 +5,6 @@ function [gam,ngam,atp_fluxes] = determineATPM(model,growth_rates,ch4_rates)
 % results. Repeat and graph ATPM vs growth rate to calculcate ATP
 % maintenance
 
-
 % Check to make sure growth rates and ch4 rates are the same length
 if length(growth_rates) ~= length(ch4_rates)
     error('Please ensure that there are an equal number of growth rates and methane evolution rates');

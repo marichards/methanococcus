@@ -24,3 +24,6 @@ model = changeRxnBounds(model,'EX_cpd00067[e0]',-1000,'l');
 
 % Be sure to turn off the acetate input, just in case
 model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');
+
+% Set a bound on methane
+model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');

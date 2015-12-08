@@ -86,8 +86,8 @@ if print_flag
         solution.x(co2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
 
     %Print the yield coefficient (grams biomass per mole CH4 produced)
-    fprintf('Measured Yield Coefficient: 2.86 +/- 0.58 gDCW/mol CH4\n')
-    fprintf('Predicted Yield Coefficient: %0.3f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx))
+    fprintf('Measured Yield Coefficient: 3.32 +/- 0.42 gDCW/mol CH4\n')
+    fprintf('Predicted Yield Coefficient: %0.2f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx)/log(2))
 
     %Find the ATP reaction index
     [~,atp_idx] = intersect(model.rxns,'ATPS');

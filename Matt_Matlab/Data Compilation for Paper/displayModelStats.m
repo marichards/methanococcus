@@ -61,7 +61,7 @@ fprintf('Internal Reactions: %d\n',int_rxns);
 fprintf('Transport/Exchange Reactions: %d/%d\n',trans_rxns,exc_rxns);
 fprintf('Gene-Associated Reactions: %d\n',rxns_w_genes);
 fprintf('Dead End Reactions: %d\n',dead_rxns);
-fprintf('Gapfilled Internal Reactions: %d\n',rxns_wo_genes)
+fprintf('Internal Reactions without Genes: %d\n',rxns_wo_genes)
 fprintf('%% Internal Reactions with Genes: %0.1f%%\n',100*rxns_w_genes/int_rxns)
 fprintf('%% Total Reactions with Genes: %0.1f%%\n',...
     100*(int_rxns+trans_rxns-total_rxns_wo_genes)/(trans_rxns + int_rxns))
