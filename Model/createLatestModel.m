@@ -2400,10 +2400,17 @@ model.metNames{idx} = 'Cob(II)yrinate_diamide_c0';
 %10/15/2015
 %%%%%%%%%%%%%
 % New late step: make the methane output the bound on growth
-model = changeRxnBounds(model,'EX_cpd01024_e0',10,'b');
+model = changeRxnBounds(model,'EX_cpd01024_e0',46,'b');
 
 % Also, make acetate consumption enabled by default
 model = changeRxnBounds(model,'EX_cpd00029_e0',-1000,'l');
+
+%%%%%%%%%%%%%
+%12/10/2015
+%%%%%%%%%%%%%
+% And make sure to set a bound on Eha/Ehb
+model = changeRxnBounds(model,'Eha/Ehb',4.6,'u');
+model = changeRxnBounds(model,'Eha/Ehb',-4.6,'l');
 
 %%%%%%%%%%%%%
 %8/10/2015

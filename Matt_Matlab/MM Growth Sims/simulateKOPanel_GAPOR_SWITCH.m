@@ -16,6 +16,8 @@ tp = 0; tn = 0; fp = 0; fn = 0;
 
 % Set GAPOR off to begin with
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
+% Make sure model is set to H2
+model = switchToH2(model);
 
 % H2-CO2 simulations
 fprintf('================================\nGrowth on H2 + CO2\n================================');

@@ -1,4 +1,4 @@
-function model = switchToH2(model)
+function model = switchToH2Only(model)
 
 % Switches M.maripaludis model to H2 as the main electron source. Also
 % ensures that acetate and formate are turned off and protons are not
@@ -23,8 +23,8 @@ model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');
 %Turn off H+ uptake
 model = changeRxnBounds(model,'EX_cpd00067[e0]',0,'l');
 
-% Turn on acetate uptake
-model = changeRxnBounds(model,'EX_cpd00029[e0]',-1000,'l');
+% Turn off acetate uptake
+model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');
 
 % Set a bound on methane
 model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');

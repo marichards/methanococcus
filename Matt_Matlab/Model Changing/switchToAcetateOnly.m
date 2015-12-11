@@ -1,4 +1,4 @@
-function model = switchToAcetate(model)
+function model = switchToAcetateOnly(model)
 
 % Switches M.maripaludis model to use H2 as the main electron source and
 % supplement with acetate. Also ensures that formate is turned off and
@@ -14,8 +14,8 @@ function model = switchToAcetate(model)
 % Matthew Richards, 09/29/2015
 
 
-% Turn H2 on
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
+% Turn H2 off
+model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 
 % Turn off formate
 model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');
@@ -28,3 +28,17 @@ model = changeRxnBounds(model,'EX_cpd00029[e0]',-1000,'l');
 
 % Set a bound on methane
 model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');
+
+% Check if model is specific ferredoxins or not and set bound on Eha and
+% Ehb in either case
+if ismember('Eha/Ehb',model.rxns)
+    % If not, then set bounds on Eha/Ehb
+    model = changeRxnBounds(model,'Eha/Ehb',4.6,'u');
+    model = changeRxnBounds(model,'Eha/Ehb',-4.6,'l');
+else
+    % If it is, then sent on both Eha and Ehb
+    model = changeRxnBounds(model,'Eha',4.6,'u');
+    model = changeRxnBounds(model,'Eha',-4.6,'l');
+    model = changeRxnBounds(model,'Ehb',4.6,'u');
+    model = changeRxnBounds(model,'Ehb',-4.6,'l');
+end

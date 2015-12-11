@@ -56,8 +56,8 @@ model.metFormulas{idx}='CH4O';
 model.freeEnergy(idx) = -0.0302;
 
 % Make certain that H2 is on and acetate/formate are off
-% Turn H2 to 45
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
+% Turn H2 to -1000
+model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
 % Turn down formate
 model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');
 % Turn down acetate
@@ -74,6 +74,23 @@ model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 %model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
 % Turn off CO2
 model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
+
+% Set a bound on methane
+model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');
+
+% Check if model is specific ferredoxins or not and set bound on Eha and
+% Ehb in either case
+if ismember('Eha/Ehb',model.rxns)
+    % If not, then set bounds on Eha/Ehb
+    model = changeRxnBounds(model,'Eha/Ehb',46/5,'u');
+    model = changeRxnBounds(model,'Eha/Ehb',-46/5,'l');
+else
+    % If it is, then sent on both Eha and Ehb
+    model = changeRxnBounds(model,'Eha',46,'u');
+    model = changeRxnBounds(model,'Eha',-46,'l');
+    model = changeRxnBounds(model,'Ehb',46,'u');
+    model = changeRxnBounds(model,'Ehb',-46,'l');
+end
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    

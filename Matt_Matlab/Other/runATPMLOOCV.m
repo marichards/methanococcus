@@ -12,10 +12,10 @@ full_ch4_rates = [51.73,48.34,44.11,28.40,41.13,28.12,34.87];
 
 % Create an array to store predicted growth rates
 predicted_gr = zeros(1,length(full_growth_rates));
-
+pred_error = zeros(1,length(full_growth_rates));
 % Print header if not told no
 if printFlag
-    fprintf('\nActual Growth\tPredicted Growth\n')
+    fprintf('\nActual GR\tPredicted GR\t %% Error\n')
 end
 % Loop through the dataset
 for i=1:length(full_growth_rates)
@@ -37,12 +37,28 @@ for i=1:length(full_growth_rates)
     
     % Add the rate to predicted_gr
     predicted_gr(i) = solution.f; 
+    pred_error(i) = 100*(abs(solution.f-full_growth_rates(i))/full_growth_rates(i));
     % Print if not told no
     if printFlag
-        fprintf('%0.4f\t\t\t%0.4f\n',full_growth_rates(i),solution.f)
+        fprintf('%0.4f\t\t\t%0.4f\t\t\t%0.1f\n',full_growth_rates(i),solution.f,pred_error(i))
     end
     
 end
+
+
+figure(1)
+h = plot(full_ch4_rates,predicted_gr,'bo',...
+full_ch4_rates,full_growth_rates,'rx','MarkerSize',10);
+set(h,'LineWidth',2);
+%data = [predicted_gr',full_growth_rates'];
+%hb = bar(data,);
+%set(hb(1),'FaceColor','b')
+%set(hb(2),'FaceColor','y')
+%set(hb,'XTickLabel',full_ch4_rates)
+legend('Predicted Growth Rate','Measured Growth Rate','Location','northwest')
+xlabel('Methane Evolution Rate ($$\frac{mmol}{gDCW \cdot h}$$)'...
+    ,'Interpreter','latex')
+ylabel('Growth Rate ( \it{h^{-1}})')
 
 
 
