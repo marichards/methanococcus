@@ -1,4 +1,4 @@
-function [predicted_gr,full_growth_rates] = runATPMLOOCV(model,printFlag)%,growth_rates,ch4_rates)
+function [predicted_yields,measured_yields] = runATPMLOOCV(model,printFlag)%,growth_rates,ch4_rates)
 
 % Check for a print flag
 if nargin<2
@@ -45,20 +45,35 @@ for i=1:length(full_growth_rates)
     
 end
 
+% Convert Growth rates into yields
+measured_yields = full_growth_rates./full_ch4_rates*1000/log(2);
+predicted_yields = predicted_gr./full_ch4_rates*1000/log(2);
+
+% Add yield error I calculated
+error_95 = [0.249,0.383,0.163,0.175,0.191,0.207,0.142];
 
 figure(1)
-h = plot(full_ch4_rates,predicted_gr,'bo',...
-full_ch4_rates,full_growth_rates,'rx','MarkerSize',10);
-set(h,'LineWidth',2);
+%
+%h = plot(full_ch4_rates,predicted_gr,'bo',...
+% Plot error bar graph instead for the second point
+h2 = errorbar(full_ch4_rates,measured_yields,error_95,'rx','MarkerSize',10);
+set(h2,'LineWidth',2);
+hold on
+h1 = plot(full_ch4_rates,predicted_yields,'bo','MarkerSize',10);
+set(h1,'LineWidth',2);
 %data = [predicted_gr',full_growth_rates'];
 %hb = bar(data,);
 %set(hb(1),'FaceColor','b')
 %set(hb(2),'FaceColor','y')
 %set(hb,'XTickLabel',full_ch4_rates)
-legend('Predicted Growth Rate','Measured Growth Rate','Location','northwest')
+legend('Predicted Growth Yield','Measured Growth Yield','Location','northwest')
 xlabel('Methane Evolution Rate ($$\frac{mmol}{gDCW \cdot h}$$)'...
     ,'Interpreter','latex')
-ylabel('Growth Rate ( \it{h^{-1}})')
+ylabel('Growth Yield ($$\frac{gDCW}{mol Methane}$$)'...
+    ,'Interpreter','latex')
+%axis([25,50,0,4])
+% Take off the hold
+hold off
 
 
 
