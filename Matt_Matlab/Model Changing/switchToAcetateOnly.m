@@ -33,12 +33,12 @@ model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');
 % Ehb in either case
 if ismember('Eha/Ehb',model.rxns)
     % If not, then set bounds on Eha/Ehb
-    model = changeRxnBounds(model,'Eha/Ehb',4.6,'u');
-    model = changeRxnBounds(model,'Eha/Ehb',-4.6,'l');
+    model = changeRxnBounds(model,'Eha/Ehb',1000,'u');
+    model = changeRxnBounds(model,'Eha/Ehb',-1000,'l');
 else
     % If it is, then sent on both Eha and Ehb
-    model = changeRxnBounds(model,'Eha',4.6,'u');
-    model = changeRxnBounds(model,'Eha',-4.6,'l');
-    model = changeRxnBounds(model,'Ehb',4.6,'u');
-    model = changeRxnBounds(model,'Ehb',-4.6,'l');
+    model = changeRxnBounds(model,'Eha',1000,'u');
+    model = changeRxnBounds(model,'Eha',-1000,'l');
+    model = changeRxnBounds(model,'Ehb',1000,'u');
+    model = changeRxnBounds(model,'Ehb',-1000,'l');
 end

@@ -651,9 +651,11 @@ model = removeRxns(model,'rxn00371_c0');
 %%%%%%%%%%%%%
 %1/13/2015
 %%%%%%%%%%%%%
-%Add a maintenance factor and change the H2 so both match M.barkeri model
-model = changeRxnBounds(model,'Ex_cpd11640_c0',-45,'l');
-model = changeRxnBounds(model,'rxn00062_c0',2,'b');
+% Add a maintenance factor and change the H2 so both match M.barkeri model
+% On 12/14/2015: remove the maintenance requirement here, make H2 unlimited
+% so that the bound is on methane
+model = changeRxnBounds(model,'Ex_cpd11640_c0',-1000,'l');
+%model = changeRxnBounds(model,'rxn00062_c0',2,'b');
 
 %%%%%%%%%%%%%
 %1/29/2015

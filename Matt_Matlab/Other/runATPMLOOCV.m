@@ -6,9 +6,9 @@ if nargin<2
 end
 
 % Input measured values for growth rates and ch4 rates
-full_growth_rates = [0.0814,0.0902,0.0892,0.0465,0.0705,0.0458,0.0602];
+full_growth_rates = [0.0902,0.0892,0.0465,0.0705,0.0458,0.0602,0.0587];
 
-full_ch4_rates = [51.73,48.34,44.11,28.40,41.13,28.12,34.87];
+full_ch4_rates = [48.34,44.11,28.40,41.13,28.12,34.87,35.17];
 
 % Create an array to store predicted growth rates
 predicted_gr = zeros(1,length(full_growth_rates));
