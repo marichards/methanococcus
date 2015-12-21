@@ -2450,3 +2450,18 @@ model = addChEBIIDs(model);
 %%%%%%%%%%%%%
 % Very last step: add free energy values for 1 mM from Equilibrator site...
 model = addDG2MM(model);
+
+%%%%%%%%%%%%%
+%12/21/2015
+%%%%%%%%%%%%%
+% Newest last step: find and set ATPM values for growth and non-growth associated
+% Set measured data
+growth_rates = [0.0902,0.0892,0.0465,0.0705,0.0458,0.0602,0.0587,0.1297,0.1301];
+ch4_rates = [48.34,44.11,28.40,41.13,28.12,34.87,35.17,64.97,61.58];
+% Find correct values to fit
+[gam,ngam] = determineATPM(model,growth_rates,ch4_rates);
+% Change fit to correct one
+model = changeATPM(model,gam,ngam);
+
+% And finally, set methane secretion rate
+model = setMethaneSecretion(model,50);
