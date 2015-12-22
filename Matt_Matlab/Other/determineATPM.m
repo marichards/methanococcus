@@ -13,7 +13,7 @@ end
 % Make an ATP-hydrolyzing model by removing ATP from biomass, adjusting
 % bounds on NGAM, and making NGAM the objective function
 
-% First, find ATP 
+% First, find ATP
 [~,idx] = intersect(model.mets,'cpd00002[c0]');
 % Find index of biomass
 [~,bio_idx] = intersect(model.rxns,'biomass0');
@@ -45,7 +45,7 @@ for i = 1:length(growth_rates)
     
     % Constrain the model by the supplied growth rate and ch4 rate
     model = changeRxnBounds(model,'biomass0',growth_rates(i),'b');
-    model = changeRxnBounds(model,'EX_cpd01024[e0]',ch4_rates(i),'b');    
+    model = setMethaneSecretion(model,ch4_rates(i));    
     
     % Simulate the model
     solution = optimizeCbModel(model,[],'one');

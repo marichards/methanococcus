@@ -14,6 +14,11 @@ function simulateKOPanel(model)
 % Create TP/TN/FP/FN metrics to fill up on appropriate things
 tp = 0; tn = 0; fp = 0; fn = 0;
 
+% Set GAPOR off to begin with
+model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
+% Make sure model is set to H2
+model = switchToH2(model);
+
 % H2-CO2 simulations
 fprintf('================================\nGrowth on H2 + CO2\n================================');
 
@@ -197,18 +202,22 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0985)
+% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
 ko_model = deleteModelGenes(ko_model,...
     {'mmp0983','mmp0984','mmp0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
+% Turn on GAPOR
+model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
+model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
 % (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
 ko_model = deleteModelGenes(model,...
     {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
     ,0);
+
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase_supp Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -225,6 +234,9 @@ fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 % Formate simulations
 fprintf('\n================================\nGrowth on Formate\n================================');
 model = switchToFormate(model);
+
+% Set GAPOR off to begin with
+model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
 
 % First simulate Wild-type growth
 solution = optimizeCbModel(model,[],'one');
@@ -447,6 +459,10 @@ ko_model = deleteModelGenes(ko_model,...
     {'mmp0983','mmp0984','mmp0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
+
+% Turn on GAPOR
+model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
+model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
 % (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
@@ -486,7 +502,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formate plus H2 simulations
 fprintf('\n================================\nGrowth on Formate + H2\n================================');
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
+
+% Set GAPOR off to begin with
+model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
 
 % First simulate Wild-type growth
 solution = optimizeCbModel(model,[],'one');
@@ -602,6 +621,10 @@ ko_model = deleteModelGenes(ko_model,...
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
+% Turn on GAPOR
+model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
+model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
+
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
 % (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
 ko_model = deleteModelGenes(model,...
@@ -623,7 +646,10 @@ fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 % Formate plus CO simulations
 fprintf('\n================================\nGrowth on Formate + CO\n================================');
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd00204[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd00204[e0]',-1000,'l');
+
+% Set GAPOR off to begin with
+model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
 
 % First simulate Wild-type growth
 solution = optimizeCbModel(model,[],'one');
@@ -738,6 +764,10 @@ else
     % Then add to True Negative
     tn = tn+1;
 end
+
+% Turn on GAPOR
+model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
+model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
 % (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)

@@ -29,8 +29,7 @@ for i=1:length(full_growth_rates)
     fitted_model = changeATPM(model,gam,ngam);
     
     % Set the fitted model's secretion rate of methane
-    fitted_model = changeRxnBounds(...
-        fitted_model,'EX_cpd01024[e0]',full_ch4_rates(i),'b');
+    fitted_model = setMethaneSecretion(fitted_model,full_ch4_rates(i));
     
     % Simulate growth by optimizing biomass
     solution = optimizeCbModel(fitted_model);

@@ -1,8 +1,10 @@
-function simulateKOPanel_GAPOR_SWITCH(model)
+function simulateKOPanelWOAcetate(model)
 
 % For the M. maripaludis S2 model, simulate the model for known gene KO
 % experiments to get predictions and compare predictions to reality. Do all
-% possible KOs for all 4 conditions, not just the replicates of experiments
+% possible KOs for all 4 conditions, not just the replicates of
+% experiments. In this specialized case, also remove acetate from the media
+% to represent what we'd predict without it. 
 %
 % INPUT
 % model: the M. maripaludis model, a COBRA Toolbox model structure
@@ -17,7 +19,7 @@ tp = 0; tn = 0; fp = 0; fn = 0;
 % Set GAPOR off to begin with
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
 % Make sure model is set to H2
-model = switchToH2(model);
+model = switchToH2Only(model);
 
 % H2-CO2 simulations
 fprintf('================================\nGrowth on H2 + CO2\n================================');
@@ -233,7 +235,7 @@ fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formate simulations
 fprintf('\n================================\nGrowth on Formate\n================================');
-model = switchToFormate(model);
+model = switchToFormateOnly(model);
 
 % Set GAPOR off to begin with
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
@@ -502,7 +504,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formate plus H2 simulations
 fprintf('\n================================\nGrowth on Formate + H2\n================================');
-model = changeRxnBounds(model,'EX_cpd11640[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',-1000,'l');
 
 % Set GAPOR off to begin with
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
@@ -646,7 +648,7 @@ fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 % Formate plus CO simulations
 fprintf('\n================================\nGrowth on Formate + CO\n================================');
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd00204[e0]',-45,'l');
+model = changeRxnBounds(model,'EX_cpd00204[e0]',-1000,'l');
 
 % Set GAPOR off to begin with
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
