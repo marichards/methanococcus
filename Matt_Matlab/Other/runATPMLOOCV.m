@@ -1,4 +1,4 @@
-function [predicted_yields,measured_yields,gam,ngam] = runATPMLOOCV(model,printFlag)%,growth_rates,ch4_rates)
+function [predicted_yields,measured_yields] = runATPMLOOCV(model,printFlag)%,growth_rates,ch4_rates)
 
 % Check for a print flag
 if nargin<2
@@ -67,10 +67,12 @@ set(h1,'LineWidth',2);
 %set(hb,'XTickLabel',full_ch4_rates)
 legend('Measured Growth Yield','Predicted Growth Yield','Location','northwest')
 xlabel('Methane Evolution Rate ($$\frac{mmol}{gDCW \cdot h}$$)'...
-    ,'Interpreter','latex')
+    ,'Interpreter','latex','FontSize',14,'FontWeight','bold')
 ylabel('Growth Yield ($$\frac{gDCW}{mol Methane}$$)'...
-    ,'Interpreter','latex')
-%axis([25,50,0,4])
+    ,'Interpreter','latex','FontSize',14,'FontWeight','bold')
+axis([25,70,0,4])
+% Increase size of labels
+set(gca,'FontSize',12);
 % Take off the hold
 hold off
 

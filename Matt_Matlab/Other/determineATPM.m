@@ -1,4 +1,4 @@
-function [gam,ngam,atp_fluxes] = determineATPM(model,growth_rates,ch4_rates)
+function [gam,ngam,atp_fluxes] = determineATPM(model,growth_rates,ch4_rates,plot_flag)
 
 % Using measured experimental growth rates and methane evolution rate,
 % constrain the model to measured rates and measure ATP hydrolysis that
@@ -19,13 +19,18 @@ end
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 % Remove it from biomass
 model.S(idx,bio_idx) = 0;
-% Repeat for ADP and Phosphate
+% Repeat for ADP and Phosphate and H+
 [~,idx] = intersect(model.mets,'cpd00008[c0]');
 % Find index of biomass
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 % Remove it from biomass
 model.S(idx,bio_idx) = 0;
 [~,idx] = intersect(model.mets,'cpd00009[c0]');
+% Find index of biomass
+[~,bio_idx] = intersect(model.rxns,'biomass0');
+% Remove it from biomass
+model.S(idx,bio_idx) = 0;
+[~,idx] = intersect(model.mets,'cpd00067[c0]');
 % Find index of biomass
 [~,bio_idx] = intersect(model.rxns,'biomass0');
 % Remove it from biomass
@@ -59,5 +64,24 @@ p = polyfit(growth_rates,atp_fluxes,1);
 
 gam = p(1);
 ngam = p(2);
+
+% Check for plot flag
+if nargin < 4
+    plot_flag = false;
+end
+
+% If plot flag is true, plot the atp fluxes against growth rate
+if plot_flag
+    figure(2)    
+    plot(growth_rates,atp_fluxes,'r.','MarkerSize',20);
+    hold on
+    calc = linspace(0,0.14,20)*gam+ngam;
+    plot(linspace(0,0.14,20),calc,'b-','LineWidth',2)
+    ylabel('ATP Flux ($$\frac{mmol}{gDCW \cdot h}$$)'...
+    ,'Interpreter','latex','FontSize',14)
+    xlabel('Growth Rate (h^{-1})','FontSize',14)
+    legend('Predicted ATP Flux','Linear Model','Location','Northwest')
+    hold off
+end
 
 
