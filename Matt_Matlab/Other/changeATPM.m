@@ -28,12 +28,14 @@ model = changeRxnBounds(model,'rxn00062[c0]',ngam,'b');
 % Change the index to the gam
 model.S(atp_idx,bio_idx) = -gam;
 
-% Also find the ADP, H+ and Phosphate indices
+% Also find the ADP, H+, water, and Phosphate indices
 [~,adp_idx] = intersect(model.mets,'cpd00008[c0]');
 [~,h_idx] = intersect(model.mets,'cpd00067[c0]');
+[~,h2o_idx] = intersect(model.mets,'cpd00001[c0]');
 [~,p_idx] = intersect(model.mets,'cpd00009[c0]');
 
 % Change these indices to the gam too
 model.S(adp_idx,bio_idx) = gam;
 model.S(h_idx,bio_idx) = gam;
 model.S(p_idx,bio_idx) = gam;
+model.S(h2o_idx,bio_idx) = -gam;

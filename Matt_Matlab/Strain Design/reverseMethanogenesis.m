@@ -87,6 +87,9 @@ model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 % Turn off FWD too, so we can't grow on CO2
 model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
 
+% Let Eha/Ehb run at full blast
+model = removeEhaBounds(model);
+
 % Add in the H2 -> Fd_red reactions 
 model = addReaction(model,{'rxn05759[c0]','Reduced ferredoxin:H+ oxidoreductase'},...
     '2 cpd00067[c0] + cpd11620[c0] <=> cpd11640[c0] + cpd11621[c0]');
@@ -104,7 +107,7 @@ else
 end
 % Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
-    ,concentrations,310,'EX_cpd00001[e0]');
+    ,concentrations,310,'EX_cpd00001[e0]',false);
 
 %Find the reaction indices
 [~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');

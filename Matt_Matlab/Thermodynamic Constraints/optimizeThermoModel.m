@@ -1,4 +1,4 @@
-function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,concentrations,T,water_rxn)
+function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,concentrations,T,water_rxn,constraint_flag)
 
 %%
 % Version 4: 06/23/2015
@@ -31,6 +31,12 @@ function [solution,gibbs_flux,model] = optimizeThermoModel(model,substrateRxns,c
 
 
 % dG values are at pH=7.0 and ionic strength of 0.1 M
+
+% Don't constrain solutions to be negative if there's no flag
+if nargin < 6
+    constraint_flag = false;
+end
+
 % Catch concentrations that are 0
 if any(~concentrations)
     solution = optimizeCbModel(model,[],'one');
@@ -76,6 +82,12 @@ else
 
     % Let the free energy be as low as it desires
     model = changeRxnBounds(model,'GIBBS_kJ/GDW',-inf,'l');
+    
+    % If there's a constraint flag, then make free energy have to be
+    % negative
+    if constraint_flag
+        model = changeRxnBounds(model,'GIBBS_kJ/GDW',0,'u');
+    end
 
     % Simulate the model with minimization of overall flux
     solution = optimizeCbModel(model,[],'one');
