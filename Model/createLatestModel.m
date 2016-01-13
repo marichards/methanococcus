@@ -2440,6 +2440,14 @@ model = convertNamesToIDs(model);
 model = removeRxns(model,{'rxn00379[c0]','rxn05256[c0]'});
 
 %%%%%%%%%%%%%
+%1/12/2016
+%%%%%%%%%%%%%
+
+% Remove one of the alternate acetyl-coa synthesis pathways, as per emails
+% with John (11/19/15)
+model = removeRxns(model,{'rxn11676[c0]','rxn00225[c0]','rxn00171[c0]'});
+
+%%%%%%%%%%%%%
 %10/06/2015
 %%%%%%%%%%%%%
 % New last step: add the ChEBI IDs based on KEGG IDs for metabolites
