@@ -1,0 +1,40 @@
+{
+    "metadata": [
+        [
+            9,
+            "2016_01_13_h2co2_media",
+            "KBaseBiochem.Media-1.0",
+            "2016-01-14T01:43:22+0000",
+            1,
+            "bking",
+            12251,
+            "marichards:1452717570355",
+            "1f07a2466bb9760afc2727afffcc6bd9",
+            5864,
+            {}
+        ]
+    ],
+    "provenance": [
+        {
+            "copy_source_inaccessible": 0,
+            "created": "2016-01-14T01:43:22+0000",
+            "creator": "bking",
+            "extracted_ids": {},
+            "info": [
+                9,
+                "2016_01_13_h2co2_media",
+                "KBaseBiochem.Media-1.0",
+                "2016-01-14T01:43:22+0000",
+                1,
+                "bking",
+                12251,
+                "marichards:1452717570355",
+                "1f07a2466bb9760afc2727afffcc6bd9",
+                5864,
+                {}
+            ],
+            "provenance": [],
+            "refs": []
+        }
+    ]
+}
