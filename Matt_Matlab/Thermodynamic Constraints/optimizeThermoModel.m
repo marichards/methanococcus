@@ -53,7 +53,9 @@ else
 
     % Add the new reaction first, which adds the metabolite
     model = addReaction(model,'GIBBS_kJ/GDW','dG <=> '); 
-
+    % Give it no free energy of its own
+    [~,gibbs_idx] = intersect(model.rxns,'GIBBS_kJ/GDW');
+    model.freeEnergy(gibbs_idx) = 0;
     % Find index of dG
     [~,met_idx] = intersect(model.mets,'dG');
 
@@ -73,7 +75,10 @@ else
     end
     
     % Add free energy values to S matrix for every one at once
-    model.S(met_idx,1:end-1) = model.freeEnergy;
+    model.S(met_idx,:) = model.freeEnergy;
+    
+    % Go back and fix the Gibbs reaction to take in dG
+    model.S(met_idx,gibbs_idx) = -1;
 
     % New Part (4/30/2013)
     % Add water contribution, which isn't reflected elsewhere

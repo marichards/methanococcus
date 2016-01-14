@@ -57,14 +57,16 @@ model.metFormulas{idx}='CH4O';
 % Add it to the free energy
 [~,idx] = intersect(model.rxns,'EX_cpd00116[e0]');
 model.freeEnergy(idx) = -0.0302;
+[~,idx] = intersect(model.rxns,'rxn10570[c0]');
+model.freeEnergy(idx) = 0;
 
 % Change bounds to function in reverse
 % Change bounds such that methane goes IN instead of OUT
-model = changeRxnBounds(model,'EX_cpd01024[e0]',-10,'l');
+model = changeRxnBounds(model,'EX_cpd01024[e0]',-1000,'l');
 model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
-% Change methanol to come OUT instead of IN
-model = changeRxnBounds(model,'EX_cpd00116[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd00116[e0]',1000,'u');
+% Force methanol to come OUT
+model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'l');
+model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'u');
 % Turn off Hydrogen input and let it come out
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd11640[e0]',1000,'u');

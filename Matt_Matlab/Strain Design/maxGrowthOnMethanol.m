@@ -54,6 +54,8 @@ model.metFormulas{idx}='CH4O';
 % Add it to the free energy
 [~,idx] = intersect(model.rxns,'EX_cpd00116[e0]');
 model.freeEnergy(idx) = -0.0302;
+[~,idx] = intersect(model.rxns,'rxn10570[c0]');
+model.freeEnergy(idx) = 0;
 
 % Make certain that H2 is on and acetate/formate are off
 % Turn H2 to -1000
@@ -77,6 +79,9 @@ model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
 
 % Set a bound on methane
 model = setMethaneSecretion(model,50);
+
+% Let Eha/Ehb run at full blast
+model = removeEhaBounds(model);
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    

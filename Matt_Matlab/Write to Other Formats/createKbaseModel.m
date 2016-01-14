@@ -94,19 +94,32 @@ end
 %Loop through the reactions and write them to the file
 %Change from previous: switch UB and LB (upper bound first) and take negative of each [as per Kbase format, where "upper bound" is how much the model can take up] 
 
-%Create the media file, which is simpler
+% Create the media file, which is simpler
 media_file_id = fopen(sprintf('%s.txt',media_filename),'w');
-%Grab all exchange reactions
+% Grab all exchange reactions
 exc_rxns = model.rxns(findExcRxns(model));
-%Intersect them to get their indices
+% Check if dG is in the model
+if ismember('cpd15000[c0]',model.mets)
+    % If so, then grab reactions with it
+    rxns = findRxnsFromMets(model,'cpd15000[c0]');
+    % And add it to the exc_rxns
+    exc_rxns = unique([exc_rxns;rxns]);
+end
+% Intersect them to get their indices
 [exc_rxns,idx] = intersect(model.rxns,exc_rxns);
-%Loop through them
+% Find the gibbs index
+[~,gibbs_idx] = intersect(exc_rxns,'GIBBS_kJ/GDW');
+% Loop through them
 for i=1:length(exc_rxns)
-    %Find the metabolite in that reaction
-    met = findMetsFromRxns(model,exc_rxns{i});
+    %Find the metabolites in that reaction and remove dG if necessary
+    % But don't remove it if it's GIBBS_KJ
+    if i == gibbs_idx
+        met = {'cpd15000[c0]'};
+    else
+        met = setdiff(findMetsFromRxns(model,exc_rxns{i}),'cpd15000[c0]');       
+    end
     %For each exchange reaction, print the 4 things needed
-    fprintf(media_file_id,'%s\t0.01\t%f\t%f\n',met{1},-model.ub(idx(i)),-model.lb(idx(i)));
-    
+    fprintf(media_file_id,'%s\t0.01\t%f\t%f\n',met{1},-model.ub(idx(i)),-model.lb(idx(i)));   
 end
 
 %Create the compounds file, with specified format
