@@ -24,9 +24,9 @@ end
 logs = regexp(model.mets,'cpd[0-9]{5}');
 non_Seed = {};
 for i=1:length(logs)
-if isempty(logs{i})
-non_Seed = [non_Seed;model.mets{i}];
-end
+    if isempty(logs{i})
+        non_Seed = [non_Seed;model.mets{i}];
+    end
 end
 
 % Find reactions that use those compounds
@@ -45,8 +45,8 @@ for i=1:length(to_remove)
 end
 
 % Remove more things from the biomass
-to_remove = {'cpd00161_c0','cpd00033_c0','cpd02817_c0','cpd11493_c0',...
-    'cpd00042_c0','cpd00166_c0'};
+to_remove = {'cpd00161[c0]','cpd00033[c0]','cpd02817[c0]',...
+    'cpd00042[c0]','cpd03425[c0]'};
 
 for i=1:length(to_remove)
     [~,met_idx] = intersect(model.mets,to_remove{i});
