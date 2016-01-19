@@ -32,9 +32,10 @@ for i=1:length(logs)
     end
 end
 
+%%% Edit: don't need this 
 % Find reactions that use those compounds
-rxns = setdiff(findRxnsFromMets(model,non_Seed),'biomass0');
-model = removeRxns(model,rxns);
+%rxns = setdiff(findRxnsFromMets(model,non_Seed),'biomass0');
+%model = removeRxns(model,rxns);
 
 % Remove all extra things from biomass
 to_remove = {'cpd03425[c0])','cpd02817[c0])','cpd00895[c0]','cpd02246[c0]',...
