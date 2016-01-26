@@ -78,17 +78,11 @@ model = changeRxnBounds(model,'EX_cpd01024[e0]',50,'b');
 
 % Check if model is specific ferredoxins or not and set bound on Eha and
 % Ehb in either case
-if ismember('Eha/Ehb',model.rxns)
-    % If not, then set bounds on Eha/Ehb
-    model = changeRxnBounds(model,'Eha/Ehb',46,'u');
-    model = changeRxnBounds(model,'Eha/Ehb',-46,'l');
-else
-    % If it is, then sent on both Eha and Ehb
-    model = changeRxnBounds(model,'Eha',46,'u');
-    model = changeRxnBounds(model,'Eha',-46,'l');
-    model = changeRxnBounds(model,'Ehb',46,'u');
-    model = changeRxnBounds(model,'Ehb',-46,'l');
-end
+% Set a bound on methane
+model = setMethaneSecretion(model,50);
+
+% Let Eha/Ehb run at full blast
+model = removeEhaBounds(model);
 
 % Specify substrate reactions and concentrations as 1 mM if not given
 if nargin<2    

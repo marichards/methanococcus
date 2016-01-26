@@ -2268,6 +2268,21 @@ model = removeRxns(model,{'rxn02322_c0','rxn00829_c0'});
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%
+%10/15/2015
+%%%%%%%%%%%%%
+
+% Remove remaining remnants of sulfate reduction pathway
+model = removeRxns(model,{'rxn00379_c0','rxn05256_c0'});
+
+%%%%%%%%%%%%%
+%1/12/2016
+%%%%%%%%%%%%%
+
+% Remove one of the alternate acetyl-coa synthesis pathways, as per emails
+% with John (11/19/15)
+model = removeRxns(model,{'rxn11676_c0','rxn00225_c0','rxn00171_c0'});
+
+%%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%
 % Remove dead ends that have no genes
@@ -2431,21 +2446,6 @@ model.rxns{idx} = 'rxn10904_c0';
 % Latest last step: change the names to IDs and change compartment tags to
 % make it SBML compatible and hopefully more Kbase-compatible
 model = convertNamesToIDs(model);
-
-%%%%%%%%%%%%%
-%10/15/2015
-%%%%%%%%%%%%%
-
-% Remove remaining remnants of sulfate reduction pathway
-model = removeRxns(model,{'rxn00379[c0]','rxn05256[c0]'});
-
-%%%%%%%%%%%%%
-%1/12/2016
-%%%%%%%%%%%%%
-
-% Remove one of the alternate acetyl-coa synthesis pathways, as per emails
-% with John (11/19/15)
-model = removeRxns(model,{'rxn11676[c0]','rxn00225[c0]','rxn00171[c0]'});
 
 %%%%%%%%%%%%%
 %10/06/2015

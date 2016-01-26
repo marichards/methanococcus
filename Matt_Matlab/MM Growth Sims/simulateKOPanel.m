@@ -18,6 +18,8 @@ tp = 0; tn = 0; fp = 0; fn = 0;
 model = changeRxnBounds(model,'rxn07191[c0]',0,'b');
 % Make sure model is set to H2
 model = switchToH2(model);
+% Set methane and EhA/Ehb Bounds on model
+model = setMethaneSecretion(model,50);
 
 % H2-CO2 simulations
 fprintf('================================\nGrowth on H2 + CO2\n================================');
