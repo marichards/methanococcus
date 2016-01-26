@@ -13,10 +13,26 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="accoa_alternate_path.svg">
   <defs
      id="defs4">
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4487"
+       effect="spiro" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4426"
+       effect="spiro" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4383"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3184"
+       is_visible="true" />
     <inkscape:path-effect
        effect="spiro"
        id="path-effect4963"
@@ -195,16 +211,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="298.75214"
-     inkscape:cy="271.52297"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="228.47522"
+     inkscape:cy="567.73004"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1080"
-     inkscape:window-height="1858"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1280"
+     inkscape:window-height="725"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -225,164 +241,132 @@
     <text
        sodipodi:linespacing="125%"
        id="text3037"
-       y="896.00177"
-       x="192.26318"
+       y="836.00177"
+       x="150.83598"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="896.00177"
-         x="192.26318"
+         y="836.00177"
+         x="150.83598"
          id="tspan3039"
-         sodipodi:role="line">Acetyl-CoA</tspan></text>
-    <g
-       id="g4690"
-       transform="translate(-37.714282,319.42857)">
-      <text
-         sodipodi:linespacing="125%"
-         id="text2985"
-         y="355.81311"
-         x="96.905098"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="355.81311"
-           x="96.905098"
-           id="tspan2987"
-           sodipodi:role="line">CH<tspan
-   id="tspan2989"
-   style="font-size:65.00091553%;baseline-shift:sub">2</tspan>=H<tspan
-   id="tspan2991"
-   style="font-size:65.00091553%;baseline-shift:sub">4</tspan>MPT</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         x="99.799667"
-         y="276.40109"
-         id="text2993"
-         sodipodi:linespacing="125%"><tspan
-           y="276.40109"
-           x="99.799667"
-           id="tspan3033"
-           sodipodi:role="line">CH≡H<tspan
-   id="tspan3035"
-   style="font-size:65.00091553%;baseline-shift:sub">4</tspan>MPT</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3001"
-         y="435.15903"
-         x="98.905098"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="435.15903"
-           x="98.905098"
-           id="tspan3003"
-           sodipodi:role="line">CH<tspan
-   id="tspan3005"
-   style="font-size:65.00091553%;baseline-shift:sub">3</tspan>-H<tspan
-   id="tspan3007"
-   style="font-size:65.00091553%;baseline-shift:sub">4</tspan>MPT</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         x="96.815338"
-         y="117.39585"
-         id="text3009"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3011"
-           x="96.815338"
-           y="117.39585">Formyl-MFR</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3017"
-         y="38.169048"
-         x="126.83424"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="38.169048"
-           x="126.83424"
-           id="tspan3019"
-           sodipodi:role="line">CO<tspan
-   id="tspan3021"
-   style="font-size:65.00091553%;baseline-shift:sub">2</tspan></tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3025"
-         y="196.80786"
-         x="88.635605"
-         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="196.80786"
-           x="88.635605"
-           id="tspan3027"
-           sodipodi:role="line">Formyl-H<tspan
-   id="tspan3031"
-   style="font-size:65.00091553%;baseline-shift:sub">4</tspan>MPT</tspan></text>
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:original-d="m 142.43151,50.125697 0,42.426407"
-         inkscape:path-effect="#path-effect3114"
-         id="path3112"
-         d="m 142.43151,50.125697 0,42.426407"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
-      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-         d="m 142.43151,129.53769 0,42.4264"
-         id="path4508"
-         inkscape:path-effect="#path-effect4510"
-         inkscape:original-d="m 142.43151,129.53769 0,42.4264"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:original-d="m 142.43151,208.94967 0,42.4264"
-         inkscape:path-effect="#path-effect4514"
-         id="path4512"
-         d="m 142.43151,208.94967 0,42.4264"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
-      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-         d="m 142.43151,288.36166 0,42.4264"
-         id="path4516"
-         inkscape:path-effect="#path-effect4518"
-         inkscape:original-d="m 142.43151,288.36166 0,42.4264"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         inkscape:original-d="m 142.43151,367.77365 0,42.4264"
-         inkscape:path-effect="#path-effect4522"
-         id="path4520"
-         d="m 142.43151,367.77365 0,42.4264"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
-    </g>
+         sodipodi:role="line">Ac-CoA</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="133.47653"
+       y="662.38458"
+       id="text2985"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2987"
+         x="133.47653"
+         y="662.38458">CH<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan2989">2</tspan>=H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan2991">4</tspan>MPT</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2993"
+       y="582.97253"
+       x="136.37109"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan3033"
+         x="136.37109"
+         y="582.97253">CH≡H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3035">4</tspan>MPT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="135.47653"
+       y="741.73047"
+       id="text3001"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3003"
+         x="135.47653"
+         y="741.73047">CH<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3005">3</tspan>-H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3007">4</tspan>MPT</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3009"
+       y="423.96729"
+       x="133.38676"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="423.96729"
+         x="133.38676"
+         id="tspan3011"
+         sodipodi:role="line">Formyl-MFR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="163.40567"
+       y="344.74048"
+       id="text3017"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3019"
+         x="163.40567"
+         y="344.74048">CO<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3021">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="125.20704"
+       y="503.3793"
+       id="text3025"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3027"
+         x="125.20704"
+         y="503.3793">Formyl-H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3031">4</tspan>MPT</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 178.42192,515.5211 0,42.4264"
+       id="path4512"
+       inkscape:path-effect="#path-effect4514"
+       inkscape:original-d="m 178.42192,515.5211 0,42.4264"
+       inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        id="text4524"
        y="356.87329"
-       x="402.18121"
+       x="414.85309"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="356.87329"
-         x="402.18121"
+         x="414.85309"
          id="tspan4526"
-         sodipodi:role="line">L-Aspartate-4-Semialdehyde</tspan></text>
+         sodipodi:role="line">L-Asp-4-Semialdehyde</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="421.80621"
+       x="434.46637"
        y="276.79681"
        id="text4532"
        sodipodi:linespacing="125%"><tspan
          y="276.79681"
-         x="421.80621"
+         x="434.46637"
          id="tspan4534"
-         sodipodi:role="line">4-Phospho-L-Aspartate</tspan></text>
+         sodipodi:role="line">4-Phospho-L-Asp</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4538"
        y="438.43805"
-       x="453.82184"
+       x="446.02496"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="438.43805"
-         x="453.82184"
+         x="446.02496"
          id="tspan4540"
          sodipodi:role="line">L-Homoserine</tspan></text>
     <flowRoot
@@ -399,68 +383,68 @@
        sodipodi:linespacing="125%"
        id="text4718"
        y="757.23608"
-       x="477.59137"
+       x="469.79449"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="757.23608"
-         x="477.59137"
+         x="469.79449"
          id="tspan4720"
          sodipodi:role="line">Glycine</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="417.77496"
+       x="409.97809"
        y="678.67914"
        id="text4726"
        sodipodi:linespacing="125%"><tspan
          y="678.67914"
-         x="417.77496"
+         x="409.97809"
          id="tspan4728"
          sodipodi:role="line">L-2-Amino-Acetoacetate</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4732"
        y="837.21094"
-       x="445.52887"
+       x="447.51324"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="837.21094"
-         x="445.52887"
+         x="447.51324"
          id="tspan4734"
-         sodipodi:role="line">Acetylphosphate</tspan></text>
+         sodipodi:role="line">Ac-phosphate</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="410.84918"
+       x="429.31793"
        y="517.11603"
        id="text4740"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4742"
-         x="410.84918"
-         y="517.11603">O-Phospho-L-Homoserine</tspan></text>
+         x="429.31793"
+         y="517.11603">O-P-L-Homoserine</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4750"
        y="598.58313"
-       x="460.93121"
+       x="453.13434"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="598.58313"
-         x="460.93121"
+         x="453.13434"
          id="tspan4752"
          sodipodi:role="line">L-Threonine</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="477.57574"
-       y="918.87335"
+       x="311.86145"
+       y="837.44476"
        id="text4804"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4806"
-         x="477.57574"
-         y="918.87335">Acetate</tspan></text>
+         x="311.86145"
+         y="837.44476">Acetate</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -487,11 +471,11 @@
        sodipodi:linespacing="125%"
        id="text4556"
        y="196.72426"
-       x="463.44232"
+       x="454.93121"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          y="196.72426"
-         x="463.44232"
+         x="454.93121"
          id="tspan4558"
          sodipodi:role="line">L-Aspartate</tspan></text>
     <text
@@ -627,20 +611,6 @@
        id="path6560"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-       d="m 106.06602,770.52962 106.06601,100.0051"
-       id="path6565"
-       inkscape:path-effect="#path-effect6567"
-       inkscape:original-d="m 106.06602,770.52962 106.06601,100.0051"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-       d="M 469.72093,913.97128 296.98485,894.77839"
-       id="path6569"
-       inkscape:path-effect="#path-effect6571"
-       inkscape:original-d="M 469.72093,913.97128 296.98485,894.77839"
-       inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        id="text3109"
@@ -899,30 +869,29 @@
          sodipodi:role="line"
          id="tspan4917"
          x="534.95569"
-         y="734.95764">Acetyl-CoA</tspan></text>
+         y="734.95764">Ac-CoA</tspan></text>
     <g
-       id="g4919"
-       transform="translate(0,562)">
+       id="g4342">
       <path
          inkscape:connector-curvature="0"
-         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
-         inkscape:path-effect="#path-effect4576"
+         inkscape:original-d="m 504.36873,771.10262 0,42.4264"
+         inkscape:path-effect="#path-effect3184"
          id="path4921"
-         d="m 504.36873,209.10262 0,42.4264"
+         d="m 504.36873,771.10262 0,42.4264"
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
       <path
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         d="m 526.42857,774.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
          id="path4923"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#TriangleOutL)"
+         d="m 504.36873,771.50133 c 0,20.63192 -0.0854,37.48205 -22.76291,37.48205"
+         id="path4925"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
     </g>
-    <path
-       sodipodi:nodetypes="cc"
-       inkscape:connector-curvature="0"
-       id="path4925"
-       d="m 501.74764,771.50133 c 0,20.63192 -0.0854,37.48205 -22.76291,37.48205"
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#TriangleOutL)" />
     <text
        sodipodi:linespacing="125%"
        id="text4927"
@@ -946,8 +915,8 @@
          sodipodi:role="line"
          id="tspan4935"
          x="531.39343"
-         y="772.52197">TRD<tspan
-   style="font-size:65%;baseline-shift:sub"
+         y="772.52197">Trd<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
    id="tspan4939">rd</tspan></tspan></text>
     <text
        sodipodi:linespacing="125%"
@@ -959,33 +928,33 @@
          y="812.9281"
          x="532.40356"
          id="tspan4943"
-         sodipodi:role="line">TRD<tspan
+         sodipodi:role="line">Trd<tspan
    id="tspan4945"
    style="font-size:65.00091553%;baseline-shift:sub">ox</tspan></tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4947"
-       y="856.78027"
-       x="546.06738"
+       y="878.2088"
+       x="411.78168"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="856.78027"
-         x="546.06738"
+         y="878.2088"
+         x="411.78168"
          id="tspan4949"
          sodipodi:role="line">ADP</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="546.06738"
-       y="891.9679"
+       x="368.92453"
+       y="877.68219"
        id="text4951"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4953"
-         x="546.06738"
-         y="891.9679">ATP</tspan></text>
+         x="368.92453"
+         y="877.68219">ATP</tspan></text>
     <g
-       transform="translate(11.111678,639.01026)"
+       transform="matrix(0,1,-1,0,634.31345,329.62756)"
        id="g4955">
       <path
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
@@ -1001,43 +970,37 @@
          d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
     </g>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
-       d="M 465.68032,947.30632 C 425.56037,905.43674 375.2582,885.28923 294.96454,929.12357"
-       id="path4961"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <text
        sodipodi:linespacing="125%"
        id="text5150"
-       y="965.70905"
-       x="456.16382"
+       y="878.56616"
+       x="271.87811"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="965.70905"
-         x="456.16382"
+         y="878.56616"
+         x="271.87811"
          id="tspan5152"
          sodipodi:role="line">ATP</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="266.25513"
-       y="950.72449"
+       x="221.96941"
+       y="880.72449"
        id="text5154"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5156"
-         x="266.25513"
-         y="950.72449">ADP</tspan></text>
+         x="221.96941"
+         y="880.72449">ADP</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text5158"
-       y="973.98822"
-       x="279.13943"
+       y="903.98822"
+       x="234.85371"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="973.98822"
-         x="279.13943"
+         y="903.98822"
+         x="234.85371"
          id="tspan5160"
          sodipodi:role="line">P<tspan
    id="tspan5162"
@@ -1045,13 +1008,340 @@
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="456.18408"
-       y="984.65332"
+       x="274.75552"
+       y="903.22473"
        id="text5164"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5166"
-         x="456.18408"
-         y="984.65332">CoA</tspan></text>
+         x="274.75552"
+         y="903.22473">CoA</tspan></text>
+    <g
+       transform="translate(-325.94681,223.42858)"
+       id="g4347">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 504.36873,209.10262 0,42.4264"
+         id="path4349"
+         inkscape:path-effect="#path-effect4576"
+         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4351"
+         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="210.52962"
+       y="475.39584"
+       id="text4377"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4379"
+         x="210.52962"
+         y="475.39584">MFR</tspan></text>
+    <g
+       id="g4385"
+       transform="matrix(0,1,-1,0,492.88488,329.62756)">
+      <path
+         inkscape:connector-curvature="0"
+         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
+         inkscape:path-effect="#path-effect4576"
+         id="path4387"
+         d="m 504.36873,209.10262 0,42.4264"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         id="path4389"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 178.65598,358.24548 0,42.4264"
+       inkscape:path-effect="#path-effect4426"
+       id="path4399"
+       d="m 178.65598,358.24548 0,42.4264"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 156.59614,361.71932 c 32.00714,16.95261 25.34122,23.52258 -1.42857,32.85715"
+       id="path4401"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4405"
+       y="360.52197"
+       x="114.82201"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="360.52197"
+         x="114.82201"
+         id="tspan4407"
+         sodipodi:role="line">Fd<tspan
+   id="tspan4409"
+   style="font-size:65.00091553%;baseline-shift:sub">rd</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="115.83214"
+       y="400.9281"
+       id="text4411"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4413"
+         x="115.83214"
+         y="400.9281">Fd<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4415">ox</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4417"
+       y="439.0936"
+       x="206.63562"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="439.0936"
+         x="206.63562"
+         id="tspan4419"
+         sodipodi:role="line">H<tspan
+   id="tspan4421"
+   style="font-size:65.00091553%;baseline-shift:sub">4</tspan>MPT</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 178.65971,389.86318 c 0,-13.70846 5.31528,-30.71629 21.34129,-30.71629"
+       id="path4428"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4430"
+       y="364.68155"
+       x="204.45819"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="364.68155"
+         x="204.45819"
+         id="tspan4432"
+         sodipodi:role="line">MFR</tspan></text>
+    <g
+       id="g4434"
+       transform="translate(-325.94681,469.42858)">
+      <path
+         inkscape:connector-curvature="0"
+         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
+         inkscape:path-effect="#path-effect4576"
+         id="path4436"
+         d="m 504.36873,209.10262 0,42.4264"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         id="path4438"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="208.82201"
+       y="684.52197"
+       id="text4440"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4442"
+         x="208.82201"
+         y="684.52197">F<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4454">420</tspan>H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4456">2</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4446"
+       y="720.9281"
+       x="209.83214"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="720.9281"
+         x="209.83214"
+         id="tspan4448"
+         sodipodi:role="line">F<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan4452">420</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="208.76619"
+       y="767.61346"
+       id="text4466"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4468"
+         x="208.76619"
+         y="767.61346">Fd<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4470">rd</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4472"
+       y="808.01959"
+       x="209.77632"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="808.01959"
+         x="209.77632"
+         id="tspan4474"
+         sodipodi:role="line">Fd<tspan
+   id="tspan4476"
+   style="font-size:65.00091553%;baseline-shift:sub">ox</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="95.518837"
+       y="809.77899"
+       id="text4478"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4480"
+         x="95.518837"
+         y="809.77899">H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4482">4</tspan>MPT</tspan></text>
+    <g
+       id="g4505">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 178.18787,763.06201 0,42.4264"
+         id="path4460"
+         inkscape:path-effect="#path-effect4487"
+         inkscape:original-d="m 178.18787,763.06201 0,42.4264"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4462"
+         d="m 200.24771,766.59899 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 156.05431,766.59899 c 32.00714,16.95261 25.34122,23.52258 -1.42857,32.85715"
+         id="path4503"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4510"
+       y="759.08185"
+       x="114.04124"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="759.08185"
+         x="114.04124"
+         id="tspan4512"
+         sodipodi:role="line">CoA</tspan><tspan
+         y="779.08185"
+         x="114.04124"
+         sodipodi:role="line"
+         id="tspan4514">CO<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4516">2</tspan></tspan></text>
+    <g
+       transform="translate(-317.94681,385.42858)"
+       id="g4518">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 504.36873,209.10262 0,42.4264"
+         id="path4520"
+         inkscape:path-effect="#path-effect4576"
+         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4522"
+         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4525"
+       y="602.52197"
+       x="212.82201"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="602.52197"
+         x="212.82201"
+         id="tspan4527"
+         sodipodi:role="line">F<tspan
+   id="tspan4529"
+   style="font-size:65.00091553%;baseline-shift:sub">420</tspan>H<tspan
+   id="tspan4531"
+   style="font-size:65.00091553%;baseline-shift:sub">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="215.83214"
+       y="634.9281"
+       id="text4533"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4535"
+         x="215.83214"
+         y="634.9281">F<tspan
+   id="tspan4537"
+   style="font-size:65.00091553%;baseline-shift:sub">420</tspan></tspan></text>
+    <g
+       id="g4539"
+       transform="matrix(-1,0,0,1,676.63768,385.42858)">
+      <path
+         inkscape:connector-curvature="0"
+         inkscape:original-d="m 504.36873,209.10262 0,42.4264"
+         inkscape:path-effect="#path-effect4576"
+         id="path4541"
+         d="m 504.36873,209.10262 0,42.4264"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         d="m 526.42857,212.57646 c -32.00714,16.95261 -25.34122,23.52258 1.42857,32.85715"
+         id="path4543"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="119.50983"
+       y="602.52197"
+       id="text4545"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4547"
+         x="119.50983"
+         y="602.52197">H<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4551">2</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4553"
+       y="637.95856"
+       x="121.00473"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="637.95856"
+         x="121.00473"
+         id="tspan4555"
+         sodipodi:role="line">H<tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan4559">+</tspan><tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4557" /></tspan></text>
   </g>
 </svg>
