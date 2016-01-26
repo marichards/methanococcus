@@ -74,7 +74,7 @@ model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd00011[e0]',0,'l');
 
 % Set a bound on methane
-model = changeRxnBounds(model,'EX_cpd01024[e0]',46,'b');
+model = changeRxnBounds(model,'EX_cpd01024[e0]',50,'b');
 
 % Check if model is specific ferredoxins or not and set bound on Eha and
 % Ehb in either case
@@ -126,8 +126,8 @@ fprintf('PO4 flux: %f\n',solution.x(po4_idx))
 % Print the per-CO2 actual reaction
 fprintf('\nOverall reaction:\nCH3OH + H2 --> H2O + CH4\n')
 fprintf('\nModel overall reaction (per mole CH4)\n')
-fprintf('%0.2f CH3OH + %0.2f H2 --> %0.2f H2O + CH4\n\n',-solution.x(meoh_idx)/solution.x(ch4_idx),...
-    -solution.x(h2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
+fprintf('%0.2f CH3OH  --> %0.2f H2O + %0.2f CO2 + CH4\n\n',-solution.x(meoh_idx)/solution.x(ch4_idx),...
+    solution.x(h2o_idx)/solution.x(ch4_idx),solution.x(co2_idx)/solution.x(ch4_idx))
 
 % Print the yield coefficient (grams biomass per mole CH4 produced)
 fprintf('Predicted Yield Coefficient: %0.2f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx)/log(2))
