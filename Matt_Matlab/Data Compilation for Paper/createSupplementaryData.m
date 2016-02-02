@@ -17,14 +17,16 @@ function createSupplementaryData(model)
 
 % Compile the reactions information
 formulas = printRxnFormula(model,model.rxns,false,false,true);
-% Add the confidence data from other code (below)
+% Add the origin confidence data from other code (below)
 tags = createRxnConfidenceSheet(model);
+% Add the reaction probabilities from other code (below)
+probs = findRxnProbabilities(model);
 A = [{'ID','Name','KEGG ID','Formula','EC Number(s)','GPR Rules',...
     'Subsystem','Lower Bound','Upper Bound','Free Energy (kJ/mmol)',...
-    'Origin Tag'};...
+    'Likelihood Score','Origin Tag'};...
     model.rxns,model.rxnNames,model.rxnKEGGID,formulas,model.rxnECNumbers,...
     model.grRules,model.subSystems,num2cell(model.lb),...
-    num2cell(model.ub),num2cell(model.freeEnergy),tags];
+    num2cell(model.ub),num2cell(model.freeEnergy),probs,tags];
 xlswrite('Supplementary_Materials.xlsx',A,'Reactions');
 
 % Compile the metabolites information
@@ -49,6 +51,44 @@ A = [{'Reaction ID','Minimum Flux','Maximum Flux'};...
 xlswrite('Supplementary_Materials.xlsx',A,'FVA on Formate');
 
 
+end
+
+function probs = findRxnProbabilities(model)
+%%
+% Create a list of probabilities that specify the likelihood of each 
+% reaction in the rxn probs object from Kbase. Print N/A for anything
+% without complexes
+%
+% INPUT
+% model: the M. maripaludis model, a COBRA Toolbox model structure
+%
+% OUTPUT
+% probs: a list of rxn probability tags for each reaction in the 
+% M. maripaludis model that indicates its probability (if it exists) and
+% specifies "N/A" otherwise
+%
+%
+% Matthew Richards, 09/28/2015
+
+% Load the probabilities data
+load('all_rxn_probs.mat')
+
+% Create a list of probabilities
+probs = cell(size(model.rxns));
+
+% Loop through reactions
+for i = 1:length(model.rxns)
+    % Look for the reaction in the rxn probs object
+    if ismember(model.rxns{i},all_reactions)
+        % If it's there, then grab its probability and convert it to a
+        % string
+        [~,idx] = intersect(all_reactions,model.rxns{i});
+        probs{i} = num2str(probability1(idx));
+    else 
+        % If not, it's N/A because we can't find the complexes
+        probs{i} = 'N/A';
+    end
+end
 end
 
 function tags=createRxnConfidenceSheet(model)
