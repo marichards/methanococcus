@@ -1,4 +1,6 @@
-function [design_1,design_2,design_3,design_4] = tryManualDesigns(model)
+function [solution_1,solution_2,solution_3,solution_4,...
+    gibbs_flux_1,gibbs_flux_2,gibbs_flux_3,gibbs_flux_4,...
+    model_1,model_2,model_3,model_4] = tryManualDesigns(model)
 
 % Test out the manual strain designs from Dr. John Leigh
 
@@ -30,11 +32,11 @@ model.freeEnergy(idx) = -0.0302;
 
 % Change bounds to function in reverse
 % Change bounds such that methane goes IN instead of OUT
-model = changeRxnBounds(model,'EX_cpd01024[e0]',-10,'l');
+model = changeRxnBounds(model,'EX_cpd01024[e0]',-inf,'l');
 model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
 % Change methanol to come OUT instead of IN
 model = changeRxnBounds(model,'EX_cpd00116[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd00116[e0]',1000,'u');
+model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'u');
 % Turn off Hydrogen input and let it come out
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd11640[e0]',1000,'u');
@@ -68,44 +70,36 @@ model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
 %%%%%%%%%%%
 % All models will have the above things in common, now come the differences
 
-% Design#1: Sulfate Reduction
-design_1 = reduceSulfate(model);
-
-% Design#2: Nitrate Reduction
-design_2 = reduceNitrate(model);
-
-% Design#3: Manganese Reduction
-design_3 = reduceManganese(model);
-
-% Design#4: Iron Reduction
-design_4 = reduceIron(model);
-
-
-
+% Simulate all models
+[solution_1,gibbs_flux_1,model_1] = reduceSulfate(model);
+[solution_2,gibbs_flux_2,model_2] = reduceNitrate(model);
+[solution_3,gibbs_flux_3,model_3] = reduceManganese(model);
+[solution_4,gibbs_flux_4,model_4] = reduceIron(model);
 
 end
 
-function reduceSulfate(model)
+function [solution,gibbs_flux,model] = reduceSulfate(model)
+
+% Specify substrate reactions and concentrations as 1 mM
+substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
+concentrations = [1 1 1];
+
+% Solve by maximizing biomass, with negative free energy not allowed
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+    ,concentrations,310,'EX_cpd00001[e0]',true);
 
 end
 
-function reduceNitrate(model)
+function [solution,gibbs_flux,model] = reduceNitrate(model)
 % Design#2: Add in H2 -> Fd reaction plus a reduction pathway (e.g. nitrate)
 % then require that free energy be negative
 
-model = addReaction(model,{'rxn05759[c0]','Reduced ferredoxin:H+ oxidoreductase'},...
-    '2 cpd00067[c0] + cpd11620[c0] <=> cpd11640[c0] + cpd11621[c0]');
-
-% Turn off Fwd, which will ruin everything if left on
-model = changeRxnBounds(model,'rxn11938[c0]',0,'b');
-
-% This completes the metabolite picture, but not the thermodynamic picture
-% Do so using nitrate/nitrite
-
 % Add outlet for nitrite (nitrate is already there)
-model = addReaction(model,{'rxn05626[c0]',...
-    'Nitrite transport out via proton antiport'},...
-    'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
+% model = addReaction(model,{'rxn05626[c0]',...
+%     'Nitrite transport out via proton antiport'},...
+%     'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
+model = addReaction(model,'NO2_t',...
+    'cpd00067[e0] + cpd00075[e0] <=> cpd00067[c0] + cpd00075[c0]');
 model = addReaction(model,{'EX_cpd00075[e0]','EX_Nitrite[e0]'},...
     'cpd00075[e0] <=> ');
 % Add metabolite info for Nitrite
@@ -122,45 +116,51 @@ model.metFormulas{idx}='NO2';
 [~,idx] = intersect(model.rxns,'EX_cpd00075[e0]');
 model.freeEnergy(idx) = -0.0503;
 
-% Add a Nitrate-> Nitrite reduction
-% Ferredoxin version
-model = addReaction(model,{'rxn05894[c0]',...
-    'Nitrite:ferredoxin oxidoreductase'},...
-    'cpd00001[c0] + cpd00075[c0] + 2 cpd11621[c0] <=> 2 cpd00067[c0] + cpd00209[c0] + 2 cpd11620[c0]');
-
-% NAD version
-%design_2 = addReaction(design_2,{'rxn00571[c0]',...
-%    'NADH:nitrate oxidoreductase'},...
-%    'cpd00001[c0] + cpd00075[c0] + cpd00003[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00004[c0]');
-
-% NADP version
-%design_2 = addReaction(design_2,{'rxn00572[c0]',...
-%    'NADPH:nitrate oxidoreductase'},...
-%    'cpd00001[c0] + cpd00075[c0] + cpd00005[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00006[c0]');
-
-% Add free energy for these reactions too (it's 0)
-[~,idx] = intersect(model.rxns,'rxn05894[c0]');
-model.freeEnergy(idx) = 0;
-% [~,idx] = intersect(model.rxns,'rxn00571[c0]');
-% model.freeEnergy(idx) = 0;
-% [~,idx] = intersect(model.rxns,'rxn00572[c0]');
-% model.freeEnergy(idx) = 0;
-% [~,idx] = intersect(model.rxns,'madeup');
-% model.freeEnergy(idx) = 0;
-
 % Allow nitrate uptake/secretion infinitely
 model = changeRxnBounds(model,'EX_cpd00209[c0]',-inf,'l');
 model = changeRxnBounds(model,'EX_cpd00209[c0]',inf,'u');
 % Also allow nitrite uptake/secretion infinitely
 model = changeRxnBounds(model,'EX_cpd00075[c0]',-inf,'l');
 model = changeRxnBounds(model,'EX_cpd00075[c0]',inf,'u');
-% Do the same for reaction(s) I just added
-model = changeRxnBounds(model,'rxn05894[c0]',-inf,'l');
-model = changeRxnBounds(model,'rxn05894[c0]',inf,'u');
-%design_2 = changeRxnBounds(design_2,'rxn00571[c0]',-inf,'l');
-%design_2 = changeRxnBounds(design_2,'rxn00571[c0]',inf,'u');
-%design_2 = changeRxnBounds(design_2,'rxn00572[c0]',-inf,'l');
-%design_2 = changeRxnBounds(design_2,'rxn00572[c0]',inf,'u');
+
+% Add a Nitrate-> Nitrite reduction
+% Ferredoxin version
+% model = addReaction(model,{'rxn05894[c0]',...
+%     'Nitrite:ferredoxin oxidoreductase'},...
+%     'cpd00001[c0] + cpd00075[c0] + 2 cpd11621[c0] <=> 2 cpd00067[c0] + cpd00209[c0] + 2 cpd11620[c0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'rxn05894[c0]');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'rxn05894[c0]',-inf,'l');
+% model = changeRxnBounds(model,'rxn05894[c0]',inf,'u');
+
+% NAD version
+% model = addReaction(model,{'rxn00571[c0]',...
+%    'NADH:nitrate oxidoreductase'},...
+%    'cpd00001[c0] + cpd00075[c0] + cpd00003[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00004[c0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'rxn00571[c0]');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'rxn00571[c0]',-inf,'l');
+% model = changeRxnBounds(model,'rxn00571[c0]',inf,'u');
+
+% NADP version
+model = addReaction(model,{'rxn00572[c0]',...
+   'NADPH:nitrate oxidoreductase'},...
+   'cpd00001[c0] + cpd00075[c0] + cpd00005[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00006[c0]');
+% Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+[~,idx] = intersect(model.rxns,'rxn00572[c0]');
+model.freeEnergy(idx) = 0;
+model = changeRxnBounds(model,'rxn00572[c0]',-inf,'l');
+model = changeRxnBounds(model,'rxn00572[c0]',inf,'u');
+
+% Made up version
+model = addReaction(model,'madeup',...
+    'cpd00075[c0] <=> cpd00209[c0]');
+[~,idx] = intersect(model.rxns,'madup');
+model.freeEnergy(idx) = 0;
+model = changeRxnBounds(model,'madeup',-inf,'l');
+model = changeRxnBounds(model,'madeup',inf,'u');
 
 % Specify substrate reactions and concentrations as 1 mM
 substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]',...
@@ -168,7 +168,7 @@ substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]',...
 concentrations = [1 1 1 1 1];
 
 % Solve by maximizing biomass, with negative free energy not allowed
-[solution1,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]',true);
 
 % Find the reaction indices
@@ -182,32 +182,49 @@ concentrations = [1 1 1 1 1];
 [~,no3_idx] = intersect(model.rxns,'EX_cpd00209[e0]');
 [~,no2_idx] = intersect(model.rxns,'EX_cpd00075[e0]');
 
-if solution1.f > 0 
+if solution.f > 0 
 % Print the biomass flux
-fprintf('\n\nBiomass flux: %f\n\n',solution1.f);
+fprintf('\n\nBiomass flux: %f\n\n',solution.f);
 
 % Print the reaction fluxes
-fprintf('Methanol flux: %f\n',solution1.x(meoh_idx))
-fprintf('CO2 flux: %f\n',solution1.x(co2_idx))
-fprintf('H2 flux: %f\n',solution1.x(h2_idx))
-fprintf('H2O flux: %f\n',solution1.x(h2o_idx))
-fprintf('CH4 flux: %f\n',solution1.x(ch4_idx))
-fprintf('NH3 flux: %f\n',solution1.x(nh3_idx))
-fprintf('PO4 flux: %f\n',solution1.x(po4_idx))
-fprintf('NO3 flux: %f\n',solution1.x(no3_idx))
-fprintf('NO2 flux: %f\n',solution1.x(no2_idx))
+fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
+fprintf('CO2 flux: %f\n',solution.x(co2_idx))
+fprintf('H2 flux: %f\n',solution.x(h2_idx))
+fprintf('H2O flux: %f\n',solution.x(h2o_idx))
+fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('NO3 flux: %f\n',solution.x(no3_idx))
+fprintf('NO2 flux: %f\n',solution.x(no2_idx))
 
 % Print the Gibbs flux
 fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 end
-end
-
-
-function reduceManganese(model)
 
 end
 
-function reduceIron(model)
+
+function [solution,gibbs_flux,model] = reduceManganese(model)
+
+% Specify substrate reactions and concentrations as 1 mM
+substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
+concentrations = [1 1 1];
+
+% Solve by maximizing biomass, with negative free energy not allowed
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+    ,concentrations,310,'EX_cpd00001[e0]',true);
+
+end
+
+function [solution,gibbs_flux,model] = reduceIron(model)
+
+% Specify substrate reactions and concentrations as 1 mM
+substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
+concentrations = [1 1 1];
+
+% Solve by maximizing biomass, with negative free energy not allowed
+[solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
+    ,concentrations,310,'EX_cpd00001[e0]',true);
 
 end
 
