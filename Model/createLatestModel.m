@@ -366,10 +366,11 @@ model=changeRxnBounds(model,'rxn00549_c0',-1000,'l');
 %6/18 model changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Change rxn00781_c0 from NAD to NADP (John's suggestion)
-[~,idx] = intersect(model.rxns,'rxn00781_c0');
-name = model.rxnNames{idx};
-model = addReaction(model,{'rxn00781_c0',name},...
-    'Phosphate_c0 + NADP_c0 + Glyceraldehyde3-phosphate_c0 <=> NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0');
+% Commented out on 02/09/2016; should be removed instead
+% [~,idx] = intersect(model.rxns,'rxn00781_c0');
+% name = model.rxnNames{idx};
+% model = addReaction(model,{'rxn00781_c0',name},...
+%     'Phosphate_c0 + NADP_c0 + Glyceraldehyde3-phosphate_c0 <=> NADPH_c0 + 1_3-Bisphospho-D-glycerate_c0');
 
 %Change Gene Associations to AND for ATP Synthase and rxn00250_c0, plus add
 %some genes to ATP Synthase
@@ -2281,6 +2282,13 @@ model = removeRxns(model,{'rxn00379_c0','rxn05256_c0'});
 % Remove one of the alternate acetyl-coa synthesis pathways, as per emails
 % with John (11/19/15)
 model = removeRxns(model,{'rxn11676_c0','rxn00225_c0','rxn00171_c0'});
+
+%%%%%%%%%%%%%
+%1/12/2016
+%%%%%%%%%%%%%
+
+% Remove rxn00781
+model = removeRxns(model,{'rxn00781_c0'});
 
 %%%%%%%%%%%%%
 % 4/16/2015
