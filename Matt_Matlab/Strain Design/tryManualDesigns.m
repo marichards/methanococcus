@@ -95,11 +95,9 @@ function [solution,gibbs_flux,model] = reduceNitrate(model)
 % then require that free energy be negative
 
 % Add outlet for nitrite (nitrate is already there)
-% model = addReaction(model,{'rxn05626[c0]',...
-%     'Nitrite transport out via proton antiport'},...
-%     'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
-model = addReaction(model,'NO2_t',...
-    'cpd00067[e0] + cpd00075[e0] <=> cpd00067[c0] + cpd00075[c0]');
+model = addReaction(model,{'rxn05626[c0]',...
+    'Nitrite transport out via proton antiport'},...
+    'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
 model = addReaction(model,{'EX_cpd00075[e0]','EX_Nitrite[e0]'},...
     'cpd00075[e0] <=> ');
 % Add metabolite info for Nitrite
@@ -145,18 +143,18 @@ model = changeRxnBounds(model,'EX_cpd00075[c0]',inf,'u');
 % model = changeRxnBounds(model,'rxn00571[c0]',inf,'u');
 
 % NADP version
-model = addReaction(model,{'rxn00572[c0]',...
-   'NADPH:nitrate oxidoreductase'},...
-   'cpd00001[c0] + cpd00075[c0] + cpd00005[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00006[c0]');
-% Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
-[~,idx] = intersect(model.rxns,'rxn00572[c0]');
-model.freeEnergy(idx) = 0;
-model = changeRxnBounds(model,'rxn00572[c0]',-inf,'l');
-model = changeRxnBounds(model,'rxn00572[c0]',inf,'u');
+% model = addReaction(model,{'rxn00572[c0]',...
+%    'NADPH:nitrate oxidoreductase'},...
+%    'cpd00001[c0] + cpd00075[c0] + cpd00005[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00006[c0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'rxn00572[c0]');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'rxn00572[c0]',-inf,'l');
+% model = changeRxnBounds(model,'rxn00572[c0]',inf,'u');
 
-% Made up version
+% Made up version; NO3 + H2 -> NO2 + H2O
 model = addReaction(model,'madeup',...
-    'cpd00075[c0] <=> cpd00209[c0]');
+    'cpd00075[c0] <=> cpd00209[c0] + cpd00001[c0]');
 [~,idx] = intersect(model.rxns,'madup');
 model.freeEnergy(idx) = 0;
 model = changeRxnBounds(model,'madeup',-inf,'l');
