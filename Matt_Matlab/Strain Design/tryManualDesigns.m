@@ -35,8 +35,8 @@ model.freeEnergy(idx) = -0.0302;
 model = changeRxnBounds(model,'EX_cpd01024[e0]',-inf,'l');
 model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
 % Change methanol to come OUT instead of IN
-model = changeRxnBounds(model,'EX_cpd00116[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'u');
+model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'b');
+
 % Turn off Hydrogen input and let it come out
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
 model = changeRxnBounds(model,'EX_cpd11640[e0]',1000,'u');
@@ -98,6 +98,10 @@ function [solution,gibbs_flux,model] = reduceNitrate(model)
 model = addReaction(model,{'rxn05626[c0]',...
     'Nitrite transport out via proton antiport'},...
     'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
+% Try adding ABC-transporter
+model = addReaction(model,'test_rxn',...
+'cpd00001[c0] + cpd00002[c0] + cpd00075[e0] <=> cpd00067[c0] + cpd00009[c0] + cpd00008[c0] + cpd00075[c0]');
+
 model = addReaction(model,{'EX_cpd00075[e0]','EX_Nitrite[e0]'},...
     'cpd00075[e0] <=> ');
 % Add metabolite info for Nitrite
@@ -115,11 +119,11 @@ model.metFormulas{idx}='NO2';
 model.freeEnergy(idx) = -0.0503;
 
 % Allow nitrate uptake/secretion infinitely
-model = changeRxnBounds(model,'EX_cpd00209[c0]',-inf,'l');
-model = changeRxnBounds(model,'EX_cpd00209[c0]',inf,'u');
+model = changeRxnBounds(model,'EX_cpd00209[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd00209[e0]',inf,'u');
 % Also allow nitrite uptake/secretion infinitely
-model = changeRxnBounds(model,'EX_cpd00075[c0]',-inf,'l');
-model = changeRxnBounds(model,'EX_cpd00075[c0]',inf,'u');
+model = changeRxnBounds(model,'EX_cpd00075[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd00075[e0]',inf,'u');
 
 % Add a Nitrate-> Nitrite reduction
 % Ferredoxin version
@@ -133,14 +137,14 @@ model = changeRxnBounds(model,'EX_cpd00075[c0]',inf,'u');
 % model = changeRxnBounds(model,'rxn05894[c0]',inf,'u');
 
 % NAD version
-% model = addReaction(model,{'rxn00571[c0]',...
-%    'NADH:nitrate oxidoreductase'},...
-%    'cpd00001[c0] + cpd00075[c0] + cpd00003[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00004[c0]');
-% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
-% [~,idx] = intersect(model.rxns,'rxn00571[c0]');
-% model.freeEnergy(idx) = 0;
-% model = changeRxnBounds(model,'rxn00571[c0]',-inf,'l');
-% model = changeRxnBounds(model,'rxn00571[c0]',inf,'u');
+model = addReaction(model,{'rxn00571[c0]',...
+   'NADH:nitrate oxidoreductase'},...
+   'cpd00001[c0] + cpd00075[c0] + cpd00003[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00004[c0]');
+% Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+[~,idx] = intersect(model.rxns,'rxn00571[c0]');
+model.freeEnergy(idx) = 0;
+model = changeRxnBounds(model,'rxn00571[c0]',-inf,'l');
+model = changeRxnBounds(model,'rxn00571[c0]',inf,'u');
 
 % NADP version
 % model = addReaction(model,{'rxn00572[c0]',...
@@ -153,12 +157,19 @@ model = changeRxnBounds(model,'EX_cpd00075[c0]',inf,'u');
 % model = changeRxnBounds(model,'rxn00572[c0]',inf,'u');
 
 % Made up version; NO3 + H2 -> NO2 + H2O
-model = addReaction(model,'madeup',...
-    'cpd00075[c0] <=> cpd00209[c0] + cpd00001[c0]');
-[~,idx] = intersect(model.rxns,'madup');
-model.freeEnergy(idx) = 0;
-model = changeRxnBounds(model,'madeup',-inf,'l');
-model = changeRxnBounds(model,'madeup',inf,'u');
+% model = addReaction(model,'madeup',...
+%     'cpd00075[c0] <=> cpd00209[c0] + 2 cpd00001[c0]');
+% [~,idx] = intersect(model.rxns,'madeup');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'madeup',-inf,'l');
+% model = changeRxnBounds(model,'madeup',inf,'u');
+% % Force flux
+% model = changeRxnBounds(model,'madeup',10,'b');
+
+% Add different nitrate transporter
+model = addReaction(model,{'madeup2',...
+    'Nitrate transport out via proton antiport'},...
+    'cpd00067[e0] + cpd00209[c0] <=> cpd00067[c0] + cpd00209[e0]');
 
 % Specify substrate reactions and concentrations as 1 mM
 substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]',...
@@ -194,6 +205,12 @@ fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
 fprintf('PO4 flux: %f\n',solution.x(po4_idx))
 fprintf('NO3 flux: %f\n',solution.x(no3_idx))
 fprintf('NO2 flux: %f\n',solution.x(no2_idx))
+
+% Print the Overall Reaction
+fprintf('Predicted Overall Reaction: CH4 + %0.2f CO2 + %0.2f NO3 --> %0.2f CH3OH + %0.2f NO2+ %0.2f H2O',...
+    (solution.x(co2_idx)/solution.x(ch4_idx)),(solution.x(no3_idx)/solution.x(ch4_idx)),...
+    -(solution.x(meoh_idx)/solution.x(ch4_idx)),-(solution.x(no2_idx)/solution.x(ch4_idx)),...
+    -(solution.x(h2o_idx)/solution.x(ch4_idx)));
 
 % Print the Gibbs flux
 fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
