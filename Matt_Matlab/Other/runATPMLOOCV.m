@@ -55,11 +55,11 @@ figure(1)
 %
 %h = plot(full_ch4_rates,predicted_gr,'bo',...
 % Plot error bar graph instead for the second point
-h2 = errorbar(full_ch4_rates,measured_yields,error_95,'rx','MarkerSize',10);
-set(h2,'LineWidth',2);
+h2 = errorbar(full_ch4_rates,measured_yields,error_95,'rx','MarkerSize',11);
+set(h2,'LineWidth',2.5);
 hold on
-h1 = plot(full_ch4_rates,predicted_yields,'bo','MarkerSize',10);
-set(h1,'LineWidth',2);
+h1 = plot(full_ch4_rates,predicted_yields,'bo','MarkerSize',11);
+set(h1,'LineWidth',2.5);
 %data = [predicted_gr',full_growth_rates'];
 %hb = bar(data,);
 %set(hb(1),'FaceColor','b')
@@ -68,11 +68,11 @@ set(h1,'LineWidth',2);
 legend('Measured Growth Yield','Predicted Growth Yield','Location','northwest')
 xlabel('Methane Evolution Rate ($$\frac{mmol}{gDCW \cdot h}$$)'...
     ,'Interpreter','latex','FontSize',14,'FontWeight','bold')
-ylabel('Growth Yield ($$\frac{gDCW}{mol Methane}$$)'...
+ylabel('Yield ($$\frac{gDCW}{mol Methane}$$)'...
     ,'Interpreter','latex','FontSize',14,'FontWeight','bold')
 axis([25,70,0,4])
 % Increase size of labels
-set(gca,'FontSize',12);
+set(gca,'FontSize',14);
 % Take off the hold
 hold off
 
