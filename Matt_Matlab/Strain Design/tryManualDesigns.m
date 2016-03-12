@@ -80,13 +80,124 @@ end
 
 function [solution,gibbs_flux,model] = reduceSulfate(model)
 
+% Reactions from original model:
+% EX_cpd00048_e0	Sulfate_e0 	<=>		
+% rxn05651_c0	H_e0 + Sulfate_e0 	<=>	H_c0 + Sulfate_c0 
+% rxn00379_c0	H_c0 + ATP_c0 + Sulfate_c0 	->	PPi_c0 + APS_c0
+% rxn05256_c0	trdrd_c0 + APS_c0 	->	trdox_c0 + Sulfite_c0 + AMP_c0
+% rxn00623_c0	4.000000 H_c0 + Sulfite_c0 + 3.000000 NADPH_c0 	->	3.000000 H2O_c0 + 3.000000 NADP_c0 + H2S_c0
+
+% Compound IDs:
+% Sulfate: cpd00048
+% APS: cpd00193
+% Sulfite: cpd00081
+% H2S: cpd00239
+% trdrd: cpd11421
+% trdox: cpd11420
+% NADPH: cpd00005
+% NADP: cpd00006
+% PPi: cpd00012
+% 
+
+% Add the uptake and inlet for sulfate
+model = addReaction(model,{'EX_cpd00048[e0]','EX_Sulfate_e0'},...
+    'cpd00048[e0] <=> ');
+model = addReaction(model,{'rxn05651[c0]','Sulfate transport via proton symport'},...
+    'cpd00048[e0] + cpd00067[e0] <=> cpd00048[c0] + cpd00067[c0]');
+% Add the Sulfate --> APS pathway
+model = addReaction(model,{'rxn00379[c0]','Sulfate reductase'},...
+    'cpd00067[c0] + cpd00002[c0] + cpd00048[c0] -> cpd00012[c0] + cpd00193[c0]');
+% Add the APS --> Sulfite pathway
+model = addReaction(model,{'rxn05256[c0]','APS reductase'},...
+    'cpd11421[c0] + cpd00193[c0] -> cpd11420[c0] + cpd00081[c0] + cpd00018[c0]');
+
+% Add free energies for all reactions (0 for all but the exchange)
+% Add it to the free energy
+[~,idx] = intersect(model.rxns,'EX_cpd00048[e0]');
+model.freeEnergy(idx) = -0.7649;
+[~,idx] = intersect(model.rxns,'rxn05651[c0]');
+model.freeEnergy(idx) = 0;
+[~,idx] = intersect(model.rxns,'rxn00379[c0]');
+model.freeEnergy(idx) = 0;
+[~,idx] = intersect(model.rxns,'rxn05256[c0]');
+model.freeEnergy(idx) = 0;
+
+% Allow sulfate uptake/secretion infinitely
+model = changeRxnBounds(model,'EX_cpd00048[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd00048[e0]',inf,'u');
+
+% OPTION: Add one, comment the other
+
+% Option 1, add Sulfite -> H2S
+model = addReaction(model,{'rxn00623[c0]','Sulfite reductase'},...
+    '4 cpd00067[c0] + cpd00081[c0] + 3 cpd00005[c0] -> 3 cpd00001[c0] + 3 cpd00006[c0] + cpd00239[c0]');
+[~,idx] = intersect(model.rxns,'rxn00623[c0]');
+model.freeEnergy(idx) = 0;
+% Also allow sulfide uptake/secretion infinitely
+model = changeRxnBounds(model,'EX_cpd00239[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd00239[e0]',inf,'u');
+
+
+% % Option 2, add Sulfite outlet
+% model = addReaction(model,{'rxn10604[c0]','Sulfate transport exchange via proton symport'},...
+%     'cpd00067[e0] + cpd00081[e0] <=> cpd00067[c0] + cpd00081[c0]');
+% model = addReaction(model,{'EX_cpd00081[e0]','EX_Sulfite_e0'},...
+%     'cpd00081[e0] <=> ');
+% % Add free energies
+% [~,idx] = intersect(model.rxns,'EX_cpd00048[e0]');
+% model.freeEnergy(idx) = -0.5046;
+% [~,idx] = intersect(model.rxns,'rxn10604[c0]');
+% model.freeEnergy(idx) = 0;
+% % Also allow sulfite uptake/secretion infinitely
+% model = changeRxnBounds(model,'EX_cpd00081[e0]',10,'l');
+% model = changeRxnBounds(model,'EX_cpd00081[e0]',10,'u');
+
+
 % Specify substrate reactions and concentrations as 1 mM
-substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
-concentrations = [1 1 1];
+substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]',...%,...
+    'EX_cpd00048[e0]','EX_cpd00239[e0]'};
+concentrations = [1 1 1 1e10 0.001];
 
 % Solve by maximizing biomass, with negative free energy not allowed
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]',true);
+
+% Find the reaction indices
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
+[~,so4_idx] = intersect(model.rxns,'EX_cpd00048[e0]');
+
+
+if solution.f > 0 
+% Print the biomass flux
+fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+
+% Print the reaction fluxes
+fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
+fprintf('CO2 flux: %f\n',solution.x(co2_idx))
+fprintf('H2 flux: %f\n',solution.x(h2_idx))
+fprintf('H2O flux: %f\n',solution.x(h2o_idx))
+fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('H2S flux: %f\n',solution.x(h2s_idx))
+fprintf('SO4 flux: %f\n',solution.x(so4_idx))
+
+% Print the Overall Reaction
+fprintf('Predicted Overall Reaction: CH4 + %0.2f CO2 + %0.2f SO4 --> %0.2f CH3OH + %0.2f H2S+ %0.2f H2O',...
+    (solution.x(co2_idx)/solution.x(ch4_idx)),(solution.x(so4_idx)/solution.x(ch4_idx)),...
+    -(solution.x(meoh_idx)/solution.x(ch4_idx)),-(solution.x(h2s_idx)/solution.x(ch4_idx)),...
+    -(solution.x(h2o_idx)/solution.x(ch4_idx)));
+
+% Print the Gibbs flux
+fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
+end
 
 end
 
@@ -99,8 +210,8 @@ model = addReaction(model,{'rxn05626[c0]',...
     'Nitrite transport out via proton antiport'},...
     'cpd00067[e0] + cpd00075[c0] <=> cpd00067[c0] + cpd00075[e0]');
 % Try adding ABC-transporter
-model = addReaction(model,'test_rxn',...
-'cpd00001[c0] + cpd00002[c0] + cpd00075[e0] <=> cpd00067[c0] + cpd00009[c0] + cpd00008[c0] + cpd00075[c0]');
+% model = addReaction(model,'test_rxn',...
+% 'cpd00001[c0] + cpd00002[c0] + cpd00075[e0] <=> cpd00067[c0] + cpd00009[c0] + cpd00008[c0] + cpd00075[c0]');
 
 model = addReaction(model,{'EX_cpd00075[e0]','EX_Nitrite[e0]'},...
     'cpd00075[e0] <=> ');
@@ -145,11 +256,11 @@ model = addReaction(model,{'rxn00571[c0]',...
 model.freeEnergy(idx) = 0;
 model = changeRxnBounds(model,'rxn00571[c0]',-inf,'l');
 model = changeRxnBounds(model,'rxn00571[c0]',inf,'u');
-
-% NADP version
+% 
+% % NADP version
 % model = addReaction(model,{'rxn00572[c0]',...
 %    'NADPH:nitrate oxidoreductase'},...
-%    'cpd00001[c0] + cpd00075[c0] + cpd00005[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00006[c0]');
+%    'cpd00001[c0] + cpd00075[c0] + cpd00006[c0] <=> cpd00067[c0] + cpd00209[c0] + cpd00005[c0]');
 % % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
 % [~,idx] = intersect(model.rxns,'rxn00572[c0]');
 % model.freeEnergy(idx) = 0;
@@ -188,6 +299,7 @@ concentrations = [1 1 1 1 1];
 [~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
 [~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
 [~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
 [~,no3_idx] = intersect(model.rxns,'EX_cpd00209[e0]');
 [~,no2_idx] = intersect(model.rxns,'EX_cpd00075[e0]');
 
@@ -203,6 +315,7 @@ fprintf('H2O flux: %f\n',solution.x(h2o_idx))
 fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
 fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
 fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('H2S flux: %f\n',solution.x(h2s_idx))
 fprintf('NO3 flux: %f\n',solution.x(no3_idx))
 fprintf('NO2 flux: %f\n',solution.x(no2_idx))
 
@@ -221,6 +334,14 @@ end
 
 function [solution,gibbs_flux,model] = reduceManganese(model)
 
+% Manganese already has an exchange, but MnO2 does not; give it one, plus a
+% transporter for both and a redox reaction w/NAD
+
+% Add exchange for MnO2, with free energy
+model = addReaction(model,'EX_cpd17028[e0]','cpd17028[e0] <=> ');
+[~,idx] = intersect(model.rxns,'EX_cpd17028[e0]');
+model.freeEnergy(idx) = -0.0503;
+
 % Specify substrate reactions and concentrations as 1 mM
 substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
 concentrations = [1 1 1];
@@ -233,13 +354,125 @@ end
 
 function [solution,gibbs_flux,model] = reduceIron(model)
 
+
+% Iron forms are both already in the model; add an oxidoreductase
+
+% Potential problems: ABC transporters, but both types of iron have the
+% same type so we should be okay.
+
+% % NAD version (note that there's no water produced here, so it's not quite
+% % as favorable as I'd like. However, this is the only option I have
+% % available
+% model = addReaction(model,{'rxn00068[c0]',...
+%    'NADH:Fe2+ oxidoreductase'},...
+%     '2 cpd10515[c0] + cpd00067[c0] + cpd00003[c0] <=> 2 cpd10516[c0] + cpd00004[c0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'rxn00068[c0]');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'rxn00068[c0]',-inf,'l');
+% model = changeRxnBounds(model,'rxn00068[c0]',inf,'u');
+
+% % NAD version (note that there's no water produced here, so it's not quite
+% % as favorable as I'd like. However, this is the only option I have
+% % available
+% model = addReaction(model,{'altered_nad',...
+%    'NADH:Fe2+ oxidoreductase'},...
+%     'cpd00067[c0] + cpd00001[c0] + 2 cpd10515[c0] + cpd00003[c0] <=>  2 cpd10516[c0] + cpd00004[c0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'altered_nad');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'altered_nad',-inf,'l');
+% model = changeRxnBounds(model,'altered_nad',inf,'u');
+
+
+% % Try adding an NAD Source/Sink
+%  model = addReaction(model,'NAD_sink','cpd00003[c0] <=>');
+% model = addReaction(model,'NADH_sink','cpd00004[c0] <=>');
+
+
+% NADP version (not an actual Kbase reaction)
+model = addReaction(model,{'madeup',...
+   'NADPH:Fe2+ oxidoreductase'},...
+    '2 cpd10515[c0] + cpd00067[c0] + cpd00006[c0] <=> 2 cpd10516[c0] + cpd00005[c0]');
+% Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+[~,idx] = intersect(model.rxns,'madeup');
+model.freeEnergy(idx) = 0;
+model = changeRxnBounds(model,'madeup',-inf,'l');
+model = changeRxnBounds(model,'madeup',inf,'u');
+
+
+% % % Try a madeup version
+% model = addReaction(model,'madeup','cpd10515[e0] <=> cpd10516[e0]');
+% % Add free energy and bounds for these reactions too (it's 0 and inf/-inf)
+% [~,idx] = intersect(model.rxns,'madeup');
+% model.freeEnergy(idx) = 0;
+% model = changeRxnBounds(model,'madeup',-inf,'l');
+% model = changeRxnBounds(model,'madeup',inf,'u');
+
+
+
+% Allow iron in/out as much as necessary; also turn on the transporters to
+% infinite bounds
+% Allow Fe3+ uptake/secretion infinitely
+model = changeRxnBounds(model,'EX_cpd10516[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd10516[e0]',inf,'u');
+% Allow Fe2+ uptake/secretion infinitely
+model = changeRxnBounds(model,'EX_cpd10515[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd10515[e0]',inf,'u');
+% Allow Fe3+ transport infinitely
+model = changeRxnBounds(model,'rxn05195[c0]',-inf,'l');
+model = changeRxnBounds(model,'rxn05195[c0]',inf,'u');
+% Allow Fe2+ transport infinitely
+model = changeRxnBounds(model,'rxn05555[c0]',-inf,'l');
+model = changeRxnBounds(model,'rxn05555[c0]',inf,'u');
+
+
 % Specify substrate reactions and concentrations as 1 mM
-substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]'};
-concentrations = [1 1 1];
+substrate_rxns = {'EX_cpd00116[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]',...
+    'EX_cpd10515[e0]','EX_cpd10516[e0]'};
+concentrations = [1 1 1 1 1];
 
 % Solve by maximizing biomass, with negative free energy not allowed
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]',true);
+
+% Find the reaction indices
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
+[~,fe3_idx] = intersect(model.rxns,'EX_cpd10516[e0]');
+[~,fe2_idx] = intersect(model.rxns,'EX_cpd10515[e0]');
+
+if solution.f > 0 
+% Print the biomass flux
+fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+
+% Print the reaction fluxes
+fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
+fprintf('CO2 flux: %f\n',solution.x(co2_idx))
+fprintf('H2 flux: %f\n',solution.x(h2_idx))
+fprintf('H2O flux: %f\n',solution.x(h2o_idx))
+fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('H2S flux: %f\n',solution.x(h2s_idx))
+fprintf('Fe3 flux: %f\n',solution.x(fe3_idx))
+fprintf('Fe2 flux: %f\n',solution.x(fe2_idx))
+
+% Print the Overall Reaction
+fprintf('Predicted Overall Reaction: CH4 + %0.2f CO2 + %0.2f Fe3+ --> %0.2f CH3OH + %0.2f Fe2+ %0.2f H2O',...
+    (solution.x(co2_idx)/solution.x(ch4_idx)),(solution.x(fe3_idx)/solution.x(ch4_idx)),...
+    -(solution.x(meoh_idx)/solution.x(ch4_idx)),-(solution.x(fe2_idx)/solution.x(ch4_idx)),...
+    -(solution.x(h2o_idx)/solution.x(ch4_idx)));
+
+% Print the Gibbs flux
+fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
+end
 
 end
 

@@ -2284,11 +2284,18 @@ model = removeRxns(model,{'rxn00379_c0','rxn05256_c0'});
 model = removeRxns(model,{'rxn11676_c0','rxn00225_c0','rxn00171_c0'});
 
 %%%%%%%%%%%%%
-%1/12/2016
+%2/09/2016
 %%%%%%%%%%%%%
 
 % Remove rxn00781
 model = removeRxns(model,{'rxn00781_c0'});
+
+%%%%%%%%%%%%%
+%2/25/2016
+%%%%%%%%%%%%%
+
+% Remove rxn00623
+model = removeRxns(model,{'rxn00623_c0'});
 
 %%%%%%%%%%%%%
 % 4/16/2015
