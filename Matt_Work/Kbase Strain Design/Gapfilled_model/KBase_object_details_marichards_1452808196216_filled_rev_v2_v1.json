@@ -1,0 +1,76 @@
+{
+    "metadata": [
+        [
+            61,
+            "filled_rev_v2",
+            "KBaseFBA.FBAModel-8.0",
+            "2016-04-06T23:46:25+0000",
+            1,
+            "marichards",
+            12281,
+            "marichards:1452808196216",
+            "af0a7f7c192ff3136b2ed7090f1ffd08",
+            747009,
+            {
+                "Genome": "12281/3/1",
+                "Name": "Methanococcus maripaludis S2",
+                "Number biomasses": "1",
+                "Number compartments": "2",
+                "Number compounds": "693",
+                "Number gapfills": "1",
+                "Number gapgens": "0",
+                "Number reactions": "611",
+                "Source": "Imported",
+                "Source ID": "meoh_v2",
+                "Type": "SingleOrganism"
+            }
+        ]
+    ],
+    "provenance": [
+        {
+            "copy_source_inaccessible": 0,
+            "created": "2016-04-06T23:46:25+0000",
+            "creator": "marichards",
+            "extracted_ids": {},
+            "info": [
+                61,
+                "filled_rev_v2",
+                "KBaseFBA.FBAModel-8.0",
+                "2016-04-06T23:46:25+0000",
+                1,
+                "marichards",
+                12281,
+                "marichards:1452808196216",
+                "af0a7f7c192ff3136b2ed7090f1ffd08",
+                747009,
+                {
+                    "Genome": "12281/3/1",
+                    "Name": "Methanococcus maripaludis S2",
+                    "Number biomasses": "1",
+                    "Number compartments": "2",
+                    "Number compounds": "693",
+                    "Number gapfills": "1",
+                    "Number gapgens": "0",
+                    "Number reactions": "611",
+                    "Source": "Imported",
+                    "Source ID": "meoh_v2",
+                    "Type": "SingleOrganism"
+                }
+            ],
+            "provenance": [
+                {
+                    "external_data": [],
+                    "input_ws_objects": [],
+                    "method_params": [
+                        {}
+                    ],
+                    "resolved_ws_objects": []
+                }
+            ],
+            "refs": [
+                "12281/3/1",
+                "12281/44/4"
+            ]
+        }
+    ]
+}
