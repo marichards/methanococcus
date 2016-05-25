@@ -29,8 +29,8 @@ solution = optimizeCbModel(model,[],'one');
 fprintf('\nWild-Type Growth: %0.2f\n\n',solution.f);
 wt_growth = solution.f;
 
-% Simulate Hmd KO (mmp0127)
-ko_model = deleteModelGenes(model,'mmp0127',0);
+% Simulate Hmd KO (MMP0127)
+ko_model = deleteModelGenes(model,'MMP0127',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Hmd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -43,8 +43,8 @@ else
     fn = fn+1;
 end
 
-% Simulate Mtd KO (mmp0372)
-ko_model = deleteModelGenes(model,'mmp0372',0);
+% Simulate Mtd KO (MMP0372)
+ko_model = deleteModelGenes(model,'MMP0372',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Mtd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -57,8 +57,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FrcA KO (mmp0820)
-ko_model = deleteModelGenes(model,'mmp0820',0);
+% Simulate FrcA KO (MMP0820)
+ko_model = deleteModelGenes(model,'MMP0820',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -71,8 +71,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FruA KO (mmp1382)
-ko_model = deleteModelGenes(model,'mmp1382',0);
+% Simulate FruA KO (MMP1382)
+ko_model = deleteModelGenes(model,'MMP1382',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -85,8 +85,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FrcA-FruA double KO (mmp0820 and mmp1382)
-ko_model = deleteModelGenes(model,{'mmp0820','mmp1382'},0);
+% Simulate FrcA-FruA double KO (MMP0820 and MMP1382)
+ko_model = deleteModelGenes(model,{'MMP0820','MMP1382'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -99,8 +99,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  VhuAU-VhcA triple KO (mmp1694, mmp1693, mmp0823)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1694','mmp1693','mmp0823'},0);
+% Simulate  VhuAU-VhcA triple KO (MMP1694, MMP1693, MMP0823)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1694','MMP1693','MMP0823'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-VhuAU-VhcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -113,33 +113,33 @@ else
     fn = fn+1;
 end
 
-% Simulate  HdrB2 KO (mmp1053)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1053'},0);
+% Simulate  HdrB2 KO (MMP1053)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1053'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-HdrB2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1 KO (mmp1298)
-ko_model = deleteModelGenes(model,{'mmp1298'},0);
+% Simulate  FdhA1 KO (MMP1298)
+ko_model = deleteModelGenes(model,{'MMP1298'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2 KO (mmp0138)
-ko_model = deleteModelGenes(model,{'mmp0138'},0);
+% Simulate  FdhA2 KO (MMP0138)
+ko_model = deleteModelGenes(model,{'MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1-FdhA2 double KO (mmp1298 and mmp0138)
-ko_model = deleteModelGenes(model,{'mmp1298','mmp0138'},0);
+% Simulate  FdhA1-FdhA2 double KO (MMP1298 and MMP0138)
+ko_model = deleteModelGenes(model,{'MMP1298','MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2B2 KO (mmp0138 and mmp0139)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp0138','mmp0139'},0);
+% Simulate  FdhA2B2 KO (MMP0138 and MMP0139)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP0138','MMP0139'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2B2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate EhbF KO (mmp1628)
-ko_model = deleteModelGenes(model,'mmp1628',0);
+% Simulate EhbF KO (MMP1628)
+ko_model = deleteModelGenes(model,'MMP1628',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-EhbF Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -153,9 +153,9 @@ else
 end
 
 % Simulate 3H2ase KOs of frcAGB,fruAGB,hmd
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, and mmp0127)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, and MMP0127)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp0818','mmp0817','mmp1382','mmp1384','mmp1385','mmp0127'}...
+    {'MMP0680','MMP0820','MMP0818','MMP0817','MMP1382','MMP1384','MMP1385','MMP0127'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -170,9 +170,9 @@ else
 end
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp1382,mmp0127,mmp1694,mmp1693,mmp0823)
+% (MMP0820, MMP1382,MMP0127,MMP1694,MMP1693,MMP0823)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -187,9 +187,9 @@ else
 end
 
 % Simulate 6H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -204,9 +204,9 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP0983-0995)
 ko_model = deleteModelGenes(ko_model,...
-    {'mmp0983','mmp0984','mmp0985'},0);
+    {'MMP0983','MMP0984','MMP0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -215,18 +215,18 @@ model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
 model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase_supp Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 7H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN,ehaNO
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp1461,mmp1462)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP1461,MMP1462)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153','mmp1461','mmp1462'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153','MMP1461','MMP1462'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -245,8 +245,8 @@ solution = optimizeCbModel(model,[],'one');
 fprintf('\nWild-Type Growth: %0.2f\n\n',solution.f);
 wt_growth = solution.f;
 
-% Simulate Hmd KO (mmp0127)
-ko_model = deleteModelGenes(model,'mmp0127',0);
+% Simulate Hmd KO (MMP0127)
+ko_model = deleteModelGenes(model,'MMP0127',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Hmd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -259,8 +259,8 @@ else
     fn = fn+1;
 end
 
-% Simulate Mtd KO (mmp0372)
-ko_model = deleteModelGenes(model,'mmp0372',0);
+% Simulate Mtd KO (MMP0372)
+ko_model = deleteModelGenes(model,'MMP0372',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Mtd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -273,8 +273,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FrcA KO (mmp0820)
-ko_model = deleteModelGenes(model,'mmp0820',0);
+% Simulate FrcA KO (MMP0820)
+ko_model = deleteModelGenes(model,'MMP0820',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -287,8 +287,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FruA KO (mmp1382)
-ko_model = deleteModelGenes(model,'mmp1382',0);
+% Simulate FruA KO (MMP1382)
+ko_model = deleteModelGenes(model,'MMP1382',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -301,8 +301,8 @@ else
     fn = fn+1;
 end
 
-% Simulate FrcA-FruA double KO (mmp0820 and mmp1382)
-ko_model = deleteModelGenes(model,{'mmp0820','mmp1382'},0);
+% Simulate FrcA-FruA double KO (MMP0820 and MMP1382)
+ko_model = deleteModelGenes(model,{'MMP0820','MMP1382'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -315,8 +315,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  VhuAU-VhcA triple KO (mmp1694, mmp1693, mmp0823)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1694','mmp1693','mmp0823'},0);
+% Simulate  VhuAU-VhcA triple KO (MMP1694, MMP1693, MMP0823)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1694','MMP1693','MMP0823'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-VhuAU-VhcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -329,8 +329,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  HdrB2 KO (mmp1053)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1053'},0);
+% Simulate  HdrB2 KO (MMP1053)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1053'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-HdrB2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -343,8 +343,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  FdhA1 KO (mmp1298)
-ko_model = deleteModelGenes(model,{'mmp1298'},0);
+% Simulate  FdhA1 KO (MMP1298)
+ko_model = deleteModelGenes(model,{'MMP1298'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -357,8 +357,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  FdhA2 KO (mmp0138)
-ko_model = deleteModelGenes(model,{'mmp0138'},0);
+% Simulate  FdhA2 KO (MMP0138)
+ko_model = deleteModelGenes(model,{'MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -371,8 +371,8 @@ else
     fn = fn+1;
 end
 
-% Simulate  FdhA1-FdhA2 double KO (mmp1298 and mmp0138)
-ko_model = deleteModelGenes(model,{'mmp1298','mmp0138'},0);
+% Simulate  FdhA1-FdhA2 double KO (MMP1298 and MMP0138)
+ko_model = deleteModelGenes(model,{'MMP1298','MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -385,8 +385,8 @@ else
     tn = tn+1;
 end
 
-% Simulate  FdhA2B2 KO (mmp0138 and mmp0139)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp0138','mmp0139'},0);
+% Simulate  FdhA2B2 KO (MMP0138 and MMP0139)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP0138','MMP0139'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2B2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -399,15 +399,15 @@ else
     fn = fn+1;
 end
 
-% Simulate EhbF KO (mmp1628)
-ko_model = deleteModelGenes(model,'mmp1628',0);
+% Simulate EhbF KO (MMP1628)
+ko_model = deleteModelGenes(model,'MMP1628',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-EhbF Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 3H2ase KOs of frcAGB,fruAGB,hmd
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, and mmp0127)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, and MMP0127)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp0818','mmp0817','mmp1382','mmp1384','mmp1385','mmp0127'}...
+    {'MMP0680','MMP0820','MMP0818','MMP0817','MMP1382','MMP1384','MMP1385','MMP0127'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -422,9 +422,9 @@ else
 end
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp1382,mmp0127,mmp1694,mmp1693,mmp0823)
+% (MMP0820, MMP1382,MMP0127,MMP1694,MMP1693,MMP0823)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -439,9 +439,9 @@ else
 end
 
 % Simulate 6H2ase KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -456,9 +456,9 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP0983-0995)
 ko_model = deleteModelGenes(ko_model,...
-    {'mmp0983','mmp0984','mmp0985'},0);
+    {'MMP0983','MMP0984','MMP0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -467,9 +467,9 @@ model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
 model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase_supp Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -484,9 +484,9 @@ else
 end
 
 % Simulate 7H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN,ehaNO
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp1461,mmp1462)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP1461,MMP1462)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153','mmp1461','mmp1462'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153','MMP1461','MMP1462'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -514,78 +514,78 @@ solution = optimizeCbModel(model,[],'one');
 fprintf('\nWild-Type Growth: %0.2f\n\n',solution.f);
 wt_growth = solution.f;
 
-% Simulate Hmd KO (mmp0127)
-ko_model = deleteModelGenes(model,'mmp0127',0);
+% Simulate Hmd KO (MMP0127)
+ko_model = deleteModelGenes(model,'MMP0127',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Hmd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate Mtd KO (mmp0372)
-ko_model = deleteModelGenes(model,'mmp0372',0);
+% Simulate Mtd KO (MMP0372)
+ko_model = deleteModelGenes(model,'MMP0372',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Mtd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FrcA KO (mmp0820)
-ko_model = deleteModelGenes(model,'mmp0820',0);
+% Simulate FrcA KO (MMP0820)
+ko_model = deleteModelGenes(model,'MMP0820',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FruA KO (mmp1382)
-ko_model = deleteModelGenes(model,'mmp1382',0);
+% Simulate FruA KO (MMP1382)
+ko_model = deleteModelGenes(model,'MMP1382',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FrcA-FruA double KO (mmp0820 and mmp1382)
-ko_model = deleteModelGenes(model,{'mmp0820','mmp1382'},0);
+% Simulate FrcA-FruA double KO (MMP0820 and MMP1382)
+ko_model = deleteModelGenes(model,{'MMP0820','MMP1382'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  VhuAU-VhcA triple KO (mmp1694, mmp1693, mmp0823)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1694','mmp1693','mmp0823'},0);
+% Simulate  VhuAU-VhcA triple KO (MMP1694, MMP1693, MMP0823)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1694','MMP1693','MMP0823'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-VhuAU-VhcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  HdrB2 KO (mmp1053)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1053'},0);
+% Simulate  HdrB2 KO (MMP1053)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1053'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-HdrB2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1 KO (mmp1298)
-ko_model = deleteModelGenes(model,{'mmp1298'},0);
+% Simulate  FdhA1 KO (MMP1298)
+ko_model = deleteModelGenes(model,{'MMP1298'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2 KO (mmp0138)
-ko_model = deleteModelGenes(model,{'mmp0138'},0);
+% Simulate  FdhA2 KO (MMP0138)
+ko_model = deleteModelGenes(model,{'MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1-FdhA2 double KO (mmp1298 and mmp0138)
-ko_model = deleteModelGenes(model,{'mmp1298','mmp0138'},0);
+% Simulate  FdhA1-FdhA2 double KO (MMP1298 and MMP0138)
+ko_model = deleteModelGenes(model,{'MMP1298','MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2B2 KO (mmp0138 and mmp0139)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp0138','mmp0139'},0);
+% Simulate  FdhA2B2 KO (MMP0138 and MMP0139)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP0138','MMP0139'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2B2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate EhbF KO (mmp1628)
-ko_model = deleteModelGenes(model,'mmp1628',0);
+% Simulate EhbF KO (MMP1628)
+ko_model = deleteModelGenes(model,'MMP1628',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-EhbF Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 3H2ase KOs of frcAGB,fruAGB,hmd
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, and mmp0127)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, and MMP0127)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp0818','mmp0817','mmp1382','mmp1384','mmp1385','mmp0127'}...
+    {'MMP0680','MMP0820','MMP0818','MMP0817','MMP1382','MMP1384','MMP1385','MMP0127'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp1382,mmp0127,mmp1694,mmp1693,mmp0823)
+% (MMP0820, MMP1382,MMP0127,MMP1694,MMP1693,MMP0823)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -600,9 +600,9 @@ else
 end
 
 % Simulate 6H2ase KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -617,9 +617,9 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP0983-0995)
 ko_model = deleteModelGenes(ko_model,...
-    {'mmp0983','mmp0984','mmp0985'},0);
+    {'MMP0983','MMP0984','MMP0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -628,17 +628,17 @@ model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
 model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase_supp Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 7H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN,ehaNO
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp1461,mmp1462)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP1461,MMP1462)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153','mmp1461','mmp1462'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153','MMP1461','MMP1462'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -658,86 +658,86 @@ solution = optimizeCbModel(model,[],'one');
 fprintf('\nWild-Type Growth: %0.2f\n\n',solution.f);
 wt_growth = solution.f;
 
-% Simulate Hmd KO (mmp0127)
-ko_model = deleteModelGenes(model,'mmp0127',0);
+% Simulate Hmd KO (MMP0127)
+ko_model = deleteModelGenes(model,'MMP0127',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Hmd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate Mtd KO (mmp0372)
-ko_model = deleteModelGenes(model,'mmp0372',0);
+% Simulate Mtd KO (MMP0372)
+ko_model = deleteModelGenes(model,'MMP0372',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-Mtd Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FrcA KO (mmp0820)
-ko_model = deleteModelGenes(model,'mmp0820',0);
+% Simulate FrcA KO (MMP0820)
+ko_model = deleteModelGenes(model,'MMP0820',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FruA KO (mmp1382)
-ko_model = deleteModelGenes(model,'mmp1382',0);
+% Simulate FruA KO (MMP1382)
+ko_model = deleteModelGenes(model,'MMP1382',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate FrcA-FruA double KO (mmp0820 and mmp1382)
-ko_model = deleteModelGenes(model,{'mmp0820','mmp1382'},0);
+% Simulate FrcA-FruA double KO (MMP0820 and MMP1382)
+ko_model = deleteModelGenes(model,{'MMP0820','MMP1382'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FrcA-FruA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  VhuAU-VhcA triple KO (mmp1694, mmp1693, mmp0823)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1694','mmp1693','mmp0823'},0);
+% Simulate  VhuAU-VhcA triple KO (MMP1694, MMP1693, MMP0823)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1694','MMP1693','MMP0823'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-VhuAU-VhcA Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  HdrB2 KO (mmp1053)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp1053'},0);
+% Simulate  HdrB2 KO (MMP1053)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP1053'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-HdrB2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1 KO (mmp1298)
-ko_model = deleteModelGenes(model,{'mmp1298'},0);
+% Simulate  FdhA1 KO (MMP1298)
+ko_model = deleteModelGenes(model,{'MMP1298'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2 KO (mmp0138)
-ko_model = deleteModelGenes(model,{'mmp0138'},0);
+% Simulate  FdhA2 KO (MMP0138)
+ko_model = deleteModelGenes(model,{'MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA1-FdhA2 double KO (mmp1298 and mmp0138)
-ko_model = deleteModelGenes(model,{'mmp1298','mmp0138'},0);
+% Simulate  FdhA1-FdhA2 double KO (MMP1298 and MMP0138)
+ko_model = deleteModelGenes(model,{'MMP1298','MMP0138'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA1-FdhA2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate  FdhA2B2 KO (mmp0138 and mmp0139)
-ko_model = deleteModelGenes(model,{'mmp0680','mmp0138','mmp0139'},0);
+% Simulate  FdhA2B2 KO (MMP0138 and MMP0139)
+ko_model = deleteModelGenes(model,{'MMP0680','MMP0138','MMP0139'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-FdhA2B2 Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
-% Simulate EhbF KO (mmp1628)
-ko_model = deleteModelGenes(model,'mmp1628',0);
+% Simulate EhbF KO (MMP1628)
+ko_model = deleteModelGenes(model,'MMP1628',0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-EhbF Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 3H2ase KOs of frcAGB,fruAGB,hmd
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, and mmp0127)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, and MMP0127)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp0818','mmp0817','mmp1382','mmp1384','mmp1385','mmp0127'}...
+    {'MMP0680','MMP0820','MMP0818','MMP0817','MMP1382','MMP1384','MMP1385','MMP0127'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-3H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 5H2ase KOs of frcA,fruA,hmd,vhuAU,vhcA
-% (mmp0820, mmp1382,mmp0127,mmp1694,mmp1693,mmp0823)
+% (MMP0820, MMP1382,MMP0127,MMP1694,MMP1693,MMP0823)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-5H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 6H2ase KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);
@@ -752,9 +752,9 @@ else
 end
 
 % Simulate 6H2ase-cdh KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN, and cdh WITH CO supp
-% (mmp0820, mmp0818, mmp817, mmp1382, mmp1384, mmp1385, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp0983-0995)
+% (MMP0820, MMP0818, MMP817, MMP1382, MMP1384, MMP1385, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP0983-0995)
 ko_model = deleteModelGenes(ko_model,...
-    {'mmp0983','mmp0984','mmp0985'},0);
+    {'MMP0983','MMP0984','MMP0985'},0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase-cdh Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
@@ -772,17 +772,17 @@ model = changeRxnBounds(model,'rxn07191[c0]',-1000,'l');
 model = changeRxnBounds(model,'rxn07191[c0]',1000,'u');
 
 % Simulate 6H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-6H2ase_supp Growth Ratio: %0.2f\n',solution.f/wt_growth);
 
 % Simulate 7H2ase_supp KOs of frcAGB,fruAGB,hmd,vhuAU,vhcA,ehbN,ehaNO
-% (mmp0820, mmp1382, mmp0127,mmp1694,mmp1693,mmp0823,mmp1153,mmp1461,mmp1462)
+% (MMP0820, MMP1382, MMP0127,MMP1694,MMP1693,MMP0823,MMP1153,MMP1461,MMP1462)
 ko_model = deleteModelGenes(model,...
-    {'mmp0680','mmp0820','mmp1382','mmp0127','mmp1694','mmp1693','mmp0823','mmp1153','mmp1461','mmp1462'}...
+    {'MMP0680','MMP0820','MMP1382','MMP0127','MMP1694','MMP1693','MMP0823','MMP1153','MMP1461','MMP1462'}...
     ,0);
 solution = optimizeCbModel(ko_model,[],'one');
 fprintf('-7H2ase Growth Ratio: %0.2f\n',solution.f/wt_growth);

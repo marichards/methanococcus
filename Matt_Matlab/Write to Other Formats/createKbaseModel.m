@@ -34,6 +34,8 @@ function createKbaseModel(model,model_filename,media_filename,compound_filename)
 % Aliases: KEGG:C00001;BiGG:h2o
 
 %%
+% Remove things from biomass that don't work in Kbase
+model = removeNonKbaseThings(model)
 %Create the model file
 model_file_id = fopen(sprintf('%s.txt',model_filename),'w');
 %Print the headers
@@ -46,6 +48,10 @@ bio_idx = find(model.c);
 rxn_idx = setdiff(rxn_idx,bio_idx,'stable');
 %Add the biomass index back to the top
 rxn_idx = [bio_idx;rxn_idx];
+
+% Change genes to kbase IDs
+%%%% No longer necessary as of 05/05
+% model = changeGenesToKbase(model);
 
 %Now we have the correct index order; create the correct fields
 %Loop through the index
@@ -69,25 +75,10 @@ for i=1:length(rxn_idx)
     end
     
     %Now we have formula and direction, still need a gene properly formatted
-    %Remove "mmp" and replace it with the 'kb|g.575.peg.'
-    genes = model.grRules{rxn_idx(i)};
-    %Catch 3-zero cases
-    if regexp(genes,'mmp000')
-        genes = regexprep(genes,'mmp000','kb\|g.575.peg.');
-    end
-    %Catch 2-zero cases
-    if regexp(genes,'mmp00')
-        genes = regexprep(genes,'mmp00','kb\|g.575.peg.');
-    end
-    %Catch 1-zero cases
-    if regexp(genes,'mmp0')
-        genes = regexprep(genes,'mmp0','kb\|g.575.peg.');
-    end    
-          
-	%Catch no-zero cases
-	genes = regexprep(genes,'mmp','kb\|g.575.peg.');
+    % Genes have already been converted to Kbase format; just print the
+    % grRule
     fprintf(model_file_id,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t \n',...
-        model.rxns{rxn_idx(i)},model.rxnNames{rxn_idx(i)},direction,genes,model.subSystems{rxn_idx(i)},model.rxnECNumbers{rxn_idx(i)},formula{1});
+        model.rxns{rxn_idx(i)},model.rxnNames{rxn_idx(i)},direction,model.grRules{rxn_idx(i)},model.subSystems{rxn_idx(i)},model.rxnECNumbers{rxn_idx(i)},formula{1});
 end
 
 
