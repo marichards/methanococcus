@@ -2334,6 +2334,25 @@ model = removeRxns(model,{'rxn00781_c0'});
 % Remove rxn00623
 model = removeRxns(model,{'rxn00623_c0'});
 
+
+%%%%%%%%%%%%%
+%06/08/2016
+%%%%%%%%%%%%%
+% Remove genes with no reactions
+% Don't just do it willy-nilly; write out the genes themselves for
+% reference later
+model = removeGene(model,'MMP1144');
+model = removeGene(model,'MMP1233');
+model = removeGene(model,'MMP1553');
+model = removeGene(model,'MMP1631');
+model = removeGene(model,'MMP0264');
+model = removeGene(model,'MMP0356');
+model = removeGene(model,'MMP0496');
+model = removeGene(model,'MMP0534');
+model = removeGene(model,'MMP0737');
+model = removeGene(model,'MMP0078');
+model = removeGene(model,'MMP0768');
+
 %%%%%%%%%%%%%
 % 4/16/2015
 %%%%%%%%%%%%%

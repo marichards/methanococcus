@@ -22,8 +22,7 @@ model = changeRxnBounds(model,'EX_cpd00047[e0]',-1000,'l');
 %Turn on H+ or else it gets no growth
 model = changeRxnBounds(model,'EX_cpd00067[e0]',-1000,'l');
 
-% Be sure to turn off the acetate input, just in case
-% Turn on acetate
+% Turn off acetate
 model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');
 
 % Set a bound on methane

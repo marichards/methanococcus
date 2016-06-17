@@ -1,6 +1,6 @@
 function [id,name] = translateMetIDAndName(model,term)
 
-%Given a reaction ID or name, translate it to the complementary entity
+%Given a metabolite ID or name, translate it to the complementary entity
 %
 % INPUT
 % model: a COBRA Toolbox model structure

@@ -6,26 +6,32 @@ function [all_rxns,rxnNames,fluxes] = findMetSynPath(model,met,solution,excluded
 %
 % INPUT:
 % model: a COBRA Toolbox model structure
+%
 % met: a metabolite of interest in the supplied model
+%
 % solution: a flux distribution solution for the supplied model
 %
 % OPTIONAL INPUT: 
 % excluded: a list of reactions to excluded from the metabolite synthesis
 % pathway. Often, this includes the biomass reaction to avoid including the
-% many metabolites outlined in that reaction. (Default = {''}) 
+% many metabolites outlined in that reaction. (Default = {''})
+%
 % threshold: a value scaled from 0-1 that serves as the cutoff for
 % following a flux. This value sets the minimum percentage of flux to
 % follow in synthesis. For example, setting the value to "0.5" will follow
 % all non-excluded reactions that carry at least 50% of the flux of a
 % primary metabolite from reactions already in the pathway, but will not
 % follow any reactions below that threshold. (Default = 0.1)
+%
 % max_rxns: a maximum  value on the number of reactions that can be
 % included in the pathway. The function will discontinue tracing the
 % synthesis path as soon as this number is exceeded (Default = 20)
 %
 % OUTPUT: 
 % all_rxns: list of reactions making/using a metabolite
+%
 % rxnNames: list of names corresponding to the reactions in all_rxns
+%
 % fluxes: list of fluxes through the reactions in all_rxns
 %
 % Matthew Richards, 09/24/2015
