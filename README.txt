@@ -1,6 +1,6 @@
-## iMR539, a Genome-Scale Metabolic Model of <i>Methanococcus maripaludis</i>
+## iMR539, a Genome-Scale Metabolic Model of *Methanococcus maripaludis*
 
-This repository contains the genome scale metabolic model of <i>Methanococcus maripaludis</i> and a collection of scripts for helping to simulate growth, perturb the model, and query various aspects of the model. The major directories are as follows:
+This repository contains the genome scale metabolic model of *Methanococcus maripaludis* and a collection of scripts for helping to simulate growth, perturb the model, and query various aspects of the model. The major directories are as follows:
 
 ### Model
 
