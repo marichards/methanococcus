@@ -1,9 +1,14 @@
 function compareGeneEIs(model,cutoff)
 
+
+% If you don't have a cutoff, make it 1
+if (nargin < 2)
+    cutoff = 0;
+end
 %Compare our model prediction to what they have
 
 %Load the EIs
-load('2014_11_04_EIs.mat')
+load('2016_06_29_EIs.mat')
 
 %Pull out the number of genes in common, this is all we need to
 %compare to

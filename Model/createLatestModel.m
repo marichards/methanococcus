@@ -2324,14 +2324,14 @@ model = removeRxns(model,{'rxn11676_c0','rxn00225_c0','rxn00171_c0'});
 %2/09/2016
 %%%%%%%%%%%%%
 
-% Remove rxn00781
+% Remove rxn00781 (it's the NAD form; 00782 is the NADP form)
 model = removeRxns(model,{'rxn00781_c0'});
 
 %%%%%%%%%%%%%
 %2/25/2016
 %%%%%%%%%%%%%
 
-% Remove rxn00623
+% Remove rxn00623 (it's part of sulfate assimilation
 model = removeRxns(model,{'rxn00623_c0'});
 
 

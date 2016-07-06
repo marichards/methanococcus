@@ -49,6 +49,8 @@ if nargin<2
     substrate_rxns = {'EX_cpd00011[e0]','EX_cpd11640[e0]','EX_cpd01024[e0]','EX_cpd00029[e0]'};
     concentrations = [1 1 1 1];
     warning_flag = 1;
+    else
+    warning_flag = 0;
 end
 
 % Solve by maximizing biomass

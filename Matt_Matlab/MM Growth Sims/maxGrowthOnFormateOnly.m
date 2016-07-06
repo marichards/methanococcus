@@ -44,6 +44,8 @@ if nargin<2
     substrate_rxns = {'EX_cpd00011[e0]','EX_cpd00047[e0]','EX_cpd01024[e0]'};
     concentrations = [1 1 1];
     warning_flag = 1;
+    else
+    warning_flag = 0;
 end
 %Solve by maximizing biomass
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
@@ -86,7 +88,6 @@ if print_flag
         solution.x(co2_idx)/solution.x(ch4_idx),solution.x(h2o_idx)/solution.x(ch4_idx))
 
     %Print the yield coefficient (grams biomass per mole CH4 produced)
-    fprintf('Measured Yield Coefficient: 3.32 +/- 0.42 gDCW/mol CH4\n')
     fprintf('Predicted Yield Coefficient: %0.2f gDCW/mol CH4\n\n',solution.f*1000/solution.x(ch4_idx)/log(2))
 
     %Find the ATP reaction index

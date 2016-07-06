@@ -6,58 +6,7 @@ function [solution_1,solution_2,solution_3,solution_4,...
 
 
 % First add in methanol pathway
-% Add in the reaction for converting methanol to methyl-coM
-model = addReaction(model,{'rxn10568[c0]','Methanol: coenzyme M methyltransferase'},...
-    'cpd00116[c0] + cpd02246[c0] <=> cpd02438[c0] + cpd00001[c0]');
-
-% Add in the methanol uptake
-model = addReaction(model,{'rxn10570[c0]','Methanol diffusion'},...
-    'cpd00116[e0] <=> cpd00116[c0]');
-model = addReaction(model,{'EX_cpd00116[e0]','EX_Methanol[e0]'},...
-    'cpd00116[e0] <=> ');
-
-% Add metabolite info for methanol
-[~,idx] = intersect(model.mets,'cpd00116[c0]');
-model.metNames{idx} = 'Methanol[c0]';
-model.metCharge(idx)=0;
-model.metFormulas{idx}='CH4O';
-[~,idx] = intersect(model.mets,'cpd00116[e0]');
-model.metNames{idx} = 'Methanol[e0]';
-model.metCharge(idx)=0;
-model.metFormulas{idx}='CH4O';
-
-% Add it to the free energy
-[~,idx] = intersect(model.rxns,'EX_cpd00116[e0]');
-model.freeEnergy(idx) = -0.0302;
-
-% Change bounds to function in reverse
-% Change bounds such that methane goes IN instead of OUT
-model = changeRxnBounds(model,'EX_cpd01024[e0]',-inf,'l');
-model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
-% Change methanol to come OUT instead of IN
-model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'b');
-
-% Turn off Hydrogen input and let it come out
-model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
-model = changeRxnBounds(model,'EX_cpd11640[e0]',1000,'u');
-% Try turning off proton output, else it pours out. 
-model = changeRxnBounds(model,'EX_cpd00067[e0]',0,'b');
-
-% Be sure formate/acetate and N2/Alanine are off, and that NH3 is on
-% Turn down formate
-model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');
-% Turn down acetate
-model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');
-% Make certain that NH3 is on, N2 is off, Alanine is off
-% Turn up ammonia
-model = changeRxnBounds(model,'EX_cpd00013[e0]',-1000,'l');
-% Turn down alanine
-model = changeRxnBounds(model,'EX_cpd00035[e0]',0,'l');
-% Turn down nitrogen
-model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
-
-% Let Eha/Ehb run at full blast
-model = removeEhaBounds(model);
+model = addReverseMethanolPathway(model);
 
 % Add Fd <=> H2 Redox reaction
 model = addReaction(model,{'rxn05759[c0]','Reduced ferredoxin:H+ oxidoreductase'},...
@@ -574,4 +523,59 @@ end
 % fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 % end
 
+function model = addReverseMethanolPathway(model)
 
+% Add in the reaction for converting methanol to methyl-coM
+model = addReaction(model,{'rxn10568[c0]','Methanol: coenzyme M methyltransferase'},...
+    'cpd00116[c0] + cpd02246[c0] <=> cpd02438[c0] + cpd00001[c0]');
+
+% Add in the methanol uptake
+model = addReaction(model,{'rxn10570[c0]','Methanol diffusion'},...
+    'cpd00116[e0] <=> cpd00116[c0]');
+model = addReaction(model,{'EX_cpd00116[e0]','EX_Methanol[e0]'},...
+    'cpd00116[e0] <=> ');
+
+% Add metabolite info for methanol
+[~,idx] = intersect(model.mets,'cpd00116[c0]');
+model.metNames{idx} = 'Methanol[c0]';
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
+[~,idx] = intersect(model.mets,'cpd00116[e0]');
+model.metNames{idx} = 'Methanol[e0]';
+model.metCharge(idx)=0;
+model.metFormulas{idx}='CH4O';
+
+% Add it to the free energy
+[~,idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+model.freeEnergy(idx) = -0.0302;
+
+% Change bounds to function in reverse
+% Change bounds such that methane goes IN instead of OUT
+model = changeRxnBounds(model,'EX_cpd01024[e0]',-inf,'l');
+model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
+% Change methanol to come OUT instead of IN
+model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'b');
+
+% Turn off Hydrogen input and let it come out
+model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
+model = changeRxnBounds(model,'EX_cpd11640[e0]',1000,'u');
+% Try turning off proton output, else it pours out. 
+model = changeRxnBounds(model,'EX_cpd00067[e0]',0,'b');
+
+% Be sure formate/acetate and N2/Alanine are off, and that NH3 is on
+% Turn down formate
+model = changeRxnBounds(model,'EX_cpd00047[e0]',0,'l');
+% Turn down acetate
+model = changeRxnBounds(model,'EX_cpd00029[e0]',0,'l');
+% Make certain that NH3 is on, N2 is off, Alanine is off
+% Turn up ammonia
+model = changeRxnBounds(model,'EX_cpd00013[e0]',-1000,'l');
+% Turn down alanine
+model = changeRxnBounds(model,'EX_cpd00035[e0]',0,'l');
+% Turn down nitrogen
+model = changeRxnBounds(model,'EX_cpd00528[e0]',0,'l');
+
+% Let Eha/Ehb run at full blast
+model = removeEhaBounds(model);
+
+end
