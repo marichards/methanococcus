@@ -1,0 +1,488 @@
+Run Number: 0
+rxn12041_reverse : cpd00042_c0 + cpd16380_c0 --> cpd00001_c0 + cpd16381_c0 
+rxn12045_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd16381_c0 --> cpd00002_c0 + cpd00042_c0 + cpd16380_c0 
+
+---------------------------------
+Run Number: 1
+rxn00187_reverse : cpd00008_c0 + cpd00009_c0 + cpd00053_c0 + cpd00067_c0 --> cpd00002_c0 + cpd00013_c0 + cpd00023_c0 
+rxn00189_reverse : cpd00013_c0 + cpd00023_c0 --> cpd00001_c0 + cpd00053_c0 
+
+---------------------------------
+Run Number: 2
+rxn00779_reverse : cpd00005_c0 + 2.0 cpd00067_c0 + cpd00169_c0 --> cpd00001_c0 + cpd00006_c0 + cpd00102_c0 
+
+---------------------------------
+Run Number: 3
+rxn00518_reverse : cpd00079_c0 + cpd00090_c0 --> cpd00027_c0 + cpd00068_c0 
+
+---------------------------------
+Run Number: 4
+rxn00513_reverse : cpd00009_c0 + cpd00067_c0 + cpd00090_c0 --> cpd00001_c0 + cpd00068_c0 
+
+---------------------------------
+Run Number: 6
+rxn02458_reverse : cpd00009_c0 + cpd00067_c0 + cpd00914_c0 --> cpd00001_c0 + cpd00934_c0 
+rxn02456_reverse : cpd00008_c0 + cpd00934_c0 --> cpd00002_c0 + cpd00914_c0 
+
+---------------------------------
+Run Number: 7
+rxn00287_reverse : cpd00010_c0 + cpd00036_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00078_c0 
+
+---------------------------------
+Run Number: 8
+rxn07971_reverse : cpd00009_c0 + cpd00067_c0 + cpd02775_c0 --> cpd00001_c0 + cpd02894_c0 
+
+---------------------------------
+Run Number: 11
+rxn08067_reverse : cpd00008_c0 + cpd00090_c0 --> cpd00018_c0 + cpd00068_c0 
+
+---------------------------------
+Run Number: 12
+rxn06874_reverse : 16.0 cpd00008_c0 + 16.0 cpd00009_c0 + 2.0 cpd00013_c0 + 6.0 cpd00067_c0 + 8.0 cpd11621_c0 + cpd11640_c0 --> 16.0 cpd00001_c0 + 16.0 cpd00002_c0 + cpd00528_c0 + 8.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 14
+rxn14039_reverse : cpd00050_c0 + cpd00096_c0 --> cpd00052_c0 + cpd00220_c0 
+rxn00391_reverse : cpd00009_c0 + cpd00067_c0 + cpd00220_c0 --> cpd00001_c0 + cpd00050_c0 
+
+---------------------------------
+Run Number: 16
+rxn05759_reverse : 2.0 cpd11621_c0 + cpd11640_c0 --> 2.0 cpd00067_c0 + 2.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 17
+rxn09918_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd15606_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00069_c0 
+
+---------------------------------
+Run Number: 18
+rxn01511_reverse : cpd00009_c0 + cpd00067_c0 + cpd00298_c0 --> cpd00001_c0 + cpd00297_c0 
+
+---------------------------------
+Run Number: 19
+rxn01514_reverse : cpd00009_c0 + cpd00067_c0 + cpd00297_c0 --> cpd00001_c0 + cpd00357_c0 
+
+---------------------------------
+Run Number: 20
+rxn05937_reverse : cpd00005_c0 + cpd11621_c0 --> cpd00006_c0 + cpd00067_c0 + cpd11620_c0 
+
+---------------------------------
+Run Number: 25
+rxn00120_reverse : cpd00009_c0 + cpd00014_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00062_c0 
+
+---------------------------------
+Run Number: 26
+rxn00436_reverse : cpd00009_c0 + cpd00067_c0 + cpd00793_c0 --> cpd00001_c0 + cpd00056_c0 
+
+---------------------------------
+Run Number: 27
+rxn00435_reverse : cpd00047_c0 + cpd00067_c0 + cpd00116_c0 --> cpd00001_c0 + 2.0 cpd00055_c0 
+
+---------------------------------
+Run Number: 29
+rxn08066_reverse : cpd00008_c0 + cpd00031_c0 --> cpd00018_c0 + cpd00038_c0 
+
+---------------------------------
+Run Number: 31
+rxn14159_reverse : cpd00005_c0 + 2.0 cpd11621_c0 --> cpd00006_c0 + cpd00067_c0 + 2.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 32
+rxn00149_reverse : cpd00004_c0 + cpd00020_c0 + 2.0 cpd00067_c0 --> cpd00001_c0 + cpd00003_c0 + cpd00428_c0 
+rxn10075_reverse : cpd00009_c0 + cpd00047_c0 + 7.0 cpd00067_c0 + cpd00869_c0 --> 3.0 cpd00001_c0 + cpd11295_c0 
+
+---------------------------------
+Run Number: 33
+rxn09908_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd11585_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00035_c0 
+
+---------------------------------
+Run Number: 34
+rxn09901_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd15604_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00107_c0 
+
+---------------------------------
+Run Number: 35
+rxn09907_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd11591_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00060_c0 
+
+---------------------------------
+Run Number: 37
+rxn08199_reverse : cpd00046_c0 + cpd15521_c0 --> cpd00001_c0 + cpd15417_c0 
+
+---------------------------------
+Run Number: 38
+rxn00134_reverse : cpd00008_c0 + cpd00018_c0 --> cpd00002_c0 + cpd00182_c0 
+rxn00132_reverse : cpd00009_c0 + cpd00067_c0 + cpd00182_c0 --> cpd00001_c0 + cpd00018_c0 
+
+---------------------------------
+Run Number: 39
+rxn09222_reverse : cpd00009_c0 + cpd00067_c0 + cpd00105_c0 --> cpd00001_c0 + cpd00101_c0 
+rxn00772_reverse : cpd00008_c0 + cpd00101_c0 --> cpd00002_c0 + cpd00105_c0 
+
+---------------------------------
+Run Number: 40
+rxn09926_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd11587_c0 --> cpd00002_c0 + cpd00035_c0 + cpd00053_c0 
+
+---------------------------------
+Run Number: 41
+rxn09925_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd11580_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00053_c0 
+
+---------------------------------
+Run Number: 42
+rxn05059_reverse : cpd00012_c0 + cpd00013_c0 + cpd00299_c0 --> 2.0 cpd00001_c0 + cpd00067_c0 + cpd00356_c0 
+
+---------------------------------
+Run Number: 49
+rxn07847_reverse : cpd00001_c0 + cpd02679_c0 --> cpd00055_c0 + cpd00895_c0 
+
+---------------------------------
+Run Number: 51
+rxn01537_reverse : cpd00067_c0 + cpd00939_c0 + cpd02636_c0 --> cpd00001_c0 + cpd00305_c0 
+
+---------------------------------
+Run Number: 52
+rxn00216_reverse : cpd00008_c0 + cpd00079_c0 --> cpd00002_c0 + cpd00027_c0 
+
+---------------------------------
+Run Number: 53
+rxn13974_reverse : cpd00010_c0 + cpd00020_c0 + 2.0 cpd11621_c0 --> cpd00011_c0 + cpd00022_c0 + 2.0 cpd00067_c0 + 2.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 54
+rxn00061_reverse : 2.0 cpd00009_c0 + cpd00018_c0 + 2.0 cpd00067_c0 --> 2.0 cpd00001_c0 + cpd00002_c0 
+
+---------------------------------
+Run Number: 55
+rxn00062_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00002_c0 
+
+---------------------------------
+Run Number: 56
+rxn00841_reverse : cpd00079_c0 + cpd00177_c0 --> cpd00027_c0 + cpd00115_c0 
+
+---------------------------------
+Run Number: 58
+rxn00088_reverse : cpd00003_c0 + cpd00009_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00006_c0 
+
+---------------------------------
+Run Number: 65
+rxn14048_reverse : cpd00010_c0 + cpd00024_c0 + 2.0 cpd11621_c0 --> cpd00011_c0 + 2.0 cpd00067_c0 + cpd00078_c0 + 2.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 66
+rxn10427_reverse : 2.0 cpd00177_c0 --> cpd00115_c0 + cpd00294_c0 
+rxn11267_reverse : cpd00103_c0 + cpd00294_c0 --> cpd00101_c0 + cpd00115_c0 
+
+---------------------------------
+Run Number: 67
+rxn08201_reverse : cpd00046_c0 + cpd15523_c0 --> cpd00001_c0 + cpd15422_c0 
+
+---------------------------------
+Run Number: 68
+rxn08202_reverse : cpd00046_c0 + cpd15524_c0 --> cpd00001_c0 + cpd15419_c0 
+
+---------------------------------
+Run Number: 69
+rxn01103_reverse : cpd00009_c0 + 2.0 cpd00067_c0 + cpd00169_c0 --> cpd00001_c0 + cpd00203_c0 
+
+---------------------------------
+Run Number: 70
+rxn08204_reverse : cpd00046_c0 + cpd15526_c0 --> cpd00001_c0 + cpd15421_c0 
+
+---------------------------------
+Run Number: 72
+rxn00197_reverse : cpd00005_c0 + cpd00011_c0 + cpd00078_c0 --> cpd00006_c0 + cpd00010_c0 + cpd00024_c0 
+
+---------------------------------
+Run Number: 74
+rxn00745_reverse : cpd00020_c0 + cpd00095_c0 --> cpd00061_c0 + cpd00157_c0 
+rxn08429_reverse : cpd00102_c0 + cpd00157_c0 --> cpd00072_c0 
+
+---------------------------------
+Run Number: 76
+rxn00526_reverse : cpd00005_c0 + cpd00011_c0 + cpd00069_c0 --> cpd00006_c0 + cpd00616_c0 
+rxn06990_reverse : cpd00004_c0 + cpd11621_c0 --> cpd00003_c0 + cpd00067_c0 + cpd11620_c0 
+
+---------------------------------
+Run Number: 78
+rxn10584_reverse : cpd00009_c0 + cpd00067_c0 + cpd00533_c0 --> cpd00001_c0 + cpd00356_c0 
+
+---------------------------------
+Run Number: 79
+rxn10583_reverse : cpd00009_c0 + cpd00067_c0 + cpd00177_c0 --> cpd00001_c0 + cpd00115_c0 
+
+---------------------------------
+Run Number: 80
+rxn01492_reverse : cpd00008_c0 + cpd00290_c0 --> cpd00002_c0 + cpd00802_c0 
+
+---------------------------------
+Run Number: 81
+rxn01677_reverse : cpd00009_c0 + cpd00067_c0 + cpd00978_c0 --> cpd00001_c0 + cpd00358_c0 
+
+---------------------------------
+Run Number: 82
+rxn00617_reverse : cpd00079_c0 + cpd00100_c0 --> cpd00027_c0 + cpd00080_c0 
+rxn00615_reverse : cpd00008_c0 + cpd00080_c0 --> cpd00002_c0 + cpd00100_c0 
+
+---------------------------------
+Run Number: 84
+rxn10561_reverse : cpd00011_c0 + cpd00067_c0 + cpd11175_c0 + 2.0 cpd15877_c0 --> cpd00010_c0 + cpd00278_c0 + 2.0 cpd15876_c0 
+rxn13768_reverse : cpd15876_c0 --> cpd15877_c0 
+
+---------------------------------
+Run Number: 85
+rxn00708_reverse : cpd00009_c0 + cpd00067_c0 + cpd00249_c0 --> cpd00001_c0 + cpd00091_c0 
+rxn00713_reverse : cpd00031_c0 + cpd00091_c0 --> cpd00038_c0 + cpd00249_c0 
+
+---------------------------------
+Run Number: 86
+rxn06231_reverse : cpd00079_c0 + cpd11712_c0 --> cpd00027_c0 + cpd00067_c0 + cpd12508_c0 
+rxn06200_reverse : cpd00020_c0 + cpd00067_c0 + cpd12508_c0 --> cpd00061_c0 + cpd11712_c0 
+
+---------------------------------
+Run Number: 87
+rxn03020_reverse : cpd00895_c0 + cpd02438_c0 --> cpd02246_c0 + cpd02737_c0 
+
+---------------------------------
+Run Number: 88
+rxn00913_reverse : cpd00009_c0 + cpd00067_c0 + cpd00311_c0 --> cpd00001_c0 + cpd00126_c0 
+
+---------------------------------
+Run Number: 90
+rxn00545_reverse : cpd00008_c0 + cpd00290_c0 --> cpd00002_c0 + cpd00072_c0 
+
+---------------------------------
+Run Number: 91
+rxn00119_reverse : cpd00008_c0 + cpd00014_c0 --> cpd00002_c0 + cpd00091_c0 
+rxn00116_reverse : cpd00009_c0 + cpd00067_c0 + cpd00091_c0 --> cpd00001_c0 + cpd00014_c0 
+
+---------------------------------
+Run Number: 92
+rxn00118_reverse : cpd00008_c0 + cpd00014_c0 --> cpd00018_c0 + cpd00062_c0 
+
+---------------------------------
+Run Number: 95
+rxn09913_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd15605_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00066_c0 
+
+---------------------------------
+Run Number: 96
+rxn00097_reverse : 2.0 cpd00008_c0 --> cpd00002_c0 + cpd00018_c0 
+
+---------------------------------
+Run Number: 97
+rxn00366_reverse : cpd00009_c0 + cpd00046_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00096_c0 
+
+---------------------------------
+Run Number: 98
+rxn00367_reverse : cpd00012_c0 + cpd00046_c0 --> cpd00001_c0 + cpd00052_c0 
+
+---------------------------------
+Run Number: 99
+rxn00363_reverse : cpd00009_c0 + cpd00067_c0 + cpd00367_c0 --> cpd00001_c0 + cpd00046_c0 
+
+---------------------------------
+Run Number: 100
+rxn08981_reverse : cpd00008_c0 + cpd00009_c0 + cpd00012_c0 + cpd00873_c0 --> cpd00001_c0 + cpd00002_c0 + cpd00103_c0 + cpd00218_c0 
+
+---------------------------------
+Run Number: 101
+rxn09516_reverse : cpd00009_c0 + cpd00067_c0 + cpd00295_c0 --> cpd00001_c0 + cpd00241_c0 
+
+---------------------------------
+Run Number: 102
+rxn00153_reverse : cpd00009_c0 + cpd00020_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00061_c0 
+
+---------------------------------
+Run Number: 103
+rxn00155_reverse : cpd00005_c0 + cpd00011_c0 + cpd00022_c0 --> cpd00006_c0 + cpd00010_c0 + cpd00020_c0 
+
+---------------------------------
+Run Number: 104
+rxn00408_reverse : cpd00009_c0 + cpd00067_c0 + cpd00096_c0 --> cpd00001_c0 + cpd00052_c0 
+
+---------------------------------
+Run Number: 105
+rxn00407_reverse : cpd00013_c0 + cpd00062_c0 --> cpd00001_c0 + cpd00052_c0 + cpd00067_c0 
+
+---------------------------------
+Run Number: 106
+rxn09938_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd15603_c0 --> cpd00002_c0 + cpd00033_c0 + cpd00084_c0 
+
+---------------------------------
+Run Number: 107
+rxn09931_reverse : cpd00008_c0 + cpd00009_c0 + cpd00067_c0 + cpd11584_c0 --> cpd00002_c0 + cpd00035_c0 + cpd00119_c0 
+
+---------------------------------
+Run Number: 108
+rxn00556_reverse : cpd00014_c0 + cpd00290_c0 --> cpd00062_c0 + cpd00072_c0 
+
+---------------------------------
+Run Number: 110
+rxn01221_reverse : cpd00009_c0 + cpd00067_c0 + cpd00206_c0 --> cpd00001_c0 + cpd00533_c0 
+
+---------------------------------
+Run Number: 111
+rxn01222_reverse : cpd00012_c0 + cpd00206_c0 --> cpd00001_c0 + cpd00356_c0 
+
+---------------------------------
+Run Number: 112
+rxn09014_reverse : cpd00012_c0 + cpd00298_c0 --> cpd00001_c0 + cpd00357_c0 
+
+---------------------------------
+Run Number: 113
+rxn00831_reverse : cpd00009_c0 + cpd00067_c0 + cpd00246_c0 --> cpd00001_c0 + cpd00114_c0 
+
+---------------------------------
+Run Number: 115
+rxn08200_reverse : cpd00046_c0 + cpd15522_c0 --> cpd00001_c0 + cpd15423_c0 
+
+---------------------------------
+Run Number: 116
+rxn08203_reverse : cpd00046_c0 + cpd15525_c0 --> cpd00001_c0 + cpd15418_c0 
+
+---------------------------------
+Run Number: 117
+rxn08205_reverse : cpd00046_c0 + cpd15527_c0 --> cpd00001_c0 + cpd15420_c0 
+
+---------------------------------
+Run Number: 118
+rxn00241_reverse : cpd00009_c0 + cpd00031_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00038_c0 
+
+---------------------------------
+Run Number: 120
+rxn09502_reverse : cpd00008_c0 + cpd00863_c0 --> cpd00002_c0 + cpd00027_c0 
+
+---------------------------------
+Run Number: 122
+rxn06121_reverse : cpd00169_c0 --> cpd00203_c0 
+rxn07089_reverse : cpd00116_c0 --> cpd00001_c0 
+
+---------------------------------
+Run Number: 123
+rxn09177_reverse : cpd00012_c0 + cpd00046_c0 + cpd02666_c0 --> cpd00052_c0 + cpd00084_c0 + cpd02201_c0 
+
+---------------------------------
+Run Number: 124
+rxn00554_reverse : cpd00096_c0 + cpd00290_c0 --> cpd00052_c0 + cpd00072_c0 
+
+---------------------------------
+Run Number: 125
+rxn00557_reverse : cpd00090_c0 + cpd00290_c0 --> cpd00068_c0 + cpd00072_c0 
+
+---------------------------------
+Run Number: 128
+rxn14057 : 3.0 cpd00001_c0 + cpd00239_c0 + 6.0 cpd11621_c0 --> 6.0 cpd00067_c0 + cpd00081_c0 + 6.0 cpd11620_c0 
+rxn05902_reverse : 7.0 cpd00067_c0 + cpd00081_c0 + 3.0 cpd11620_c0 --> 3.0 cpd00001_c0 + cpd00239_c0 + 3.0 cpd11621_c0 
+
+---------------------------------
+Run Number: 130
+rxn00114 : cpd00002_c0 + cpd00011_c0 + cpd00013_c0 --> cpd00008_c0 + cpd00067_c0 + cpd00146_c0 
+rxn12881_reverse : 2.0 cpd00008_c0 + cpd00009_c0 + cpd00023_c0 + 2.0 cpd00067_c0 + cpd00146_c0 --> 2.0 cpd00001_c0 + 2.0 cpd00002_c0 + cpd00011_c0 + cpd00053_c0 
+
+---------------------------------
+Run Number: 131
+rxn00116 : cpd00001_c0 + cpd00014_c0 --> cpd00009_c0 + cpd00067_c0 + cpd00091_c0 
+rxn13414_reverse : 2.0 cpd00009_c0 + 2.0 cpd00067_c0 + cpd00091_c0 --> 2.0 cpd00001_c0 + cpd00062_c0 
+
+---------------------------------
+Run Number: 132
+rxn05906 : cpd00001_c0 --> cpd00082_c0 
+rxn08430_reverse : cpd00009_c0 + cpd00067_c0 + cpd00082_c0 --> cpd00001_c0 + cpd00072_c0 
+
+---------------------------------
+Run Number: 133
+rxn07085 : cpd00007_c0 + 2.0 cpd00067_c0 --> cpd00025_c0 
+rxn00229_reverse : cpd00001_c0 + cpd00011_c0 + cpd00029_c0 --> cpd00007_c0 + cpd00159_c0 
+
+---------------------------------
+Run Number: 134
+rxn00284 : cpd00003_c0 + cpd00036_c0 --> cpd00004_c0 + cpd00067_c0 + cpd00106_c0 
+rxn00182_reverse : cpd00004_c0 + cpd00013_c0 + cpd00024_c0 + cpd00067_c0 --> cpd00001_c0 + cpd00003_c0 + cpd00023_c0 
+
+---------------------------------
+Run Number: 135
+rxn01667 : cpd00020_c0 + cpd00173_c0 --> cpd00061_c0 + cpd00354_c0 
+rxn01666_reverse : cpd00009_c0 + cpd00067_c0 + cpd00354_c0 --> cpd00001_c0 + cpd00173_c0 
+
+---------------------------------
+Run Number: 136
+rxn00157 : cpd00022_c0 + cpd00047_c0 --> cpd00010_c0 + cpd00020_c0 
+
+---------------------------------
+Run Number: 137
+rxn00905 : cpd00712_c0 --> cpd00055_c0 + cpd00123_c0 
+
+---------------------------------
+Run Number: 139
+rxn10791 : 2.0 cpd00001_c0 + cpd00038_c0 --> 2.0 cpd00009_c0 + 2.0 cpd00067_c0 + cpd00126_c0 
+rxn13139_reverse : 3.0 cpd00009_c0 + 3.0 cpd00067_c0 + cpd00311_c0 --> 3.0 cpd00001_c0 + cpd00038_c0 
+
+---------------------------------
+Run Number: 140
+rxn00432 : cpd00007_c0 + cpd00116_c0 --> cpd00025_c0 + cpd00055_c0 
+rxn00522_reverse : cpd00013_c0 + cpd00025_c0 + cpd00868_c0 --> cpd00001_c0 + cpd00007_c0 + cpd00069_c0 
+
+---------------------------------
+Run Number: 141
+rxn00430 : cpd00003_c0 + cpd00116_c0 --> cpd00004_c0 + cpd00055_c0 + cpd00067_c0 
+rxn00429_reverse : cpd00004_c0 + cpd00047_c0 + 2.0 cpd00067_c0 --> cpd00001_c0 + cpd00003_c0 + cpd00055_c0 
+
+---------------------------------
+Run Number: 143
+rxn01952 : cpd00009_c0 + cpd00067_c0 + cpd00492_c0 --> cpd00001_c0 + cpd02612_c0 
+rxn01951_reverse : cpd00008_c0 + cpd02612_c0 --> cpd00002_c0 + cpd00492_c0 
+
+---------------------------------
+Run Number: 145
+rxn12822 : 2.0 cpd00023_c0 + 2.0 cpd11621_c0 --> cpd00024_c0 + cpd00053_c0 + 2.0 cpd00067_c0 + 2.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 146
+rxn00379 : cpd00002_c0 + cpd00048_c0 + cpd00067_c0 --> cpd00012_c0 + cpd00193_c0 
+rxn09240_reverse : cpd00009_c0 + cpd00012_c0 + cpd00031_c0 + cpd00193_c0 --> cpd00001_c0 + cpd00002_c0 + cpd00038_c0 + cpd00048_c0 
+
+---------------------------------
+Run Number: 149
+rxn06093 : cpd00001_c0 --> cpd11594_c0 
+rxn09989 : 5.0 cpd00001_c0 + cpd11594_c0 --> 6.0 cpd00027_c0 
+
+---------------------------------
+Run Number: 150
+rxn11987 : 3.0 cpd00001_c0 + cpd01078_c0 + 6.0 cpd11621_c0 --> 6.0 cpd00067_c0 + cpd03387_c0 + 6.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 157
+rxn07034 : cpd00001_c0 --> 2.0 cpd00027_c0 
+
+---------------------------------
+Run Number: 159
+rxn05807 : cpd00001_c0 --> cpd00027_c0 
+
+---------------------------------
+Run Number: 161
+rxn06055 : 16.0 cpd00008_c0 + 16.0 cpd00009_c0 + 2.0 cpd00013_c0 + cpd11640_c0 --> 16.0 cpd00001_c0 + 16.0 cpd00002_c0 + 8.0 cpd00067_c0 + cpd00528_c0 + 8.0 cpd12713_c0 
+rxn11947_reverse : 16.0 cpd00008_c0 + 16.0 cpd00009_c0 + 8.0 cpd11621_c0 + 8.0 cpd12713_c0 --> 16.0 cpd00001_c0 + 16.0 cpd00002_c0 + 8.0 cpd11620_c0 
+
+---------------------------------
+Run Number: 162
+rxn05760 : 2.0 cpd00023_c0 + cpd11621_c0 --> cpd00024_c0 + cpd00053_c0 + 2.0 cpd00067_c0 + cpd11620_c0 
+
+---------------------------------
+Run Number: 164
+rxn13775 : cpd00047_c0 + cpd11621_c0 --> cpd00011_c0 + cpd00067_c0 + cpd11620_c0 
+
+---------------------------------
+Run Number: 167
+rxn07049 : cpd00001_c0 --> cpd00027_c0 + cpd00079_c0 
+
+---------------------------------
+Run Number: 168
+rxn07040 : cpd00001_c0 --> 2.0 cpd00190_c0 
+rxn12995 : cpd00002_c0 + cpd00190_c0 --> cpd00008_c0 + cpd00079_c0 
+
+---------------------------------
+Run Number: 169
+rxn07045 : cpd00001_c0 --> cpd00079_c0 + cpd00082_c0 
+rxn12188_reverse : cpd00009_c0 + cpd00067_c0 + cpd00082_c0 --> cpd00001_c0 + cpd00802_c0 
+
+---------------------------------
+Run Number: 173
+rxn03541 : cpd02039_c0 + cpd03917_c0 --> cpd00001_c0 + cpd03918_c0 
+
+---------------------------------

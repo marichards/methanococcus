@@ -32,6 +32,33 @@ concentrations = [1 1 1];
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]',false);
 
+% Find the reaction indices
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
+[~,h_idx] = intersect(model.rxns,'EX_cpd00067[e0]');
+
+if solution.f > 0 
+% Print the biomass flux
+fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+
+% Print the reaction fluxes
+fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
+fprintf('CO2 flux: %f\n',solution.x(co2_idx))
+fprintf('H2 flux: %f\n',solution.x(h2_idx))
+fprintf('H2O flux: %f\n',solution.x(h2o_idx))
+fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('H2S flux: %f\n',solution.x(h2s_idx))
+fprintf('H+ flux: %f\n',solution.x(h_idx))
+end
+
 % Print the Gibbs flux
 fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
 
@@ -56,6 +83,33 @@ concentrations = [1 1 1];
 % Solve by maximizing biomass, with negative free energy not allowed
 [solution,gibbs_flux,model] = optimizeThermoModel(model,substrate_rxns...
     ,concentrations,310,'EX_cpd00001[e0]',false);
+
+% Find the reaction indices
+[~,h2_idx]  = intersect(model.rxns,'EX_cpd11640[e0]');
+[~,meoh_idx] = intersect(model.rxns,'EX_cpd00116[e0]');
+[~,co2_idx] = intersect(model.rxns,'EX_cpd00011[e0]');
+[~,ch4_idx] = intersect(model.rxns,'EX_cpd01024[e0]');
+[~,h2o_idx] = intersect(model.rxns,'EX_cpd00001[e0]');
+[~,nh3_idx] = intersect(model.rxns,'EX_cpd00013[e0]');
+[~,po4_idx] = intersect(model.rxns,'EX_cpd00009[e0]');
+[~,h2s_idx] = intersect(model.rxns,'EX_cpd00239[e0]');
+[~,h_idx] = intersect(model.rxns,'EX_cpd00067[e0]');
+
+if solution.f > 0 
+% Print the biomass flux
+fprintf('\n\nBiomass flux: %f\n\n',solution.f);
+
+% Print the reaction fluxes
+fprintf('Methanol flux: %f\n',solution.x(meoh_idx))
+fprintf('CO2 flux: %f\n',solution.x(co2_idx))
+fprintf('H2 flux: %f\n',solution.x(h2_idx))
+fprintf('H2O flux: %f\n',solution.x(h2o_idx))
+fprintf('CH4 flux: %f\n',solution.x(ch4_idx))
+fprintf('NH3 flux: %f\n',solution.x(nh3_idx))
+fprintf('PO4 flux: %f\n',solution.x(po4_idx))
+fprintf('H2S flux: %f\n',solution.x(h2s_idx))
+fprintf('H+ flux: %f\n',solution.x(h_idx))
+end
 
 % Print the Gibbs flux
 fprintf('\nPredicted Free Energy Generation: %f kJ/gDCW\n\n',gibbs_flux)
@@ -93,7 +147,9 @@ model.freeEnergy(idx) = -0.0302;
 model = changeRxnBounds(model,'EX_cpd01024[e0]',-inf,'l');
 model = changeRxnBounds(model,'EX_cpd01024[e0]',0,'u');
 % Change methanol to come OUT instead of IN
-model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'b');
+% model = changeRxnBounds(model,'EX_cpd00116[e0]',10,'b');
+model = changeRxnBounds(model,'EX_cpd00116[e0]',0,'l');
+model = changeRxnBounds(model,'EX_cpd00116[e0]',1000,'u');
 
 % Turn off Hydrogen input and let it come out
 model = changeRxnBounds(model,'EX_cpd11640[e0]',0,'l');
