@@ -8,4 +8,16 @@ This is the primary directory and contains the most recent iteration of the livi
 
 ### Matt_Matlab
 
-Contains nearly all scripts created for manipulating and simulating growth with the <i>M. maripaludis</i> model. This directory is further divided into various self-explanatory categories of different scripts.
+Contains nearly all scripts created for manipulating and simulating growth with the <i>M. maripaludis</i> model. This directory is further divided into the following categories of scripts:
+
+#### Data Compilation for Paper
+
+Contains scripts used to create tables and figures for the MM model manuscript.
+
+#### MM Growth Sims
+
+Contains scripts used to simulate growth of the *M. maripaludis* model under a variety of different carbon and nitrogen sources.
+
+#### Model Changing
+
+
