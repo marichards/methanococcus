@@ -1,9 +1,0 @@
-Notes on adenylate kinase: it's adkA in MM and we have a gene, but I can't find a good paper. 
-
--Whitman paper has a new thing called adkB too
-
--Old paper with info about kinases:
-
-The adenylate kinase genes of M. voltae, M. thermolithotrophicus,
-M. jannaschii, and M. igneus define a new family of adenylate kinases
-
