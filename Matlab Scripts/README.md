@@ -28,7 +28,7 @@ Contains a collection of scripts that simulate different metabolic engineering s
 
 ### Thermodynamic Constraints
 
-Contains scripts that add standard free energies of formation to a metabolic model and add free energy calculations to growth simulations with maximal biomass production. The "optimizeThermoModel.m" script is the central focus, at it builds around the "optimizeCbModel.m" script from the COBRA Toolbox by adding the free energy calculation. 
+Contains scripts that add standard free energies of formation to a metabolic model and add free energy calculations to growth simulations with maximal biomass production. The `optimizeThermoModel.m` script is the central focus, at it builds around the `optimizeCbModel.m` script from the COBRA Toolbox by adding the free energy calculation. 
 
 ### Write to Other Formats
 
