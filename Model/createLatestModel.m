@@ -27,8 +27,7 @@ model=removeGene(model,'fig');
 %05/03/2016
 %%%%%%%%%%%%%%%%%%
 
-% Following is incorrect; gene IDs are not uniformly mapped like this
-% Update: I think this actually is correct; PATRIC is weird
+% This actually is correct; PATRIC is weird
 
 %Align all gene names with the convention of 'MMP#####'
 %Do it in the genes
