@@ -55,7 +55,7 @@ end
 cofactors = {};
 for i=1:length(model.mets)
 freq=length(findRxnsFromMets(model,model.mets{i}));
-if freq>20
+if freq>25
 cofactors=[cofactors;model.mets{i}];
 end
 end

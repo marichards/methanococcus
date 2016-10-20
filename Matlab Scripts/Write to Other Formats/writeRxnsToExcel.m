@@ -18,6 +18,6 @@ function writeRxnsToExcel(model,rxns,workbook,sheet)
 [rxns,idx]=intersect(model.rxns,rxns);
 names = model.rxnNames(idx);
 genes = model.grRules(idx);
-formulas = printRxnFormula(model,rxns,'False');
+formulas = printRxnFormula(model,rxns,false,false,true);
 A = [rxns,names,genes,formulas];
 xlswrite(workbook,A,sheet);
