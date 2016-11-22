@@ -30,7 +30,7 @@ Note that you should expect a pause of a few seconds as your machine initializes
 
 This should give you output that looks something like the following:
 
-` Warning: Metabolite dG not in model - added to the model `
+` Warning: Metabolite dG not in model - added to the model`
 `> In addReaction at 213`
 `  In optimizeThermoModel at 55`
 `  In maxGrowthOnH2 at 51 `
@@ -76,7 +76,7 @@ Don't be too alarmed by all the warnings generated here; they all have to do wit
 
 `printMethanogenesisFluxes(model,solution,false);`
 
-Here, we are passing the model, the solution we generated, and the parameter *false*, which tells the script not to generate a map of this sub-network. The map-drawing function relies upon the [Paint4Net toolbox](http://biosystems.lv/index.php/software/paint4net), a small set of functions that you can optionally add to your distribution of Matlab. We are not assuming that you have this toolbox installed; however, if you do then changing the *false* to *true* will generate a small metabolic map showing the fluxes through this sub-network. 
+Here, we are passing the model, the solution we generated, and the parameter *false*, which tells the script not to generate a map of this sub-network. The map-drawing function relies upon the <a href="http://biosystems.lv/index.php/software/paint4net" target="_blank">Paint4Net toolbox</a>, a small set of functions that you can optionally add to your distribution of Matlab. We are not assuming that you have this toolbox installed; however, if you do then changing the *false* to *true* will generate a small metabolic map showing the fluxes through this sub-network. 
 
 (**NOTE: The map drawing functionality relies upon flux variability analysis, which can often cause a numerical error for the first attempt. If you get an error beginning with `Index exceeds matrix dimensions` we recommend retrying the same command). 
 
