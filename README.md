@@ -30,47 +30,45 @@ Note that you should expect a pause of a few seconds as your machine initializes
 
 This should give you output that looks something like the following:
 
-` Warning: Metabolite dG not in model - added to the model 
-> In addReaction at 213
-  In optimizeThermoModel at 55
-  In maxGrowthOnH2 at 51 
-Warning: Metabolite name for dG set to dG 
-> In addReaction at 219
-  In optimizeThermoModel at 55
-  In maxGrowthOnH2 at 51 
-Warning: Metabolite formula for dG set to '' 
-> In addReaction at 224
-  In optimizeThermoModel at 55
-  In maxGrowthOnH2 at 51 
-GIBBS_kJ/GDW	dG 	<=>		
+` Warning: Metabolite dG not in model - added to the model `
+`> In addReaction at 213`
+`  In optimizeThermoModel at 55`
+`  In maxGrowthOnH2 at 51 `
+`Warning: Metabolite name for dG set to dG `
+`> In addReaction at 219`
+`  In optimizeThermoModel at 55`
+`  In maxGrowthOnH2 at 51 `
+`Warning: Metabolite formula for dG set to '' `
+`> In addReaction at 224`
+`  In optimizeThermoModel at 55`
+`  In maxGrowthOnH2 at 51 `
+`GIBBS_kJ/GDW	dG 	<=>        `
 
+`Biomass flux: 0.097315`
 
-Biomass flux: 0.097315
+`Formate flux: 0.000000`
+`CO2 flux: -45.257937`
+`H2 flux: -190.527078`
+`H2O flux: 93.716251`
+`CH4 flux: 50.000000`
+`NH3 flux: -0.756397`
+`PO4 flux: -0.022829`
+`Acetate flux: -3.666756`
 
-Formate flux: 0.000000
-CO2 flux: -45.257937
-H2 flux: -190.527078
-H2O flux: 93.716251
-CH4 flux: 50.000000
-NH3 flux: -0.756397
-PO4 flux: -0.022829
-Acetate flux: -3.666756
+`Overall reaction:`
+`CO2 + 4 H2 --> 2 H2O + CH4`
 
-Overall reaction:
-CO2 + 4 H2 --> 2 H2O + CH4
+`Model overall reaction (per mole CH4)`
+`0.91 CO2 + 3.81 H2 --> 1.87 H2O + CH4`
 
-Model overall reaction (per mole CH4)
-0.91 CO2 + 3.81 H2 --> 1.87 H2O + CH4
+`Predicted Yield Coefficient: 2.81 gDCW/mol CH4`
 
-Predicted Yield Coefficient: 2.81 gDCW/mol CH4
+`Expected ATP/CH4 Yield: 0.5`
+`Predicted ATP/CH4 Yield: 0.550`
 
-Expected ATP/CH4 Yield: 0.5
-Predicted ATP/CH4 Yield: 0.550
-
-Warning: All external metabolite concentrations set to 1
-mM 
-> In maxGrowthOnH2 at 99 
-Predicted Free Energy Generation: -5.592458 kJ/gDCW`
+`Warning: All external metabolite concentrations set to 1 mM `
+`> In maxGrowthOnH2 at 99`
+`Predicted Free Energy Generation: -5.592458 kJ/gDCW`
 
 Don't be too alarmed by all the warnings generated here; they all have to do with additional free energy calculations. 
 
@@ -78,5 +76,7 @@ Don't be too alarmed by all the warnings generated here; they all have to do wit
 
 `printMethanogenesisFluxes(model,solution,false);`
 
-Here, we are passing the model, the solution we generated, and the parameter *false*, which tells the script not to generate a map of this sub-network. The map-drawing function relies upon the [Paint4Net toolbox](http://biosystems.lv/index.php/software/paint4net), a small set of functions that you can optionally add to your distribution of Matlab. We are not assuming that you have this toolbox installed; however, if you do then changing the *false* to *true* will generate a small metabolic map showing the fluxes through this sub-network. (**NOTE: The map drawing functionality relies upon flux variability analysis, which can often cause a numerical error for the first attempt. If you get an error beginning with "Index exceeds matrix dimensions", we recommend retrying the same command). 
+Here, we are passing the model, the solution we generated, and the parameter *false*, which tells the script not to generate a map of this sub-network. The map-drawing function relies upon the [Paint4Net toolbox](http://biosystems.lv/index.php/software/paint4net), a small set of functions that you can optionally add to your distribution of Matlab. We are not assuming that you have this toolbox installed; however, if you do then changing the *false* to *true* will generate a small metabolic map showing the fluxes through this sub-network. 
+
+(**NOTE: The map drawing functionality relies upon flux variability analysis, which can often cause a numerical error for the first attempt. If you get an error beginning with `Index exceeds matrix dimensions` we recommend retrying the same command). 
 
